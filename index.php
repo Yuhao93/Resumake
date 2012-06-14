@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<title>Resumake | Online Resumes</title>
-	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 	<style type="text/css">
 	</style>
 	
@@ -101,13 +101,12 @@
 		</div>
 		
 	</div>
-	<script src="../jquery-local/jquery-1.7.2.min.js"></script>
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
-	<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
-		$("#carousel").carousel({interval:8000});
-		$("#register-btn").modal({show:false});
+		$("#carousel").carousel({'interval':8000});
+		$("#register-btn").modal({'show':false});
 	});
 	</script>
 </body>

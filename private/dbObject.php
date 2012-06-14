@@ -1,7 +1,7 @@
 <?php
 
 class dbObject {
-    var $host = 'mysql.resumake.thegbclub.com'; 
+	var $host = 'mysql.resumake.thegbclub.com';
     var $username = 'thegbclub';
     var $password = 'thegingerbreadclub';
     var $schema = 'resumake';
@@ -37,6 +37,13 @@ class dbObject {
 		
 		$sql = "INSERT INTO users (name, password, email, username) VALUES ('$name', '$pass', '$email', '$username')";
 		return mysql_query($sql);
+	}
+	
+	public function updateUser($uid, $info, $quote){
+		if($info == -1){
+		}
+		if($quote == -1){
+		}
 	}
 	
 	public function getUserByUsername($username){
@@ -77,7 +84,7 @@ class dbObject {
 		$user->uid = stripslashes($row['uid']);
 		$user->password = stripslashes($row['password']);
 		$user->email = stripslashes($row['email']);
-		$user->date_joined = $this->parseTimestamp(stripslashes($row['date']));
+		$user->date_joined = $this->parseTimestamp(stripslashes($row['date_reg']));
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
