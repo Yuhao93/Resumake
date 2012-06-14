@@ -1,0 +1,22 @@
+body{
+	padding-top:60px;
+	padding-bottom:40px;
+}
+	
+section{
+	padding-top:25px;
+}
+	
+.float-down{
+	padding-top:25px;
+}
+	
+.sidebar-nav{
+	padding: 9px 0px;
+	width:20%;
+	position:fixed;
+}
+	
+textarea{
+	resize:none;
+}
