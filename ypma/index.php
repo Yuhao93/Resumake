@@ -9,6 +9,7 @@
 	<title>Yuhao Phil Ma</title>
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
+	
 	<style type="text/css">
 	body{
 		padding-top:60px;
