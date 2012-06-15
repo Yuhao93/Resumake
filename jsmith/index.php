@@ -46,7 +46,7 @@
         <div class="span3 columns">
 			<div class="page-header">
 				<h1><?php echo $user->name;?></h1>
-				<a href="#quotemodal" data-toggle="modal"><small><em><?php if($user->quote == '') echo '"<Add Quote>"';	else echo '"' . $user->quote; . '"';?></em></small></a>
+				<a href="#quotemodal" data-toggle="modal"><small><em><?php if($user->quote == '') echo '"[Add Quote]"';	else echo '"' . $user->quote . '"';?></em></small></a>
 			</div>
 			
 			<div class="thumbnail">

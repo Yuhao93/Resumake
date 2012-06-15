@@ -21,21 +21,17 @@ class dbObject {
 	
 	///////////////////////// USERS ///////////////////////////////////////////
 	
-	public function addUser($name, $email, $pass, $confirmation, $username)
+	public function addUser($name, $email, $password, $username)
 	{	
 		if ($this->getUserByEmail($email))
 			return FALSE;
 		
 		$name = addslashes($name);
 		$email = addslashes($email);
-		$pass = addslashes($pass);
-		$confirmation = addslashes($confirmation);
+		$password = addslashes($password);
 		$username = addslashes($username);
 		
-		if($pass != $confirmation)
-			return FALSE;
-		
-		$sql = "INSERT INTO users (name, password, email, username) VALUES ('$name', '$pass', '$email', '$username')";
+		$sql = "INSERT INTO users (name, password, email, username) VALUES ('$name', '$password', '$email', '$username')";
 		return mysql_query($sql);
 	}
 	
@@ -47,7 +43,7 @@ class dbObject {
 	}
 	
 	public function getUserByUsername($username){
-		$sql = "SELECT * FROM users WHERE username=$username";
+		$sql = "SELECT * FROM users WHERE username='$username'";
 		
 		$result = mysql_query($sql);
 		
@@ -60,7 +56,7 @@ class dbObject {
 		$user->uid = stripslashes($row['uid']);
 		$user->password = stripslashes($row['password']);
 		$user->email = stripslashes($row['email']);
-		$user->date_joined = $this->parseTimestamp(stripslashes($row['date']));
+		$user->date_joined = $this->parseTimestamp(stripslashes($row['date_reg']));
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
@@ -95,8 +91,7 @@ class dbObject {
 	
 	public function getUserByEmail($email)
 	{
-		$email = addslashes($email);
-		$sql = "SELECT * FROM users WHERE uid=$uid";
+		$sql = "SELECT * FROM users WHERE email='$email'";
 		
 		
 		$result = mysql_query($sql);
@@ -110,7 +105,7 @@ class dbObject {
 		$user->uid = stripslashes($row['uid']);
 		$user->password = stripslashes($row['password']);
 		$user->email = stripslashes($row['email']);
-		$user->date_joined = $this->parseTimestamp(stripslashes($row['date']));
+		$user->date_joined = $this->parseTimestamp(stripslashes($row['date_reg']));
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);

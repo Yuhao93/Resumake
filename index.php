@@ -29,13 +29,13 @@
 			<div class="modal-body">
 				<form class="well">
 					
-					<label>Name</label>
+					<label id="register-modal-name-label">Name</label>
 					<input type="text" class="span5" placeholder="Name" id="register-modal-name">
 				
 					<label id="register-modal-email-label">Email</label>
 					<input type="text" class="span5" placeholder="Email" id="register-modal-email">
 					
-					<label id="register-modal-email-label">Email</label>
+					<label id="register-modal-username-label">Username</label>
 					<input type="text" class="span5" placeholder="Username" id="register-modal-username">
 					
 					<label id="register-modal-password-label">Password</label>
@@ -47,8 +47,8 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<a href="#" class="btn" data-dismiss="modal">Close</a>
-				<a href="#" class="btn btn-primary" id="register-modal-confirm">Register</a>
+				<a href="#" class="btn" data-dismiss="modal" id="register-modal-cancel">Close</a>
+				<a href="#" class="btn btn-primary" id="register-modal-submit">Register</a>
 			</div>
 		</div>
 		
@@ -112,13 +112,77 @@
 	$(document).ready(function(){
 		$("#carousel").carousel({'interval':8000});
 		$("#register-btn").modal({'show':false});
-		$("#register-modal-confirm").click(function(){
+		$("#registermodal").on('hide', function(){
 			$(".removable-alert").remove();
-			if($("#register-modal-password").attr("value") != $("#register-modal-confirm").attr("value")){
-				$('').insertAfter("#register-modal-password-label");
-			}else{
-				$.post('private/php_scripts/register.php', {'name', }, function(data) {
-				
+		});
+		
+		//When the register submit button is clicked
+		$("#register-modal-submit").click(function(){
+			var isOk = true;
+			$(".removable-alert").remove();
+			var name = $("#register-modal-name").attr("value")
+			var username = $("#register-modal-username").attr("value")
+			var password = encrypt($("#register-modal-password").attr("value"));
+			var confirm = encrypt($("#register-modal-confirm").attr("value"));
+			var email = $("#register-modal-email").attr("value")
+			
+			
+			//Check for errors
+			if(name.length == 0){
+				$("<div class='alert alert-error removable-alert'>" + 
+					"<strong>Oh No!</strong> Your name is empty" + 
+					"</div>").insertAfter("#register-modal-name-label");
+				isOk = false;
+			}
+			
+			if(username.length == 0){
+				$("<div class='alert alert-error removable-alert'>" + 
+					"<strong>Oh No!</strong> Your username is empty" + 
+					"</div>").insertAfter("#register-modal-username-label");
+				isOk = false;
+			}
+			
+			if($("#register-modal-password").attr("value").length == 0){
+				$("<div class='alert alert-error removable-alert'>" + 
+					"<strong>Oh No!</strong> Your password is empty" + 
+					"</div>").insertAfter("#register-modal-password-label");
+				isOk = false;
+			}else if(password != confirm){
+				$("<div class='alert alert-error removable-alert'>" + 
+					"<strong>Oh No!</strong> Your passwords don't seem to match" + 
+					"</div>").insertAfter("#register-modal-password-label");
+				isOk = false;
+			}
+			
+			if(email.length == 0){
+				$("<div class='alert alert-error removable-alert'>" + 
+					"<strong>Oh No!</strong> Your email is empty" + 
+					"</div>").insertAfter("#register-modal-email-label");
+				isOk = false;
+			}else if(email.indexOf("@") == -1){
+				$("<div class='alert alert-error removable-alert'>" + 
+					"<strong>Oh No!</strong> Your email doesn't seem valid" + 
+					"</div>").insertAfter("#register-modal-email-label");
+				isOk = false;
+			}
+			
+			//If there are no errors, test to see if there are any conflicts in the database
+			//If there aren't any, the user has been created, lead the user to the page
+			if(isOk){
+				$.post('private/php_scripts/register.php', {'name':name, 'username':username, 'password':password, 'email':email}, function(data) {
+					var results = eval('(' + data + ')');
+					var errors = results.errors;
+					if(errors.length != 0){
+						for(var i = 0; i < errors.length; i++){
+							if(errors[i] == 'username'){
+								$("<div class='alert alert-error removable-alert'><strong>Oh No!</strong> Your username has been taken</div>").insertAfter("#register-modal-username-label");
+							}else if(errors[i] == 'email'){
+								$("<div class='alert alert-error removable-alert'><strong>Oh No!</strong> Your email has already been taken</div>").insertAfter("#register-modal-email-label");
+							}
+						}
+					}else{
+						window.location.href = results.username;
+					}
 				});
 			}
 		});
