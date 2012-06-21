@@ -2,8 +2,7 @@
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
-		echo basename(__FILE__);
-	$user = $db->getUserByUsername(basename(__FILE__));
+	$user = $db->getUserByUsername(str_replace('.php', '', basename(__FILE__)));
 		
 	if($user)		
 		$user_info = json_decode($user->info);
