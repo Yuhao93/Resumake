@@ -1,5 +1,5 @@
 <?php
-	include_once('../private/php_scripts/dbObject.php');
+	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
 		
@@ -14,8 +14,8 @@
 <html lang="en">
 <head>
 	<title><?php echo $user->name?></title>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
 	
 	<style type="text/css">
 	body{
@@ -206,7 +206,7 @@
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#editinfo").modal({'show':false});
