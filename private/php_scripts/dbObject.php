@@ -47,6 +47,29 @@ class dbObject {
 		}
 	}
 	
+	public function getUserByConfirmationCode($confirmation){
+		$sql = "SELECT * FROM users WHERE confirmation_code='$confirmation'";
+		$result = mysql_query($sql);
+		if ($result == FALSE || mysql_num_rows($result) < 1)
+			return FALSE;
+			
+		$row = mysql_fetch_array($result);
+		
+		$user = new user;
+		$user->uid = stripslashes($row['uid']);
+		$user->password = stripslashes($row['password']);
+		$user->email = stripslashes($row['email']);
+		$user->date_joined = $this->parseTimestamp(stripslashes($row['date_reg']));
+		$user->name = stripslashes($row['name']);
+		$user->username = stripslashes($row['username']);
+		$user->info = stripslashes($row['info']);
+		$user->quote = stripslashes($row['quote']);
+		$user->is_confirmed = stripslashes($row['is_confirmed']);
+		$user->confirmation_code = stripslashes($row['confirmation_code']);
+	
+		return $user;
+	}
+	
 	public function getUserByUsername($username){
 		$sql = "SELECT * FROM users WHERE username='$username'";
 		
@@ -66,6 +89,8 @@ class dbObject {
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
 		$user->quote = stripslashes($row['quote']);
+		$user->is_confirmed = stripslashes($row['is_confirmed']);
+		$user->confirmation_code = stripslashes($row['confirmation_code']);
 	
 		return $user;
 	}
@@ -90,6 +115,8 @@ class dbObject {
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
 		$user->quote = stripslashes($row['quote']);
+		$user->is_confirmed = stripslashes($row['is_confirmed']);
+		$user->confirmation_code = stripslashes($row['confirmation_code']);
 		
 		return $user;
 	}
@@ -115,6 +142,8 @@ class dbObject {
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
 		$user->quote = stripslashes($row['quote']);
+		$user->is_confirmed = stripslashes($row['is_confirmed']);
+		$user->confirmation_code = stripslashes($row['confirmation_code']);
 	
 		return $user;
 	}
@@ -192,12 +221,6 @@ class dbObject {
 		return $user;
 	}
 	
-	
-	///////////////////////// USERS ///////////////////////////////////////////
-	
-	
-	///////////////////////// USERS ///////////////////////////////////////////
-	
 	private function parseTimestamp($timestamp) {
 		return strtotime($timestamp);	
     } 
@@ -212,6 +235,8 @@ class user{
 	var $name;
 	var $info;
 	var $quote;
+	var $is_confirmed;
+	var $confirmation_code;
 }
 
 class resume{
