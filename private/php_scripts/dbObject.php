@@ -36,6 +36,9 @@ class dbObject {
 	}
 	
 	public function confirmUser($uid){
+		$user = getUserById($uid);
+		copy('../default/index.php', '../../' . $user->username . '.php');
+	
 		$mysql = "UPDATE users SET is_confirmed=1 WHERE uid='$uid'";
 		return mysql_query($mysql); 
 	}

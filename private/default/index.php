@@ -3,7 +3,7 @@
 	$db = new dbObject;
 	$db->connect();
 		
-	$user = $db->getUserByUsername(basename(dirname(__FILE__)));
+	$user = $db->getUserByUsername(basename(__FILE__));
 		
 	if($user)		
 		$user_info = json_decode($user->info);

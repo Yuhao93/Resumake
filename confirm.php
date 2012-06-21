@@ -56,9 +56,22 @@
 	<?php 
 		if(!$user_not_found)
 			echo '<div class="row"><div class="span8 offset2"><h2>You\'ll be redirected to your homepage in a few seconds</h2></div></div><br><div class="row"><div class="span8 offset2"><h2>Or Go Now </h2><a class="btn btn-primary btn-large" href="/' . $user->username . '">Go To Your Homepage</a></div></div>';
-		else echo '<div class="row"><div class="span8 offset2"><h2>Go Back To The Homepage</h2><a class="btn btn-primary btn-large" href="/">Go Home</a></div></div>';
+		else echo '<div class="row"><div class="span8 offset2"><h2>You\'ll be redirected to the homepage in a few seconds</h2></div></div><br><div class="row"><div class="span8 offset2"><h2>Go Back To The Homepage</h2><a class="btn btn-primary btn-large" href="/">Go Home</a></div></div>';
 	?>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout('redirect()', 3500);
+		});
+		function redirect(){
+			window.location.href = '<?php
+				if($user_not_found)
+					echo '/';
+				else
+					echo '/' . $user->username;
+			?>';
+		}
+	</script>
 </body>
