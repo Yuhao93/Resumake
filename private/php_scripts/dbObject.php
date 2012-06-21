@@ -21,7 +21,7 @@ class dbObject {
 	
 	///////////////////////// USERS ///////////////////////////////////////////
 	
-	public function addUser($name, $email, $password, $username)
+	public function addUser($name, $email, $password, $username, $confirmation)
 	{	
 		if ($this->getUserByEmail($email))
 			return FALSE;
@@ -31,8 +31,13 @@ class dbObject {
 		$password = addslashes($password);
 		$username = addslashes($username);
 		
-		$sql = "INSERT INTO users (name, password, email, username) VALUES ('$name', '$password', '$email', '$username')";
+		$sql = "INSERT INTO users (name, password, email, username, confirmation_code) VALUES ('$name', '$password', '$email', '$username', '$confirmation')";
 		return mysql_query($sql);
+	}
+	
+	public function confirmUser($uid){
+		$mysql = "UPDATE users SET is_confirmed=1 WHERE uid='$uid'";
+		return mysql_query($mysql); 
 	}
 	
 	public function updateUser($uid, $info, $quote){
