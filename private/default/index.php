@@ -2,7 +2,7 @@
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
-		
+		echo basename(__FILE__);
 	$user = $db->getUserByUsername(basename(__FILE__));
 		
 	if($user)		
@@ -50,7 +50,7 @@
 			</div>
 			
 			<div class="thumbnail">
-				<img src="me.jpg" width="254" height="254" alt="">
+				<img src="private/default/me.jpg" width="254" height="254" alt="">
 				<br>
 				<br>
 				<center>
