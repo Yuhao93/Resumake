@@ -1,6 +1,6 @@
 <?php
 	$user_not_found = false;
-	$user_already_registered = true;
+	$user_already_registered = false;
 	
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
