@@ -27,8 +27,8 @@
 	$response .= ']';
 	
 	if($isOkay){
-		$username_64 = base64_encode($_POST['username']);
-		$confirmation_code = base64_encode($username_64 + time() * rand(0,100));
+		$username_64 = md5($_POST['username']);
+		$confirmation_code = md5($username_64 + time() * rand(0,100));
 		$db->addUser($_POST['name'], $_POST['email'], $_POST['password'], $_POST['username'], $confirmation_code); 
 		
 		$from = "mailer@resumake.thegbclub.com";
@@ -37,13 +37,15 @@
 		$user_name = $_POST['name'];
 
 		$message = "Hi $user_name,
-		Thank you for registering for Resumake!
+Thank you for registering for Resumake!
 		
-		Please confirm your account by clicking on this link:
-		http://resumake.thegbclub.com/confirm?id=$confirmation_code
+Please confirm your account by clicking on this link:
+http://resumake.thegbclub.com/confirm?id=$confirmation_code
 		
-		Thank you,
-		The Resumake Team";
+Thank you,
+The Resumake Team
+
+*Please Do Not Reply To This Email*";
 
 		$headers = 'From: '. $from ."\r\n" .
 		    'Reply-To: '. $to . "\r\n" .
