@@ -116,7 +116,7 @@
 				<p>Password</p>
 				<input type="password" class="span3" placeholder="password" id="login-pass">
 				<br>
-				<button type="submit" class="btn btn-primary btn-large" id="login-submit">Login</button>
+				<a href="#" class="btn btn-primary btn-large" id="login-submit">Login</a>
 			</form>
 			<br>
 			<br>
@@ -216,14 +216,12 @@
 		$("#login-submit").click(function(){
 			var login = $("#login-email").attr("value");
 			var pass = encrypt($("#login-pass").attr("value"));
-			$.post("private/php_scripts/login.php", {"email":login, "password":pass}, function(data){
-				alert(data);
-				var json_response = eval( '(' + data + ')' );
-				if(json_response.result == 'pass'){
-					var username = json_response.username;
+			$.post('private/php_scripts/login.php', {'email':login, 'password':pass}, function(data){
+				var response = eval('(' + data + ')');
+				if(response.result == 'pass'){
+					var username = response.username;
 					window.location.href = '/' + username;
-					
-				}else if(json_response.result == 'fail'){
+				}else if(response.result == 'fail'){
 					
 				}
 			});
