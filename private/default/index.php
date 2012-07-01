@@ -214,7 +214,7 @@
 			info.zip = $("#modal-zipcode").attr('value');
 			info.email = $("#modal-email").attr('value');
 			info.phone = $("#modal-phonenumber").attr('value');
-			$.post('ajax/test.html', {'uid':31, 'info':info}, function(data) {});
+			$.post('private/php_scripts/updateInfo.php', {'uid':31, 'info':info}, function(data) {alert(data);});
 		});
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;

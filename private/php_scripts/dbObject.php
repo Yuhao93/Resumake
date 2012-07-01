@@ -43,11 +43,12 @@ class dbObject {
 		return mysql_query($mysql); 
 	}
 	
-	public function updateUser($uid, $info, $quote){
+	public function updateUserInfo($uid, $info){
+		$mysql = "UPDATE users SET info='$info' WHERE uid='$uid'";
 		if($info == -1){
+			return -1;
 		}
-		if($quote == -1){
-		}
+		return mysql_query($mysql);
 	}
 	
 	public function getUserByConfirmationCode($confirmation){
@@ -66,7 +67,6 @@ class dbObject {
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
-		$user->quote = stripslashes($row['quote']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
 	
@@ -91,7 +91,6 @@ class dbObject {
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
-		$user->quote = stripslashes($row['quote']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
 	
@@ -117,7 +116,6 @@ class dbObject {
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
-		$user->quote = stripslashes($row['quote']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
 		
@@ -144,7 +142,6 @@ class dbObject {
 		$user->name = stripslashes($row['name']);
 		$user->username = stripslashes($row['username']);
 		$user->info = stripslashes($row['info']);
-		$user->quote = stripslashes($row['quote']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
 	
@@ -237,7 +234,6 @@ class user{
 	var $username;
 	var $name;
 	var $info;
-	var $quote;
 	var $is_confirmed;
 	var $confirmation_code;
 }
