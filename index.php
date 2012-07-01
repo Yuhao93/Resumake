@@ -114,7 +114,7 @@
 				<input type="text" class="span3" placeholder="email" id="login-email">
 				<br>
 				<p>Password</p>
-				<input type="password" class="span3" placeholder="password" id="login-password">
+				<input type="password" class="span3" placeholder="password" id="login-pass">
 				<br>
 				<button type="submit" class="btn btn-primary btn-large" id="login-submit">Login</button>
 			</form>
@@ -218,7 +218,7 @@
 			var login = $("#login-email").attr("value");
 			alert(login);
 			
-			var pass = encrypt($("login-password").attr("value"));
+			var pass = encrypt($("login-pass").attr("value"));
 			alert(pass);
 			
 			alert("posting");
