@@ -32,9 +32,6 @@
 					<a class="brand" href="#">
 						<?php echo $user->name?>
 					</a>
-					<ul class="nav">
-						<li><a href="resume">My Resume</a></li>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -45,7 +42,6 @@
         <div class="span3 columns">
 			<div class="page-header">
 				<h1><?php echo $user->name;?></h1>
-				<a href="#quotemodal" data-toggle="modal"><small><em><?php if($user->quote == '') echo '"[Add Quote]"';	else echo '"' . $user->quote . '"';?></em></small></a>
 			</div>
 			
 			<div class="thumbnail">
@@ -81,21 +77,6 @@
 			</div>
         </div>	
         <div class="span9 fixed-inbox">
-			<div class="modal hide" id="quotemodal">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h3>Edit Your Quote</h3>
-				</div>
-				<div class="modal-body">
-					<form class="well">
-						<textarea style="resize:none" rows="3" class="span12 input-xlarge" id="modal-quote"></textarea>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-					<a href="#" class="btn btn-primary">Save</a>
-				</div>
-			</div>
 			
 			<div class="modal hide" id="infomodal">
 				<div class="modal-header">
@@ -227,6 +208,5 @@
 		});
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
-	var quote = <?php if($user_info)echo '"' . $user->quote . '"'; ?>;
 	</script>
 </body>
