@@ -13,7 +13,7 @@
 			$_SESSION['uid'] = $_COOKIE['remember'];
 		}
 		$user = $db->getUserById($_COOKIE['remember']);
-		header('Location: resumake/thegbclub.com/' . $user->username) ;
+		header('Location: /' .  $user->username) ;
 	}
 ?>
 

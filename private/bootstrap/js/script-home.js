@@ -72,7 +72,7 @@ function submit_register(){
 	function submit_login(){
 		var login = $("#login-email").attr("value");
 		var pass = encrypt($("#login-pass").attr("value"));
-		var remember = $("#login-remeber").attr("checked");
+		var remember = $("#login-remember").attr("checked");
 		$.post('private/php_scripts/login.php', {'email':login, 'password':pass, 'remember':remember}, function(data){
 			var response = eval('(' + data + ')');
 			if(response.result == 'pass'){

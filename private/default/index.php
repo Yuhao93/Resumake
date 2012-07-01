@@ -3,7 +3,13 @@
   -->
 
 <?php
+	$uid;
 	session_start();
+	if(!isset($_COOKIE['remember']) && !isset($_SESSION['uid'])){
+		header('Location: /');
+	}else{
+		$uid = $_COOKIE['remember'];
+	}
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
@@ -219,9 +225,10 @@
 			info.zip = $("#modal-zipcode").attr('value');
 			info.email = $("#modal-email").attr('value');
 			info.phone = $("#modal-phonenumber").attr('value');
-			$.post('private/php_scripts/updateInfo.php', {'uid':31, 'info':info}, function(data) {alert(data);});
+			$.post('private/php_scripts/updateInfo.php', {'uid':uid, 'info':info}, function(data) {alert(data);});
 		});
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
+	var uid = <?php echo $uid ?>;
 	</script>
 </body>

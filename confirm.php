@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$user_not_found = false;
 	$user_already_registered = false;
 	
@@ -15,6 +16,7 @@
 	}else{
 		$uid = $user->uid;
 		$db->confirmUser($uid);
+		$_SESSION['uid'] = $uid;
 	}
 ?>
 
