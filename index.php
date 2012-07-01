@@ -1,3 +1,11 @@
+<!--
+  --  Resumake Front Page	
+  -->
+
+<?php
+	session_start();
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -103,12 +111,12 @@
 			<form>
 				<br>
 				<p>Email</p>
-				<input type="text" class="span3" placeholder="email">
+				<input type="text" class="span3" placeholder="email" id="login-email">
 				<br>
 				<p>Password</p>
-				<input type="password" class="span3" placeholder="password">
+				<input type="password" class="span3" placeholder="password" id="login-password">
 				<br>
-				<button type="submit" class="btn btn-primary btn-large">Login</button>
+				<button type="submit" class="btn btn-primary btn-large" id="login-submit">Login</button>
 			</form>
 			<br>
 			<br>
@@ -194,7 +202,7 @@
 		}
 	}
 	$(document).ready(function(){
-		$("#carousel").carousel({'interval':8000});
+		$("#carousel").carousel({'interval':12000});
 		$("#register-btn").modal({'show':false});
 		$("#registermodal").on('hide', function(){
 			$(".removable-alert").remove();
@@ -203,6 +211,21 @@
 		//When the register submit button is clicked
 		$("#register-modal-submit").click(function(){
 			submit_register();
+		});
+		
+		$("#login-submit").click(function(){
+			var login = $("#login-email").attr("value");
+			var pass = encrypt($("login-password").attr("value"));
+			$.post("private/php_scripts/login.php", {"email":login, "password":pass}, function(data){
+				var json_response = eval( '(' + data + ')' );
+				if(json_response.result == 'pass'){
+					var username = json_response.username;
+					window.location.href = '/' + username;
+					
+				}else if(json_response.result == 'fail'){
+					
+				}
+			});
 		});
 	});
 	

@@ -1,4 +1,9 @@
+<!--
+  --  User index template
+  -->
+
 <?php
+	session_start();
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
