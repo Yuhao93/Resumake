@@ -168,7 +168,7 @@
 				</div>
 				<div class="modal-footer">
 					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-					<a href="#" class="btn btn-primary">Save</a>
+					<a href="#" class="btn btn-primary" id="confirm-info">Save</a>
 				</div>
 			</div>
 			
@@ -203,8 +203,18 @@
 			$("#modal-email").attr('value', info.email);
 			$("#modal-phonenumber").attr('value', info.phone);
 		});
-		$("#quotemodal").on('show', function(){
-			$("#modal-quote").attr('value', quote);
+		$("#confirm-info").click(function(){
+			info.age = $("#modal-age").attr('value');
+			info.birthday = $("#modal-birthday").attr('value');
+			info.gender = $("#modal-gender").attr('value');
+			info.occupation = $("#modal-occupation").attr('value');
+			info.address = $("#modal-address").attr('value');
+			info.city = $("#modal-city").attr('value');
+			info.state = $("#modal-state").attr('value');
+			info.zip = $("#modal-zipcode").attr('value');
+			info.email = $("#modal-email").attr('value');
+			info.phone = $("#modal-phonenumber").attr('value');
+			$.post('ajax/test.html', {'uid':31, 'info':info}, function(data) {});
 		});
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
