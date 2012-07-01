@@ -217,6 +217,8 @@
 			alert("login-submit clicked");
 			var login = $("#login-email").attr("value");
 			var pass = encrypt($("login-password").attr("value"));
+			alert(login);
+			alert(pass);
 			alert("posting");
 			$.post("private/php_scripts/login.php", {"email":login, "password":pass}, function(data){
 				alert(data);
