@@ -216,7 +216,7 @@
 		$("#login-submit").click(function(){
 			var login = $("#login-email").attr("value");
 			var pass = encrypt($("#login-pass").attr("value"));
-
+			alert(pass);
 			$.post("private/php_scripts/login.php", {"email":login, "password":pass}, function(data){
 				alert(data);
 				var json_response = eval( '(' + data + ')' );
