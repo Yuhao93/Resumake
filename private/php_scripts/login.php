@@ -11,7 +11,7 @@
 		//good to go
 		$uid = $user->uid;
 		$_SESSION['uid'] = $uid;
-		echo '{"result":pass, "uid":' . $user->username . '}';
+		echo '{"result":pass, "username":' . $user->username . '}';
 	}else{
 		echo '{"result":fail}';
 	}
