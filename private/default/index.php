@@ -191,13 +191,14 @@
 				</div>
 			</div>
 			
-			
+			<h3>My Resumes</h3>
+			<a href="#" class="btn-primary btn btn-large">Add New Resume</a>
 			<table class="table table-striped">
 				<thead>
-					<th>Profile</th>
-					<th>From</th>
-					<th>Subject</th>
-					<th>Date</th>
+					<th>Resume</th>
+					<th>For</th>
+					<th>Created On</th>
+					<th>Description</th>
 				</thead>
 			</table>
 		</div>
