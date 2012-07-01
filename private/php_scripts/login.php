@@ -6,7 +6,8 @@
 	$db = new dbObject();
 	$db->connect;
 	$user = $db->getUserByEmail($email);
-	
+	echo 'what is wrong';
+	/*
 	if($user->password == $password){
 		//good to go
 		$uid = $user->uid;
@@ -14,5 +15,5 @@
 		echo '{"result":pass, "username":' . $user->username . '}';
 	}else{
 		echo '{"result":fail}';
-	}
+	}*/
 ?>
