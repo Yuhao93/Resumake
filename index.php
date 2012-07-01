@@ -223,7 +223,7 @@
 					var username = response.username;
 					window.location.href = '/' + username;
 				}else if(response.result == 'fail'){
-					$('<div class="alert"><button class="close" data-dismiss="alert alert-error">×</button><strong>Oh No!</strong>Login Failed</div>').insertAfter("#login-submit");
+					$('<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Oh No!</strong> Login Failed</div>').insertAfter("#login-submit");
 				}
 			});
 		});
