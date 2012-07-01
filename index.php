@@ -217,6 +217,7 @@
 			var login = $("#login-email").attr("value");
 			var pass = encrypt($("login-password").attr("value"));
 			$.post("private/php_scripts/login.php", {"email":login, "password":pass}, function(data){
+				alert(data);
 				var json_response = eval( '(' + data + ')' );
 				if(json_response.result == 'pass'){
 					var username = json_response.username;
