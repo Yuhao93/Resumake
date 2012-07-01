@@ -1,11 +1,11 @@
 <?php 
+	include_once('dbObject.php');
+	$db = new dbObject;
+	$db->connect();
+
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	
-	include_once("dbObject.php");
-	$db = new dbObject();
-	$db->connect;
-	$user = $db->getUserByEmail($email);
+	//$user = $db->getUserByEmail($email);
 	echo 'what is wrong';
 	/*
 	if($user->password == $password){
