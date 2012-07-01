@@ -214,8 +214,10 @@
 		});
 		
 		$("#login-submit").click(function(){
+			alert("login-submit clicked");
 			var login = $("#login-email").attr("value");
 			var pass = encrypt($("login-password").attr("value"));
+			alert("posting");
 			$.post("private/php_scripts/login.php", {"email":login, "password":pass}, function(data){
 				alert(data);
 				var json_response = eval( '(' + data + ')' );
