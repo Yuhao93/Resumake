@@ -42,8 +42,8 @@ class SimpleImage {
    }
    function crop($x, $y, $width, $height){
 	$thumbSize = 254;
-	$this->thumb = imagecreatetruecolor($thumbSize, $thumbSize);
-	imagecopyresampled($this->thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
+	$thumb = imagecreatetruecolor($thumbSize, $thumbSize);
+	imagecopyresampled($fghj,thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
 	$this->image = $this->thumb;
    }
    
