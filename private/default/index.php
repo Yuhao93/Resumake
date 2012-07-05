@@ -24,8 +24,8 @@
 
 	if(sizeof($_FILES) != 0){
 		$name = $_FILES['img']['name'];
-		
-		$a = getimagesize($name);
+		$tmp = $_FILES['img']['tmp_name'];
+		$a = getimagesize($tmp);
 		$image_type = $a[2];
 		if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP))){
 			$fileError = false;
@@ -34,7 +34,6 @@
 		if(!fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
 			include('private/php_scripts/SimpleImage.php');
-			$tmp = $_FILES['img']['tmp_name'];
 			$newpath = 'imgs/' . $username . '.' . $ext;
 			move_uploaded_file($tmp,$newpath);
 			$fileUploaded = true;
