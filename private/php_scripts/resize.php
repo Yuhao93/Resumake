@@ -10,5 +10,5 @@
 	$image->load($path);
 	$image->crop($x, $y, $width, $height);
 	$image->save($path);
-	echo 'imgs/' . $file;
+	//echo 'imgs/' . $file;
 ?>

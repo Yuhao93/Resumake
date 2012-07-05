@@ -333,8 +333,8 @@
 			});
 		});
 		$('#img-edit-done').click(function(){
-			alert(img_x + " " + img_y + " " + img_width + " " + img_height);
 			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext}, function(data){
+				alert(data);
 				$('#profile-img').attr('src', data);
 			});
 		});
