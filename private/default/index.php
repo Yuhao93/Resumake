@@ -79,8 +79,7 @@
 		max-width:none;
 	}
 	.center-modal{
-		margin-left:auto;
-		margin-right:auto;
+		left:0px;
 	}
 	</style>
 </head>
@@ -101,7 +100,7 @@
 			</div>
 		</div>
     </div>
-
+	<center>
 	<div class="modal hide span12 center-modal" id="editimagemodal">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">x</button>
@@ -128,7 +127,7 @@
 			<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
 		</div>
 	</div> 
-	
+	</center>
     <div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span3 columns">
