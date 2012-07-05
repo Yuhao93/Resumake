@@ -78,6 +78,9 @@
 	img{
 		max-width:none;
 	}
+	.center-modal{
+		left:0px;
+	}
 	</style>
 </head>
 <body>
@@ -98,7 +101,7 @@
 		</div>
     </div>
 
-	<div class="modal hide span12" id="editimagemodal">
+	<div class="modal hide span12 center-modal" id="editimagemodal">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">x</button>
 			<h3>Crop Your Profile Image</h3>
