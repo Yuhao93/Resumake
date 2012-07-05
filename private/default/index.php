@@ -58,6 +58,7 @@
 	<title><?php echo $user->name?></title>
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/jquery.Jcrop.css"></link>
 	
 	<style type="text/css">
 	body{
@@ -134,7 +135,6 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-						<!--<a href="#" class="btn btn-primary" data-dismiss="modal" id="picture-continue">Continue</a>-->
 					</div>
 			
 				</div>
@@ -147,7 +147,7 @@
 						<div class="thumbnail">
 						<?php 
 							if($fileUploaded){
-								echo '<img src="' . $newpath . '">';
+								echo '<img src="' . $newpath . '" id="preview-large">';
 							}
 						?>
 						</div>
@@ -266,12 +266,14 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.js.js"></script>
 	<script type="text/javascript">
- 
 	$(document).ready(function(){
 		<?php 
-			if($fileUploaded)
+			if($fileUploaded){
 				echo "$('#editimagemodal').modal('show');";
+				echo "$('#preview-large').Jcrop()";
+			}
 		 ?>
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
