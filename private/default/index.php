@@ -158,12 +158,21 @@
 						<h3>Crop Your Profile Image</h3>
 					</div>
 					<div class="modal-body">
-						<div class="thumbnail">
-						<?php 
-							if($fileUploaded){
-								echo '<img src="' . $newpath . '" id="preview-large"/>';
-							}
-						?>
+						<div class="row">
+							<div class="thumbnail span5">
+								<?php 
+									if($fileUploaded && !$fileError){
+										echo '<img src="' . $newpath . '" id="preview-large"/>';
+									}
+								?>
+							</div>
+							<div class="thumbnail span5" style="width:100px;height:100px;overflow:hidden;">
+								<?php 
+									if($fileUploaded && !$fileError){
+										echo '<img src="' . $newpath . '" id="preview-large"/>';
+									}
+								?>
+							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -279,15 +288,29 @@
 	</div>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
+	function showPreview(coords){
+		if (parseInt(coords.w) > 0){
+			var rx = 100 / coords.w;
+			var ry = 100 / coords.h;
+
+			jQuery('#image-preview').css({
+				width: Math.round(rx * 500) + 'px',
+				height: Math.round(ry * 370) + 'px',
+				marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+				marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			});
+		}
+	}
 	$(document).ready(function(){
 		<?php 
-			if($fileUploaded){
+			if($fileUploaded && !$fileError){
 				echo "$('#editimagemodal').modal('show');";
 				echo "jQuery(function(){";
-				echo "  jQuery('#preview-large').Jcrop();";
+				echo "  jQuery('#preview-large').Jcrop({onChange: showPreview,onSelect: showPreview,aspectRatio: 1});";
 				echo "});";
 			}
 		 ?>
+		 
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
