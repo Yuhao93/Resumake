@@ -97,12 +97,10 @@
 					<h3>Upload Your Profile Picture</h3>
 				</div>
 				<div class="modal-body">
-					<form class="well">
-						<input type="file" accept="image/*" id="image-upload"/>
+					<form class="well" action="private/php_scripts/image_upload.php" method="post">
+						<input type="file" accept="image/*" id="image-upload" name="img"/>
+						<input type="hidden" value="<?php echo $uid?>"/>
 					</form>
-					<div class="well">
-						<img src="private/bootstrap/img/glyphicons-halflings.png" id="image-preview"/>
-					</div>
 				</div>
 				<div class="modal-footer">
 					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
@@ -223,10 +221,6 @@
 	<script type="text/javascript">
  
 	$(document).ready(function(){
-		$("#picture-continue").click(function(){
-			var img = $("#image-upload")[0].files[0].getAsDataURL();
-			alert(img);	
-		});
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';

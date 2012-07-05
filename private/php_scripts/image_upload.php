@@ -1,11 +1,9 @@
 <?php
 	$username = $_POST['username'];
-	$img = $_POST['img'];
-	$img = str_replace('data:image/png;base64,', '', $img);
-	$img = str_replace(' ', '+', $img);
-	$data = base64_decode($img);
-	$file = '../img/' . $username . '.png';
-	file_put_contents($file, $data);
+	$tmp_img = $_FILE['img']['tmp_name'];
+	$new_name = '../../imgs/' . $tmp_img . '-' . $username;
+	move_uploaded_file($tmp_img, $new_name);
+	echo $new_name;
 ?>
 
 
