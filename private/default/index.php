@@ -98,13 +98,12 @@
 		</div>
     </div>
 
-    <div class="container-fluid">
-		<div class="modal hide " id="editimagemodal">
+	<div class="modal hide span12" id="editimagemodal">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">x</button>
 			<h3>Crop Your Profile Image</h3>
 		</div>
-		<div class="modal-body row span12">
+		<div class="modal-body row">
 			<div class="span6" style="width:254px;height:254px;overflow:hidden;">
 				<?php 
 					if($fileUploaded && !$fileError){
@@ -125,8 +124,8 @@
 			<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
 		</div>
 	</div> 
-		
-		
+	
+    <div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span3 columns">
 				<div class="page-header">
