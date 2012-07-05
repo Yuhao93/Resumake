@@ -8,7 +8,7 @@
 	if(!isset($_COOKIE['remember']) && !isset($_SESSION['uid'])){
 		header('Location: /');
 	}else{
-		$uid = $_COOKIE['remember'];
+		$uid = $_SESSION['uid'];
 	}
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
@@ -44,6 +44,9 @@
 						<?php echo $user->name?>
 					</a>
 				</div>
+				<ul class="nav pull-right">
+					<li><a href='#' id='btn-logout'>Logout</a></li>
+				</ul>
 			</div>
 		</div>
     </div>
@@ -60,27 +63,27 @@
 				<br>
 				<br>
 				<center>
-					<a class="btn btn-primary" href="">Change Profile Picture</a>
+					<a class="btn btn-primary" href="#picture-modal" data-toggle="modal">Change Profile Picture</a>
 				</center>
 				<br>
 			</div>
 			<br>
 			<div class="well">
 				<p><h4>Personal Information</h4></p>
-				<p><h5>&nbsp;&nbsp;Age: <?php if($user_info)echo $user_info->{'age'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;Birthday: <?php if($user_info)echo $user_info->{'birthday'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;Gender: <?php if($user_info)echo $user_info->{'gender'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;Occupation: <?php if($user_info)echo $user_info->{'occupation'}?></h5></p>
+				<p><h5 id='info-age'>&nbsp;&nbsp;Age: <?php if($user_info)echo $user_info->{'age'}?></h5></p>
+				<p><h5 id='info-birthday'>&nbsp;&nbsp;Birthday: <?php if($user_info)echo $user_info->{'birthday'}?></h5></p>
+				<p><h5 id='info-gender'>&nbsp;&nbsp;Gender: <?php if($user_info)echo $user_info->{'gender'}?></h5></p>
+				<p><h5 id='info-occupation'>&nbsp;&nbsp;Occupation: <?php if($user_info)echo $user_info->{'occupation'}?></h5></p>
 				<br>
 				
 				
 				<p><h4>Contact Information</h4></p>
-				<p><h5>&nbsp;&nbsp;Address: <?php if($user_info)echo $user_info->{'address'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;City: <?php if($user_info)echo $user_info->{'city'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;State: <?php if($user_info)echo $user_info->{'state'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;Zip Code: <?php if($user_info)echo $user_info->{'zip'}?></h5></p>
-				<p><h5>&nbsp;&nbsp;Email: <a href="mailto:<?php if($user_info)echo $user_info->{'email'} ?>"><?php if($user_info)echo $user_info->{'email'}?></a></h5></p>
-				<p><h5>&nbsp;&nbsp;Phone Number: <?php if($user_info)echo $user_info->{'phone'}?></h5></p>
+				<p><h5 id='info-address'>&nbsp;&nbsp;Address: <?php if($user_info)echo $user_info->{'address'}?></h5></p>
+				<p><h5 id='info-city'>&nbsp;&nbsp;City: <?php if($user_info)echo $user_info->{'city'}?></h5></p>
+				<p><h5 id='info-state'>&nbsp;&nbsp;State: <?php if($user_info)echo $user_info->{'state'}?></h5></p>
+				<p><h5 id='info-zip'>&nbsp;&nbsp;Zip Code: <?php if($user_info)echo $user_info->{'zip'}?></h5></p>
+				<p><h5>&nbsp;&nbsp;Email: <a id='info-email' href="mailto:<?php if($user_info)echo $user_info->{'email'} ?>"><?php if($user_info)echo $user_info->{'email'}?></a></h5></p>
+				<p><h5 id='info-phone'>&nbsp;&nbsp;Phone Number: <?php if($user_info)echo $user_info->{'phone'}?></h5></p>
 				<br>
 				<a class="btn btn-primary btn-large" href="#infomodal" id="editinfo" data-toggle="modal">Edit My Information</a>
 				
@@ -88,7 +91,25 @@
 			</div>
         </div>	
         <div class="span9 fixed-inbox">
-			
+			<div class="modal hide" id="picture-modal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">x</button>
+					<h3>Upload Your Profile Picture</h3>
+				</div>
+				<div class="modal-body">
+					<form class="well">
+						<input type="file" accept="image/*" id="image-upload"/>
+					</form>
+					<div class="well">
+						<img src="private/bootstrap/img/glyphicons-halflings.png" id="image-preview"/>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+					<a href="#" class="btn btn-primary" data-dismiss="modal" id="picture-continue">Continue</a>
+				</div>
+				
+			</div> 
 			<div class="modal hide" id="infomodal">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
@@ -179,7 +200,7 @@
 				</div>
 				<div class="modal-footer">
 					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-					<a href="#" class="btn btn-primary" id="confirm-info">Save</a>
+					<a href="#" class="btn btn-primary" id="confirm-info" data-dismiss="modal">Save</a>
 				</div>
 			</div>
 			
@@ -200,7 +221,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
+ 
 	$(document).ready(function(){
+		$("#picture-continue").click(function(){
+			var img = $("#image-upload")[0].files[0].getAsDataURL();
+			alert(img);	
+		});
+		$("#btn-logout").click(function(){
+			$.post('private/php_scripts/logout.php', function(data){
+				window.location.href = '/';
+			});
+		});
 		$("#editinfo").modal({'show':false});
 		$("#infomodal").on('show', function(){
 			$("#modal-age").attr('value', info.age);
@@ -225,7 +256,19 @@
 			info.zip = $("#modal-zipcode").attr('value');
 			info.email = $("#modal-email").attr('value');
 			info.phone = $("#modal-phonenumber").attr('value');
-			$.post('private/php_scripts/updateInfo.php', {'uid':uid, 'info':info}, function(data) {alert(data);});
+			$.post('private/php_scripts/updateInfo.php', {'uid':uid, 'info':info}, function(data) {
+				$('#info-age').html('&nbsp&nbspAge: ' + info.age);
+				$('#info-birthday').html('&nbsp&nbspBirthday: ' + info.birthday);
+				$('#info-gender').html('&nbsp&nbspGender: ' + info.gender);
+				$('#info-occupation').html('&nbsp&nbspOccupation: ' + info.occupation);
+				$('#info-address').html('&nbsp&nbspAddress: ' + info.address);
+				$('#info-city').html('&nbsp&nbspCity: ' + info.city);
+				$('#info-state').html('&nbsp&nbspState: ' + info.state);
+				$('#info-zip').html('&nbsp&nbspZip: ' + info.zip);
+				$('#info-email').attr('href', 'mailto:' + info.email);
+				$('#info-email').html(info.email);
+				$('#info-phone').html('&nbsp&nbspPhone Number: ' + info.phone);
+			});
 		});
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
