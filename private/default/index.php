@@ -27,8 +27,7 @@
 		$tmp = $_FILES['img']['tmp_name'];
 		$a = getimagesize($tmp);
 		$image_type = $a[2];
-		echo $image_type;
-		if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP))){
+		if($image_type == 6 || ($image_type > 0 && $image_type < 4)){
 			$fileError = false;
 		}else $fileError = true;
 		
