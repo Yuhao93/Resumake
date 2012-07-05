@@ -29,7 +29,6 @@ class SimpleImage {
  
       $image_info = getimagesize($filename);
       $this->image_type = $image_info[2];
-	  echo $image_info[0] . ' ' . $image_info[1];
       if( $this->image_type == IMAGETYPE_JPEG ) {
  
          $this->image = imagecreatefromjpeg($filename);
@@ -44,7 +43,8 @@ class SimpleImage {
    function crop($x, $y, $width, $height){
 	$thumbSize = 254;
 	$thumb = imagecreatetruecolor($thumbSize, $thumbSize);
-	imagecopyresampled($thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
+	//imagecopyresampled($thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
+	imagecopyresampled($thumb, $this->image, 0, 0,105,105, 254, 254, 149, 149);
 	$this->image = $thumb;
    }
    
