@@ -271,7 +271,7 @@
 	$(document).ready(function(){
 		<?php 
 			if($fileUploaded){
-				echo "//$('#editimagemodal').modal('show');";
+				echo "/*$('#editimagemodal').modal('show');*/";
 				echo "jQuery(function(){";
 				echo "  jQuery('#preview-large').Jcrop();";
 				echo "});";
