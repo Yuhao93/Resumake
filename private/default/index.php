@@ -108,6 +108,7 @@
 		</div>
 		<div class="modal-body row">
 			<div class="span6" style="width:254px;height:254px;overflow:hidden;">
+				<h3>Profile Image Preview</h3>
 				<?php 
 					if($fileUploaded && !$fileError){
 						echo '<img src="' . $newpath . '" id="image-preview"/>';
