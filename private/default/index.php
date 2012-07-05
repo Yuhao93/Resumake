@@ -28,8 +28,8 @@
 		$a = getimagesize($name);
 		$image_type = $a[2];
 		if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP))){
-			fileError = false;
-		}else fileError = true;
+			$fileError = false;
+		}else $fileError = true;
 		
 		if(!fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
