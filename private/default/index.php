@@ -27,7 +27,7 @@
 		$tmp = $_FILES['img']['tmp_name'];
 		$newpath = 'imgs/' . $md5uid . '-' . $name;
 		move_uploaded_file($tmp,$newpath);
-		$fileUploaded = true; 
+		$fileUploaded = true;
 	}
 ?>
 
@@ -116,6 +116,25 @@
 						<!--<a href="#" class="btn btn-primary" data-dismiss="modal" id="picture-continue">Continue</a>-->
 					</div>
 			
+				</div>
+				<div class="modal hide" id="editimagemodal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">x</button>
+						<h3>Crop Your Profile Image</h3>
+					</div>
+					<div class="modal-body">
+						<div class="thumbnail">
+						<?php 
+							if($fileUploaded){
+								echo '<img src="' . $newpath . '" width="254" height="254">';
+							}
+						?>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+						<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
+					</div>
 				</div> 
 				<div class="modal hide" id="infomodal">
 					<div class="modal-header">
@@ -229,6 +248,10 @@
 	<script type="text/javascript">
  
 	$(document).ready(function(){
+		<?php 
+			if($fileUploaded)
+				echo "$('#editimagemodal').modal('show');";
+		 ?>
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
