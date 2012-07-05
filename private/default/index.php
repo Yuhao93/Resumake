@@ -3,7 +3,8 @@
   -->
 
 <?php
-	$uid;
+	$uid = 0;
+	$ext = 0;
 	$fileUploaded = false;
 	$fileError = false;
 	session_start();
@@ -17,6 +18,7 @@
 	$db->connect();
 	$username = str_replace('.php', '', basename(__FILE__));
 	$user = $db->getUserByUsername($username);
+	$imgpath = $user->imagepath;	
 		
 	if($user)		
 		$user_info = json_decode($user->info);
@@ -125,7 +127,7 @@
 		</div>
 		<div class="modal-footer">
 			<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-			<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
+			<a href="#" class="btn btn-primary" data-dismiss="modal" id="img-edit-done">Done</a>
 		</div>
 	</div> 
 	</center>
@@ -137,7 +139,7 @@
 				</div>
 		
 				<div class="thumbnail">
-					<img src="private/default/me.jpg" width="254" height="254" alt="">
+					<img src="<?php if($imgpath == '') echo 'private/default/me.jpg'; else echo $imgpath?>" width="254" height="254" alt="" id="profile-img">
 					<br>
 					<br>
 					<center>
@@ -294,16 +296,20 @@
 	</div>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
+	var x, y, width, height;
 	function showPreview(coords){
 		if (parseInt(coords.w) > 0){
 			var rx = 254 / coords.w;
 			var ry = 254 / coords.h;
-
+			var x = Math.round(rx * coords.x);
+			var y = Math.round(ry * coords.y);
+			var width = Math.round(rx * $('#preview-large').css('width').split("px")[0]);
+			var height = Math.round(ry * $('#preview-large').css('height').split("px")[0]);
 			jQuery('#image-preview').css({
-				width: Math.round(rx * $('#preview-large').css('width').split("px")[0]) + 'px',
-				height: Math.round(ry * $('#preview-large').css('height').split("px")[0]) + 'px',
-				marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-				marginTop: '-' + Math.round(ry * coords.y) + 'px'
+				width: width + 'px',
+				height: height + 'px',
+				marginLeft: '-' + x + 'px',
+				marginTop: '-' + y + 'px'
 			});
 		}
 	}
@@ -315,11 +321,15 @@
 				echo "  jQuery('#preview-large').Jcrop({onChange: showPreview,onSelect: showPreview,aspectRatio: 1});";
 				echo "});";
 			}
-		 ?>
-		 
+		?>
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
+			});
+		});
+		$('#img-edit-done').click(function(){
+			$.post('private/php_scripts/resize.php', {'x':x, 'y':y, 'width':width, 'height':height, 'file':username + '.' + ext}, function(data){
+				$('#profile-img').attr('src', data);
 			});
 		});
 		$("#editinfo").modal({'show':false});
@@ -363,5 +373,7 @@
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
 	var uid = <?php echo $uid ?>;
+	var username = <?php echo $username ?>;
+	var ext = <?php echo $ext ?>;
 	</script>
 </body>

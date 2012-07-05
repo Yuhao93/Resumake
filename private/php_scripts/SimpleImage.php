@@ -40,6 +40,13 @@ class SimpleImage {
          $this->image = imagecreatefrompng($filename);
       }
    }
+   function crop($x, $y, $width, $height){
+	$thumbSize = $width;
+    $this->thumb = imagecreatetruecolor($thumbSize, $thumbSize);
+	imagecopyresampled($this->thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
+	$this->image = $this->thumb
+   }
+   
    function save($filename, $image_type=IMAGETYPE_JPEG, $compression=75, $permissions=null) {
  
       if( $image_type == IMAGETYPE_JPEG ) {

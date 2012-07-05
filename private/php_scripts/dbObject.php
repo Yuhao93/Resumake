@@ -69,6 +69,7 @@ class dbObject {
 		$user->info = stripslashes($row['info']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
+		$user->imagepath = stripslashes($row['imagepath']);
 	
 		return $user;
 	}
@@ -93,6 +94,7 @@ class dbObject {
 		$user->info = stripslashes($row['info']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
+		$user->imagepath = stripslashes($row['imagepath']);
 	
 		return $user;
 	}
@@ -118,6 +120,7 @@ class dbObject {
 		$user->info = stripslashes($row['info']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
+		$user->imagepath = stripslashes($row['imagepath']);
 		
 		return $user;
 	}
@@ -144,6 +147,7 @@ class dbObject {
 		$user->info = stripslashes($row['info']);
 		$user->is_confirmed = stripslashes($row['is_confirmed']);
 		$user->confirmation_code = stripslashes($row['confirmation_code']);
+		$user->imagepath = stripslashes($row['imagepath']);
 	
 		return $user;
 	}
@@ -236,6 +240,7 @@ class user{
 	var $info;
 	var $is_confirmed;
 	var $confirmation_code;
+	var $imagepath;
 }
 
 class resume{
