@@ -101,7 +101,7 @@
 		</div>
     </div>
 	<center>
-	<div class="modal hide span12 center-modal" id="editimagemodal">
+	<div class="modal hide span10 center-modal offset1" id="editimagemodal">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">x</button>
 			<h3>Crop Your Profile Image</h3>
