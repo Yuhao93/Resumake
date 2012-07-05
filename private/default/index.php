@@ -147,7 +147,7 @@
 						<div class="thumbnail">
 						<?php 
 							if($fileUploaded){
-								echo '<img src="' . $newpath . '" id="preview-large">';
+								echo '<img src="' . $newpath . '" id="preview-large"/>';
 							}
 						?>
 						</div>
@@ -272,7 +272,9 @@
 		<?php 
 			if($fileUploaded){
 				echo "$('#editimagemodal').modal('show');";
-				echo "$('#preview-large').Jcrop();";
+				echo "jQuery(function(){";
+				echo "  jQuery('#preview-large').Jcrop();";
+				echo "});";
 			}
 		 ?>
 		$("#btn-logout").click(function(){
