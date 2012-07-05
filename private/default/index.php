@@ -301,10 +301,15 @@
 		if (parseInt(coords.w) > 0){
 			var rx = 254 / coords.w;
 			var ry = 254 / coords.h;
-			x = Math.round(rx * coords.x);
-			y = Math.round(ry * coords.y);
-			width = Math.round(rx * $('#preview-large').css('width').split("px")[0]);
-			height = Math.round(ry * $('#preview-large').css('height').split("px")[0]);
+			var x = Math.round(rx * coords.x);
+			var y = Math.round(ry * coords.y);
+			var width = Math.round(rx * $('#preview-large').css('width').split("px")[0]);
+			var height = Math.round(ry * $('#preview-large').css('height').split("px")[0]);
+			x = coords.x;
+			y = coords.y;
+			width = coords.w;
+			height = coords.h;
+			
 			jQuery('#image-preview').css({
 				width: width + 'px',
 				height: height + 'px',
