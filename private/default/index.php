@@ -166,7 +166,7 @@
 							?>
 						</div>
 						<br>
-						<div class="thumbnail" style="width:254px;height:254px;overflow:hidden;">
+						<div style="width:254px;height:254px;overflow:hidden;">
 							<?php 
 								if($fileUploaded && !$fileError){
 									echo '<img src="' . $newpath . '" id="image-preview"/>';
