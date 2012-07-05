@@ -373,7 +373,7 @@
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
 	var uid = <?php echo $uid ?>;
-	var username = <?php echo $username ?>;
-	var ext = <?php echo $ext ?>;
+	var username = '<?php echo $username ?>';
+	var ext = '<?php echo $ext ?>';
 	</script>
 </body>
