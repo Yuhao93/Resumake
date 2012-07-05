@@ -296,7 +296,7 @@
 	</div>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
-	var x = 0, y = 0, width = 254, height = 254;
+	var img_x = 0, img_y = 0, img_width = 254, img_height = 254;
 	function showPreview(coords){
 		if (parseInt(coords.w) > 0){
 			var rx = 254 / coords.w;
@@ -305,10 +305,10 @@
 			var y = Math.round(ry * coords.y);
 			var width = Math.round(rx * $('#preview-large').css('width').split("px")[0]);
 			var height = Math.round(ry * $('#preview-large').css('height').split("px")[0]);
-			x = coords.x;
-			y = coords.y;
-			width = coords.w;
-			height = coords.h;
+			img_x = coords.x;
+			img_y = coords.y;
+			img_width = coords.w;
+			img_height = coords.h;
 			
 			jQuery('#image-preview').css({
 				width: width + 'px',
@@ -333,7 +333,7 @@
 			});
 		});
 		$('#img-edit-done').click(function(){
-			$.post('private/php_scripts/resize.php', {'x':x, 'y':y, 'width':width, 'height':height, 'file':username + '.' + ext}, function(data){
+			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext}, function(data){
 				$('#profile-img').attr('src', data);
 			});
 		});
