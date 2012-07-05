@@ -158,7 +158,6 @@
 						<h3>Crop Your Profile Image</h3>
 					</div>
 					<div class="modal-body">
-						<div class="row">
 							<div class="thumbnail span5">
 								<?php 
 									if($fileUploaded && !$fileError){
@@ -166,14 +165,13 @@
 									}
 								?>
 							</div>
-							<div class="thumbnail span5" style="width:100px;height:100px;overflow:hidden;">
+							<div class="thumbnail" style="width:254px;height:254px;overflow:hidden;">
 								<?php 
 									if($fileUploaded && !$fileError){
-										echo '<img src="' . $newpath . '" id="preview-large"/>';
+										echo '<img src="' . $newpath . '" id="image-preview"/>';
 									}
 								?>
 							</div>
-						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
