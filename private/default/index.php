@@ -97,6 +97,32 @@
     </div>
 
     <div class="container-fluid">
+		<div class="modal hide" id="editimagemodal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">x</button>
+						<h3>Crop Your Profile Image</h3>
+					</div>
+					<div class="modal-body row">
+						<div class="span6" style="width:254px;height:254px;overflow:hidden;">
+							<?php 
+								if($fileUploaded && !$fileError){
+									echo '<img src="' . $newpath . '" id="image-preview"/>';
+								}
+							?>
+						</div>
+						<div class="span6">
+							<?php 
+								if($fileUploaded && !$fileError){
+									echo '<img src="' . $newpath . '" id="preview-large"/>';
+								}
+							?>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+						<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
+					</div>
+				</div> 
 		<div class="row-fluid">
 			<div class="span3 columns">
 				<div class="page-header">
@@ -152,32 +178,7 @@
 					</div>
 			
 				</div>
-				<div class="modal hide" id="editimagemodal">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">x</button>
-						<h3>Crop Your Profile Image</h3>
-					</div>
-					<div class="modal-body row">
-						<div class="span6" style="width:254px;height:254px;overflow:hidden;">
-							<?php 
-								if($fileUploaded && !$fileError){
-									echo '<img src="' . $newpath . '" id="image-preview"/>';
-								}
-							?>
-						</div>
-						<div class="span6">
-							<?php 
-								if($fileUploaded && !$fileError){
-									echo '<img src="' . $newpath . '" id="preview-large"/>';
-								}
-							?>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-						<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
-					</div>
-				</div> 
+				
 				<div class="modal hide" id="infomodal">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">×</button>
