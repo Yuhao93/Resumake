@@ -288,12 +288,12 @@
 	<script type="text/javascript">
 	function showPreview(coords){
 		if (parseInt(coords.w) > 0){
-			var rx = 100 / coords.w;
-			var ry = 100 / coords.h;
+			var rx = 254 / coords.w;
+			var ry = 254 / coords.h;
 
 			jQuery('#image-preview').css({
-				width: Math.round(rx * 500) + 'px',
-				height: Math.round(ry * 370) + 'px',
+				width: Math.round(rx * $('#preview-large').css('width').split("px")[0]) + 'px',
+				height: Math.round(ry * $('#preview-large').css('height').split("px")[0]) + 'px',
 				marginLeft: '-' + Math.round(rx * coords.x) + 'px',
 				marginTop: '-' + Math.round(ry * coords.y) + 'px'
 			});
