@@ -44,7 +44,7 @@ class SimpleImage {
 	$thumbSize = 254;
 	$thumb = imagecreatetruecolor($thumbSize, $thumbSize);
 	imagecopyresampled($thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
-	$this->image = $this->thumb;
+	$this->image = $thumb;
    }
    
    function save($filename, $image_type=IMAGETYPE_JPEG, $compression=75, $permissions=null) {
