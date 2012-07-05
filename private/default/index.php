@@ -31,7 +31,7 @@
 			$fileError = false;
 		}else $fileError = true;
 		
-		if(!fileError){
+		if(!$fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
 			include('private/php_scripts/SimpleImage.php');
 			$newpath = 'imgs/' . $username . '.' . $ext;
