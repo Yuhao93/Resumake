@@ -296,15 +296,15 @@
 	</div>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
-	var x, y, width, height;
+	var x = 0, y = 0, width = 254, height = 254;
 	function showPreview(coords){
 		if (parseInt(coords.w) > 0){
 			var rx = 254 / coords.w;
 			var ry = 254 / coords.h;
-			var x = Math.round(rx * coords.x);
-			var y = Math.round(ry * coords.y);
-			var width = Math.round(rx * $('#preview-large').css('width').split("px")[0]);
-			var height = Math.round(ry * $('#preview-large').css('height').split("px")[0]);
+			x = Math.round(rx * coords.x);
+			y = Math.round(ry * coords.y);
+			width = Math.round(rx * $('#preview-large').css('width').split("px")[0]);
+			height = Math.round(ry * $('#preview-large').css('height').split("px")[0]);
 			jQuery('#image-preview').css({
 				width: width + 'px',
 				height: height + 'px',

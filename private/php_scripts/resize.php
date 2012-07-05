@@ -5,7 +5,7 @@
 	$x = $_POST['y'];
 	$width = $_POST['width'];
 	$height = $_POST['height'];
-	$path = '../../../imgs/' . $file;
+	$path = '../../imgs/' . $file;
 	$image = new SimpleImage();
 	$image->load($path);
 	$image->crop($x, $y, $width, $height);
