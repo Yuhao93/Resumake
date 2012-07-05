@@ -55,9 +55,9 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title><?php echo $user->name?></title><!--
+	<title><?php echo $user->name?></title>
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>-->
+	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/jquery.Jcrop.css"></link>
@@ -65,6 +65,9 @@
 	<style type="text/css">
 	body{
 		padding-top:60px;
+	}
+	img{
+		max-width:none;
 	}
 	</style>
 </head>
@@ -265,18 +268,17 @@
 			</div>
 		</div>
 	</div>
-	<!--
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>-->
+	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		<?php 
 			if($fileUploaded){
-				echo "/*$('#editimagemodal').modal('show');*/";
+				echo "$('#editimagemodal').modal('show');";
 				echo "jQuery(function(){";
 				echo "  jQuery('#preview-large').Jcrop();";
 				echo "});";
 			}
-		 ?>/*
+		 ?>
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
@@ -319,7 +321,7 @@
 				$('#info-email').html(info.email);
 				$('#info-phone').html('&nbsp&nbspPhone Number: ' + info.phone);
 			});
-		});*/
+		});
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
 	var uid = <?php echo $uid ?>;
