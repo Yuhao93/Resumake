@@ -276,7 +276,7 @@
 				echo "  jQuery('#preview-large').Jcrop();";
 				echo "});";
 			}
-		 ?>
+		 ?>/*
 		$("#btn-logout").click(function(){
 			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
@@ -319,7 +319,7 @@
 				$('#info-email').html(info.email);
 				$('#info-phone').html('&nbsp&nbspPhone Number: ' + info.phone);
 			});
-		});
+		});*/
 	});
 	var info = <?php if($user_info)echo $user->info;else echo '{}' ?>;
 	var uid = <?php echo $uid ?>;
