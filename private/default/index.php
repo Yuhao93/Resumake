@@ -157,21 +157,21 @@
 						<button type="button" class="close" data-dismiss="modal">x</button>
 						<h3>Crop Your Profile Image</h3>
 					</div>
-					<div class="modal-body">
-						<div style="width:254px;height:254px;overflow:hidden;">
+					<div class="modal-body row">
+						<div class="span6" style="width:254px;height:254px;overflow:hidden;">
 							<?php 
 								if($fileUploaded && !$fileError){
 									echo '<img src="' . $newpath . '" id="image-preview"/>';
 								}
 							?>
 						</div>
-						<?php 
-							if($fileUploaded && !$fileError){
-								echo '<img src="' . $newpath . '" id="preview-large"/>';
-							}
-						?>
-						<br>
-						
+						<div class="span6">
+							<?php 
+								if($fileUploaded && !$fileError){
+									echo '<img src="' . $newpath . '" id="preview-large"/>';
+								}
+							?>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
