@@ -44,7 +44,6 @@ class SimpleImage {
 	$thumbSize = 254;
 	$thumb = imagecreatetruecolor($thumbSize, $thumbSize);
 	imagecopyresampled($thumb, $this->image, 0, 0,$x, $y, $thumbSize, $thumbSize, $width, $height);
-	//imagecopyresampled($thumb, $this->image, 0, 0,105,105, 254, 254, 149, 149);
 	$this->image = $thumb;
    }
    
