@@ -55,9 +55,9 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title><?php echo $user->name?></title>
+	<title><?php echo $user->name?></title><!--
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/jquery.Jcrop.css"></link>
@@ -265,8 +265,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<!--
+	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>-->
 	<script type="text/javascript">
 	$(document).ready(function(){
 		<?php 
