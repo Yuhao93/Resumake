@@ -81,7 +81,7 @@
 	</style>
 </head>
 <body>
-	<div class="modal hide span12" id="editimagemodal">
+	<center><div class="modal hide span12" id="editimagemodal">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">x</button>
 			<h3>Crop Your Profile Image</h3>
@@ -107,7 +107,8 @@
 			<a href="#" class="btn btn-primary" data-dismiss="modal">Done</a>
 		</div>
 	</div> 
-
+	</center>
+	
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
