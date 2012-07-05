@@ -14,7 +14,8 @@
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
-	$user = $db->getUserByUsername(str_replace('.php', '', basename(__FILE__)));
+	$username = str_replace('.php', '', basename(__FILE__));
+	$user = $db->getUserByUsername($username);
 		
 	if($user)		
 		$user_info = json_decode($user->info);
@@ -104,9 +105,8 @@
 						<h3>Upload Your Profile Picture</h3>
 					</div>
 					<div class="modal-body">
-						<form class="well" enctype="multipart/form-data" action="" method="post">
+						<form class="well" enctype="multipart/form-data" action="<?php echo $username . '.php'?>" method="post">
 							<input type="file" name="img"/>
-							<input type="hidden" name="uid" value="<?php echo $uid?>"/>
 							<br>
 							<input type="submit" name="submit" value="submit" class="btn btn-primary"/>
 						</form>
