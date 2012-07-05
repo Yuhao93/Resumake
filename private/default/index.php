@@ -22,12 +22,33 @@
 	else $user_info = json_decode('{}');
 
         if(sizeof($_FILES) != 0){
+		include('private/php_scripts/SimpleImage.php');
 		$md5uid = md5($uid);
 		$name = $_FILES['img']['name'];
 		$tmp = $_FILES['img']['tmp_name'];
 		$newpath = 'imgs/' . $md5uid . '-' . $name;
 		move_uploaded_file($tmp,$newpath);
 		$fileUploaded = true;
+
+		$image = new SimpleImage();
+		$image->load($newpath);
+		$width_ratio = 512/$image->getWidth();
+		$height_ratio = 512/$image->getHeight();
+
+		if($width_ratio < 1 && $height_ratio < 1){
+			if($width_ratio > $height_ratio)
+				$image->resizeToHeight(512);
+			else $image->resizeToWidth(512);
+		}else if($width_ratio < 1){
+			$image->resizeToWidth(512);
+		}else if($height_ratio < 1){
+			$image->resizeToHeight(512);
+		}else{
+			$noneed = true;
+		}
+		if(!$noneed){
+			$image->save($newpath);
+		}
 	}
 ?>
 
@@ -126,7 +147,7 @@
 						<div class="thumbnail">
 						<?php 
 							if($fileUploaded){
-								echo '<img src="' . $newpath . '" width="254" height="254">';
+								echo '<img src="' . $newpath . '">';
 							}
 						?>
 						</div>
