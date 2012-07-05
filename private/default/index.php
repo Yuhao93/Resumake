@@ -79,7 +79,8 @@
 		max-width:none;
 	}
 	.center-modal{
-		left:0px;
+		margin-left:auto;
+		margin-right:auto;
 	}
 	</style>
 </head>
