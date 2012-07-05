@@ -5,6 +5,7 @@
 <?php
 	$uid;
 	$fileUploaded = false;
+	$fileError = false;
 	session_start();
 	if(!isset($_COOKIE['remember']) && !isset($_SESSION['uid'])){
 		header('Location: /');
@@ -21,33 +22,42 @@
 		$user_info = json_decode($user->info);
 	else $user_info = json_decode('{}');
 
-        if(sizeof($_FILES) != 0){
-		include('private/php_scripts/SimpleImage.php');
-		$md5uid = md5($uid);
+	if(sizeof($_FILES) != 0){
 		$name = $_FILES['img']['name'];
-		$tmp = $_FILES['img']['tmp_name'];
-		$newpath = 'imgs/' . $md5uid . '-' . $name;
-		move_uploaded_file($tmp,$newpath);
-		$fileUploaded = true;
+		
+		$a = getimagesize($name);
+		$image_type = $a[2];
+		if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP))){
+			fileError = false;
+		}else fileError = true;
+		
+		if(!fileError){
+			$ext = pathinfo($name, PATHINFO_EXTENSION);
+			include('private/php_scripts/SimpleImage.php');
+			$tmp = $_FILES['img']['tmp_name'];
+			$newpath = 'imgs/' . $username . '.' . $ext;
+			move_uploaded_file($tmp,$newpath);
+			$fileUploaded = true;
 
-		$image = new SimpleImage();
-		$image->load($newpath);
-		$width_ratio = 512/$image->getWidth();
-		$height_ratio = 512/$image->getHeight();
+			$image = new SimpleImage();
+			$image->load($newpath);
+			$width_ratio = 512/$image->getWidth();
+			$height_ratio = 512/$image->getHeight();
 
-		if($width_ratio < 1 && $height_ratio < 1){
-			if($width_ratio > $height_ratio)
+			if($width_ratio < 1 && $height_ratio < 1){
+				if($width_ratio > $height_ratio)
+					$image->resizeToHeight(512);
+				else $image->resizeToWidth(512);
+			}else if($width_ratio < 1){
+				$image->resizeToWidth(512);
+			}else if($height_ratio < 1){
 				$image->resizeToHeight(512);
-			else $image->resizeToWidth(512);
-		}else if($width_ratio < 1){
-			$image->resizeToWidth(512);
-		}else if($height_ratio < 1){
-			$image->resizeToHeight(512);
-		}else{
-			$noneed = true;
-		}
-		if(!$noneed){
-			$image->save($newpath);
+			}else{
+				$noneed = true;
+			}
+			if(!$noneed){
+				$image->save($newpath);
+			}
 		}
 	}
 ?>
