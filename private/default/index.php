@@ -266,13 +266,13 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.js.js"></script>
+	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		<?php 
 			if($fileUploaded){
 				echo "$('#editimagemodal').modal('show');";
-				echo "$('#preview-large').Jcrop()";
+				echo "$('#preview-large').Jcrop();";
 			}
 		 ?>
 		$("#btn-logout").click(function(){
