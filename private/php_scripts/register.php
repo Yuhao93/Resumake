@@ -40,7 +40,7 @@
 Thank you for registering for Resumake!
 		
 Please confirm your account by clicking on this link:
-http://resumake.thegbclub.com/confirm?id=$confirmation_code
+http://resumake.thegbclub.com/confirm/?id=$confirmation_code
 		
 Thank you,
 The Resumake Team

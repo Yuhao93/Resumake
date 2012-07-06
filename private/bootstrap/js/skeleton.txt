@@ -1,0 +1,72 @@
+###################################
+# Your basic information
+###################################
+Name:
+Position:
+Statement:
+
+###################################
+# Contact Information
+###################################
+Address:
+City:
+State:
+Zip:
+Phone-Number:
+Email:
+
+###################################
+# Education
+# To add additional Educations
+#   copy and paste the 
+#   following five lines
+# To add extra awards
+#   add the line
+#   Award:
+###################################
+School:
+Degree:
+Start-Date:
+End-Date:
+
+###################################
+# Skills
+# To add additional Skills 
+#   copy and paste the 
+#   following three lines
+###################################
+Skill-Category:
+Skill-Name:
+Skill-Description:
+
+###################################
+# Experience
+#   To add additional 
+#   experiences copy and paste
+#   the following few lines
+# To add additional Experience 
+#   facts, add the line
+#   Experience-Fact:
+# To make a link add the lines
+#   Experience-Link-Name:
+#   Experience-Link:
+###################################
+Experience-Title:
+Experience-Start-Date:
+Experience-End-Date:
+Experience-Group:
+
+###################################
+# Activity
+#   To add additional
+#   Activities, copy and paste
+#   the following lines
+# To add facts, add the line
+#   Activity-Fact:
+# To add links, add the lines
+#   Activity-Link-Name:
+#   Activity-Link:
+###################################
+Activity-Title: 
+Activity-Start-Date: 
+Activity-End-Date: 
