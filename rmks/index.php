@@ -48,7 +48,7 @@
 					if(sizeof($educationInfo) != 0)
 						echo '<li class="nav-header"><a href="#Education"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Education</h4></a></li>';
 					for($i = 0; $i < sizeof($educationInfo); $i++){
-						echo '<li><a href="#education' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $educationInfo[$i]->school . '</a></li>';
+						echo '<li><a href="#education' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $educationInfo[$i]['school'] . '</a></li>';
 					}
 					
 					if(sizeof($skillInfo) != 0)
