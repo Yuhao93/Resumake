@@ -255,7 +255,7 @@
 				for($i = 0; $i < sizeof($skillInfo); $i++){
 					for($j = 0; $j < sizeof($skillInfo[$i]->skills); $j ++){
 						$skill = $skillInfo[$i]->skills[$j];
-						echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill->name . '", content:"' . $skill->description . '",placement:'left'});';
+						echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill->name . '", content:"' . $skill->description . '",placement:"left"});' . '\n';
 					}
 				}
 			?>
