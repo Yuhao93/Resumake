@@ -103,21 +103,24 @@
 		</div>
     </div>
 	<center>
-	<div class="modal hide span10 center-modal offset1" id="editimagemodal">
+	<div class="modal hide span12 center-modal offset1" id="editimagemodal">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">x</button>
 			<h3>Crop Your Profile Image</h3>
 		</div>
 		<div class="modal-body row">
-			<div class="span6" style="width:254px;height:254px;overflow:hidden;">
+			<div class="span4 pull-left">
 				<h3>Profile Image Preview</h3>
+				<br><br><br>
+				<div style="width:254px;height:254px;overflow:hidden;">
 				<?php 
 					if($fileUploaded && !$fileError){
 						echo '<img src="' . $newpath . '" id="image-preview"/>';
 					}
 				?>
+				</div>
 			</div>
-			<div class="span6">
+			<div class="span6 pull-right">
 				<?php 
 					if($fileUploaded && !$fileError){
 						echo '<img src="' . $newpath . '" id="preview-large"/>';
@@ -282,7 +285,7 @@
 				</div>
 			
 				<h3>My Resumes</h3>
-				<a href="#" class="btn-primary btn btn-large">Add New Resume</a>
+				<a href="make/" class="btn-primary btn btn-large">Add New Resume</a>
 				<table class="table table-striped">
 					<thead>
 						<th>Resume</th>
@@ -333,7 +336,7 @@
 			});
 		});
 		$('#img-edit-done').click(function(){
-			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext}, function(data){
+			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
 				$('#profile-img').attr('src', data);
 			});
 		});

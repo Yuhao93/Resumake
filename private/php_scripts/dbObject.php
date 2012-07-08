@@ -34,6 +34,12 @@ class dbObject {
 		$sql = "INSERT INTO users (name, password, email, username, confirmation_code) VALUES ('$name', '$password', '$email', '$username', '$confirmation')";
 		return mysql_query($sql);
 	}
+
+	public function addImagePathByUsername($path, $username){
+		$imgpath = addslashes($path);
+		$mysql = "UPDATE users SET imagepath='$imgpath' WHERE username='$username'";
+		return mysql_query($mysql);
+	}
 	
 	public function confirmUser($uid){
 		$user = $this->getUserById($uid);
