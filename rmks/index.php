@@ -145,90 +145,97 @@
 				for($i = 0; $i < sizeof($educationInfo); $i ++){
 					$education = $educationInfo[$i];
 					$awards = $education->awards;
-					echo '<section id="education' . $i . '"></section>' . '\n';
-					echo '<div class="well">' . '\n';
-					echo '<h3>' . $education->school . '</h3>' . '\n';
-					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education->degree . '</strong>&nbsp;-&nbsp;' . $education->startDate . ' - ' . $education->endDate . '</p>' . '\n';
+					echo '<section id="education' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $education->school . '</h3>';
+					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education->degree . '</strong>&nbsp;-&nbsp;' . $education->startDate . ' - ' . $education->endDate . '</p>';
 					for($j = 0; $j < sizeof($awards); $j ++)
-						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>' . '\n';
+						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
 			}
 			
 			if(sizeof($skillInfo) != 0){
-				echo '<section id="Skills"></section><div class="row-fluid"><h2 class="float-down">Skills</h2>' . '\n';
+				echo '<section id="Skills"></section><div class="row-fluid"><h2 class="float-down">Skills</h2>';
 				for($i = 0; $i < sizeof($skillInfo); $i ++){
-					echo '<section id="skill' . $i . '"></section>' . '\n';
-					echo '<div class="well">' . '\n';
-					echo '<h3>' . $skillInfo[$i]->category . '</h3>' . '\n';
-					echo '<ul class="nav nav-tabs nav-stacked">' . '\n';
+					echo '<section id="skill' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $skillInfo[$i]->category . '</h3>';
+					echo '<ul class="nav nav-tabs nav-stacked">';
 					for($j = 0; $j < sizeof($skillInfo[$i]->skills); $j++){
-						echo '<li><a id="skill' . $i . '_' . $j . '">' . $skillInfo[$i]->skills[$j]->name . '</a></li>' . '\n';
+						echo '<li><a id="skill' . $i . '_' . $j . '">' . $skillInfo[$i]->skills[$j]->name . '</a></li>';
 					}
-					echo '</ul>' . '\n';
+					echo '</ul>';
+					echo '</div>';
 				}
+				echo '<hr></div>';
 			}
 			
 			if(sizeof($experienceInfo) != 0){
-				echo '<section id="Experience"></section>' . '\n';
-				echo '<div class="row-fluid">' . '\n';
-				echo '<h2 class="float-down">Experience</h2>' . '\n';
+				echo '<section id="Experience"></section>';
+				echo '<div class="row-fluid">';
+				echo '<h2 class="float-down">Experience</h2>';
 				for($i = 0; $i < sizeof($experienceInfo); $i ++){
-					echo '<section id="experience' . $i . '"></section>' . '\n';
-					echo '<div class="well">' . '\n';
-					echo '<h3>' . $experienceInfo[$i]->title . ' ' . $experienceInfo[$i]->startDate . ' - ' . $experienceInfo[$i]->endDate . '</h3>' . '\n';
-					echo $experienceInfo[$i]->group . '\n';
-					echo '<ul>' . '\n';
+					echo '<section id="experience' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $experienceInfo[$i]->title . ' ' . $experienceInfo[$i]->startDate . ' - ' . $experienceInfo[$i]->endDate . '</h3>';
+					echo $experienceInfo[$i]->group;
+					echo '<ul>';
 					$isLink = false;
 					for($j = 0; $j < sizeof($experienceInfo[$i]->items); $j++){
 						$item = $experienceInfo[$i]->items[$j];
 						if($item->type == 'fact'){
 							if($isLink){
-								echo '</ul>' . '\n';
+								echo '</ul>';
 							}
-							echo '<li>' . $item->desc . '</li>' . '\n';
+							echo '<li>' . $item->desc . '</li>';
 							$isLink = false;
 						}else if($item->type == 'link'){
 							if(!$isLink){
-								echo '<ul class="nav nav-tabs nav-stacked">' . '\n';
+								echo '<ul class="nav nav-tabs nav-stacked">';
 							}
-							echo '<li><a href="' . $item->link . '">' . $link->name . '</a></li>' . '\n';
+							echo '<li><a href="' . $item->link . '">' . $link->name . '</a></li>';
 							$isLink = true;
 						}
 					}
+					echo '</ul>';
+					echo '</div>';
 				}
-				echo '<hr></div>' . '\n';
+				echo '<hr></div>';
 			}
 			
 			if(sizeof($activityInfo) != 0){
-				echo '<section id="Activities"></section>' . '\n';
-				echo '<div class="row-fluid">' . '\n';
-				echo '<h2 class="float-down">Activities</h2>' . '\n';
+				echo '<section id="Activities"></section>';
+				echo '<div class="row-fluid">';
+				echo '<h2 class="float-down">Activities</h2>';
 				for($i = 0; $i < sizeof($activityInfo); $i ++){
-					echo '<section id="activity' . $i . '"></section>' . '\n';
-					echo '<div class="well">' . '\n';
-					echo '<h3>' . $activityInfo[$i]->title . '</h3>' . '\n';
+					echo '<section id="activity' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $activityInfo[$i]->title . '</h3>';
 					$isLink = false;
+					echo '<ul>';
 					for($j = 0; $j < sizeof($activityInfo[$i]->items); $j++){
 						$item = $activityInfo[$i]->items[$j];
 						if($item->type == 'fact'){
 							if($isLink){
-								echo '</ul>' . '\n';
+								echo '</ul>';
 							}
-							echo '<li>' . $item->desc . '</li>' . '\n';
+							echo '<li>' . $item->desc . '</li>';
 							$isLink = false;
 						}else if($item->type == 'link'){
 							if(!$isLink){
-								echo '<ul class="nav nav-tabs nav-stacked">' . '\n';
+								echo '<ul class="nav nav-tabs nav-stacked">';
 							}
-							echo '<li><a href="' . $item->link . '">' . $link->name . '</a></li>' . '\n';
+							echo '<li><a href="' . $item->link . '">' . $link->name . '</a></li>';
 							$isLink = true;
 						}
 					}
+					echo '</ul>';
+					echo '</div>';
 				}
-				echo '<hr>' . '\n';
-				echo '</div>' . '\n';
+				echo '<hr>';
+				echo '</div>';
 			}
 		?>	
 		</div>
