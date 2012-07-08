@@ -24,15 +24,15 @@
 <html lang="en">
 <head>
 	<title>Resumake | Online Resumes</title>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 </head>
 <body>
 	<br>
 	<div class="row">
 		<div class="page-header">
 			<h1 class="offset1">
-			<img src="private/imgs/logo.png"></img>
+			<img src="../private/imgs/logo.png"></img>
 			<small>Here's an idea, let's give everyone an online resume, for free.</small>
 			</h1>
 		</div>
@@ -62,7 +62,7 @@
 	?>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			setTimeout('redirect()', 3500);

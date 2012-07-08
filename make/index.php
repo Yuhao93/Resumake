@@ -1,20 +1,19 @@
 <?php
 	session_start();
 	$uid;
-	if(isset($_SESSION['uid']))
+	if(isset($_SESSION['uid'])){
 		$uid = $_SESSION['uid'];
-	else if(isset($_COOKIE['remember']){
+	}else if(isset($_COOKIE['remember'])){
 		$_SESSION['uid'] = $_COOKIE['remember'];
 		$uid = $_SESSION['uid'];
 	}
 	else{
-	
 	}
 	include_once('../private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
 	
-	$user = $db->getUserByConfirmationCode($uid);
+	$user = $db->getUserById($uid);
 ?>
 
 
@@ -22,10 +21,10 @@
 <html lang="en">
 <head>
 	<title>Resumaker</title>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/jquery.Jcrop.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/jquery.Jcrop.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/codemirror.css">
 	
 	<style type="text/css">
 	body{
@@ -58,7 +57,7 @@
 			<div class="container-fluid">
 				<div class="nav-collapse">
 					<a class="brand" href="../<?php echo $user->username?>">
-						<?php echo $user->username?>
+						<?php echo $user->name?>
 					</a>
 				</div>
 				<ul class="nav pull-right">
@@ -166,10 +165,10 @@ Activity-End-Date: </textarea>
 		
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.min.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
-	<script src="private/bootstrap/js/codemirror.js"></script>
-    <script src="private/bootstrap/js/resumakeformat.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/jquery.Jcrop.min.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/codemirror.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/resumakeformat.js"></script>
 	<script>
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
