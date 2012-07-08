@@ -1,7 +1,6 @@
 //Copyright Yuhao Ma 2012
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,11 +21,8 @@ public class Parser{
 	public static void main(String[] args) throws Exception{
 		String fileName = args[0];
 		BufferedReader br = new BufferedReader(new FileReader("../../rmks/" + fileName));
-		PrintWriter pw = new PrintWriter("out.txt");
-		pw.println(parse(br));
+		System.out.println(parse(br));
 		br.close();
-		pw.flush();
-		pw.close();
 	}
 	
 	//Parse, given a buffered reader of the file

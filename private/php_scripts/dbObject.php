@@ -168,6 +168,14 @@ class dbObject {
 		return stripslashes($row['content']);
 	}
 	
+	public function addResumeByUid($uid, $content, $name){
+		$content = addslashes($content);
+		$name = addslashes($name);
+	
+		$sql = "INSERT INTO resume (uid, content, name) VALUES ('$uid', '$content', '$name')";
+		return mysql_query($sql);
+	}
+	
 	private function parseTimestamp($timestamp) {
 		return strtotime($timestamp);	
     } 

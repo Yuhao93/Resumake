@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class JsonObject{
 	//The different parts of the resume
-	//We'll recursively add these parts together to build the json
+	//We\"ll recursively add these parts together to build the json
 	private BasicInfo basicInfo;
 	private ContactInfo contactInfo;
 	private ArrayList<EducationInfo> educationInfo = new ArrayList<EducationInfo>();
@@ -41,27 +41,27 @@ public class JsonObject{
 	
 	//Output Json
 	public String toString(){
-		String str = "{'basicInfo':" + basicInfo + ", 'contactInfo':" + contactInfo + ", 'educationInfo':[";
+		String str = "{\"basicInfo\":" + basicInfo + ", \"contactInfo\":" + contactInfo + ", \"educationInfo\":[";
 		for(int i = 0; i < educationInfo.size(); i++){
 			str += educationInfo.get(i);
 			if(i != educationInfo.size() - 1)
 				str += ",";
 		}
-		str += "], 'skillInfo':[";
+		str += "], \"skillInfo\":[";
 		
 		for(int i = 0; i < skillInfo.size(); i++){
 			str += skillInfo.get(i);
 			if(i != skillInfo.size() - 1)
 				str += ",";
 		}
-		str += "], 'experienceInfo':[";
+		str += "], \"experienceInfo\":[";
 		
 		for(int i = 0; i < experienceInfo.size(); i++){
 			str += experienceInfo.get(i);
 			if(i != experienceInfo.size() - 1)
 				str += ",";
 		}
-		str += "], 'activityInfo':[";
+		str += "], \"activityInfo\":[";
 		
 		for(int i = 0; i <activityInfo.size(); i++){
 			str += activityInfo.get(i);
@@ -84,7 +84,7 @@ public class JsonObject{
 			this.statement = statement;
 		}
 		public String toString(){
-			return "{'name':'" + name + "', 'position':'" + position + "', 'statement':'" + statement + "'}";
+			return "{\"name\":\"" + name + "\", \"position\":\"" + position + "\", \"statement\":\"" + statement + "\"}";
 		}
 	}
 	
@@ -111,7 +111,7 @@ public class JsonObject{
 			this.email = email;
 		}
 		public String toString(){
-			return "{'address':'" + address + "', 'city':'" + city + "','state':'" + state + "', 'zip':'" + zip + "', 'phoneNumber':'" + phoneNumber + "', 'email':'" + email + "'}";
+			return "{\"address\":\"" + address + "\", \"city\":\"" + city + "\",\"state\":\"" + state + "\", \"zip\":\"" + zip + "\", \"phoneNumber\":\"" + phoneNumber + "\", \"email\":\"" + email + "\"}";
 		}
 	}
 	
@@ -133,9 +133,9 @@ public class JsonObject{
 			
 		}
 		public String toString(){
-			String str = "{'school':'" + school + "', 'degree':'" + degree + "', 'startDate':'" + startDate + "', 'endDate':'" + endDate + "', 'awards':[";
+			String str = "{\"school\":\"" + school + "\", \"degree\":\"" + degree + "\", \"startDate\":\"" + startDate + "\", \"endDate\":\"" + endDate + "\", \"awards\":[";
 			for(int i = 0; i < awards.size(); i++){
-				str += "'" + awards.get(i) + "'";
+				str += "\"" + awards.get(i) + "\"";
 				if(i != awards.size() - 1)
 					str += ",";
 			}
@@ -156,7 +156,7 @@ public class JsonObject{
 			}
 		}
 		public String toString(){
-			String str = "{'category':'" + category + "', 'skills':[";
+			String str = "{\"category\":\"" + category + "\", \"skills\":[";
 			for(int i = 0; i < skills.size(); i++){
 				str += skills.get(i);
 				if(i != skills.size() - 1)
@@ -173,7 +173,7 @@ public class JsonObject{
 				this.description = description;
 			}
 			public String toString(){
-				return "{'name':'" + name + "', 'description':'" + description + "'}";
+				return "{\"name\":\"" + name + "\", \"description\":\"" + description + "\"}";
 			}
 		}
 	}
@@ -203,9 +203,9 @@ public class JsonObject{
 			}
 		}
 		public String toString(){
-			String str = "{'title':'" + title + "', 'startDate':'" + startDate + "', 'endDate':'" + endDate + "', 'group':'" + group + "', 'items':[";
+			String str = "{\"title\":\"" + title + "\", \"startDate\":\"" + startDate + "\", \"endDate\":\"" + endDate + "\", \"group\":\"" + group + "\", \"items\":[";
 			for(int i = 0; i < exp.size(); i++){
-				str += exp.toString();
+				str += exp.get(i).toString();
 				if(i != exp.size() - 1)
 					str += ",";
 			}
@@ -219,7 +219,7 @@ public class JsonObject{
 				this.desc = desc;
 			}
 			public String toString(){
-				return "{'type':'fact', 'desc':'" + desc + "'}";
+				return "{\"type\":\"fact\", \"desc\":\"" + desc + "\"}";
 			}
 		}
 		private class ExperienceLink extends ExperienceLine{
@@ -230,7 +230,7 @@ public class JsonObject{
 				this.link = link;
 			}
 			public String toString(){
-				return "{'type':'link', 'name':'" + name + "', 'link':'" + link + "'}";
+				return "{\"type\":\"link\", \"name\":\"" + name + "\", \"link\":\"" + link + "\"}";
 			}
 		}
 	}
@@ -260,9 +260,9 @@ public class JsonObject{
 			}
 		}
 		public String toString(){
-			String str = "{'title':'" + title + "', 'startDate':'" + startDate + "', 'endDate':'" + endDate + "', 'items':[";
+			String str = "{\"title\":\"" + title + "\", \"startDate\":\"" + startDate + "\", \"endDate\":\"" + endDate + "\", \"items\":[";
 			for(int i = 0; i < exp.size(); i++){
-				str += exp.toString();
+				str += exp.get(i).toString();
 				if(i != exp.size() - 1)
 					str += ",";
 			}
@@ -276,7 +276,7 @@ public class JsonObject{
 				this.desc = desc;
 			}
 			public String toString(){
-				return "{'type':'fact', 'desc':'" + desc + "'}";
+				return "{\"type\":\"fact\", \"desc\":\"" + desc + "\"}";
 			}
 		}
 		private class ActivityLink extends ActivityLine{
@@ -287,7 +287,7 @@ public class JsonObject{
 				this.link = link;
 			}
 			public String toString(){
-				return "{'type':'link', 'name':'" + name + "', 'link':'" + link + "'}";
+				return "{\"type\":\"link\", \"name\":\"" + name + "\", \"link\":\"" + link + "\"}";
 			}
 		}
 	}

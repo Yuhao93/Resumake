@@ -14,6 +14,7 @@
 	$db->connect();
 	
 	$user = $db->getUserById($uid);
+	$username = $user->username;
 ?>
 
 
@@ -79,7 +80,7 @@
 		<div class="row span12">
 		<br>
 			<span>Name of Your Resume</span>
-			<input type="text" placeholder="Resume Name">
+			<input id="resume-name" type="text" placeholder="Resume Name">
 		</div>
 		<div class="row span12">
 			<textarea id="code" name="code">###################################
@@ -159,7 +160,7 @@ Activity-End-Date: </textarea>
 		<div class="row span12">
 		<br>
 			<a href="#" class="span2 btn btn-primary btn-large">Preview</a>
-			<a href="#" class="span2 btn btn-primary btn-large">Save</a>
+			<a id="code-sumbit" href="#" class="span2 btn btn-primary btn-large">Save</a>
 			
 		</div>
 		
@@ -169,7 +170,20 @@ Activity-End-Date: </textarea>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/codemirror.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/resumakeformat.js"></script>
-	<script>
+	<script type="text/javascript">
+		<?php
+			echo 'var uid = ' . $uid . ';';
+			echo 'var username = "' . $username . '";';
+		?>
+		$(document).ready(function(){
+			$("#code-submit").click(function(){
+				var content = editor.getValue();
+				var name = $("#resume-name").attr("value");
+				$.post('..private/php_scripts/addResume.php', {'uid':uid, 'username':username, 'content':content, 'name':name}, function(data){
+					window.location.href = "../rmks/?uid=" + uid;
+				});
+			});
+		});
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
         matchBrackets: false,
