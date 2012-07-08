@@ -155,74 +155,11 @@ class dbObject {
 	
 	///////////////////////// FORMAT ///////////////////////////////////////////
 	
-	public function addFormat($uid, $content, $name){
-		$name = addslashes($name);
-		$content = addslashes($content);
-		$uid = addslashes($uid);
-		
-		$sql = "INSERT INTO formats (uid, content, name) VALUES ('$uid', '$content', '$name')";
-		return mysql_query($sql);
-	}
-	
-	public function getFormatByUid($uid){
-		$sql = "SELECT * FROM formats WHERE uid=$uid";
-		
+	public function getResumeByUid($uid){
+		$sql = "SELECT * FROM resume WHERE uid=$uid";
 		$result = mysql_query($sql);
-		
-		if ($result == FALSE || mysql_num_rows($result) < 1)
-			return FALSE;
-			
 		$row = mysql_fetch_array($result);
-		
-		$format = new format;	
-		$format->fid = stripslashes($row['fid']);
-		$format->name = stripslashes($row['name']);
-		$format->content = stripslashes($row['content']);
-		$format->date_created = stripslashes($row['date_created']);
-		$format->popularity = stripslashes($row['popularity']);
-	
-		return $user;
-	}
-	
-	public function getFormatByName($name){
-		$name = addslashes($name);
-		$sql = "SELECT * FROM formats WHERE name=$name";
-		
-		$result = mysql_query($sql);
-		
-		if ($result == FALSE || mysql_num_rows($result) < 1)
-			return FALSE;
-			
-		$row = mysql_fetch_array($result);
-		
-		$format = new format;	
-		$format->fid = stripslashes($row['fid']);
-		$format->name = stripslashes($row['name']);
-		$format->content = stripslashes($row['content']);
-		$format->date_created = stripslashes($row['date_created']);
-		$format->popularity = stripslashes($row['popularity']);
-	
-		return $user;
-	}
-	
-	public function getFormatByFid($fid){
-		$sql = "SELECT * FROM formats WHERE fid=$fid";
-		
-		$result = mysql_query($sql);
-		
-		if ($result == FALSE || mysql_num_rows($result) < 1)
-			return FALSE;
-			
-		$row = mysql_fetch_array($result);
-		
-		$format = new format;	
-		$format->fid = stripslashes($row['fid']);
-		$format->name = stripslashes($row['name']);
-		$format->content = stripslashes($row['content']);
-		$format->date_created = stripslashes($row['date_created']);
-		$format->popularity = stripslashes($row['popularity']);
-	
-		return $user;
+		return stripslashes($row['content']);
 	}
 	
 	private function parseTimestamp($timestamp) {
