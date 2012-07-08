@@ -1,6 +1,6 @@
 <?php
 	$uid = $_GET['uid'];
-	include_once('private/php_scripts/dbObject.php');
+	include_once('../private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
 	$resume = json_decode($db->getResumeByUid($uid), true);
@@ -63,7 +63,7 @@
 						echo '<li><a href="#experience' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $experienceInfo[$i]->title . '</a></li>';
 					}
 					
-					if(sizeo($activityInfo) != 0)
+					if(sizeof($activityInfo) != 0)
 						echo '<li class="nav-header"><a href="#Activity"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
 					for($i = 0; $i < sizeof($activityInfo); $i ++){
 						echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]->title . '</a></li>';
@@ -140,7 +140,7 @@
 			</div>			
 		
 		<?php 
-			if($sizeof($educationInfo) != 0){
+			if(sizeof($educationInfo) != 0){
 				echo '<section id="Education"></section><div class="row-fluid"><h2 class="float-down">Education</h2>';
 				for($i = 0; $i < sizeof($educationInfo); $i ++){
 					$education = $educationInfo[$i];
