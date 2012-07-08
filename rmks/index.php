@@ -75,10 +75,10 @@
 		
         <div class="span9">
           <div class="hero-unit">
-            <h1><?php echo $basicInfo->name;?></h1>
+            <h1><?php echo $basicInfo['name'];?></h1>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p>
 			<blockquote>
-				<h4><?php echo $basicInfo->statement;?></h4>
+				<h4><?php echo $basicInfo['statement'];?></h4>
 			</blockquote>    
 			</div>
 
@@ -195,7 +195,7 @@
 							if(!$isLink){
 								echo '<ul class="nav nav-tabs nav-stacked">';
 							}
-							echo '<li><a href="' . $item['link'] . '">' . $link['name'] . '</a></li>';
+							echo '<li><a href="' . $item['link'] . '">' . $item['name'] . '</a></li>';
 							$isLink = true;
 						}
 					}
@@ -227,7 +227,7 @@
 							if(!$isLink){
 								echo '<ul class="nav nav-tabs nav-stacked">';
 							}
-							echo '<li><a href="' . $item['link'] . '">' . $link['name'] . '</a></li>';
+							echo '<li><a href="' . $item['link'] . '">' . $item['name'] . '</a></li>';
 							$isLink = true;
 						}
 					}
@@ -260,9 +260,9 @@
 		$(document).ready(function(){
 			<?php
 				for($i = 0; $i < sizeof($skillInfo); $i++){
-					for($j = 0; $j < sizeof($skillInfo[$i]->skills); $j ++){
-						$skill = $skillInfo[$i]->skills[$j];
-						echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill->name . '", content:"' . $skill->description . '",placement:"left"});' . '\n';
+					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j ++){
+						$skill = $skillInfo[$i]['skills'][$j];
+						echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill['name'] . '", content:"' . $skill['description'] . '",placement:"left"});' . '\n';
 					}
 				}
 			?>
