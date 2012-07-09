@@ -13,12 +13,12 @@
 	}else{
 		$uid = $_SESSION['uid'];
 	}
-	include_once('private/php_scripts/dbObject.php');
+	include_once('../private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
 	$username = str_replace('.php', '', basename(__FILE__));
 	$user = $db->getUserByUsername($username);
-	$imgpath = $user->imagepath;	
+	$imgpath = '../' . $user->imagepath;	
 		
 	if($user)		
 		$user_info = json_decode($user->info);
@@ -35,8 +35,8 @@
 		
 		if(!$fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
-			include('private/php_scripts/SimpleImage.php');
-			$newpath = 'imgs/' . $username . '.' . $ext;
+			include('../private/php_scripts/SimpleImage.php');
+			$newpath = '../imgs/' . $username . '.' . $ext;
 			move_uploaded_file($tmp,$newpath);
 			$fileUploaded = true;
 
@@ -67,11 +67,11 @@
 <html lang="en">
 <head>
 	<title><?php echo $user->name?></title>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/jquery.Jcrop.css"></link>
+	<script type="text/javascript" src="../private/bootstrap/js/jquery.Jcrop.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/jquery.Jcrop.css"></link>
 	
 	<style type="text/css">
 	body{
@@ -142,7 +142,7 @@
 				</div>
 		
 				<div class="thumbnail">
-					<img src="<?php if($imgpath == '') echo 'private/default/me.jpg'; else echo $imgpath?>" width="254" height="254" alt="" id="profile-img">
+					<img src="<?php if($imgpath == '../') echo '../private/default/me.jpg'; else echo $imgpath?>" width="254" height="254" alt="" id="profile-img">
 					<br>
 					<br>
 					<center>
@@ -297,7 +297,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
 	var img_x = 0, img_y = 0, img_width = 254, img_height = 254;
 	function showPreview(coords){
@@ -331,13 +331,13 @@
 			}
 		?>
 		$("#btn-logout").click(function(){
-			$.post('private/php_scripts/logout.php', function(data){
+			$.post('../private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
 			});
 		});
 		$('#img-edit-done').click(function(){
-			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
-				$('#profile-img').attr('src', data);
+			$.post('../private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
+				$('#profile-img').attr('src', '../' + data);
 			});
 		});
 		$("#editinfo").modal({'show':false});
@@ -364,7 +364,7 @@
 			info.zip = $("#modal-zipcode").attr('value');
 			info.email = $("#modal-email").attr('value');
 			info.phone = $("#modal-phonenumber").attr('value');
-			$.post('private/php_scripts/updateInfo.php', {'uid':uid, 'info':info}, function(data) {
+			$.post('../private/php_scripts/updateInfo.php', {'uid':uid, 'info':info}, function(data) {
 				$('#info-age').html('&nbsp&nbspAge: ' + info.age);
 				$('#info-birthday').html('&nbsp&nbspBirthday: ' + info.birthday);
 				$('#info-gender').html('&nbsp&nbspGender: ' + info.gender);
