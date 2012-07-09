@@ -57,7 +57,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<div class="nav-collapse">
-					<a class="brand" href="../<?php echo $user->username?>">
+					<a class="brand" href="../users/<?php echo $user->username?>">
 						<?php echo $user->name?>
 					</a>
 				</div>
@@ -160,7 +160,7 @@ Activity-End-Date: </textarea>
 		<div class="row span12">
 		<br>
 			<a href="#" class="span2 btn btn-primary btn-large">Preview</a>
-			<a id="code-sumbit" href="#" class="span2 btn btn-primary btn-large">Save</a>
+			<a id="code-submit" href="#" class="span2 btn btn-primary btn-large">Save</a>
 			
 		</div>
 		
@@ -179,7 +179,7 @@ Activity-End-Date: </textarea>
 			$("#code-submit").click(function(){
 				var content = editor.getValue();
 				var name = $("#resume-name").attr("value");
-				$.post('..private/php_scripts/addResume.php', {'uid':uid, 'username':username, 'content':content, 'name':name}, function(data){
+				$.post('../private/php_scripts/addResume.php', {'uid':uid, 'username':username, 'content':content, 'name':name}, function(data){
 					window.location.href = "../rmks/?uid=" + uid;
 				});
 			});

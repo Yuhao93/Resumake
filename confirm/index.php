@@ -57,7 +57,7 @@
 	
 	<?php 
 		if(!$user_not_found)
-			echo '<div class="row"><div class="span8 offset2"><h2>You\'ll be redirected to your homepage in a few seconds</h2></div></div><br><div class="row"><div class="span8 offset2"><h2>Or Go Now </h2><a class="btn btn-primary btn-large" href="../' . $user->username . '">Go To Your Homepage</a></div></div>';
+			echo '<div class="row"><div class="span8 offset2"><h2>You\'ll be redirected to your homepage in a few seconds</h2></div></div><br><div class="row"><div class="span8 offset2"><h2>Or Go Now </h2><a class="btn btn-primary btn-large" href="../users/' . $user->username . '">Go To Your Homepage</a></div></div>';
 		else echo '<div class="row"><div class="span8 offset2"><h2>You\'ll be redirected to the homepage in a few seconds</h2></div></div><br><div class="row"><div class="span8 offset2"><h2>Go Back To The Homepage</h2><a class="btn btn-primary btn-large" href="../">Go Home</a></div></div>';
 	?>
 	
@@ -72,7 +72,7 @@
 				if($user_not_found)
 					echo '../';
 				else
-					echo '../' . $user->username;
+					echo '../users/' . $user->username;
 			?>';
 		}
 	</script>

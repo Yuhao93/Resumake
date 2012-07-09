@@ -1,0 +1,73 @@
+###################################
+# Your basic information
+###################################
+Name:Kevin C. Ng
+Position:
+Statement:
+
+###################################
+# Contact Information
+###################################
+Address:32 Austin Circle
+City:South Windsor
+State:CT
+Zip:06074
+Phone-Number:860-335-0009
+Email:ngkevin@bu.edu
+
+###################################
+# Education
+# To add additional Educations
+#   copy and paste the 
+#   following five lines
+# To add extra awards
+#   add the line
+#   Award:
+###################################
+School:Boston University
+Degree:BSBA
+Start-Date:September 2011
+End-Date:May 2015
+
+###################################
+# Skills
+# To add additional Skills 
+#   copy and paste the 
+#   following three lines
+###################################
+Skill-Category:
+Skill-Name:
+Skill-Description:
+
+###################################
+# Experience
+#   To add additional 
+#   experiences copy and paste
+#   the following few lines
+# To add additional Experience 
+#   facts, add the line
+#   Experience-Fact:
+# To make a link add the lines
+#   Experience-Link-Name:
+#   Experience-Link:
+###################################
+Experience-Title:Proxy Solicitation Intern
+Experience-Start-Date:May 29th 2012
+Experience-End-Date:August 29th 2012
+Experience-Group:Okapi Partners
+
+###################################
+# Activity
+#   To add additional
+#   Activities, copy and paste
+#   the following lines
+# To add facts, add the line
+#   Activity-Fact:
+# To add links, add the lines
+#   Activity-Link-Name:
+#   Activity-Link:
+###################################
+Activity-Title:BU Finance & Investment Club
+Activity-Start-Date:September 2011
+Activity-End-Date:Present 
+  Activity-Fact:Created financial models to determine main profit drivers of Community Health Systems; performed sensitivity analysis by adjusting inputs in the DCF model to determine cost management as a main driver

@@ -13,7 +13,7 @@
 			$_SESSION['uid'] = $_COOKIE['remember'];
 		}
 		$user = $db->getUserById($_COOKIE['remember']);
-		header('Location: /' .  $user->username) ;
+		header('Location: /users/' .  $user->username) ;
 	}
 ?>
 

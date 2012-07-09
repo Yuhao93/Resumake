@@ -77,7 +77,7 @@ function submit_register(){
 			var response = eval('(' + data + ')');
 			if(response.result == 'pass'){
 				var username = response.username;
-				window.location.href = '/' + username;
+				window.location.href = '/users/' + username;
 			}else if(response.result == 'fail'){
 				$('<div class="alert alert-error"><button class="close" data-dismiss="alert">×</button><strong>Oh No!</strong> Login Failed</div>').insertAfter("#login-submit");
 			}

@@ -12,14 +12,15 @@
 	//Write the raw resume data to the rmks folder
 	$file = '../../rmks/' . $username . '.rmks';
 	$fh = fopen($file, 'w');
-	fwrite($fh, $stringData);
+	fwrite($fh, $content);
 	fclose($fh);
 	
 	//Use a Java script to parse the raw data and return json
-	$json = exec('java ../java_scripts/Parser ../../rmks/' . $username . '.rmks', $output);
-	$finalOut = '';
-	for($i = 0; $i < sizeof($output); $i ++)
-		$finalOut .= $output[$i];
+	$execStr = 'java -Xmx64m -cp ../java_scripts Parser ' . $username . '.rmks';
+
+	exec($execStr, $output); 	
+
+	$finalOut = $output[0];
 		
 	$db->addResumeByUid($uid, $finalOut, $name);
 ?>

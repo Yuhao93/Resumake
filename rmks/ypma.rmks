@@ -1,0 +1,66 @@
+###################################
+# Your basic information
+###################################
+Name: Yuhao Ma
+Position: Position
+Statement: Statement
+
+###################################
+# Contact Information
+###################################
+Address:
+City:
+State:
+Zip:
+Phone-Number:
+Email: ypma@uci.edu
+
+###################################
+# Education
+# To add additional Educations
+#   copy and paste the 
+#   following five lines
+# To add extra awards
+#   add the line
+#   Award:
+###################################
+
+###################################
+# Skills
+# To add additional Skills 
+#   copy and paste the 
+#   following three lines
+###################################
+
+###################################
+# Experience
+#   To add additional 
+#   experiences copy and paste
+#   the following few lines
+# To add additional Experience 
+#   facts, add the line
+#   Experience-Fact:
+# To make a link add the lines
+#   Experience-Link-Name:
+#   Experience-Link:
+###################################
+Experience-Title: Google
+Experience-Start-Date: Dawn of Time
+Experience-End-Date: End of Time
+Experience-Group: Google
+Experience-Fact: Stuff
+Experience-Fact: Stuff2
+Experience-Link-Name: Google
+Experience-Link: http://www.google.com
+
+###################################
+# Activity
+#   To add additional
+#   Activities, copy and paste
+#   the following lines
+# To add facts, add the line
+#   Activity-Fact:
+# To add links, add the lines
+#   Activity-Link-Name:
+#   Activity-Link:
+###################################

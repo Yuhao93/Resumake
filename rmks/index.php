@@ -206,7 +206,7 @@
 			}
 			
 			if(sizeof($activityInfo) != 0){
-				echo '<section id="Activities"></section>';
+				echo '<section id="Activity"></section>';
 				echo '<div class="row-fluid">';
 				echo '<h2 class="float-down">Activities</h2>';
 				for($i = 0; $i < sizeof($activityInfo); $i ++){
