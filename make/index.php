@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$uid;
+	$uid = 34;
 	if(isset($_SESSION['uid'])){
 		$uid = $_SESSION['uid'];
 	}else if(isset($_COOKIE['remember'])){
@@ -182,7 +182,7 @@
 			<div id="education-container">
 			</div>
 			
-			<a href="#education-modal" data-toggle="modal" class="span2 btn btn-large">+ Add An Education</a>
+			<a href="#education-modal" data-toggle="modal" class="span2 btn btn-large" id="add-education-btn">+ Add An Education</a>
 		</div>
 		<div class="modal hide" id="education-modal">
 			<div class="modal-header">
@@ -234,7 +234,9 @@
 		<div class="row span12 well">
 			<h2>Skills</h2>
 			<hr>
-			<a href="#skill-modal" class="span2 btn btn-large" data-toggle="modal">+ Add A Category</a>
+			<div id="skill-container">
+			</div>
+			<a href="#skill-modal" class="span2 btn btn-large" data-toggle="modal" id="add-skill-btn">+ Add A Category</a>
 		</div>
 		<div class="modal hide" id="skill-modal">
 			<div class="modal-header">
@@ -243,7 +245,7 @@
 			</div>
 			<div class="modal-body">
 				<p class="span1">Category</p>
-				<input class="span3" type="text">
+				<input class="span3" type="text" id="skill-category">
 				<br>
 				<ul id="skill-list">
 				</ul>
@@ -267,7 +269,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Save</a>
+				<a href="#" class="btn btn-primary" data-dismiss="modal" id="skill-save">Save</a>
 			</div>
 		</div>
 		
@@ -415,80 +417,13 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/make-script.js"></script>
 	<script type="text/javascript">
-	function getFormattedDate(date){
-		var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		if(date == undefined || date.indexOf("-") == -1)
-			return "";
-		var year = date.split("-")[0];
-		var num = date.split("-")[1];
-		if(num.charAt(0) == '0')
-			num = num.substring(1);
-		var m = month[parseInt(num) - 1];
-		return m + " " + year;
-	}
-	function addAward(){
-		var award = $("#education-award-name").attr("value");
-		$("#education-award-name").attr("value", "");
-		$("#education-award-list").append('<li class="span3 education-award" id="award-' + pendingAwardCount + '">'+ award +
-			'<button class="close pull-right" id="award-' + pendingAwardCount + '">x</button></li>');
-		$("button#award-" + pendingAwardCount).click(function(){
-			var id = $(this).attr("id").substring(6);
-			$("li#award-" + id).remove();
-		});
-		pendingAwardCount++;
-	}
-	function saveEducation(){
-		var school = "" + $("#education-school").attr("value");
-		var degree = "" + $("#education-degree").attr("value");
-		var startDate = "" + $("#education-startDate").attr("value");
-		var endDate = "" + $("#education-endDate").attr("value");
-		var awards = new Array();
-		$(".education-award").each(function(index){
-			var text = $(this).text()
-			awards.push(text.substring(0, text.length - 1));
-		});
-		
-		$("#education-school").attr("value", "");
-		$("#education-degree").attr("value", "");
-		$("#education-startDate").attr("value", "");
-		$("#education-endDate").attr("value", "");
-		$("#education-award-list").html("");
-		
-		resume.educationInfo.push({'school':school, 'degree':degree, 'startDate':startDate, 'endDate':endDate, 'awards':awards});
-		
-		var appendableText = '<div class="education-object" id = "edu-obj-' + pendingEducationCount + '"><a class="close" id="education-delete-' 
-			+ pendingEducationCount + '">X</a>' + '<h3><a href="#">' + school + '</a></h3><p><strong>' + degree + '</strong> ' + getFormattedDate(startDate) 
-			+ ' - ' + getFormattedDate(endDate) + '</p>';
-		for(var i = 0; i < awards.length; i ++){
-			appendableText += '<p><strong>' + awards[i] + '</strong></p>';
-		}
-		appendableText += '</div>';
-		$("#education-container").append(appendableText);
-		$("#education-delete-" + pendingEducationCount).click(function(){
-			var id = $(this).attr("id").substring(17);
-			var index = -1;
-			$(".education-object").each(function(ind){
-				var edu_id = $(this).attr("id").substring(8);
-				if(edu_id == id)
-					index = ind;
-			});
-			if(index != -1)
-				resume.educationInfo.splice(index, 1);
-			$("#edu-obj-" + id).remove();
-		});
-		pendingEducationCount ++;
-	}
-	</script>
-	
-	<script type="text/javascript">
-	var resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
-	var pendingAwardCount = 0;
-	var pendingEducationCount = 0;
 	<?php
 		echo 'var uid = ' . $uid . ';';
 		echo 'var username = "' . $username . '";';
 	?>
+	
 	$(document).ready(function(){
 		$("#education-award-add").click(function(){
 			addAward();
@@ -496,6 +431,26 @@
 		$("#education-save").click(function(){
 			saveEducation();
 		});
+		$("#add-education-btn").click(function(){
+			if(educationEdit.isEdit){
+				$("#skill-category").attr("value", "");
+				$("#skill-list").html("");
+			}
+			educationEdit.isEdit = false;
+			educationEdit.awards = [];
+		});
+		
+		$("#skill-add").click(function(){
+			addSkill();
+		});
+		$("#skill-save").click(function(){
+			saveSkillCategory();
+		});
+		$("#add-skill-btn").click(function(){
+			skillEdit.isEdit = false;
+			skillEdit.skills = [];
+		});
+		
 		$("#code-submit").click(function(){
 			var content = editor.getValue();
 			var name = $("#resume-name").attr("value");
