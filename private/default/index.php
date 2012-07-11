@@ -285,7 +285,7 @@
 				</div>
 			
 				<h3>My Resumes</h3>
-				<a href="make/" class="btn-primary btn btn-large">Add New Resume</a>
+				<a href="../make/" class="btn-primary btn btn-large">Add New Resume</a>
 				<table class="table table-striped">
 					<thead>
 						<th>Resume</th>
