@@ -18,7 +18,7 @@
 	$db->connect();
 	$username = $_GET['uid'];
 	$user = $db->getUserByUsername($username);
-	$imgpath = '' . $user->imagepath;	
+	$imgpath = '../' . $user->imagepath;	
 		
 	if($user)		
 		$user_info = json_decode($user->info);
@@ -38,7 +38,7 @@
 		if(!$fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
 			include('private/php_scripts/SimpleImage.php');
-			$newpath = 'imgs/' . $username . '.' . $ext;
+			$newpath = '../imgs/' . $username . '.' . $ext;
 			
 			$fileUploaded = move_uploaded_file($tmp,$newpath);
 
@@ -69,11 +69,11 @@
 <html lang="en">
 <head>
 	<title><?php echo $user->name?></title>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/jquery.Jcrop.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/jquery.Jcrop.css"></link>
+	<script type="text/javascript" src="../private/bootstrap/js/jquery.Jcrop.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/jquery.Jcrop.css"></link>
 	
 	<style type="text/css">
 	body{
@@ -144,7 +144,7 @@
 				</div>
 		
 				<div class="thumbnail">
-					<img src="<?php if($imgpath == '') echo 'private/default/me.jpg'; else echo $imgpath?>" width="254" height="254" alt="" id="profile-img">
+					<img src="<?php if($imgpath == '../') echo '../private/default/me.jpg'; else echo $imgpath?>" width="254" height="254" alt="" id="profile-img">
 					<br>
 					<br>
 					<center>
@@ -287,7 +287,7 @@
 				</div>
 			
 				<h3>My Resumes</h3>
-				<a href="make/" class="btn-primary btn btn-large">Add New Resume</a>
+				<a href="/make/" class="btn-primary btn btn-large">Add New Resume</a>
 				<table class="table table-striped">
 					<thead>
 						<th>Resume</th>
@@ -299,7 +299,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
 	var img_x = 0, img_y = 0, img_width = 254, img_height = 254;
 	function showPreview(coords){
@@ -333,12 +333,12 @@
 			}
 		?>
 		$("#btn-logout").click(function(){
-			$.post('private/php_scripts/logout.php', function(data){
+			$.post('../private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
 			});
 		});
 		$('#img-edit-done').click(function(){
-			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
+			$.post('../private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
 				$('#profile-img').attr('src', '' + data);
 			});
 		});

@@ -28,6 +28,7 @@
 	
 </head>
 <body>
+	<div class="container">
 	<br>
 	<div class="row">
 		<div class="page-header">
@@ -37,8 +38,7 @@
 			</h1>
 		</div>
 	</div>
-	<br>
-	
+	<br>	
 	<div class="row">
 		<div class="modal hide" id="registermodal">
 			<div class="modal-header">
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 		
-		<div class="span6 offset2 columns">
+		<div class="span6 offset1 columns">
 			<div id="carousel" class="carousel slide">
 				<div class="carousel-inner">
 					<div class="item active">
@@ -141,6 +141,7 @@
 			
 		</div>
 		
+	</div>
 	</div>
 	<?php include "private/php_scripts/encryption.php" ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
