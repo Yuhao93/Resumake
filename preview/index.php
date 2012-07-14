@@ -12,7 +12,7 @@
         <br><br>
         <h2>Sign With Your Email For More Info</h2>
         <div class="row span12" style="position:relative;margin-left:0px;">
-            <input type="text" style="height:32px;width:100%;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email">
+            <input type="text" style="height:32px;width:950px;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email">
             <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:190px;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;">Sign Up</a>
         </div>
         <div class="row span12" style="margin-left:0px;">
