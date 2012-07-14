@@ -43,7 +43,8 @@
 			
 			$fileUploaded = move_uploaded_file($tmp,$newpath);
 			if(!$fileUploaded)
-				echo "FILE MOVING FAILED"; 
+				echo "FILE MOVING FAILED";
+			else echo "FILE MOVE SUCCESS";
 
 			$image = new SimpleImage();
 			$image->load($newpath);
