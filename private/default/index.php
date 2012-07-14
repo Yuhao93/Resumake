@@ -31,7 +31,9 @@
 		$image_type = $a[2];
 		if($image_type == 6 || ($image_type > 0 && $image_type < 4)){
 			$fileError = false;
-		}else $fileError = true;
+		}else{
+			$fileError = true;
+		}
 		
 		if(!$fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
@@ -56,9 +58,9 @@
 			}else{
 				$noneed = true;
 			}
-			if(!$noneed){
+			//if(!$noneed){
 				$image->save($newpath);
-			}
+			//}
 		}
 	}
 ?>
