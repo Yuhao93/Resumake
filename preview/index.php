@@ -33,16 +33,10 @@
         </div>
     </div>
     
-    
-<<<<<<< HEAD
-    <div class="row span12">
-        <br><br><br>
-        <center><h1 class="row span12">Create An Online Resume That You Can Easily Show Your Future Employers</h1></center>
-=======
+
     <div class="row span11">
-        <br><br><br><br><br><br>
+        <br>
         <center><h1 class="row span11">Create An Online Resume That You Can Easily Show Your Future Employers</h1></center>
->>>>>>> f14fbefda3db8dc1beff590ccb04fe2fcf9ffe8d
         <br><br><br><br><br>
         <section class="span5">
             <div class="page-header">
