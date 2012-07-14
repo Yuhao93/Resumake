@@ -333,13 +333,13 @@
 			}
 		?>
 		$("#btn-logout").click(function(){
-			$.post('../private/php_scripts/logout.php', function(data){
+			$.post('private/php_scripts/logout.php', function(data){
 				window.location.href = '/';
 			});
 		});
 		$('#img-edit-done').click(function(){
-			$.post('../private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
-				$('#profile-img').attr('src', '../' + data);
+			$.post('private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
+				$('#profile-img').attr('src', '' + data);
 			});
 		});
 		$("#editinfo").modal({'show':false});
