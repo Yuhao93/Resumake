@@ -115,17 +115,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
+    function register(){
+        var email = $("#preview-email").attr("value");
+        email = email.replace(" ", "");
+        if(validateEmail(email) && email.substring(email.length - 4) == ".edu"){
+            $("#sentModal").modal('show');
+            $.post("../private/php_scripts/previewRegister.php", {'email':email}, function(data){});
+        }else{
+            var alertText = '<div class="alert alert-error" style="font-size:18px;"><button class="close" data-dismiss="alert">x</button><strong>Oh No!</strong> Please enter in a valid .edu email address.</div>'
+            $("#alert-container").html(alertText);
+        }
+    }
     $(document).ready(function(){
         $("#preview-register").click(function(){
-            var email = $("#preview-email").attr("value");
-            email = email.replace(" ", "");
-            if(validateEmail(email) && email.substring(email.length - 4) == ".edu"){
-                $("#sentModal").modal('show');
-                $.post("../private/php_scripts/previewRegister.php", {'email':email}, function(data){});
-            }else{
-                var alertText = '<div class="alert alert-error" style="font-size:18px;"><button class="close" data-dismiss="alert">x</button><strong>Oh No!</strong> Please enter in a valid .edu email address.</div>'
-                $("#alert-container").html(alertText);
-            }
+            register();
+        });
+        $('#preview-register').keypress(function(e){
+            if(e.which == 13){
+                register();
+		}
         });
     });
     function validateEmail(email) { 
