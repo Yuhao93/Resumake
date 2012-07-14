@@ -18,9 +18,22 @@ class dbObject {
             or die("Could not select database. " . mysql_error());
     }
 	
+    public function addEmail($email)
+    {
+        $email = addslashes($email);
+        
+        $to = $email;
+        $subject = "Thanks!";
+        $body = "Thanks for showing interest in Resumake! \n\n We'll send you new information when we can! \n\n Regards,\n-The Resumake Team";
+
+        mail($to, $subject, $body);
+        
+        $sql = "INSERT INTO previewregister (email) VALUES ('$email')";
+		return mysql_query($sql);
+    }
 	
 	///////////////////////// USERS ///////////////////////////////////////////
-	
+    
 	public function addUser($name, $email, $password, $username, $confirmation)
 	{	
 		if ($this->getUserByEmail($email))

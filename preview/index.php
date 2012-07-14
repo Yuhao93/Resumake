@@ -6,6 +6,20 @@
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 </head>
 <body>
+    <div class="modal hide" id="sentModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+			<h3>Thanks!</h3>
+        </div>
+        <div class="modal-body">
+            <h2>Thanks for putting yourself on the list!</h2>
+            <h3>We'll notify you when Resumake is out and ready for use!</h3>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Ok</a>
+        </div>
+    </div>
+    
     <div class="row">
 		<div class="page-header">
 			<h1 class="offset1">
@@ -20,16 +34,18 @@
         <h1>Resumake: The Online Resume Solution</h1>
         <br><br>
         <h2>Sign With Your Email For More Info</h2>
+        <div id="alert-container"></div>
         <div class="row span10" style="position:relative;margin-left:0px;">
-            <input type="text" style="height:32px;width:750px;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email">
-            <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:190px;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;">Sign Up</a>
+            
+            <input type="text" style="height:32px;width:750px;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email" id="preview-email">
+            <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:190px;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;" id="preview-register">Sign Up</a>
         </div>
         <div class="row span10" style="margin-left:0px;">
 
         <div class="collapse" id="video">
             <center><!-- Video Goes Here --></center>
         </div>
-        <center><h2><a href="#video" data-toggle="collapse">Watch The Video</a></h2></center>
+        <!--<center><h2><a href="#video" data-toggle="collapse">Watch The Video</a></h2></center>-->
         </div>
     </div>
     
@@ -98,5 +114,24 @@
     </div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#preview-register").click(function(){
+            var email = $("#preview-email").attr("value");
+            email = email.replace(" ", "");
+            if(validateEmail(email) && email.substring(email.length - 4) == ".edu"){
+                $("#sentModal").modal('show');
+                $.post("../private/php_scripts/previewRegister.php", {'email':email}, function(data){alert(data);});
+            }else{
+                var alertText = '<div class="alert alert-error" style="font-size:18px;"><button class="close" data-dismiss="alert">x</button><strong>Oh No!</strong> Please enter in a valid .edu email address.</div>'
+                $("#alert-container").html(alertText);
+            }
+        });
+    });
+    function validateEmail(email) { 
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+} 
+    </script>
 </body>
 </html>
