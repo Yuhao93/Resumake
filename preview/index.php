@@ -6,6 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 </head>
 <body>
+    <div class="row">
+		<div class="page-header">
+			<h1 class="offset1">
+			<img src="../private/imgs/logo.png"></img>
+			<small>Here's an idea, let's give everyone an online resume, for free.</small>
+			</h1>
+		</div>
+	</div>
     <br>
     <div class="hero-unit row span12">
         <h1>Resumake: The Online Resume Solution</h1>
@@ -25,7 +33,7 @@
     
     
     <div class="row span12">
-        <br><br><br><br><br><br>
+        <br><br><br>
         <center><h1 class="row span12">Create An Online Resume That You Can Easily Show Your Future Employers</h1></center>
         <br><br><br><br><br>
         <section class="span5">
