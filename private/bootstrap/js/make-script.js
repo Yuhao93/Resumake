@@ -1,6 +1,8 @@
 var resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
-var educationEdit = {'isEdit': false, 'index': -1, 'awards':[]};
-var skillEdit = {'isEdit': false, 'index': -1, 'skills':[]};
+var educationEdit = {'isEdit' : false, 'index' : -1, 'awards' : []};
+var skillEdit = {'isEdit' : false, 'index': -1, 'skills' : []};
+var experienceEdit = {'isEdit' : false, 'index' : -1, 'items' : []};
+var activityEdit = {'isEdit' : false, 'index' : -1, 'items' : []};
 
 //==================================================================================================
 //==========================================Education Info==========================================
@@ -247,6 +249,336 @@ function editSkill(index){
 	
 	$("#skill-category").attr("value", category);
 	repopulateSkills();
+}
+
+//==================================================================================================
+//============================================Experience Info=======================================
+//==================================================================================================
+function addLinkExperience(){
+	var index = experienceEdit.items.length;
+	var linkName = $("#experience-link-name").attr("value");
+	var link = $("#experience-link").attr("value");
+	$("#experience-link-name").attr("value", "");
+	$("#experience-link").attr("value", "");
+	$("#experience-item-list").html("");
+	
+	experienceEdit.items[index] = {'type':'link', 'name':linkName, 'link':link};
+	repopulateExperienceItems();
+}
+function addDescExperience(){
+	var index = experienceEdit.items.length;
+	var desc = $("#experience-desc").attr("value");
+	$("#experience-desc").attr("value", "");
+	$("#experience-item-list").html("");
+	
+	experienceEdit.items[index] = {'type':'desc', 'desc':desc};
+	repopulateExperienceItems();
+}
+function repopulateExperienceItems(){
+	$("#experience-item-list").html("");
+	for(var i = 0; i < experienceEdit.items.length; i++){
+		var item = experienceEdit.items[i];
+		var content = item.type == "desc" ? 
+			"<p><strong>" + item.desc + "</strong></p>" : 
+			"<a href=\"" + item.link + "\" target=\"_blank\">" + item.name + "</a>"; 
+		
+		$("#experience-item-list").append('<li class="span3 experience-item" id="experience-' + i + '">'
+			+ '<button class="close pull-right" id="experience-' + i + '">x</button>'
+			+ content + 
+			'</li>');
+		$("button#experience-" + i).click(function(){
+			var id = $(this).attr("id").substring(11);
+			$("li#experience-" + id).remove();
+			experienceEdit.items = [];
+			
+			$("li.experience-item").each(function(index){
+				var innerHtml = $(this).html();
+				var beginStr = innerHtml.replace(innerHtml.split("</button>")[0] + "</button>", "");
+				if(beginStr.indexOf("<p><strong>") == 0){
+					var desc = beginStr.substring(11, beginStr.length - 13);
+					experienceEdit.items.push({'type':'desc', 'desc':desc});
+				}else if(beginStr.indexOf("<a href=\"") == 0){
+					var beginLength = ("<a href=\"").length;
+					var middleInd = beginStr.indexOf("\" target=\"_blank\">");
+					var middleEnd = middleInd + ("\" target=\"_blank\">").length;
+					var endInd = beginStr.length - 4;
+					var name = beginStr.substring(middleEnd, endInd);
+					var link = beginStr.substring(beginLength, middleInd);
+					
+					experienceEdit.items.push({'type':'link', 'name':name, 'link':link});
+				}
+			});
+		});
+	}
+}
+function saveExperienceCategory(){
+	// If we are editing an existing one, modify that one
+	// Then refresh the container
+	if(experienceEdit.isEdit){
+		// Get the data from the form
+		var position = "" + $("#experience-position").attr("value");
+		var startDate = "" + $("#experience-start-date").attr("value");
+		var endDate = "" + $("#experience-end-date").attr("value");
+		var group = "" + $("#experience-group").attr("value");
+		
+		var items = experienceEdit.items;
+	
+		// Clear the data 
+		$("#experience-position").attr("value", "");
+		$("#experience-start-date").attr("value", "");
+		$("#experience-end-date").attr("value", "");
+		$("#experience-group").attr("value", "");
+		$("#experience-item-list").html("");
+		
+		// Revalidate the screen and update the info
+		resume.experienceInfo[experienceEdit.index] = {'position':position, 'startDate':startDate, 'endDate':endDate, 'group':group, 'items': items};
+		revalidateExperienceField();
+	}
+	// If we are adding a new one, push it to the end
+	// Then refresh the container
+	else{
+		// Get the data from the form
+		var position = "" + $("#experience-position").attr("value");
+		var startDate = "" + $("#experience-start-date").attr("value");
+		var endDate = "" + $("#experience-end-date").attr("value");
+		var group = "" + $("#experience-group").attr("value");
+		
+		var items = experienceEdit.items;
+	
+		// Clear the data 
+		$("#experience-position").attr("value", "");
+		$("#experience-start-date").attr("value", "");
+		$("#experience-end-date").attr("value", "");
+		$("#experience-group").attr("value", "");
+		$("#experience-item-list").html("");
+		
+		// Revalidate the screen and update the info
+		resume.experienceInfo.push({'position':position, 'startDate':startDate, 'endDate':endDate, 'group':group, 'items': items});
+		revalidateExperienceField();
+	}
+}
+function revalidateExperienceField(){
+	// Clear the content
+	$("#experience-container").html("");
+	for(var i = 0; i < resume.experienceInfo.length; i++){
+		// Get the information of this experience field
+		var position = resume.experienceInfo[i].position;
+		var startDate = resume.experienceInfo[i].startDate;
+		var endDate = resume.experienceInfo[i].endDate;
+		var group = resume.experienceInfo[i].group;
+		
+		var items = resume.experienceInfo[i].items;
+		
+		// Generate the markup given the information
+		var appendableText = '<div class="experience-object" id = "experience-object-' + i + '"><a class="close" id="experience-delete-' + i + '">X</a>' 
+			+ '<h3><a class="experience-edit-link" id="experience-edit-' + i + '" href="#experience-modal" data-toggle="modal">' 
+			+ position + '</a></h3><h3>' + group + ' ' + getFormattedDate(startDate) + ' - ' + getFormattedDate(endDate) + '</h3>';
+		for(var j = 0; j < items.length; j ++){
+			if(items[j].type == "link")
+				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a>';
+			else if(items[j].type == "desc")
+				appendableText += '<p><strong>' + items[j].desc + '</strong></p>';
+		}
+		appendableText += '</div>';
+		
+		// Add the markup to the container
+		$("#experience-container").append(appendableText);
+		
+		//Register the events
+		$("#experience-edit-" + i).click(function(){
+			var id = $(this).attr("id");
+			var index = id.substring(16);
+			editExperience(index);
+		});
+		$("#experience-delete-" + i).click(function(){
+			var index = $(this).attr("id").substring(18);
+			var removed = resume.experienceInfo.splice(index, 1);
+			revalidateExperienceField();
+		});
+	}
+}
+function editExperience(index){
+	experienceEdit.isEdit = true;
+	experienceEdit.index = index;
+	experienceEdit.items = resume.experienceInfo[index].items;
+	
+	// Get the current information
+	var position = resume.experienceInfo[index].position;
+	var startDate = resume.experienceInfo[index].startDate;
+	var endDate = resume.experienceInfo[index].endDate;
+	var group = resume.experienceInfo[index].group;
+	
+	$("#experience-position").attr("value", position);
+	$("#experience-start-date").attr("value", startDate);
+	$("#experience-end-date").attr("value", endDate);
+	$("#experience-group").attr("value", group);
+	
+	repopulateExperienceItems();
+}
+
+//==================================================================================================
+//============================================Activity Info=========================================
+//==================================================================================================
+function addLinkActivity(){
+	var index = activityEdit.items.length;
+	var linkName = $("#activity-link-name").attr("value");
+	var link = $("#activity-link").attr("value");
+	$("#activity-link-name").attr("value", "");
+	$("#activity-link").attr("value", "");
+	$("#activity-item-list").html("");
+	
+	activityEdit.items[index] = {'type':'link', 'name':linkName, 'link':link};
+	repopulateActivityItems();
+}
+function addDescActivity(){
+	var index = activityEdit.items.length;
+	var desc = $("#activity-desc").attr("value");
+	$("#activity-desc").attr("value", "");
+	$("#activity-item-list").html("");
+	
+	activityEdit.items[index] = {'type':'desc', 'desc':desc};
+	repopulateActivityItems();
+}
+function repopulateActivityItems(){
+	$("#activity-item-list").html("");
+	for(var i = 0; i < activityEdit.items.length; i++){
+		var item = activityEdit.items[i];
+		var content = item.type == "desc" ? 
+			"<p><strong>" + item.desc + "</strong></p>" : 
+			"<a href=\"" + item.link + "\" target=\"_blank\">" + item.name + "</a>"; 
+		
+		$("#activity-item-list").append('<li class="span3 activity-item" id="activity-' + i + '">'
+			+ '<button class="close pull-right" id="activity-' + i + '">x</button>'
+			+ content + 
+			'</li>');
+		$("button#activity-" + i).click(function(){
+			var id = $(this).attr("id").substring(11);
+			$("li#activity-" + id).remove();
+			activityEdit.items = [];
+			
+			$("li.activity-item").each(function(index){
+				var innerHtml = $(this).html();
+				var beginStr = innerHtml.replace(innerHtml.split("</button>")[0] + "</button>", "");
+				if(beginStr.indexOf("<p><strong>") == 0){
+					var desc = beginStr.substring(11, beginStr.length - 13);
+					activityEdit.items.push({'type':'desc', 'desc':desc});
+				}else if(beginStr.indexOf("<a href=\"") == 0){
+					var beginLength = ("<a href=\"").length;
+					var middleInd = beginStr.indexOf("\" target=\"_blank\">");
+					var middleEnd = middleInd + ("\" target=\"_blank\">").length;
+					var endInd = beginStr.length - 4;
+					var name = beginStr.substring(middleEnd, endInd);
+					var link = beginStr.substring(beginLength, middleInd);
+					
+					activityEdit.items.push({'type':'link', 'name':name, 'link':link});
+				}
+			});
+		});
+	}
+}
+function saveActivityCategory(){
+	// If we are editing an existing one, modify that one
+	// Then refresh the container
+	if(activityEdit.isEdit){
+		// Get the data from the form
+		var position = "" + $("#activity-position").attr("value");
+		var startDate = "" + $("#activity-start-date").attr("value");
+		var endDate = "" + $("#activity-end-date").attr("value");
+		var group = "" + $("#activity-group").attr("value");
+		
+		var items = activityEdit.items;
+	
+		// Clear the data 
+		$("#activity-position").attr("value", "");
+		$("#activity-start-date").attr("value", "");
+		$("#activity-end-date").attr("value", "");
+		$("#activity-group").attr("value", "");
+		$("#activity-item-list").html("");
+		
+		// Revalidate the screen and update the info
+		resume.activityInfo[activityEdit.index] = {'position':position, 'startDate':startDate, 'endDate':endDate, 'group':group, 'items': items};
+		revalidateActivityField();
+	}
+	// If we are adding a new one, push it to the end
+	// Then refresh the container
+	else{
+		// Get the data from the form
+		var position = "" + $("#activity-position").attr("value");
+		var startDate = "" + $("#activity-start-date").attr("value");
+		var endDate = "" + $("#activity-end-date").attr("value");
+		var group = "" + $("#activity-group").attr("value");
+		
+		var items = activityEdit.items;
+	
+		// Clear the data 
+		$("#activity-position").attr("value", "");
+		$("#activity-start-date").attr("value", "");
+		$("#activity-end-date").attr("value", "");
+		$("#activity-group").attr("value", "");
+		$("#activity-item-list").html("");
+		
+		// Revalidate the screen and update the info
+		resume.activityInfo.push({'position':position, 'startDate':startDate, 'endDate':endDate, 'group':group, 'items': items});
+		revalidateActivityField();
+	}
+}
+function revalidateActivityField(){
+	// Clear the content
+	$("#activity-container").html("");
+	for(var i = 0; i < resume.activityInfo.length; i++){
+		// Get the information of this activity field
+		var position = resume.activityInfo[i].position;
+		var startDate = resume.activityInfo[i].startDate;
+		var endDate = resume.activityInfo[i].endDate;
+		var group = resume.activityInfo[i].group;
+		
+		var items = resume.activityInfo[i].items;
+		
+		// Generate the markup given the information
+		var appendableText = '<div class="activity-object" id = "activity-object-' + i + '"><a class="close" id="activity-delete-' + i + '">X</a>' 
+			+ '<h3><a class="activity-edit-link" id="activity-edit-' + i + '" href="#activity-modal" data-toggle="modal">' 
+			+ position + '</a></h3><h3>' + group + ' ' + getFormattedDate(startDate) + ' - ' + getFormattedDate(endDate) + '</h3>';
+		for(var j = 0; j < items.length; j ++){
+			if(items[j].type == "link")
+				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a>';
+			else if(items[j].type == "desc")
+				appendableText += '<p><strong>' + items[j].desc + '</strong></p>';
+		}
+		appendableText += '</div>';
+		
+		// Add the markup to the container
+		$("#activity-container").append(appendableText);
+		
+		//Register the events
+		$("#activity-edit-" + i).click(function(){
+			var id = $(this).attr("id");
+			var index = id.substring(16);
+			editActivity(index);
+		});
+		$("#activity-delete-" + i).click(function(){
+			var index = $(this).attr("id").substring(18);
+			var removed = resume.activityInfo.splice(index, 1);
+			revalidateActivityField();
+		});
+	}
+}
+function editActivity(index){
+	activityEdit.isEdit = true;
+	activityEdit.index = index;
+	activityEdit.items = resume.activityInfo[index].items;
+	
+	// Get the current information
+	var position = resume.activityInfo[index].position;
+	var startDate = resume.activityInfo[index].startDate;
+	var endDate = resume.activityInfo[index].endDate;
+	var group = resume.activityInfo[index].group;
+	
+	$("#activity-position").attr("value", position);
+	$("#activity-start-date").attr("value", startDate);
+	$("#activity-end-date").attr("value", endDate);
+	$("#activity-group").attr("value", group);
+	
+	repopulateActivityItems();
 }
 
 //Given a date, return the formatted date Month Year

@@ -255,7 +255,8 @@
 		<div class="row span12 well">
 			<h2>Experience</h2>
 			<hr>
-			<a href="#experience-modal" class="span2 btn btn-large" data-toggle="modal">+ Add Experience</a>
+			<div id="experience-container"></div>
+			<a href="#experience-modal" class="span2 btn btn-large" data-toggle="modal" id="btn-add-experience">+ Add Experience</a>
 		</div>
 		<div class="modal hide" id="experience-modal">
 			<div class="modal-header">
@@ -264,19 +265,19 @@
 			</div>
 			<div class="modal-body">
 				<p class="span1">Position</p>
-				<input class="span3" type="text">
+				<input class="span3" type="text" id="experience-position">
 				<br>
 				
 				<p class="span1">Start Date</p>
-				<input class="span3" type="date">
+				<input class="span3" type="date" id="experience-start-date">
 				<br>
 								
 				<p class="span1">End Date</p>
-				<input class="span3" type="date">
+				<input class="span3" type="date" id="experience-end-date">
 				<br>
 					
 				<p class="span1">Group</p>
-				<input class="span3" type="text">
+				<input class="span3" type="text" id="experience-group">
 				<br>
 				
 				<ul id="experience-item-list"></ul>
@@ -286,7 +287,7 @@
 					<br>
 					<div class="well">
 						<h5>Fact</h5>
-						<input type="text" class="span3" id="experience-fact">
+						<textarea class="span3" id="experience-desc"></textarea>
 						
 						<a href="#experience-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-fact-add">Add</a>
 						<br>
@@ -314,7 +315,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Save</a>
+				<a href="#" class="btn btn-primary" data-dismiss="modal" id="experience-save">Save</a>
 			</div>
 		</div>
 		
@@ -322,7 +323,8 @@
 		<div class="row span12 well">
 			<h2>Activity</h2>
 			<hr>
-			<a href="#activity-modal" class="span2 btn btn-large" data-toggle="modal">+ Add Activity</a>
+			<div id="activity-container"></div>
+			<a href="#activity-modal" class="span2 btn btn-large" data-toggle="modal" id="btn-add-activity">+ Add Activity</a>
 		</div>
 		<div class="modal hide" id="activity-modal">
 			<div class="modal-header">
@@ -331,19 +333,19 @@
 			</div>
 			<div class="modal-body">
 				<p class="span1">Position</p>
-				<input class="span3" type="text">
+				<input class="span3" type="text" id="activity-position">
 				<br>
 				
 				<p class="span1">Start Date</p>
-				<input class="span3" type="date">
+				<input class="span3" type="date" id="activity-start-date">
 				<br>
 								
 				<p class="span1">End Date</p>
-				<input class="span3" type="date">
+				<input class="span3" type="date" id="activity-end-date">
 				<br>
 					
 				<p class="span1">Group</p>
-				<input class="span3" type="text">
+				<input class="span3" type="text" id="activity-group">
 				<br>
 			
 				<ul id="activity-item-list"></ul>
@@ -353,13 +355,14 @@
 					<br>
 					<div class="well">
 						<h5>Fact</h5>
-						<input type="text" class="span3" id="activity-fact">
+						<input type="text" class="span3" id="activity-desc">
 						
 						<a href="#activity-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-fact-add">Add</a>
 						<br>
 						<br>
 						<br>
 					</div>
+					
 				</div>
 				<br><br>
 				<a href="#activity-link-collapse" class="btn btn-primary btn-small span2" data-toggle="collapse">+ Add A Link</a>
@@ -381,7 +384,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Save</a>
+				<a href="#" class="btn btn-primary" data-dismiss="modal" id="activity-save">Save</a>
 			</div>
 		</div>
 		
@@ -395,7 +398,7 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/make-script.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
 	<script type="text/javascript">
 	<?php
 		echo 'var uid = ' . $uid . ';';
@@ -428,6 +431,38 @@
 			skillEdit.isEdit = false;
 			skillEdit.skills = [];
 		});
+		
+		$("#experience-fact-add").click(function(){
+			addDescExperience();
+		});
+		
+		$("#experience-link-add").click(function(){
+			addLinkExperience();
+		});
+		$("#experience-save").click(function(){
+			saveExperienceCategory();
+		});
+		$("#btn-add-experience").click(function(){
+			experienceEdit.isEdit = false;
+			experienceEdit.items = [];
+		});
+		
+		$("#activity-fact-add").click(function(){
+			addDescActivity();
+		});
+		
+		$("#activity-link-add").click(function(){
+			addLinkActivity();
+		});
+		$("#activity-save").click(function(){
+			saveActivityCategory();
+		});
+		$("#btn-add-activity").click(function(){
+			activityEdit.isEdit = false;
+			activityEdit.items = [];
+		});
+		
+		
 		
 		$("#code-submit").click(function(){
 			var content = editor.getValue();
