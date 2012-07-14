@@ -165,9 +165,9 @@ function repopulateSkills(){
 			$("li.skill-item").each(function(index){
 				var innerHtml = $(this).html();
 				var chunks = innerHtml.split("</strong></p><p>");
-				var name = chunks[0].replace("<p><strong>", "");
-				var trailing = chunks[1].split('</p>')
-				var desc = chunks[1].replace('</p>' + trailing[trailing.length - 1],"");
+				var head = chunks[0].split('<strong>');
+				var name = head[head.length - 1];
+				var desc = chunks[1].replace('</p></li>',"");
 				skillEdit.skills.push({'name' : name, 'desc' : desc});
 			});
 		});
