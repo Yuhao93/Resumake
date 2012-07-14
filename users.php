@@ -13,7 +13,7 @@
 	}else{
 		$uid = $_SESSION['uid'];
 	}
-	include_once('../private/php_scripts/dbObject.php');
+	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
 	$username = $_GET['uid'];
@@ -37,7 +37,7 @@
 		
 		if(!$fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
-			include('../private/php_scripts/SimpleImage.php');
+			include('private/php_scripts/SimpleImage.php');
 			$newpath = 'imgs/' . $username . '.' . $ext;
 			
 			$fileUploaded = move_uploaded_file($tmp,$newpath);
