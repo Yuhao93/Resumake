@@ -33,14 +33,17 @@
 			$fileError = false;
 		}else{
 			$fileError = true;
+			echo "FILE_ERROR";
 		}
 		
 		if(!$fileError){
 			$ext = pathinfo($name, PATHINFO_EXTENSION);
 			include('../private/php_scripts/SimpleImage.php');
 			$newpath = '../imgs/' . $username . '.' . $ext;
-			move_uploaded_file($tmp,$newpath);
-			$fileUploaded = true;
+			
+			$fileUploaded = move_uploaded_file($tmp,$newpath);
+			if(!$fileUploaded)
+				echo "FILE MOVING FAILED"; 
 
 			$image = new SimpleImage();
 			$image->load($newpath);
