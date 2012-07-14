@@ -121,7 +121,7 @@
             email = email.replace(" ", "");
             if(validateEmail(email) && email.substring(email.length - 4) == ".edu"){
                 $("#sentModal").modal('show');
-                $.post("../private/php_scripts/previewRegister.php", {'email':email}, function(data){alert(data);});
+                $.post("../private/php_scripts/previewRegister.php", {'email':email}, function(data){});
             }else{
                 var alertText = '<div class="alert alert-error" style="font-size:18px;"><button class="close" data-dismiss="alert">x</button><strong>Oh No!</strong> Please enter in a valid .edu email address.</div>'
                 $("#alert-container").html(alertText);
