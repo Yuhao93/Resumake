@@ -54,13 +54,13 @@
                 if(!$fileError){
                     //build the new path and move the file to its permanent location
                     $ext = pathinfo($name, PATHINFO_EXTENSION);
-                    $newpath = 'imgs/' . $username . '.' . $ext;
-                    $fileUploaded = move_uploaded_file($tmp,$newpath);
+                    $phpimgpath = 'imgs/' . $username . '.' . $ext;
+                    $fileUploaded = move_uploaded_file($tmp,$phpimgpath);
 
                     //load the file into SimpleImage
                     include('private/php_scripts/SimpleImage.php');
                     $image = new SimpleImage();
-                    $image->load($newpath);
+                    $image->load($phpimgpath);
                     $width_ratio = 512/$image->getWidth();
                     $height_ratio = 512/$image->getHeight();
 
@@ -79,7 +79,7 @@
                     //save the new image
                     $image->save($newpath);
                     
-                    $newpath = '../' . $newpath;
+                    $newpath = '../' . $phpimgpath;
                 }
             }
         }
@@ -360,7 +360,7 @@
 		});
 		$('#img-edit-done').click(function(){
 			$.post('../private/php_scripts/resize.php', {'x':img_x, 'y':img_y, 'width':img_width, 'height':img_height, 'file':username + '.' + ext, 'username':username}, function(data){
-				$('#profile-img').attr('src', '' + data);
+				$('#profile-img').attr('src', '../' + data);
 			});
 		});
 		$("#editinfo").modal({'show':false});
