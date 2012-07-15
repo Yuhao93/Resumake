@@ -4,7 +4,6 @@ function submit_register(){
 		var name = $("#register-modal-name").attr("value")
 		var username = $("#register-modal-username").attr("value")
 		var password = encrypt($("#register-modal-password").attr("value"));
-		var confirm = encrypt($("#register-modal-confirm").attr("value"));
 		var email = $("#register-modal-email").attr("value")
 		
 		
@@ -26,11 +25,6 @@ function submit_register(){
 		if($("#register-modal-password").attr("value").length == 0){
 			$("<div class='alert alert-error removable-alert'>" + 
 				"<strong>Oh No!</strong> Your password is empty" + 
-				"</div>").insertAfter("#register-modal-password-label");
-			isOk = false;
-		}else if(password != confirm){
-			$("<div class='alert alert-error removable-alert'>" + 
-				"<strong>Oh No!</strong> Your passwords don't seem to match" + 
 				"</div>").insertAfter("#register-modal-password-label");
 			isOk = false;
 		}
@@ -103,11 +97,6 @@ function submit_register(){
 	
 	//On Enter key press
 	$('#register-modal-password').keypress(function(e) {
-        if(e.which==13){
-            submit_register();
-        }
-	});
-	$('#register-modal-confirm').keypress(function(e) {
         if(e.which==13){
             submit_register();
         }

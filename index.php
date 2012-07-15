@@ -60,9 +60,6 @@
 					<label id="register-modal-password-label">Password</label>
 					<input type="password" class="span5" placeholder="Password" id="register-modal-password">
 					
-					<label>Confirm Password</label>
-					<input type="password" class="span5" placeholder="Confirm Password" id="register-modal-confirm">
-					
 				</form>
 			</div>
 			<div class="modal-footer">
