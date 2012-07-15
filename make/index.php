@@ -74,7 +74,7 @@
 			<br>
 			
 			<p class="span1">Resume</p>
-			<input class="span3" id="resume-name" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
+			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
 			<br>
 
 			<p class="span1">Name</p>
