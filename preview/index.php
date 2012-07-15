@@ -37,8 +37,8 @@
         <div id="alert-container"></div>
         <div class="row span10" style="position:relative;margin-left:0px;">
             
-            <input type="text" style="height:32px;width:750px;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email" id="preview-email">
-            <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:190px;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;" id="preview-register">Sign Up</a>
+            <input type="text" style="height:32px;width:78%;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email" id="preview-email">
+            <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:20%;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;" id="preview-register">Sign Up</a>
         </div>
         <div class="row span10" style="margin-left:0px;">
 
