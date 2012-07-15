@@ -54,13 +54,13 @@
                 if(!$fileError){
                     //build the new path and move the file to its permanent location
                     $ext = pathinfo($name, PATHINFO_EXTENSION);
-                    $phpimgpath = 'imgs/' . $username . '.' . $ext;
-                    $fileUploaded = move_uploaded_file($tmp,$phpimgpath);
+                    $newpath = 'imgs/' . $username . '.' . $ext;
+                    $fileUploaded = move_uploaded_file($tmp,$newpath);
 
                     //load the file into SimpleImage
                     include('private/php_scripts/SimpleImage.php');
                     $image = new SimpleImage();
-                    $image->load($phpimgpath);
+                    $image->load($newpath);
                     $width_ratio = 512/$image->getWidth();
                     $height_ratio = 512/$image->getHeight();
 
@@ -79,7 +79,7 @@
                     //save the new image
                     $image->save($newpath);
                     
-                    $newpath = '../' . $phpimgpath;
+                    $newpath = '../' . $newpath;
                 }
             }
         }
