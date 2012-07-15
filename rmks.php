@@ -24,7 +24,7 @@
             ,'July','August','September'
             ,'October','November','December');
             
-        if(strrpos('-', $date) === FALSE)
+        if(strrpos('-', $date) === false)
             return "";
         $chunks = split('-', $date);
         $monthIndex = (strrpos('0', $chunks[1]) == 0) ? (int)substr($chunks[1], 0) : (int)$chunks[1];
