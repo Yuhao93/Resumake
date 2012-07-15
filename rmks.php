@@ -174,7 +174,7 @@
 					echo '<section id="education' . $i . '"></section>';
 					echo '<div class="well">';
 					echo '<h3>' . $education['school'] . '</h3>';
-					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong>&nbsp;-&nbsp;' . $education['startDate'] . ' - ' . getOngoing($education['startDate'], $education['endDate']) . '</p>';
+					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong>&nbsp;-&nbsp;' . formatDate($education['startDate']) . ' - ' . getOngoing($education['startDate'], $education['endDate']) . '</p>';
 					for($j = 0; $j < sizeof($awards); $j ++)
 						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>';
 					echo '</div>';
@@ -205,7 +205,7 @@
 				for($i = 0; $i < sizeof($experienceInfo); $i ++){
 					echo '<section id="experience' . $i . '"></section>';
 					echo '<div class="well">';
-					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . $experienceInfo[$i]['startDate'] . ' - ' . getOngoing($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</h3>';
+					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . formatDate($experienceInfo[$i]['startDate']) . ' - ' . getOngoing($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</h3>';
 					echo $experienceInfo[$i]['group'];
 					echo '<ul>';
 					$isLink = false;
@@ -238,7 +238,7 @@
 				for($i = 0; $i < sizeof($activityInfo); $i ++){
 					echo '<section id="activity' . $i . '"></section>';
 					echo '<div class="well">';
-					echo '<h3>' . $activityInfo[$i]['position'] . ' ' . $activityInfo[$i]['startDate'] . ' - ' . getOngoing($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</h3>';
+					echo '<h3>' . $activityInfo[$i]['position'] . ' ' . formatDate($activityInfo[$i]['startDate']) . ' - ' . getOngoing($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</h3>';
 					$isLink = false;
 					echo '<ul>';
 					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
