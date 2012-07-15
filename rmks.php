@@ -24,7 +24,7 @@
             ,'July','August','September'
             ,'October','November','December');
             
-        echo strrpos('-', $date);
+        echo strrpos('-', $date) === FALSE;
            // return "";
         $chunks = split('-', $date);
         $monthIndex = (strrpos('0', $chunks[1]) == 0) ? (int)substr($chunks[1], 0) : (int)$chunks[1];
@@ -183,7 +183,7 @@
 					echo '<section id="education' . $i . '"></section>';
 					echo '<div class="well">';
 					echo '<h3>' . $education['school'] . '</h3>';
-					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong>&nbsp;-&nbsp;' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
+					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong>' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
 					for($j = 0; $j < sizeof($awards); $j ++)
 						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>';
 					echo '</div>';
