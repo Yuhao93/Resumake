@@ -179,7 +179,7 @@ class dbObject {
 		$result = mysql_query($sql);
         $resumes = array();
 		while($row = mysql_fetch_array($result)){
-            $resume = new resume;
+            $resume = new Resume;
             $resume->rid = stripslashes($row['rid']);
             $resume->uid = stripslashes($row['uid']);
             $resume->name = stripslashes($row['name']);
@@ -192,9 +192,9 @@ class dbObject {
     
     public function getResumeByRid($rid){
         $sql = "SELECT * FROM resume WHERE rid=$rid";
-		$result = mysql_query($sql);
-        $row = mysql_fetch_array($result)
-        $resume = new resume;
+        $result = mysql_query($sql);
+        $row = mysql_fetch_array($result);
+        $resume = new Resume;
         $resume->rid = stripslashes($row['rid']);
         $resume->uid = stripslashes($row['uid']);
         $resume->name = stripslashes($row['name']);
@@ -229,7 +229,7 @@ class user{
 	var $imagepath;
 }
 
-class resume{
+class Resume{
 	var $rid;
 	var $uid;
 	var $name;
