@@ -1,22 +1,26 @@
 <?php
 	session_start();
-	if(isset($_SESSION['uid'])){
-		$uid = $_SESSION['uid'];
-	}else if(isset($_COOKIE['remember'])){
-		$_SESSION['uid'] = $_COOKIE['remember'];
-		$uid = $_SESSION['uid'];
-	}
-	else{
-        
-	}
-	include_once('../private/php_scripts/dbObject.php');
-	$db = new dbObject;
-	$db->connect();
+    
+    //If we are not logged in, go to the homepage
+    if(!isset($_SESSION['uid']) && !isset($_COOKIE['remember'])){
+        header('Location: /');
+    }else{
+        //If the session is not set but the cookie is, set the session to the cookie
+        if(!isset($_SESSION['uid']))
+            $_SESSION['uid'] = $_COOKIE['remember'];
+        $uid = $_SESSION['uid'];
+        include_once('../private/php_scripts/dbObject.php');
+        $db = new dbObject;
+        $db->connect();
 	
-	$user = $db->getUserById($uid);
-	$name = $user->name;
-	$info = json_decode($user->info, true);
-	$username = $user->username;
+        //Get the current user
+        $user = $db->getUserById($uid);
+        
+        //Get the relevant information about the current user
+        $name = $user->name;
+        $info = json_decode($user->info, true);
+        $username = $user->username;
+    }
 ?>
 
 
@@ -31,23 +35,6 @@
 	body{
 		padding-top:60px;
 	}
-	.CodeMirror {border: 2px solid #d0d0d0;}
-	.CodeMirror-scroll{
-		background:#FFFFFF;
-	}
-	.fullscreen {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            margin: 0;
-            padding: 0;
-            border: 0px solid #BBBBBB;
-            opacity: 1;
-        }
 	</style>
 </head>
 <body>
@@ -404,74 +391,6 @@
 		echo 'var uid = ' . $uid . ';';
 		echo 'var username = "' . $username . '";';
 	?>
-	
-	$(document).ready(function(){
-		$("#education-award-add").click(function(){
-			addAward();
-		});
-		$("#education-save").click(function(){
-			saveEducation();
-		});
-		$("#add-education-btn").click(function(){
-			if(educationEdit.isEdit){
-				$("#skill-category").attr("value", "");
-				$("#skill-list").html("");
-			}
-			educationEdit.isEdit = false;
-			educationEdit.awards = [];
-		});
-		
-		$("#skill-add").click(function(){
-			addSkill();
-		});
-		$("#skill-save").click(function(){
-			saveSkillCategory();
-		});
-		$("#add-skill-btn").click(function(){
-			skillEdit.isEdit = false;
-			skillEdit.skills = [];
-		});
-		
-		$("#experience-fact-add").click(function(){
-			addDescExperience();
-		});
-		
-		$("#experience-link-add").click(function(){
-			addLinkExperience();
-		});
-		$("#experience-save").click(function(){
-			saveExperienceCategory();
-		});
-		$("#btn-add-experience").click(function(){
-			experienceEdit.isEdit = false;
-			experienceEdit.items = [];
-		});
-		
-		$("#activity-fact-add").click(function(){
-			addDescActivity();
-		});
-		
-		$("#activity-link-add").click(function(){
-			addLinkActivity();
-		});
-		$("#activity-save").click(function(){
-			saveActivityCategory();
-		});
-		$("#btn-add-activity").click(function(){
-			activityEdit.isEdit = false;
-			activityEdit.items = [];
-		});
-		
-		
-		
-		$("#code-submit").click(function(){
-			var content = editor.getValue();
-			var name = $("#resume-name").attr("value");
-			$.post('../private/php_scripts/addResume.php', {'uid':uid, 'username':username, 'content':content, 'name':name}, function(data){
-				window.location.href = "../rmks/?uid=" + uid;
-			});
-		});
-	});
     </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];

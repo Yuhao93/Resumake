@@ -593,3 +593,69 @@ function getFormattedDate(date){
 	var m = month[parseInt(num) - 1];
 	return m + " " + year;
 }
+
+$(document).ready(function(){
+	$("#education-award-add").click(function(){
+		addAward();
+	});
+	$("#education-save").click(function(){
+		saveEducation();
+	});
+	$("#add-education-btn").click(function(){
+		if(educationEdit.isEdit){
+			$("#skill-category").attr("value", "");
+			$("#skill-list").html("");
+		}
+		educationEdit.isEdit = false;
+		educationEdit.awards = [];
+	});
+	
+	$("#skill-add").click(function(){
+		addSkill();
+	});
+	$("#skill-save").click(function(){
+		saveSkillCategory();
+	});
+	$("#add-skill-btn").click(function(){
+		skillEdit.isEdit = false;
+		skillEdit.skills = [];
+	});
+	
+	$("#experience-fact-add").click(function(){
+		addDescExperience();
+	});
+	
+	$("#experience-link-add").click(function(){
+		addLinkExperience();
+	});
+	$("#experience-save").click(function(){
+		saveExperienceCategory();
+	});
+	$("#btn-add-experience").click(function(){
+		experienceEdit.isEdit = false;
+		experienceEdit.items = [];
+	});
+	
+	$("#activity-fact-add").click(function(){
+		addDescActivity();
+	});
+		
+	$("#activity-link-add").click(function(){
+		addLinkActivity();
+	});
+	$("#activity-save").click(function(){
+		saveActivityCategory();
+	});
+	$("#btn-add-activity").click(function(){
+		activityEdit.isEdit = false;
+		activityEdit.items = [];
+	});
+	
+	$("#code-submit").click(function(){
+		var content = editor.getValue();
+		var name = $("#resume-name").attr("value");
+		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'username':username, 'content':content, 'name':name}, function(data){
+			window.location.href = "../rmks/?uid=" + uid;
+		});
+	});
+});

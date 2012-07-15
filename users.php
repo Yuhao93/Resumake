@@ -8,60 +8,79 @@
 	$fileUploaded = false;
 	$fileError = false;
 	session_start();
+    
+    //If you are not logged in, go to the main page
 	if(!isset($_COOKIE['remember']) && !isset($_SESSION['uid'])){
 		header('Location: /');
 	}else{
+        //set the session cookie if it is not set
+        if(!isset($_SESSION['uid']))
+            $_SESSION['uid'] = $_COOKIE['remember'];
 		$uid = $_SESSION['uid'];
-	}
-	include_once('private/php_scripts/dbObject.php');
-	$db = new dbObject;
-	$db->connect();
-	$username = $_GET['uid'];
-	$user = $db->getUserByUsername($username);
-	$imgpath = '../' . $user->imagepath;	
+        
+        //Get the user from the session id
+        include_once('private/php_scripts/dbObject.php');
+        $db = new dbObject;
+        $db->connect();
+        $user = $db->getUserById($uid);
+        $usernameFromUid = $user->username;
+        
+        //Get the user from GET
+        $username = $_GET['uid'];
+        
+        //If you are not the user of this profile page, navigate to your profile page
+        if($usernameFromUid != $username){
+            header('Location: /' . $usernameFromUid);
+        }else{
+            //Get the img file path and the user info
+            $imgpath = '../' . $user->imagepath;	
+			$user_info = json_decode($user->info);
+            
+            //If a file was uploaded
+            if(sizeof($_FILES) != 0){
+                //Get the uploaded file and its attributes, if the file is not an image format
+                //fileError
+                $name = $_FILES['img']['name'];
+                $tmp = $_FILES['img']['tmp_name'];
+                $a = getimagesize($tmp);
+                $image_type = $a[2];
+                if($image_type == 6 || ($image_type > 0 && $image_type < 4)){
+                    $fileError = false;
+                }else{
+                    $fileError = true;
+                }
 		
-	if($user)		
-		$user_info = json_decode($user->info);
-	else $user_info = json_decode('{}');
+                //If there is no error
+                if(!$fileError){
+                    //build the new path and move the file to its permanent location
+                    $ext = pathinfo($name, PATHINFO_EXTENSION);
+                    $newpath = '../imgs/' . $username . '.' . $ext;
+                    $fileUploaded = move_uploaded_file($tmp,$newpath);
 
-	if(sizeof($_FILES) != 0){
-		$name = $_FILES['img']['name'];
-		$tmp = $_FILES['img']['tmp_name'];
-		$a = getimagesize($tmp);
-		$image_type = $a[2];
-		if($image_type == 6 || ($image_type > 0 && $image_type < 4)){
-			$fileError = false;
-		}else{
-			$fileError = true;
-		}
-		
-		if(!$fileError){
-			$ext = pathinfo($name, PATHINFO_EXTENSION);
-			include('private/php_scripts/SimpleImage.php');
-			$newpath = '../imgs/' . $username . '.' . $ext;
-			
-			$fileUploaded = move_uploaded_file($tmp,$newpath);
+                    //load the file into SimpleImage
+                    include('private/php_scripts/SimpleImage.php');
+                    $image = new SimpleImage();
+                    $image->load($newpath);
+                    $width_ratio = 512/$image->getWidth();
+                    $height_ratio = 512/$image->getHeight();
 
-			$image = new SimpleImage();
-			$image->load($newpath);
-			$width_ratio = 512/$image->getWidth();
-			$height_ratio = 512/$image->getHeight();
-
-			if($width_ratio < 1 && $height_ratio < 1){
-				if($width_ratio > $height_ratio)
-					$image->resizeToHeight(512);
-				else $image->resizeToWidth(512);
-			}else if($width_ratio < 1){
-				$image->resizeToWidth(512);
-			}else if($height_ratio < 1){
-				$image->resizeToHeight(512);
-			}else{
-				$noneed = true;
-			}
-			//if(!$noneed){
-				$image->save($newpath);
-			//}
-		}
+                    //Test to see if the file is large in any way
+                    //If it is, scale it down to a reasonable size
+                    if($width_ratio < 1 && $height_ratio < 1){
+                        if($width_ratio > $height_ratio)
+                            $image->resizeToHeight(512);
+                        else $image->resizeToWidth(512);
+                    }else if($width_ratio < 1){
+                        $image->resizeToWidth(512);
+                    }else if($height_ratio < 1){
+                        $image->resizeToHeight(512);
+                    }
+                    
+                    //save the new image
+                    $image->save($newpath);
+                }
+            }
+        }
 	}
 ?>
 

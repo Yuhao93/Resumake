@@ -172,7 +172,7 @@ class dbObject {
 	}
 	
 	
-	///////////////////////// FORMAT ///////////////////////////////////////////
+	///////////////////////// RESUME ///////////////////////////////////////////
 	
 	public function getResumesByUid($uid){
 		$sql = "SELECT * FROM resume WHERE uid=$uid";
@@ -235,14 +235,5 @@ class Resume{
 	var $name;
 	var $date_created;
 	var $content;
-}
-
-class format{
-	var $fid;
-	var $uid;
-	var $name;
-	var $content;
-	var $date_created;
-	var $popularity;
 }
 ?>
