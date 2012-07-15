@@ -19,9 +19,9 @@
 <html lang="en">
 <head>
 	<title><?php echo $basicInfo->name?></title>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/styles.css"></link>
+	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/styles.css"></link>
 </head>
 
 <body>
@@ -244,8 +244,8 @@
 	</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/script.js"></script>
+	<script type="text/javascript" src="../../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../private/bootstrap/js/script.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$('#email-send').click(function(){
