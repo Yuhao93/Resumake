@@ -33,7 +33,7 @@
     <div class="hero-unit row span10">
         <h1>Resumake: The Online Resume Solution</h1>
         <br><br>
-        <h2>Sign With Your Email For More Info</h2>
+        <h2>Sign With Your .edu Email For More Info</h2>
         <div id="alert-container"></div>
         <div class="row span10" style="position:relative;margin-left:0px;">
             
@@ -130,7 +130,7 @@
         $("#preview-register").click(function(){
             register();
         });
-        $('#preview-email').keypress(function(e){
+        $('#preview-register').keypress(function(e){
             if(e.which == 13){
                 register();
 		}
