@@ -74,19 +74,19 @@
 			<br>
 			
 			<p class="span1">Resume</p>
-			<input class="span3" id="resume-name" type="text" placeholder="Resume Name">
+			<input class="span3" id="resume-name" type="text" placeholder="Resume Name" id="basic-resume">
 			<br>
 
 			<p class="span1">Name</p>
-			<input class="span3" type="text" value="<?php echo $name?>">
+			<input class="span3" type="text" value="<?php echo $name?>" id="basic-name">
 			<br>
 			
 			<p class="span1">Position</p>
-			<input class="span3" type="text">
+			<input class="span3" type="text" id="basic-position">
 			<br>
 			
 			<p class="span1">Statement</p>
-			<input class="span3" type="text">
+			<input class="span3" type="text" id="basic-statement">
 			<br>
 		</div>
 		
@@ -97,15 +97,15 @@
 			<br>
 			
 			<p class="span1">Address</p>
-			<input class="span3" type="text" value="<?php echo $info["address"]?>">
+			<input class="span3" type="text" value="<?php echo $info["address"]?>" id="contact-address">
 			<br>
 			
 			<p class="span1">City</p>
-			<input class="span3" type="text" value="<?php echo $info["city"]?>">
+			<input class="span3" type="text" value="<?php echo $info["city"]?>" id="contact-city">
 			<br>
 			
 			<p class="span1">State</p>
-			<select class="span3">
+			<select class="span3" id="contact-state">
 				<option></option>
 				<?php 
 					$stateList = "Alabama-Alaska-Arizona-Arkansas-California-Colorado" . 
@@ -127,16 +127,16 @@
 			<br>
 			
 			<p class="span1">Zip Code</p>
-			<input class="span3" type="text" value="<?php echo $info["zip"]?>">
+			<input class="span3" type="text" value="<?php echo $info["zip"]?>" id="contact-zip">
 			<br>
 			
 			<p class="span1">Phone Number</p>
-			<input class="span3" type="text" value="<?php echo $info["phone"]?>">
+			<input class="span3" type="text" value="<?php echo $info["phone"]?>" id="contact-phone">
 			<br>
 			<br>
 			
 			<p class="span1">Email</p>
-			<input class="span3" type="text" value="<?php echo $info["email"]?>">
+			<input class="span3" type="text" value="<?php echo $info["email"]?>" id="contact-email">
 			<br>
 		</div>
 		
@@ -376,7 +376,7 @@
 		</div>
 		
 		<div class="row span12">
-			<a href="#" class="span2 btn btn-primary btn-large">Preview</a>
+			<a id="code-preview" href="#" class="span2 btn btn-primary btn-large">Preview</a>
 			<a id="code-submit" href="#" class="span2 btn btn-primary btn-large">Save</a>
 			<br><br><br><br>
 		</div>

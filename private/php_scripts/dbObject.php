@@ -208,7 +208,8 @@ class dbObject {
 		$name = addslashes($name);
 	
 		$sql = "INSERT INTO resume (uid, content, name) VALUES ('$uid', '$content', '$name')";
-		return mysql_query($sql);
+		mysql_query($sql);
+        return mysql_insert_id();
 	}
 	
 	private function parseTimestamp($timestamp) {

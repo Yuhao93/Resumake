@@ -651,11 +651,31 @@ $(document).ready(function(){
 		activityEdit.items = [];
 	});
 	
+    $("#code-preview").click(function(){
+        completeResume();
+    });
+    
 	$("#code-submit").click(function(){
-		var content = editor.getValue();
-		var name = $("#resume-name").attr("value");
-		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'username':username, 'content':content, 'name':name}, function(data){
-			window.location.href = "../rmks/?uid=" + uid;
+        completeResume();
+		var name = $("#basic-resume").attr("value");
+		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'resume':resume, 'name':name}, function(data){
+			window.location.href = "../rmks/" + username + "/" + data;
 		});
 	});
 });
+
+function completeResume(){
+    resume.basicInfo = {
+        "name":$("#basic-name").attr("value"), 
+        "position":$("#basic-position").attr("value"), 
+        "statement":$("#basic-statement").attr("value")
+    };
+    resume.contactInfo = {
+        "address":$("#contact-address").attr("value"),
+        "city":$("#contact-city").attr("value"),
+        "state":$("#contact-state").attr("value"),
+        "zip":$("#contact-zip").attr("value"),
+        "phoneNumber":$("#contact-phone").attr("value"),
+        "email":$("#contact-email").attr("value")
+    };
+}

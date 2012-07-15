@@ -1,11 +1,16 @@
 <?php
+    //Get the uid and rid
 	$uid = $_GET['uid'];
     $rid = $_GET['rid'];
+    
+    //Get the resume object from the rid
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
     $resume_obj = $db->getResumeByRid($rid);
 	$resume = json_decode($resume_obj->content, true);
+    
+    //Get the info of the resumejson
 	$basicInfo = $resume['basicInfo'];
 	$contactInfo = $resume['contactInfo'];
 	$educationInfo = $resume['educationInfo'];
@@ -62,13 +67,13 @@
 					if(sizeof($experienceInfo) != 0)
 						echo '<li class="nav-header"><a href="#Experience"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Experience</h4></a></li>';
 					for($i = 0; $i < sizeof($experienceInfo); $i ++){
-						echo '<li><a href="#experience' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $experienceInfo[$i]['title'] . '</a></li>';
+						echo '<li><a href="#experience' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $experienceInfo[$i]['position'] . '</a></li>';
 					}
 					
 					if(sizeof($activityInfo) != 0)
 						echo '<li class="nav-header"><a href="#Activity"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
 					for($i = 0; $i < sizeof($activityInfo); $i ++){
-						echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]['title'] . '</a></li>';
+						echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]['position'] . '</a></li>';
 					}
 				?>
             </ul>
@@ -181,13 +186,13 @@
 				for($i = 0; $i < sizeof($experienceInfo); $i ++){
 					echo '<section id="experience' . $i . '"></section>';
 					echo '<div class="well">';
-					echo '<h3>' . $experienceInfo[$i]['title'] . ' ' . $experienceInfo[$i]['startDate'] . ' - ' . $experienceInfo[$i]['endDate'] . '</h3>';
+					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . $experienceInfo[$i]['startDate'] . ' - ' . $experienceInfo[$i]['endDate'] . '</h3>';
 					echo $experienceInfo[$i]['group'];
 					echo '<ul>';
 					$isLink = false;
 					for($j = 0; $j < sizeof($experienceInfo[$i]['items']); $j++){
 						$item = $experienceInfo[$i]['items'][$j];
-						if($item['type'] == 'fact'){
+						if($item['type'] == 'desc'){
 							if($isLink){
 								echo '</ul>';
 							}
@@ -214,7 +219,7 @@
 				for($i = 0; $i < sizeof($activityInfo); $i ++){
 					echo '<section id="activity' . $i . '"></section>';
 					echo '<div class="well">';
-					echo '<h3>' . $activityInfo[$i]['title'] . '</h3>';
+					echo '<h3>' . $activityInfo[$i]['position'] . '</h3>';
 					$isLink = false;
 					echo '<ul>';
 					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
@@ -264,7 +269,7 @@
 				for($i = 0; $i < sizeof($skillInfo); $i++){
 					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j ++){
 						$skill = $skillInfo[$i]['skills'][$j];
-						echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill['name'] . '", content:"' . $skill['description'] . '",placement:"left"});';
+						echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill['name'] . '", content:"' . $skill['desc'] . '",placement:"left"});';
 					}
 				}
 			?>

@@ -200,7 +200,7 @@
 						<h3>Upload Your Profile Picture</h3>
 					</div>
 					<div class="modal-body">
-						<form class="well" enctype="multipart/form-data" action="<?php echo $username . '.php'?>" method="post">
+						<form class="well" enctype="multipart/form-data" action="<?php echo $username?>" method="post">
 							<input type="file" name="img"/>
 							<br>
 							<input type="submit" name="submit" value="submit" class="btn btn-primary"/>
