@@ -214,7 +214,7 @@
 				for($i = 0; $i < sizeof($experienceInfo); $i ++){
 					echo '<section id="experience' . $i . '"></section>';
 					echo '<div class="well">';
-					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($educationInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</h3>';
+					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</h3>';
 					echo $experienceInfo[$i]['group'];
 					echo '<ul>';
 					$isLink = false;
