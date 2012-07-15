@@ -99,8 +99,7 @@ function revalidateEducationField(){
 		// Generate the markup given the information
 		var appendableText = '<div class="education-object" id = "edu-obj-' + i + '"><a class="close" id="education-delete-' + i + '">X</a>' 
 			+ '<h3><a class="education-edit-link" id="education-edit-' + i + '" href="#education-modal" data-toggle="modal">' 
-			+ school + '</a></h3><p><strong>' + degree + '</strong> ' + getFormattedDate(startDate) 
-			+ ' - ' + ((getFormattedDate(endDate) == "" && getFormattedDate(startDate) != "") ? "Ongoing" : getFormattedDate(endDate)) + '</p>';
+			+ school + '</a></h3><p><strong>' + degree + '</strong> ' + getFullFormatDate(startDate, endDate) + '</p>';
 		for(var j = 0; j < awards.length; j ++)
 			appendableText += '<p><strong>' + awards[j] + '</strong></p>';
 		appendableText += '</div>';
@@ -372,7 +371,7 @@ function revalidateExperienceField(){
 		// Generate the markup given the information
 		var appendableText = '<div class="experience-object" id = "experience-object-' + i + '"><a class="close" id="experience-delete-' + i + '">X</a>' 
 			+ '<h3><a class="experience-edit-link" id="experience-edit-' + i + '" href="#experience-modal" data-toggle="modal">' 
-			+ position + '</a></h3><h3>' + group + ' ' + getFormattedDate(startDate) + ' - ' + ((getFormattedDate(endDate) == "" && getFormattedDate(startDate) != "") ? "Ongoing" : getFormattedDate(endDate)) + '</h3>';
+			+ position + '</a></h3><h3>' + group + ' ' + getFullFormatDate(startDate, endDate) + '</h3>';
 		for(var j = 0; j < items.length; j ++){
 			if(items[j].type == "link")
 				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a>';
@@ -537,7 +536,7 @@ function revalidateActivityField(){
 		// Generate the markup given the information
 		var appendableText = '<div class="activity-object" id = "activity-object-' + i + '"><a class="close" id="activity-delete-' + i + '">X</a>' 
 			+ '<h3><a class="activity-edit-link" id="activity-edit-' + i + '" href="#activity-modal" data-toggle="modal">' 
-			+ position + '</a></h3><h3>' + group + ' ' + getFormattedDate(startDate) + ' - ' + ((getFormattedDate(endDate) == "" && getFormattedDate(startDate) != "") ? "Ongoing" : getFormattedDate(endDate)) + '</h3>';
+			+ position + '</a></h3><h3>' + group + ' ' + getFullFormatDate(startDate, endDate) + '</h3>';
 		for(var j = 0; j < items.length; j ++){
 			if(items[j].type == "link")
 				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a>';
@@ -592,6 +591,17 @@ function getFormattedDate(date){
 		num = num.substring(1);
 	var m = month[parseInt(num) - 1];
 	return m + " " + year;
+}
+
+function getFullFormatDate(startDate, endDate){
+    if(getFormattedDate(endDate) == ""){
+        if(getFormattedDate(startDate) != ""){
+            return getFormattedDate(startDate) + " - Ongoing";
+        }else{
+            return "";
+        }
+    }else
+        return getFormattedDate(startDate) + " - " + getFormattedDate(endDate);
 }
 
 $(document).ready(function(){
