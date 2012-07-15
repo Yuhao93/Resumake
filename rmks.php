@@ -39,7 +39,7 @@
         }else{
             if(formatDate($startDate) == "")
                 return " Until " . formatDate($endDate);
-            else return formatDate($startDate) . " - " formatDate($endDate);
+            else return formatDate($startDate) . " - " . formatDate($endDate);
         }
             
     }
