@@ -24,10 +24,10 @@
             ,'July','August','September'
             ,'October','November','December');
             
-        if(strrpos("-", $date) === false)
+        if(strrpos($date, "-") === false)
             return "";
         $chunks = split("-", $date);
-        $monthIndex = (strrpos("0", $chunks[1]) == 0) ? (int)substr($chunks[1], 0) : (int)$chunks[1];
+        $monthIndex = (strrpos($chunks[1], "0") == 0) ? (int)substr($chunks[1], 0) : (int)$chunks[1];
         $month = $months[$monthIndex];
         $year = $chunks[0];
         return $month . " " . $year;
