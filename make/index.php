@@ -60,7 +60,7 @@
 		</div>
 		<div class="row span12">
 			<h3 class="span9">Build your resume here</h3>
-			<a href="../tutorial/" class="span2 btn btn-primary btn-large">Learn How</a>
+			<a href="../tutorial/" class="span2 btn btn-primary btn-large" target="_blank">Learn How</a>
 			
 		</div>
 		<div class="row span12">
@@ -383,15 +383,15 @@
 		
 		
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
-	<script type="text/javascript">
-	<?php
+    <script type="text/javascript">
+    <?php
 		echo 'var uid = ' . $uid . ';';
 		echo 'var username = "' . $username . '";';
 	?>
     </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);
