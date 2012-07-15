@@ -73,7 +73,7 @@
 		</div>
 		<div class="row span12">
 			<h3 class="span9">Build your resume here</h3>
-			<a href="#" class="span2 btn btn-primary btn-large">Learn How</a>
+			<a href="../tutorial/" class="span2 btn btn-primary btn-large">Learn How</a>
 			
 		</div>
 		<div class="row span12">
