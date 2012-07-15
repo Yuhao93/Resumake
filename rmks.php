@@ -1,9 +1,11 @@
 <?php
 	$uid = $_GET['uid'];
-	include_once('../private/php_scripts/dbObject.php');
+    $rid = $_GET['rid'];
+	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
 	$db->connect();
-	$resume = json_decode($db->getResumeByUid($uid), true);
+    $resume_obj = $db->getResumeByRid($rid);
+	$resume = json_decode($resume_obj->content, true);
 	$basicInfo = $resume['basicInfo'];
 	$contactInfo = $resume['contactInfo'];
 	$educationInfo = $resume['educationInfo'];
@@ -269,6 +271,16 @@
 			$("#contact_btn").modal({show:false});
 		});
 	</script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-33395111-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </body>
 
 </html>

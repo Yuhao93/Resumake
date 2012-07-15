@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	$uid = 34;
 	if(isset($_SESSION['uid'])){
 		$uid = $_SESSION['uid'];
 	}else if(isset($_COOKIE['remember'])){
@@ -8,6 +7,7 @@
 		$uid = $_SESSION['uid'];
 	}
 	else{
+        
 	}
 	include_once('../private/php_scripts/dbObject.php');
 	$db = new dbObject;

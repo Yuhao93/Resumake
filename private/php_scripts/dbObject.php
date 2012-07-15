@@ -174,12 +174,34 @@ class dbObject {
 	
 	///////////////////////// FORMAT ///////////////////////////////////////////
 	
-	public function getResumeByUid($uid){
+	public function getResumesByUid($uid){
 		$sql = "SELECT * FROM resume WHERE uid=$uid";
 		$result = mysql_query($sql);
-		$row = mysql_fetch_array($result);
-		return stripslashes($row['content']);
+        $resumes = array();
+		while($row = mysql_fetch_array($result)){
+            $resume = new resume;
+            $resume->rid = stripslashes($row['rid']);
+            $resume->uid = stripslashes($row['uid']);
+            $resume->name = stripslashes($row['name']);
+            $resume->date_created = $this->parseTimestamp(stripslashes($row['date_created']));
+            $resume->content = stripslashes($row['content']);
+            array_push($resumes, $resume);
+        }
+		return $resumes;
 	}
+    
+    public function getResumeByRid($rid){
+        $sql = "SELECT * FROM resume WHERE rid=$rid";
+		$result = mysql_query($sql);
+        $row = mysql_fetch_array($result)
+        $resume = new resume;
+        $resume->rid = stripslashes($row['rid']);
+        $resume->uid = stripslashes($row['uid']);
+        $resume->name = stripslashes($row['name']);
+        $resume->date_created = $this->parseTimestamp(stripslashes($row['date_created']));
+        $resume->content = stripslashes($row['content']);
+        return $resume;
+    }   
 	
 	public function addResumeByUid($uid, $content, $name){
 		$content = addslashes($content);
@@ -210,7 +232,7 @@ class user{
 class resume{
 	var $rid;
 	var $uid;
-	var $fid;
+	var $name;
 	var $date_created;
 	var $content;
 }
