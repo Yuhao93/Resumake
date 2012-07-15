@@ -30,7 +30,7 @@
         
         //If you are not the user of this profile page, navigate to your profile page
         if($usernameFromUid != $username){
-            header('Location: /' . $usernameFromUid);
+            header('Location: /users/' . $usernameFromUid);
         }else{
             //Get the img file path and the user info
             $imgpath = '../' . $user->imagepath;	
