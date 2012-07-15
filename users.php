@@ -54,7 +54,7 @@
                 if(!$fileError){
                     //build the new path and move the file to its permanent location
                     $ext = pathinfo($name, PATHINFO_EXTENSION);
-                    $newpath = '../imgs/' . $username . '.' . $ext;
+                    $newpath = 'imgs/' . $username . '.' . $ext;
                     $fileUploaded = move_uploaded_file($tmp,$newpath);
 
                     //load the file into SimpleImage
@@ -78,6 +78,8 @@
                     
                     //save the new image
                     $image->save($newpath);
+                    
+                    $newpath = '../' . $newpath;
                 }
             }
         }
