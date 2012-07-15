@@ -600,8 +600,12 @@ function getFullFormatDate(startDate, endDate){
         }else{
             return "";
         }
-    }else
-        return getFormattedDate(startDate) + " - " + getFormattedDate(endDate);
+    }else{
+        if(getFormattedDate(startDate) == "")
+            return " Until " + getFormattedDate(endDate);
+        else
+            return getFormattedDate(startDate) + " - " + getFormattedDate(endDate);
+    }
 }
 
 $(document).ready(function(){
