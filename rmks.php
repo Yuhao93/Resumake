@@ -26,7 +26,8 @@
         if(!strrpos('-', $date))
             return "";
         $chunks = split('-', $date);
-        $month = (strrpos('0', $chunks[1]) == 0) ? $months[(int)substr($chunks[1], 0)] : $months[(int)$chunks[1]];
+        $monthIndex = (strrpos('0', $chunks[1]) == 0) ? (int)substr($chunks[1], 0) : (int)$chunks[1];
+        $month = $months[$monthIndex];
         $year = $chunks[0];
         return $month . ' - ' . $year;
     }
