@@ -18,7 +18,7 @@
 	$experienceInfo = $resume['experienceInfo'];
 	$activityInfo = $resume['activityInfo'];
     
-    public function formatDate($date){
+    function formatDate($date){
         $months = array('January','February','March'
             ,'April','May','June'
             ,'July','August','September'
@@ -31,7 +31,7 @@
         return $month . ' - ' . $year;
     }
     
-    public function getOngoing($startDate, $endDate){
+    function getOngoing($startDate, $endDate){
         if(formatDate($endDate) == "" && formatDate($startDate) != "")
             return "Ongoing";
         else return formatDate($endDate);
