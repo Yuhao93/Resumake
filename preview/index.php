@@ -130,7 +130,7 @@
         $("#preview-register").click(function(){
             register();
         });
-        $('#preview-register').keypress(function(e){
+        $('#preview-email').keypress(function(e){
             if(e.which == 13){
                 register();
 		}
