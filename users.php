@@ -32,6 +32,9 @@
         if($usernameFromUid != $username){
             header('Location: /users/' . $usernameFromUid);
         }else{
+            //Get all the resumes pertaining to you via uid
+            $resumes = $db->getResumesByUid($uid);
+            
             //Get the img file path and the user info
             $imgpath = '../' . $user->imagepath;	
 			$user_info = json_decode($user->info);
@@ -312,10 +315,37 @@
 				<table class="table table-striped">
 					<thead>
 						<th>Resume</th>
-						<th>For</th>
 						<th>Created On</th>
-						<th>Description</th>
+                        <th></th>
 					</thead>
+                    <?php
+                        foreach($resumes as $resume){
+                            echo '<tr>';
+                            echo '<td>';
+                            
+                            //The Link of the resume
+                            echo '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
+                            
+                            //The Name of the resume
+                            echo $resume->name;
+                            
+                            echo '</a>';
+                            echo '</td>';
+                            echo '<td>';
+                            
+                            //The date it was created
+                            echo 'Created On ' . date('F t, Y', $resume->date_created);
+                            
+                            echo '</td>';
+                            echo '<td>';
+                            
+                            //Other functionality to be added later
+                            echo '';
+                            
+                            echo '</td>';
+                            echo '</tr>';
+                        }
+                    ?>
 				</table>
 			</div>
 		</div>
