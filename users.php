@@ -37,7 +37,7 @@
 			$user_info = json_decode($user->info);
             
             //If a file was uploaded
-            if(sizeof($_FILES) != 0){
+            if(sizeof($_FILES) != 0 && $_FILES['img']['tmp_name'] != ''){
                 //Get the uploaded file and its attributes, if the file is not an image format
                 //fileError
                 $name = $_FILES['img']['name'];
