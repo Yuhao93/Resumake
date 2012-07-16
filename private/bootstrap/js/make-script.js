@@ -667,7 +667,7 @@ $(document).ready(function(){
 	
     $("#code-preview").click(function(){
         completeResume();
-        var name = $("#basic-resume").attr("value");
+        var name = JSON.stringify($("#basic-resume").attr("value"));
 		$("#hidden-content").attr("value", resume);
         $("#preview-form").submit();
     });
@@ -677,7 +677,6 @@ $(document).ready(function(){
 		var name = $("#basic-resume").attr("value");
 		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'resume':resume, 'name':name}, function(data){
             window.location.href = "../users/" + username;
-			window.open("http://resumake.thegbclub.com/rmks/" + username + "/" + data);
 		});
 	});
 });

@@ -1,6 +1,5 @@
 <?php
     //Get the uid and rid
-    echo $_POST['content'];
 	$content = json_encode($_POST['content']);
     
     //Get the resume object from the rid

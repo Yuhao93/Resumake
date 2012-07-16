@@ -393,6 +393,7 @@
 	?>
     </script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../private/bootstrap/js/json2.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
     <script type="text/javascript">
