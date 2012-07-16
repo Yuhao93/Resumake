@@ -376,7 +376,10 @@
 		</div>
 		
 		<div class="row span12">
-			<a id="code-preview" href="#" class="span2 btn btn-primary btn-large">Preview</a>
+            <form action="../preview/" id="preview-form">
+                <input type="hidden" id="hidden-content" name="content">
+                <a id="code-preview" href="#" class="span2 btn btn-primary btn-large">Preview</a>
+            </form>
 			<a id="code-submit" href="#" class="span2 btn btn-primary btn-large">Save</a>
 			<br><br><br><br>
 		</div>

@@ -1,146 +1,317 @@
+<?php
+    //Get the uid and rid
+	$content = json_encode($_POST['content']);
+    
+    //Get the resume object from the rid
+	$resume = json_decode($content, true);
+    
+    //Get the info of the resumejson
+	$basicInfo = $resume['basicInfo'];
+	$contactInfo = $resume['contactInfo'];
+	$educationInfo = $resume['educationInfo'];
+	$skillInfo = $resume['skillInfo'];
+	$experienceInfo = $resume['experienceInfo'];
+	$activityInfo = $resume['activityInfo'];
+    
+    function formatDate($date){
+        $months = array('January','February','March'
+            ,'April','May','June'
+            ,'July','August','September'
+            ,'October','November','December');
+            
+        if(strrpos($date, "-") === false)
+            return "";
+        $chunks = split("-", $date);
+        $monthIndex = (strrpos($chunks[1], "0") == 0) ? (int)substr($chunks[1], 0) : (int)$chunks[1];
+        $month = $months[$monthIndex];
+        $year = $chunks[0];
+        return $month . " " . $year;
+    }
+    
+    function getFullDate($startDate, $endDate){
+        if(formatDate($endDate) == ""){
+            if(formatDate($startDate) == "")
+                return "";
+            else return formatDate($startDate) . " - Ongoing";
+        }else{
+            if(formatDate($startDate) == "")
+                return " Until " . formatDate($endDate);
+            else return formatDate($startDate) . " - " . formatDate($endDate);
+        }
+            
+    }
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Resumake | It's Coming</title>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
+	<title><?php echo $basicInfo->name?></title>
+	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/styles.css"></link>
 </head>
+
 <body>
-    <div class="modal hide" id="sentModal">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">x</button>
-			<h3>Thanks!</h3>
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a id="contact_menu" data-toggle="modal" href="#contactmodal">Contact</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="modal-body">
-            <h2>Thanks for putting yourself on the list!</h2>
-            <h3>We'll notify you when Resumake is out and ready for use!</h3>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn" data-dismiss="modal">Ok</a>
-        </div>
+      </div>
     </div>
-    
-    <div class="row">
-		<div class="page-header">
-			<h1 class="offset1">
-			<img src="../private/imgs/logo.png"></img>
-			<small>Here's an idea, let's give everyone an online resume, for free.</small>
-			</h1>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><h2>Go To</h2></li>
+			  <li class="nav-header"><a href="#Personal"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Personal</h4></a></li>
+				<li><a href="#Contact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Information</a></li>
+				
+				<?php 
+					if(sizeof($educationInfo) != 0){
+                        echo '<li class="nav-header"><a href="#education-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Education</h4></a></li>';
+                        echo '<div class="collapse" id="education-collapse">';
+                        for($i = 0; $i < sizeof($educationInfo); $i++){
+                            echo '<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#education' . $i . '">' . $educationInfo[$i]['school'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
+					
+					if(sizeof($skillInfo) != 0){
+						echo '<li class="nav-header"><a href="#skill-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Skills</h4></a></li>';
+                        echo '<div class="collapse" id="skill-collapse">';
+                        for($i = 0; $i < sizeof($skillInfo); $i ++){
+                            echo '<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#skill' . $i . '">' . $skillInfo[$i]['category'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
+					
+					if(sizeof($experienceInfo) != 0){
+						echo '<li class="nav-header"><a href="#experience-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Experience</h4></a></li>';
+                        echo '<div class="collapse" id="experience-collapse">';
+                        for($i = 0; $i < sizeof($experienceInfo); $i ++){
+                            echo '<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#experience' . $i . '">' . $experienceInfo[$i]['position'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
+					
+					if(sizeof($activityInfo) != 0){
+						echo '<li class="nav-header"><a href="#activity-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
+                        echo '<div class="collapse" id="activity-collapse">';
+                        for($i = 0; $i < sizeof($activityInfo); $i ++){
+                            echo '<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity' . $i . '">' . $activityInfo[$i]['position'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
+				?>
+            </ul>
+          </div>
+        </div>
+		
+        <div class="span9">
+          <div class="hero-unit">
+            <h1><?php echo $basicInfo['name'];?></h1>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p>
+			<blockquote>
+				<h4><?php echo $basicInfo['statement'];?></h4>
+			</blockquote>    
+			</div>
+
+			<section id="Personal"></section>
+			<div class="row-fluid">
+				<h2 class="float-down">Personal</h2>
+				<section id="Contact"></section>
+				<div class="well">		
+					<h3>Contact Information</h3>
+						<address>
+							<Strong> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['name'];?> </strong>
+							<br>&nbsp;&nbsp;<?php echo $contactInfo['address']?>
+							<br>&nbsp;&nbsp;<?php echo $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
+							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber']?>
+							<br>&nbsp;&nbsp;Email: <a href="mailto:<?php echo $contactInfo['email']?>"><?php echo $contactInfo['email']?></a>
+						</address>
+					<p><a class="btn btn-primary btn-large" id="contact_btn" data-toggle="modal" href="#contactmodal" >Contact Me &raquo;</a></p>
+				</div>
+				
+				<div class="modal hide" id="contactmodal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h3>Contact Me</h3>
+					</div>
+					<div class="modal-body">
+						<form class="well">
+							<label>Name</label>
+							<input type="text" class="span9" placeholder="Name" name="name" id="email-name">
+							
+							<label>Subject</label>
+							<input type="text" class="span9" placeholder="Subject" name="subject" id="email-subject">
+							
+							<label>Content</label>
+							<textarea class="span12" placeholder="Content" name="content" rows="8" id="email-content"></textarea>
+						</form>
+						<a href="mailto:ypma@uci.edu" class="btn btn-primary">Use Email Client</a>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn" data-dismiss="modal">Close</a>
+						<a href="#" class="btn btn-primary" data-dismiss="modal" id="email-send">Send</a>
+					</div>
+				</div>
+				<div class="modal hide" id="thanksmodal">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">x</button>
+						<h3>Thank You!</h3>
+					</div>
+					<div class="modal-body">
+						<div class="hero-unit">
+						<h2>Thanks for getting in touch! Your email has been sent.</h2>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn" data-dismiss="modal">Close</a>
+					</div>
+				</div>
+				
+				<hr>
+			</div>			
+		
+		<?php 
+			if(sizeof($educationInfo) != 0){
+				echo '<section id="Education"></section><div class="row-fluid"><h2 class="float-down">Education</h2>';
+				for($i = 0; $i < sizeof($educationInfo); $i ++){
+					$education = $educationInfo[$i];
+					$awards = $education['awards'];
+					echo '<section id="education' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $education['school'] . '</h3>';
+					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong> ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
+					for($j = 0; $j < sizeof($awards); $j ++)
+						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>';
+					echo '</div>';
+				}
+				echo '<hr></div>';
+			}
+			
+			if(sizeof($skillInfo) != 0){
+				echo '<section id="Skills"></section><div class="row-fluid"><h2 class="float-down">Skills</h2>';
+				for($i = 0; $i < sizeof($skillInfo); $i ++){
+					echo '<section id="skill' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $skillInfo[$i]['category'] . '</h3>';
+					echo '<ul class="nav nav-tabs nav-stacked">';
+					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
+						echo '<li><a id="skill' . $i . '_' . $j . '">' . $skillInfo[$i]['skills'][$j]['name'] . '</a></li>';
+					}
+					echo '</ul>';
+					echo '</div>';
+				}
+				echo '<hr></div>';
+			}
+			
+			if(sizeof($experienceInfo) != 0){
+				echo '<section id="Experience"></section>';
+				echo '<div class="row-fluid">';
+				echo '<h2 class="float-down">Experience</h2>';
+				for($i = 0; $i < sizeof($experienceInfo); $i ++){
+					echo '<section id="experience' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</h3>';
+					echo $experienceInfo[$i]['group'];
+					echo '<ul>';
+					$isLink = false;
+					for($j = 0; $j < sizeof($experienceInfo[$i]['items']); $j++){
+						$item = $experienceInfo[$i]['items'][$j];
+						if($item['type'] == 'desc'){
+							if($isLink){
+								echo '</ul>';
+							}
+							echo '<li>' . $item['desc'] . '</li>';
+							$isLink = false;
+						}else if($item['type'] == 'link'){
+							if(!$isLink){
+								echo '<ul class="nav nav-tabs nav-stacked">';
+							}
+							echo '<li><a href="' . $item['link'] . '">' . $item['name'] . '</a></li>';
+							$isLink = true;
+						}
+					}
+					echo '</ul>';
+					echo '</div>';
+				}
+				echo '<hr></div>';
+			}
+			
+			if(sizeof($activityInfo) != 0){
+				echo '<section id="Activity"></section>';
+				echo '<div class="row-fluid">';
+				echo '<h2 class="float-down">Activities</h2>';
+				for($i = 0; $i < sizeof($activityInfo); $i ++){
+					echo '<section id="activity' . $i . '"></section>';
+					echo '<div class="well">';
+					echo '<h3>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</h3>';
+					$isLink = false;
+					echo '<ul>';
+					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
+						$item = $activityInfo[$i]['items'][$j];
+						if($item['type'] == 'fact'){
+							if($isLink){
+								echo '</ul>';
+							}
+							echo '<li>' . $item['desc'] . '</li>';
+							$isLink = false;
+						}else if($item['type'] == 'link'){
+							if(!$isLink){
+								echo '<ul class="nav nav-tabs nav-stacked">';
+							}
+							echo '<li><a href="' . $item['link'] . '">' . $item['name'] . '</a></li>';
+							$isLink = true;
+						}
+					}
+					echo '</ul>';
+					echo '</div>';
+				}
+				echo '<hr>';
+				echo '</div>';
+			}
+		?>	
 		</div>
 	</div>
-    <br>
-	<div class="container">
-    <div class="hero-unit row span10">
-        <h1>Resumake: The Online Resume Solution</h1>
-        <br><br>
-        <h2>Sign Up With Your .edu Email For More Info</h2>
-        <div id="alert-container"></div>
-        <div class="row span10" style="position:relative;margin-left:0px;">
-            
-            <input type="text" style="height:32px;width:78%;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email" id="preview-email">
-            <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:20%;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;" id="preview-register">Sign Up</a>
-        </div>
-        <div class="row span10" style="margin-left:0px;">
-
-        <div class="collapse" id="video">
-            <center><!-- Video Goes Here --></center>
-        </div>
-        <!--<center><h2><a href="#video" data-toggle="collapse">Watch The Video</a></h2></center>-->
-        </div>
-    </div>
-    
-
-    <div class="row span11">
-        <br>
-        <center><h1 class="row span11">Create An Online Resume That You Can Easily Show Your Future Employers</h1></center>
-        <br><br><br><br><br>
-        <section class="span5">
-            <div class="page-header">
-                <h2>Resumake Lets You Have An Online Resume For Free.<br><small>No Webserver or Programming Needed.</small></h2>
-            </div>
-            <p>Adapt to the changing times and get an online resume. Today, companies not only accept online resumes but also prefer them. It makes it easier for them to find certain skills and experiences in their applicants. Needless to say, having an online resume is becoming a necessity.</p>
-            <p>Let Resumake give you an online resume. Free and Simple.</p>
-            <p>After you have uploaded your online resume, companies that are eager to find new employees will be able to access our database of resumes. Our double-blinded match-making process ensures that when a company contacts you, both sides will be excited to pursue the offer.</p>
-        </section>
-        <div class="thumbnail span5">
-            <img src="../private/imgs/home1.png">
-        </div>
-    </div>
-    <div class="row span11">
-        <br><br><br><br><br><br>
-        <center><h1 class="row span11">No Tricky Web Programming, No Hassle, Just That Simple</h1></center>
-        <br><br><br><br><br>
-        <div class="thumbnail span5">
-            <img src="../private/imgs/home2.png">
-        </div>
-        <section class="span5">
-            <div class="page-header">
-                <h2>Upload A Resume And You're Done<br><small>No Need For Any Web Programming Or Rented Server Space</small></h2>
-            </div>
-            <p>Typically, the process of making an online resume is long and expensive. Creating a professional looking website is hard and time-consuming. In order to do it well, you have to invest a lot of time that could be spent doing other things.</p>
-            <p>To host up your webpage, you need server space. This can be achieved through a free website making service that creates an unprofessional and unnattractive website or through renting or buying server space, which can often times be expensive.</p>
-            <p>Resumake makes it easy to host an online resume. We don't charge you any fee for hosting your resume and we streamline your resume making process. You can even import your profile from LinkedIn to make the process even easier</p>
-        </section>
-    </div>
-    
-    <div class="row span11">
-        <br><br><br><br><br><br>
-        <center><h1 class="row span11">Let Resumake Play Match-maker</h1></center>
-        <br><br><br><br><br>
-        <section class="span5">
-            <div class="page-header">
-                <h2>Employers Are Looking For Resumes And You Have One<br><small>We Think We Can Work Something Out.</small></h2>
-            </div>
-            <p>Resumake's advanced match-making algorithm makes both parties benefit. Every applicant that a company pursues that doesn't end in an acceptance of an offer is time and money lost. Likewise, any company that you pursue that doesn't end in an offer is time lost.</p>
-            <p>Our double-blind match-making algorithm makes sure that companies target the resumes that are the best fit for their criteria and that you only show up on the radars of companies that can make an offer to appease both sides.</p>
-        </section>
-        <div class="thumbnail span5">
-            <img src="../private/imgs/home3.png">
-        </div>
-    </div>
-    
-    <div class="row span11">
-        <br><br><br><br><br><br>
-        <section class="span11">
-            <div class="page-header">
-                <h1>Coming Soon<br><small>Sign Up Now</small></h1>
-            </div>
-            <p>Give us your email and we'll let you know as soon as Resumake is up and running. With our first release coming soon, be sure to get in on the action right when its released.</p>
-        </section>
-    </div>
-    <div class="row span11">
-    <br><br><br><br><br><br><br>
-    </div>
-    </div>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-    function register(){
-        var email = $("#preview-email").attr("value");
-        email = email.replace(" ", "");
-        if(validateEmail(email) && email.substring(email.length - 4) == ".edu"){
-            $("#sentModal").modal('show');
-            $.post("../private/php_scripts/previewRegister.php", {'email':email}, function(data){});
-        }else{
-            var alertText = '<div class="alert alert-error" style="font-size:18px;"><button class="close" data-dismiss="alert">x</button><strong>Oh No!</strong> Please enter in a valid .edu email address.</div>'
-            $("#alert-container").html(alertText);
-        }
-    }
-    $(document).ready(function(){
-        $("#preview-register").click(function(){
-            register();
-        });
-        $('#preview-register').keypress(function(e){
-            if(e.which == 13){
-                register();
-		}
-        });
-    });
-    function validateEmail(email) { 
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email) && email.length > 0;
-    } 
-    </script>
+	<script type="text/javascript" src="../../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../private/bootstrap/js/script.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#email-send').click(function(){
+			var name = $('#email-name').attr('value');
+			var subject = $('#email-subject').attr('value');
+			var content = $('#email-content').attr('value');
+			$.post('sendemail.php', {'name':name, 'subject':subject, 'content':content}, function(data){
+				$('#thanksmodal').modal('show');
+			});
+		});
+	});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			<?php
+				for($i = 0; $i < sizeof($skillInfo); $i++){
+					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j ++){
+						$skill = $skillInfo[$i]['skills'][$j];
+                        if($skill['desc'] != "")
+                            echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill['name'] . '", content:"' . $skill['desc'] . '",placement:"left"});';
+					}
+				}
+			?>
+			$("#contact_btn").modal({show:false});
+		});
+	</script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);
@@ -152,4 +323,5 @@
         })();
     </script>
 </body>
+
 </html>

@@ -667,6 +667,9 @@ $(document).ready(function(){
 	
     $("#code-preview").click(function(){
         completeResume();
+        var name = $("#basic-resume").attr("value");
+		$("#hidden-content").value(resume);
+        $("#preview-form").submit();
     });
     
 	$("#code-submit").click(function(){
