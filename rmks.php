@@ -80,29 +80,41 @@
 				<li><a href="#Contact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Information</a></li>
 				
 				<?php 
-					if(sizeof($educationInfo) != 0)
-						echo '<li class="nav-header"><a href="#Education"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Education</h4></a></li>';
-					for($i = 0; $i < sizeof($educationInfo); $i++){
-						echo '<li><a href="#education' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $educationInfo[$i]['school'] . '</a></li>';
-					}
+					if(sizeof($educationInfo) != 0){
+                        echo '<li class="nav-header"><a href="#education-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Education</h4></a></li>';
+                        echo '<div class="collapse in" id="education-collapse">';
+                        for($i = 0; $i < sizeof($educationInfo); $i++){
+                            echo '<li><a href="#education' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $educationInfo[$i]['school'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
 					
-					if(sizeof($skillInfo) != 0)
-						echo '<li class="nav-header"><a href="#Skills"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Skills</h4></a></li>';
-					for($i = 0; $i < sizeof($skillInfo); $i ++){
-						echo '<li><a href="#skill' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $skillInfo[$i]['category'] . '</a></li>';
-					}
+					if(sizeof($skillInfo) != 0){
+						echo '<li class="nav-header"><a href="#skill-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Skills</h4></a></li>';
+                        echo '<div class="collapse in" id="skill-collapse">';
+                        for($i = 0; $i < sizeof($skillInfo); $i ++){
+                            echo '<li><a href="#skill' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $skillInfo[$i]['category'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
 					
-					if(sizeof($experienceInfo) != 0)
-						echo '<li class="nav-header"><a href="#Experience"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Experience</h4></a></li>';
-					for($i = 0; $i < sizeof($experienceInfo); $i ++){
-						echo '<li><a href="#experience' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $experienceInfo[$i]['position'] . '</a></li>';
-					}
+					if(sizeof($experienceInfo) != 0){
+						echo '<li class="nav-header"><a href="#experience-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Experience</h4></a></li>';
+                        echo '<div class="collapse in" id="experience-collapse">';
+                        for($i = 0; $i < sizeof($experienceInfo); $i ++){
+                            echo '<li><a href="#experience' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $experienceInfo[$i]['position'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
 					
-					if(sizeof($activityInfo) != 0)
-						echo '<li class="nav-header"><a href="#Activity"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
-					for($i = 0; $i < sizeof($activityInfo); $i ++){
-						echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]['position'] . '</a></li>';
-					}
+					if(sizeof($activityInfo) != 0){
+						echo '<li class="nav-header"><a href="#activity-collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
+                        echo '<div class="collapse in" id="activity-collapse">';
+                        for($i = 0; $i < sizeof($activityInfo); $i ++){
+                            echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]['position'] . '</a></li>';
+                        }
+                        echo '</div>';
+                    }
 				?>
             </ul>
           </div>
@@ -183,7 +195,7 @@
 					echo '<section id="education' . $i . '"></section>';
 					echo '<div class="well">';
 					echo '<h3>' . $education['school'] . '</h3>';
-					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong>' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
+					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong> ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
 					for($j = 0; $j < sizeof($awards); $j ++)
 						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>';
 					echo '</div>';
