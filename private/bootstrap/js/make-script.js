@@ -668,7 +668,7 @@ $(document).ready(function(){
     $("#code-preview").click(function(){
         completeResume();
         var name = $("#basic-resume").attr("value");
-		$("#hidden-content").value(resume);
+		$("#hidden-content").attr("value", resume);
         $("#preview-form").submit();
     });
     
