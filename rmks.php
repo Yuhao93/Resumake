@@ -108,7 +108,7 @@
                     }
 					
 					if(sizeof($activityInfo) != 0){
-						echo '<li class="nav-header"><a href="#activity-collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
+						echo '<li class="nav-header"><a href="#activity-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
                         echo '<div class="collapse" id="activity-collapse">';
                         for($i = 0; $i < sizeof($activityInfo); $i ++){
                             echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]['position'] . '</a></li>';
