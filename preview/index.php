@@ -106,7 +106,7 @@
             </div>
             <p>Give us your email and we'll let you know as soon as Resumake is up and running. With our first release coming soon, be sure to get in on the action right when its released.</p>
         </section>
-        <div class="row span10" style="position:relative;margin-left:0px;"> 
+        <div class="row span11" style="position:relative;margin-left:0px;"> 
             <input type="text" style="height:32px;width:78%;font-size:24px;padding-top:13px;padding-bottom:10px;margin-top:8px;" placeholder="Your Email" id="preview-email">
             <a href="#" class="btn btn-primary btn-large" style="display:inline-block;width:20%;height:36px;border-radius:2px;font-size:24px;position:absolute;right:-10px;top:8px;" id="preview-register">Sign Up</a>
         </div>
