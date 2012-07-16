@@ -667,8 +667,8 @@ $(document).ready(function(){
 	
     $("#code-preview").click(function(){
         completeResume();
-        var name = JSON.stringify($("#basic-resume").attr("value"));
-		$("#hidden-content").attr("value", resume);
+        var name = $("#basic-resume").attr("value");
+		$("#hidden-content").attr("value", JSON.stringify(resume));
         $("#preview-form").submit();
     });
     
