@@ -82,7 +82,7 @@
 				<?php 
 					if(sizeof($educationInfo) != 0){
                         echo '<li class="nav-header"><a href="#education-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Education</h4></a></li>';
-                        echo '<div class="collapse in" id="education-collapse">';
+                        echo '<div class="collapse" id="education-collapse">';
                         for($i = 0; $i < sizeof($educationInfo); $i++){
                             echo '<li><a href="#education' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $educationInfo[$i]['school'] . '</a></li>';
                         }
@@ -91,7 +91,7 @@
 					
 					if(sizeof($skillInfo) != 0){
 						echo '<li class="nav-header"><a href="#skill-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Skills</h4></a></li>';
-                        echo '<div class="collapse in" id="skill-collapse">';
+                        echo '<div class="collapse" id="skill-collapse">';
                         for($i = 0; $i < sizeof($skillInfo); $i ++){
                             echo '<li><a href="#skill' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $skillInfo[$i]['category'] . '</a></li>';
                         }
@@ -100,7 +100,7 @@
 					
 					if(sizeof($experienceInfo) != 0){
 						echo '<li class="nav-header"><a href="#experience-collapse" data-toggle="collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Experience</h4></a></li>';
-                        echo '<div class="collapse in" id="experience-collapse">';
+                        echo '<div class="collapse" id="experience-collapse">';
                         for($i = 0; $i < sizeof($experienceInfo); $i ++){
                             echo '<li><a href="#experience' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $experienceInfo[$i]['position'] . '</a></li>';
                         }
@@ -109,7 +109,7 @@
 					
 					if(sizeof($activityInfo) != 0){
 						echo '<li class="nav-header"><a href="#activity-collapse"><h4>&nbsp;&nbsp;&nbsp;&nbsp;Activity</h4></a></li>';
-                        echo '<div class="collapse in" id="activity-collapse">';
+                        echo '<div class="collapse" id="activity-collapse">';
                         for($i = 0; $i < sizeof($activityInfo); $i ++){
                             echo '<li><a href="#activity' . $i . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $activityInfo[$i]['position'] . '</a></li>';
                         }
