@@ -242,7 +242,7 @@
 							if(!$isLink){
 								echo '<ul class="nav nav-tabs nav-stacked">';
 							}
-							echo '<li><a href="' . $item['link'] . '">' . $item['name'] . '</a></li>';
+							echo '<li><a href="' . $item['link'] . '" target="_blank">' . $item['name'] . '</a></li>';
 							$isLink = true;
 						}
 					}
@@ -274,7 +274,7 @@
 							if(!$isLink){
 								echo '<ul class="nav nav-tabs nav-stacked">';
 							}
-							echo '<li><a href="' . $item['link'] . '">' . $item['name'] . '</a></li>';
+							echo '<li><a href="' . $item['link'] . '" target="_blank">' . $item['name'] . '</a></li>';
 							$isLink = true;
 						}
 					}
