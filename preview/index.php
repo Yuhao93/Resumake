@@ -120,7 +120,7 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
     function register(){
-        var email = $("#preview-email").attr("value");
+        var email = $(".preview-email").attr("value");
         email = email.replace(" ", "");
         if(validateEmail(email) && email.substring(email.length - 4) == ".edu"){
             $("#sentModal").modal('show');
