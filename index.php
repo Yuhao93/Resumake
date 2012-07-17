@@ -125,7 +125,7 @@
 				<input type="password" class="span3" placeholder="password" id="login-pass">
 				<br>
 				<div class="checkbox-row" class="span3">
-					Remeber Me <input type="checkbox" id="login-remember">
+					Remember Me <input type="checkbox" id="login-remember">
 				</div>
 				<br>
 				<a href="#" class="btn btn-primary btn-large" id="login-submit">Login</a>
