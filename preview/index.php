@@ -131,13 +131,17 @@
         }
     }
     $(document).ready(function(){
-        $("#preview-register").click(function(){
+        $("#preview-register").each(function(index){
+            $(this).click(function(){
             register();
+            });
         });
-        $('#preview-register').keypress(function(e){
-            if(e.which == 13){
-                register();
-		}
+        $('#preview-register').each(function(index){
+            $(this).keypress(function(e){
+                if(e.which == 13){
+                    register();
+                }
+            });
         });
     });
     function validateEmail(email) { 
