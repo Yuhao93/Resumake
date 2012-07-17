@@ -257,6 +257,9 @@ function addLinkExperience(){
 	var index = experienceEdit.items.length;
 	var linkName = $("#experience-link-name").attr("value");
 	var link = $("#experience-link").attr("value");
+    if(link.indexof("http://") != 0)
+        link = "http://" + link;
+    
 	$("#experience-link-name").attr("value", "");
 	$("#experience-link").attr("value", "");
 	$("#experience-item-list").html("");
@@ -422,6 +425,9 @@ function addLinkActivity(){
 	var index = activityEdit.items.length;
 	var linkName = $("#activity-link-name").attr("value");
 	var link = $("#activity-link").attr("value");
+    if(link.indexof("http://") != 0)
+        link = "http://" + link;
+    
 	$("#activity-link-name").attr("value", "");
 	$("#activity-link").attr("value", "");
 	$("#activity-item-list").html("");
