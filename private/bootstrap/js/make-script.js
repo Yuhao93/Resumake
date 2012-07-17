@@ -374,7 +374,7 @@ function revalidateExperienceField(){
 			+ position + '</a></h3><h3>' + group + ' ' + getFullFormatDate(startDate, endDate) + '</h3>';
 		for(var j = 0; j < items.length; j ++){
 			if(items[j].type == "link")
-				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a>';
+				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a><br>';
 			else if(items[j].type == "desc")
 				appendableText += '<p><strong>' + items[j].desc + '</strong></p>';
 		}
@@ -539,7 +539,7 @@ function revalidateActivityField(){
 			+ position + '</a></h3><h3>' + group + ' ' + getFullFormatDate(startDate, endDate) + '</h3>';
 		for(var j = 0; j < items.length; j ++){
 			if(items[j].type == "link")
-				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a>';
+				appendableText += '<a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a><br>';
 			else if(items[j].type == "desc")
 				appendableText += '<p><strong>' + items[j].desc + '</strong></p>';
 		}
