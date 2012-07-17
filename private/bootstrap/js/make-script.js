@@ -668,9 +668,8 @@ $(document).ready(function(){
     $("#code-preview").click(function(){
         completeResume();
         var name = $("#basic-resume").attr("value");
-        $(this).attr("target", "_blank");
 		$.post("../resumepreview/index.php", {'content': JSON.stringify(resume)}, function(data){
-            var previewWindow = window.open();
+            var previewWindow = window.open('', '_blank');
             previewWindow.document.writeln(data);
         });
     });
