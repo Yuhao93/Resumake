@@ -457,7 +457,7 @@ function repopulateActivityItems(){
 			+ content + 
 			'</li>');
 		$("button#activity-" + i).click(function(){
-			var id = $(this).attr("id").substring(11);
+			var id = $(this).attr("id").substring(9);
 			$("li#activity-" + id).remove();
 			activityEdit.items = [];
 			
