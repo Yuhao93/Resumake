@@ -311,7 +311,7 @@
 				</div>
 			
 				<h3>My Resumes</h3>
-				<a href="/make/" class="btn-primary btn btn-large">Add New Resume</a>
+				<a href="/make/" class="btn-primary btn btn-large span">Add New Resume</a>
                 
                 <div class="btn-group span">
                     <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-wrench"></i> Edit</a>
