@@ -23,7 +23,7 @@
     }
     
     //Get the tooltip from an id, saves space in the markup
-    $tooltip = new array();
+    $tooltip = array();
     $tooltip["basic-resume"] = "the name of your resume goes (e.g. My Resume, Joe's Computer Science Resume, Resume #1). This is purely for your organization only as no one else will be able to see your resume title.";
 ?>
 
