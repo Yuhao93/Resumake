@@ -21,6 +21,10 @@
         $info = json_decode($user->info, true);
         $username = $user->username;
     }
+    
+    //Get the tooltip from an id, saves space in the markup
+    $tooltip = new array();
+    $tooltip["basic-resume"] = "the name of your resume goes (e.g. My Resume, Joe's Computer Science Resume, Resume #1). This is purely for your organization only as no one else will be able to see your resume title.";
 ?>
 
 
@@ -73,7 +77,7 @@
 			<hr>
 			<br>
 			
-			<p class="span1">Resume</p>
+			<p class="span1" rel="tooltip" title="<?php echo $tooltip["basic-resume"]?>">Resume</p>
 			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
 			<br>
 
