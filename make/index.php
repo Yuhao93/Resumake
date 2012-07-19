@@ -120,19 +120,19 @@
 			<hr>
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-resume"]?>">Resume</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-resume"]?>">Resume</a>
 			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
 			<br>
 
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-name"]?>">Name</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-name"]?>">Name</a>
 			<input class="span3" type="text" value="<?php echo $name?>" id="basic-name">
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-position"]?>">Position</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-position"]?>">Position</a>
 			<input class="span3" type="text" id="basic-position">
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-statement"]?>">Statement</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-statement"]?>">Statement</a>
 			<input class="span3" type="text" id="basic-statement">
 			<br>
 		</div>
@@ -143,15 +143,15 @@
 			<hr>
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-address"]?>">Address</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-address"]?>">Address</a>
 			<input class="span3" type="text" value="<?php echo $info["address"]?>" id="contact-address">
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-city"]?>">City</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-city"]?>">City</a>
 			<input class="span3" type="text" value="<?php echo $info["city"]?>" id="contact-city">
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-state"]?>">State</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-state"]?>">State</a>
 			<select class="span3" id="contact-state">
 				<option></option>
 				<?php 
@@ -173,16 +173,16 @@
 			</select>
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-zip"]?>">Zip Code</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-zip"]?>">Zip Code</a>
 			<input class="span3" type="text" value="<?php echo $info["zip"]?>" id="contact-zip">
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-phoneNumber"]?>">Phone Number</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-phoneNumber"]?>">Phone Number</a>
 			<input class="span3" type="text" value="<?php echo $info["phone"]?>" id="contact-phone">
 			<br>
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-email"]?>">Email</a><br>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-email"]?>">Email</a>
 			<input class="span3" type="text" value="<?php echo $info["email"]?>" id="contact-email">
 			<br>
 		</div>
@@ -202,19 +202,19 @@
 				<h3>Education</h3>
 			</div>
 			<div class="modal-body">
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-school"]?>">School</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-school"]?>">School</a>
 				<input class="span3" type="text" id="education-school">
 				<br>
 			
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-degre"]?>">Degree</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-degre"]?>">Degree</a>
 				<input class="span3" type="text" id="education-degree">
 				<br>
 			
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-startDate"]?>">Start Date</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-startDate"]?>">Start Date</a>
 				<input class="span3" type="date" id="education-startDate">
 				<br>
 			
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-endDate"]?>">End Date</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-endDate"]?>">End Date</a>
 				<input class="span3" type="date" id="education-endDate">
 				<br>
 
@@ -255,7 +255,7 @@
 				<h3>Category</h3>
 			</div>
 			<div class="modal-body">
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["skill-category"]?>">Category</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["skill-category"]?>">Category</a>
 				<input class="span3" type="text" id="skill-category">
 				<br>
 				<ul id="skill-list">
@@ -265,10 +265,10 @@
 				<div id="skill-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["skill-name"]?>">Skill Name</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["skill-name"]?>">Skill Name</a>
 						<input type="text" class="span3" id="skill-name">
 						<br>
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["skill-desc"]?>">Skill Description</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["skill-desc"]?>">Skill Description</a>
 						<textarea type="text" class="span3" id="skill-desc"></textarea>
 						
 						<a href="#skill-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="skill-add">Add</a>
@@ -297,19 +297,19 @@
 				<h3>Experience</h3>
 			</div>
 			<div class="modal-body">
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-position"]?>">Position</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-position"]?>">Position</a>
 				<input class="span3" type="text" id="experience-position">
 				<br>
 				
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-startDate"]?>">Start Date</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-startDate"]?>">Start Date</a>
 				<input class="span3" type="date" id="experience-start-date">
 				<br>
 								
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-endDate"]?>">End Date</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-endDate"]?>">End Date</a>
 				<input class="span3" type="date" id="experience-end-date">
 				<br>
 					
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-group"]?>">Group</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-group"]?>">Group</a>
 				<input class="span3" type="text" id="experience-group">
 				<br>
 				
@@ -319,7 +319,7 @@
 				<div id="experience-fact-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-fact"]?>">Fact</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-fact"]?>">Fact</a>
 						<textarea class="span3" id="experience-desc"></textarea>
 						
 						<a href="#experience-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-fact-add">Add</a>
@@ -333,10 +333,10 @@
 				<div id="experience-link-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-link-name"]?>">Link Name</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-link-name"]?>">Link Name</a>
 						<input type="text" class="span3" id="experience-link-name">
 						<br>
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-link"]?>">Link</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-link"]?>">Link</a>
 						<input type="text" class="span3" id="experience-link">
 						
 						<a href="#experience-link-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-link-add">Add</a>
@@ -365,19 +365,19 @@
 				<h3>Activity</h3>
 			</div>
 			<div class="modal-body">
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-position"]?>">Position</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-position"]?>">Position</a>
 				<input class="span3" type="text" id="activity-position">
 				<br>
 				
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-startDate"]?>">Start Date</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-startDate"]?>">Start Date</a>
 				<input class="span3" type="date" id="activity-start-date">
 				<br>
 								
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-endDate"]?>">End Date</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-endDate"]?>">End Date</a>
 				<input class="span3" type="date" id="activity-end-date">
 				<br>
 					
-				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-group"]?>">Group</a><br>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-group"]?>">Group</a>
 				<input class="span3" type="text" id="activity-group">
 				<br>
 			
@@ -387,7 +387,7 @@
 				<div id="activity-fact-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-fact"]?>">Fact</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-fact"]?>">Fact</a>
 						<input type="text" class="span3" id="activity-desc">
 						
 						<a href="#activity-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-fact-add">Add</a>
@@ -402,10 +402,10 @@
 				<div id="activity-link-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-link-name"]?>">Link Name</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-link-name"]?>">Link Name</a>
 						<input type="text" class="span3" id="activity-link-name">
 						<br>
-						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-link"]?>">Link</a><br>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-link"]?>">Link</a>
 						<input type="text" class="span3" id="activity-link">
 						
 						<a href="#activity-link-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-link-add">Add</a>
