@@ -191,7 +191,7 @@
 					<p><h5 id='info-city'>&nbsp;&nbsp;City: <?php if($user_info)echo $user_info->{'city'}?></h5></p>
 					<p><h5 id='info-state'>&nbsp;&nbsp;State: <?php if($user_info)echo $user_info->{'state'}?></h5></p>
 					<p><h5 id='info-zip'>&nbsp;&nbsp;Zip Code: <?php if($user_info)echo $user_info->{'zip'}?></h5></p>
-					<p><h5>&nbsp;&nbsp;Email: <a id='info-email' href="mailto:<?php if($user_info)echo $user_info->{'email'} ?>"><?php if($user_info)echo $user_info->{'email'}?></a></h5></p>
+					<p><h5 id='info-email'>&nbsp;&nbsp;Email: <?php if($user_info)echo $user_info->{'email'} ?></h5></p>
 					<p><h5 id='info-phone'>&nbsp;&nbsp;Phone Number: <?php if($user_info)echo $user_info->{'phone'}?></h5></p>
 					<br>
 					<a class="btn btn-primary btn-large" href="#infomodal" id="editinfo" data-toggle="modal">Edit My Information</a>
@@ -342,6 +342,9 @@
                             //Other functionality to be added later
                             echo '';
                             echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-wrench icon-white"> </i> Edit</a>';
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-print icon-white"> </i> Print</a>';
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-trash icon-white"> </i> Delete</a>';
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-share icon-white"> </i> Html</a>';
                             echo '</td>';
                             
                             echo '</tr>';
