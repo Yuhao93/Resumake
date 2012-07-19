@@ -312,14 +312,18 @@
 			
 				<h3>My Resumes</h3>
 				<a href="/make/" class="btn-primary btn btn-large">Add New Resume</a>
+                
+                <div class="btn-group">
+                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-wrench"></i> Edit</a>
+                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-print"></i> Print</a>
+                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-trash"></i> Trash</a>
+                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-share"></i> Share</a>
+                </div>
+                
 				<table class="table table-striped">
 					<thead>
 						<th>Resume</th>
 						<th>Created On</th>
-                        <th>Edit</th>
-                        <th>Print</th>
-                        <th>Delete</th>
-                        <th>Html</th>
 					</thead>
                     <?php
                         foreach($resumes as $resume){
@@ -327,6 +331,7 @@
                             echo '<td>';
                             
                             //The Link of the resume
+                            echo '<input type="radio" style="">';
                             echo '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
                             
                             //The Name of the resume
@@ -338,26 +343,6 @@
                             
                             //The date it was created
                             echo 'Created On ' . date('F t, Y', $resume->date_created);
-                            
-                            echo '</td>';
-                            echo '<td>';
-                            
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-wrench icon-white"></i></a>';
-                            
-                            echo '</td>';
-                            echo '<td>';
-                            
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-print icon-white"></i></a>';
-                            
-                            echo '</td>';
-                            echo '<td>';
-                            
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-trash icon-white"></i></a>';
-                            
-                            echo '</td>';
-                            echo '<td>';
-                            
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-share icon-white"></i></a>';
                             
                             echo '</td>';
                             echo '</tr>';
