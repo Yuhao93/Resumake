@@ -331,7 +331,7 @@
                             echo '<td>';
                             
                             //The Link of the resume
-                            echo '<button class="btn" data-toggle="button">Single Toggle</button>';
+                            echo '<button class="btn" data-toggle="button" style="width:16px;height:16px;padding:0px;border-radius:0px;">Single Toggle</button>';
                             echo '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
                             
                             //The Name of the resume
