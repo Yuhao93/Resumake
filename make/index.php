@@ -24,7 +24,50 @@
     
     //Get the tooltip from an id, saves space in the markup
     $tooltip = array();
-    $tooltip["basic-resume"] = "the name of your resume goes (e.g. My Resume, Joe's Computer Science Resume, Resume #1). This is purely for your organization only as no one else will be able to see your resume title.";
+    
+    //basic
+    $tooltip["basic-resume"] = "The name of your resume goes (e.g. My Resume, Joe's Computer Science Resume, Resume #1). This is purely for your organization only as no one else will be able to see your resume title.";
+    $tooltip["basic-name"] = "This is where your name goes. You are free to change your name to anything you want, just understand that this is what anyone who looks at your resume will see first.";
+    $tooltip["basic-position"] = "This is what you would introduce yourself as (e.g. Computer Science Engineer, Hobbyist, Free-Lance Painter, Environmentalist, Dragon-slayer). This should accurately summarize what you do and how you want to appear to the companies who view your resume.";
+    $tooltip["basic-statement"] = "";
+    
+    //contact
+    $tooltip["contact-address"] = "";
+    $tooltip["contact-city"] = "";
+    $tooltip["contact-state"] = "";
+    $tooltip["contact-zip"] = "";
+    $tooltip["contact-phoneNumber"] = "";
+    $tooltip["contact-email"] = "";
+    
+    //education
+    $tooltip["education-school"] = "";
+    $tooltip["education-degree"] = "";
+    $tooltip["education-startDate"] = "";
+    $tooltip["education-endDate"] = "";
+    $tooltip["education-award"] = "";
+    
+    //skill
+    $tooltip["skill-category"] = "";
+    $tooltip["skill-name"] = "";
+    $tooltip["skill-desc"] = "";
+    
+    //experience
+    $tooltip["experience-position"] = "";
+    $tooltip["experience-startDate"] = "";
+    $tooltip["experience-endDate"] = "";
+    $tooltip["experience-group"] = "";
+    $tooltip["experience-fact"] = "";
+    $tooltip["experience-link-name"] = "";
+    $tooltip["experience-link"] = "";
+    
+    //activity
+    $tooltip["activity-position"] = "";
+    $tooltip["activity-startDate"] = "";
+    $tooltip["activity-endDate"] = "";
+    $tooltip["activity-group"] = "";
+    $tooltip["activity-fact"] = "";
+    $tooltip["activity-link-name"] = "";
+    $tooltip["activity-link"] = "";
 ?>
 
 
@@ -77,19 +120,19 @@
 			<hr>
 			<br>
 			
-			<p class="span1" rel="tooltip" title="<?php echo $tooltip["basic-resume"]?>">Resume</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-resume"]?>">Resume</a><br>
 			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
 			<br>
 
-			<p class="span1">Name</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-name"]?>">Name</a><br>
 			<input class="span3" type="text" value="<?php echo $name?>" id="basic-name">
 			<br>
 			
-			<p class="span1">Position</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-position"]?>">Position</a><br>
 			<input class="span3" type="text" id="basic-position">
 			<br>
 			
-			<p class="span1">Statement</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-statement"]?>">Statement</a><br>
 			<input class="span3" type="text" id="basic-statement">
 			<br>
 		</div>
@@ -100,15 +143,15 @@
 			<hr>
 			<br>
 			
-			<p class="span1">Address</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-address"]?>">Address</a><br>
 			<input class="span3" type="text" value="<?php echo $info["address"]?>" id="contact-address">
 			<br>
 			
-			<p class="span1">City</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-city"]?>">City</a><br>
 			<input class="span3" type="text" value="<?php echo $info["city"]?>" id="contact-city">
 			<br>
 			
-			<p class="span1">State</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-state"]?>">State</a><br>
 			<select class="span3" id="contact-state">
 				<option></option>
 				<?php 
@@ -130,16 +173,16 @@
 			</select>
 			<br>
 			
-			<p class="span1">Zip Code</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-zip"]?>">Zip Code</a><br>
 			<input class="span3" type="text" value="<?php echo $info["zip"]?>" id="contact-zip">
 			<br>
 			
-			<p class="span1">Phone Number</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-phoneNumber"]?>">Phone Number</a><br>
 			<input class="span3" type="text" value="<?php echo $info["phone"]?>" id="contact-phone">
 			<br>
 			<br>
 			
-			<p class="span1">Email</p>
+			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["contact-email"]?>">Email</a><br>
 			<input class="span3" type="text" value="<?php echo $info["email"]?>" id="contact-email">
 			<br>
 		</div>
@@ -159,23 +202,22 @@
 				<h3>Education</h3>
 			</div>
 			<div class="modal-body">
-				<p class="span1">School</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-school"]?>">School</a><br>
 				<input class="span3" type="text" id="education-school">
 				<br>
 			
-				<p class="span1">Degree</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-degre"]?>">Degree</a><br>
 				<input class="span3" type="text" id="education-degree">
 				<br>
 			
-				<p class="span1">Start Date</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-startDate"]?>">Start Date</a><br>
 				<input class="span3" type="date" id="education-startDate">
 				<br>
 			
-				<p class="span1">End Date</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["education-endDate"]?>">End Date</a><br>
 				<input class="span3" type="date" id="education-endDate">
 				<br>
-			
-				<p>Awards</p>
+
 				<ul id="education-award-list">
 				</ul>
 				
@@ -184,7 +226,7 @@
 				<div id="education-award-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<h5>Award</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["education-award"]?>">Award</a><br>
 						<input type="text" class="span3" id="education-award-name">
 						<a href="#education-award-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="education-award-add">Add</a>
 						<br>
@@ -213,7 +255,7 @@
 				<h3>Category</h3>
 			</div>
 			<div class="modal-body">
-				<p class="span1">Category</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["skill-category"]?>">Category</a><br>
 				<input class="span3" type="text" id="skill-category">
 				<br>
 				<ul id="skill-list">
@@ -223,10 +265,10 @@
 				<div id="skill-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<h5>Skill Name</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["skill-name"]?>">Skill Name</a><br>
 						<input type="text" class="span3" id="skill-name">
 						<br>
-						<h5>Skill Description</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["skill-desc"]?>">Skill Description</a><br>
 						<textarea type="text" class="span3" id="skill-desc"></textarea>
 						
 						<a href="#skill-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="skill-add">Add</a>
@@ -255,19 +297,19 @@
 				<h3>Experience</h3>
 			</div>
 			<div class="modal-body">
-				<p class="span1">Position</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-position"]?>">Position</a><br>
 				<input class="span3" type="text" id="experience-position">
 				<br>
 				
-				<p class="span1">Start Date</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-startDate"]?>">Start Date</a><br>
 				<input class="span3" type="date" id="experience-start-date">
 				<br>
 								
-				<p class="span1">End Date</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-endDate"]?>">End Date</a><br>
 				<input class="span3" type="date" id="experience-end-date">
 				<br>
 					
-				<p class="span1">Group</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["experience-group"]?>">Group</a><br>
 				<input class="span3" type="text" id="experience-group">
 				<br>
 				
@@ -277,7 +319,7 @@
 				<div id="experience-fact-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<h5>Fact</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-fact"]?>">Fact</a><br>
 						<textarea class="span3" id="experience-desc"></textarea>
 						
 						<a href="#experience-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-fact-add">Add</a>
@@ -291,10 +333,10 @@
 				<div id="experience-link-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<h5>Link Name</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-link-name"]?>">Link Name</a><br>
 						<input type="text" class="span3" id="experience-link-name">
 						<br>
-						<h5>Link</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["experience-link"]?>">Link</a><br>
 						<input type="text" class="span3" id="experience-link">
 						
 						<a href="#experience-link-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-link-add">Add</a>
@@ -323,19 +365,19 @@
 				<h3>Activity</h3>
 			</div>
 			<div class="modal-body">
-				<p class="span1">Position</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-position"]?>">Position</a><br>
 				<input class="span3" type="text" id="activity-position">
 				<br>
 				
-				<p class="span1">Start Date</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-startDate"]?>">Start Date</a><br>
 				<input class="span3" type="date" id="activity-start-date">
 				<br>
 								
-				<p class="span1">End Date</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-endDate"]?>">End Date</a><br>
 				<input class="span3" type="date" id="activity-end-date">
 				<br>
 					
-				<p class="span1">Group</p>
+				<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["activity-group"]?>">Group</a><br>
 				<input class="span3" type="text" id="activity-group">
 				<br>
 			
@@ -345,7 +387,7 @@
 				<div id="activity-fact-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<h5>Fact</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-fact"]?>">Fact</a><br>
 						<input type="text" class="span3" id="activity-desc">
 						
 						<a href="#activity-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-fact-add">Add</a>
@@ -360,10 +402,10 @@
 				<div id="activity-link-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<h5>Link Name</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-link-name"]?>">Link Name</a><br>
 						<input type="text" class="span3" id="activity-link-name">
 						<br>
-						<h5>Link</h5>
+						<a href="#" rel="tooltip" title="<?php echo $tooltip["activity-link"]?>">Link</a><br>
 						<input type="text" class="span3" id="activity-link">
 						
 						<a href="#activity-link-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-link-add">Add</a>
