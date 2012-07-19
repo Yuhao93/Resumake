@@ -120,7 +120,7 @@
 			<hr>
 			<br>
 			
-			<a href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-resume"]?>">Resume</a>
+			<a id="label-basic-resume" href="#" rel="tooltip" class="span1" title="<?php echo $tooltip["basic-resume"]?>">Resume</a>
 			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
 			<br>
 
@@ -440,6 +440,7 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
     <script type="text/javascript">
+        $("#label-basic-resume").tooltip();
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);
         _gaq.push(['_trackPageview']);
