@@ -316,7 +316,10 @@
 					<thead>
 						<th>Resume</th>
 						<th>Created On</th>
-                        <th></th>
+                        <th>Edit</th>
+                        <th>Print</th>
+                        <th>Delete</th>
+                        <th>Html</th>
 					</thead>
                     <?php
                         foreach($resumes as $resume){
@@ -339,14 +342,24 @@
                             echo '</td>';
                             echo '<td>';
                             
-                            //Other functionality to be added later
-                            echo '';
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-wrench icon-white"> </i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-print icon-white"> </i> Print</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-trash icon-white"> </i> Delete</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-share icon-white"> </i> Html</a>';
-                            echo '</td>';
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-wrench icon-white"></i></a>';
                             
+                            echo '</td>';
+                            echo '<td>';
+                            
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-print icon-white"></i></a>';
+                            
+                            echo '</td>';
+                            echo '<td>';
+                            
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-trash icon-white"></i></a>';
+                            
+                            echo '</td>';
+                            echo '<td>';
+                            
+                            echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-share icon-white"></i></a>';
+                            
+                            echo '</td>';
                             echo '</tr>';
                         }
                     ?>
