@@ -218,10 +218,10 @@
 				<div id="skill-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a id="label-skill-name" href="#" rel="tooltip">Skill Name</a>
+						<a id="label-skill-name" href="#" rel="tooltip">Skill Name</a><br>
 						<input type="text" class="span3" id="skill-name">
 						<br>
-						<a id="label-skill-desc" href="#" rel="tooltip">Skill Description</a>
+						<a id="label-skill-desc" href="#" rel="tooltip">Skill Description</a><br>
 						<textarea type="text" class="span3" id="skill-desc"></textarea>
 						
 						<a href="#skill-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="skill-add">Add</a>
@@ -272,7 +272,7 @@
 				<div id="experience-fact-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a id="label-experience-fact" href="#" rel="tooltip">Fact</a>
+						<a id="label-experience-fact" href="#" rel="tooltip">Fact</a><br>
 						<textarea class="span3" id="experience-desc"></textarea>
 						
 						<a href="#experience-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-fact-add">Add</a>
@@ -286,10 +286,10 @@
 				<div id="experience-link-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a id="label-experience-link-name" href="#" rel="tooltip">Link Name</a>
+						<a id="label-experience-link-name" href="#" rel="tooltip">Link Name</a><br>
 						<input type="text" class="span3" id="experience-link-name">
 						<br>
-						<a id="label-experience-link" href="#" rel="tooltip">Link</a>
+						<a id="label-experience-link" href="#" rel="tooltip">Link</a><br>
 						<input type="text" class="span3" id="experience-link">
 						
 						<a href="#experience-link-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="experience-link-add">Add</a>
@@ -340,7 +340,7 @@
 				<div id="activity-fact-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a id="label-activity-fact"#" rel="tooltip">Fact</a>
+						<a id="label-activity-fact"#" rel="tooltip">Fact</a><br>
 						<input type="text" class="span3" id="activity-desc">
 						
 						<a href="#activity-fact-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-fact-add">Add</a>
@@ -355,10 +355,10 @@
 				<div id="activity-link-collapse" class="collapse span4">
 					<br>
 					<div class="well">
-						<a id="label-activity-link-name" href="#" rel="tooltip">Link Name</a>
+						<a id="label-activity-link-name" href="#" rel="tooltip">Link Name</a><br>
 						<input type="text" class="span3" id="activity-link-name">
 						<br>
-						<a id="label-activity-link" href="#" rel="tooltip">Link</a>
+						<a id="label-activity-link" href="#" rel="tooltip">Link</a><br>
 						<input type="text" class="span3" id="activity-link">
 						
 						<a href="#activity-link-collapse" data-toggle="collapse" class="btn btn-primary btn-small span2" id="activity-link-add">Add</a>
