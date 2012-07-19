@@ -317,7 +317,7 @@
                     <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-wrench"></i> Edit</a>
                     <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-print"></i> Print</a>
                     <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-trash"></i> Trash</a>
-                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-share"></i> Share</a>
+                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-share"></i> Html</a>
                 </div>
                 
 				<table class="table table-striped">
@@ -331,7 +331,7 @@
                             echo '<td>';
                             
                             //The Link of the resume
-                            echo '<input type="radio" style="">';
+                            echo '<button class="btn" data-toggle="button">Single Toggle</button>';
                             echo '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
                             
                             //The Name of the resume
