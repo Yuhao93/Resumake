@@ -341,9 +341,9 @@
                             
                             //Other functionality to be added later
                             echo '';
-                            
-                            echo '</td>';
                             echo '<a href="#" class="btn btn-small btn-primary"><i class="icon-wrench icon-white"> </i> Edit</a>';
+                            echo '</td>';
+                            
                             echo '</tr>';
                         }
                     ?>
