@@ -73,7 +73,7 @@
 			<hr>
 			<br>
 			
-			<a id="label-basic-resume" href="#" rel="tooltip" class="span1"?>">Resume</a>
+			<a id="label-basic-resume" href="#" rel="tooltip" class="span1">Resume</a>
 			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
 			<br>
 

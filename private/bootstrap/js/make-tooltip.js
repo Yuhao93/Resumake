@@ -38,7 +38,7 @@ tooltip["label-activity-group"] = "";
 tooltip["label-activity-fact"] = "";
 tooltip["label-activity-link-name"] = "";
 tooltip["label-activity-link"] = "";
-$('p[id^="label-"]').each(function(index){
+$('a[id^="label"]').each(function(index){
     var id = $(this).attr("id");
     $(this).tooltip({'title':tooltip[id]});
 });
