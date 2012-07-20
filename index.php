@@ -82,7 +82,7 @@
 			</div>
 		</div>
 		
-		<span class="span6 columns">
+		<div class="span6 columns">
 			<div id="carousel" class="carousel slide">
 				<div class="carousel-inner">
 					<div class="item active">
@@ -112,9 +112,9 @@
 				<a class="left carousel-control" href="#carousel" data-slide="prev">&lsaquo;</a>
 				<a class="right carousel-control" href="#carousel" data-slide="next">&rsaquo;</a>
 			</div>
-		</span>
+		</div>
 		
-		<span class="span4 well">
+		<div class="span4 well">
 			<h2>Login</h2>
 			<form>
 				<br>
@@ -136,7 +136,7 @@
 			<h2>Or Get Started And Register</h2>
 			<a id="register-btn" href="#registermodal" data-toggle="modal" class="btn btn-primary btn-large">Register</a>
 			
-		</span>
+		</div>
 		
 	</div>
   </div>
