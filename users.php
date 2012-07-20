@@ -114,15 +114,17 @@
       height:10px;
       padding:0px;
       border:1px solid #a0a0a0;
-      background-color:#f0f0f0;
+      background-color:#f8f8f8;
       cursor:pointer;
+      display:inline-block;
     }div.btn-checkbox:hover{
       border:1px solid #808080;
     }
     div.checkbox-selected{
-      background-color:#e0e0e0;
+      background-color:#efefef;
     }
     div.checkbox-selected-mark{
+      display:inline-block;
       width:14px;
       height:15px;
       background:url(../private/imgs/check.png) no-repeat -5px -5px;
