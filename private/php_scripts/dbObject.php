@@ -222,7 +222,7 @@ class dbObject {
         $sql .= ')';
         mysql_query($sql);
         
-        return getResumesByUid($uid);
+        return $this->getResumesByUid($uid);
     }
     
 	private function parseTimestamp($timestamp) {
