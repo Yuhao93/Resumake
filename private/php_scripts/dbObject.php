@@ -220,9 +220,7 @@ class dbObject {
                 $sql .= ',';
         }
         $sql .= ')';
-        mysql_query($sql);
-        
-        return $this->getResumesByUid($uid);
+        return mysql_query($sql);
     }
     
 	private function parseTimestamp($timestamp) {

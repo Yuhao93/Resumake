@@ -8,7 +8,8 @@ $content = '{';
 $username = $_POST['username'];
 
 if($request == 'delete'){
-    $resumes = $db->deleteResumesByRid($_POST['resumes'], $_POST['uid']);
+    $db->deleteResumesByRid($_POST['resumes'], $_POST['uid']);
+    $resumes = $db->getResumesByUid($uid);
     foreach($resumes as $resume){
         $content .= '<tr>';
         $content .= '<td>';
@@ -30,7 +31,8 @@ if($request == 'delete'){
         $content .= '</tr>';
         $content .= '},';
     }
-    $content = substr($content, 0, -1);
+    $result = substr($content, 0, -1);
+    return $result;
 }
-return $content;
+
 ?>
