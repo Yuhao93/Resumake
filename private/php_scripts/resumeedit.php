@@ -32,7 +32,7 @@ if($request == 'delete'){
         $content .= '},';
     }
     $result = substr($content, 0, -1);
-    return $result;
+    echo $result;
 }
 
 ?>
