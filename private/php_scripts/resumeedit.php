@@ -7,7 +7,6 @@ $request = $_POST['request'];
 $content = '{';
 $username = $_POST['username'];
 $uid = $_POST['uid'];
-echo $uid;
 if($request == 'delete'){
     $db->deleteResumesByRid($_POST['resumes'], $uid);
     $resumes = $db->getResumesByUid($uid);
