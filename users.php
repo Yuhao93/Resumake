@@ -416,7 +416,7 @@
     });
     
     //checkbox stuff
-    $('div[class="btn-checkbox"]').each(function(index){
+    $('.btn-checkbox').each(function(index){
       
       $(this).click(function(index){
         var className = $(this).attr("class");
