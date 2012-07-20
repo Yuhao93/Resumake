@@ -177,7 +177,6 @@ class dbObject {
 	public function getResumesByUid($uid){
 		$sql = "SELECT * FROM resume WHERE uid=$uid ORDER BY rid";
 		$result = mysql_query($sql);
-        echo $result;
         $resumes = array();
 		while($row = mysql_fetch_array($result)){
             $resume = new Resume;

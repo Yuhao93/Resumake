@@ -6,9 +6,10 @@ $db->connect();
 $request = $_POST['request'];
 $content = '{';
 $username = $_POST['username'];
-
+$uid = $_POST['uid'];
+echo $uid;
 if($request == 'delete'){
-    $db->deleteResumesByRid($_POST['resumes'], $_POST['uid']);
+    $db->deleteResumesByRid($_POST['resumes'], $uid);
     $resumes = $db->getResumesByUid($uid);
     foreach($resumes as $resume){
         $content .= '<tr>';
