@@ -175,7 +175,7 @@ class dbObject {
 	///////////////////////// RESUME ///////////////////////////////////////////
 	
 	public function getResumesByUid($uid){
-		$sql = "SELECT * FROM resume WHERE uid=$uid";
+		$sql = "SELECT * FROM resume WHERE uid=$uid ORDER BY rid";
 		$result = mysql_query($sql);
         $resumes = array();
 		while($row = mysql_fetch_array($result)){
@@ -212,7 +212,7 @@ class dbObject {
         return mysql_insert_id();
 	}
 	
-    public function deleteResumesByRid($rids){
+    public function deleteResumesByRid($rids, $uid){
         $sql = "DELETE FROM resume WHERE rid IN (";
         for($i = 0; $i < count($rids); $i++){
             $sql .= $rids[$i];
@@ -220,7 +220,9 @@ class dbObject {
                 $sql .= ',';
         }
         $sql .= ')';
-        return mysql_query($sql);
+        mysql_query($sql);
+        
+        return getResumesByUid($uid);
     }
     
 	private function parseTimestamp($timestamp) {

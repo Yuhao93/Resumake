@@ -347,6 +347,7 @@
 						<th>Resume</th>
 						<th>Created On</th>
 					</thead>
+                    <tbody id="resume-tbody">
                     <?php
                         foreach($resumes as $resume){
                             echo '<tr>';
@@ -373,6 +374,7 @@
                             echo '</tr>';
                         }
                     ?>
+                    </tbody>
 				</table>
 			</div>
 		</div>
@@ -401,10 +403,16 @@
             if(className.indexOf(" checkbox-selected") != -1)
                 resumeDelete.push($(this).attr("rid-label"));
         });
-        for(var i = 0; i < resumeDelete.length; i++)
-            alert(resumeDelete[i]);
-        $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete}, function(data){
-            alert("A");
+        
+        $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete, 'username':username, 'uid':uid}, function(data){
+            var resumes = eval('(' + data + ')');
+            var content = "";
+            
+            for(var i = 0; i < resumes.length; i++){
+                content += resume;
+            }
+            
+            $("#resume-tbody").html(content);
         });
     });
     
