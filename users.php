@@ -342,7 +342,7 @@
                 
 				<table class="table table-striped">
 					<thead>
-                        <th><div class="btn-checkbox"></div> Select</th>
+                        <th><div class="btn-checkbox" id="all-checkbox"></div> Select</th>
 						<th>Resume</th>
 						<th>Created On</th>
 					</thead>
@@ -386,14 +386,29 @@
         if(className.indexOf(" checkbox-selected") == -1){
           className += " checkbox-selected";
           $(this).html('<div class="checkbox-selected-mark"></div>');
+          if($(this).attr("id") == ""){
+            $('.btn-checkbox').each(function(index){
+            if($(this).attr("class").indexOf(" checkbox-selected") == -1){
+              var className = $(this).attr("class");
+                $(this).attr("class", className + " checkbox-selected");
+              }
+            });
+          }
         }else{
           className = className.replace(" checkbox-selected", "");
           $(this).html('');
+          if($(this).attr("id") == ""){
+            $('.btn-checkbox').each(function(index){
+              if($(this).attr("class").indexOf(" checkbox-selected") != -1){
+                var className = $(this).attr("class");
+                $(this).attr("class", className.replace(" checkbox-selected", ""));
+              }
+            });
+          }
         }
         $(this).attr("class", className);
       });
     });
-    
     
     //image crop stuff
 	var img_x = 0, img_y = 0, img_width = 254, img_height = 254;
