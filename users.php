@@ -410,7 +410,7 @@
             var content = "";
             
             for(var i = 0; i < resumes.length; i++){
-                content += resume;
+                content += resumes[i];
             }
             
             $("#resume-tbody").html(content);
