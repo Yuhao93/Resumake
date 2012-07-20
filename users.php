@@ -391,6 +391,7 @@
             if($(this).attr("class").indexOf(" checkbox-selected") == -1){
               var className = $(this).attr("class");
                 $(this).attr("class", className + " checkbox-selected");
+                $(this).html('<div class="checkbox-selected-mark"></div>');
               }
             });
           }
@@ -402,6 +403,7 @@
               if($(this).attr("class").indexOf(" checkbox-selected") != -1){
                 var className = $(this).attr("class");
                 $(this).attr("class", className.replace(" checkbox-selected", ""));
+                $(this).html('');
               }
             });
           }
