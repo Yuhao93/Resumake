@@ -366,7 +366,7 @@
                             echo '<td>';
                             
                             //The date it was created
-                            echo 'Created On ' . date('F t, Y', $resume->date_created);
+                            echo 'Created On ' . date('F j, Y', $resume->date_created);
                             
                             echo '</td>';
                             echo '</tr>';
