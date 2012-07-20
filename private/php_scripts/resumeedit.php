@@ -31,8 +31,9 @@ if($request == 'delete'){
         $content .= '</tr>\',';
         
     }
-    $content .= ']';
     $result = substr($content, 0, -1);
+    $content .= ']';
+    
     echo $result;
 }
 
