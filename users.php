@@ -127,7 +127,7 @@
       display:inline-block;
       width:14px;
       height:15px;
-      background:url(../private/imgs/check.png) no-repeat -5px -5px;
+      background:url(../private/imgs/check.png) no-repeat -3px -4px;
     }
 	</style>
 </head>
