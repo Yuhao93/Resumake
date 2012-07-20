@@ -342,7 +342,7 @@
                 
 				<table class="table table-striped">
 					<thead>
-                        <th><div class="btn-checkbox" id="all-checkbox"></div> Select</th>
+                        <th><div class="btn-checkbox" id="check-all"></div> Select</th>
 						<th>Resume</th>
 						<th>Created On</th>
 					</thead>
@@ -386,7 +386,7 @@
         if(className.indexOf(" checkbox-selected") == -1){
           className += " checkbox-selected";
           $(this).html('<div class="checkbox-selected-mark"></div>');
-          if($(this).attr("id") == ""){
+          if($(this).attr("id") == "check-all"){
             $('.btn-checkbox').each(function(index){
             if($(this).attr("class").indexOf(" checkbox-selected") == -1){
               var className = $(this).attr("class");
@@ -397,7 +397,7 @@
         }else{
           className = className.replace(" checkbox-selected", "");
           $(this).html('');
-          if($(this).attr("id") == ""){
+          if($(this).attr("id") == "check-all"){
             $('.btn-checkbox').each(function(index){
               if($(this).attr("class").indexOf(" checkbox-selected") != -1){
                 var className = $(this).attr("class");
