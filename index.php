@@ -82,7 +82,7 @@
 			</div>
 		</div>
 		
-		<span class="span6 offset1 columns">
+		<span class="span6 columns">
 			<div id="carousel" class="carousel slide">
 				<div class="carousel-inner">
 					<div class="item active">
