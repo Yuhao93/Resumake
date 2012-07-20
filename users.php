@@ -351,13 +351,13 @@
                         foreach($resumes as $resume){
                             echo '<tr>';
                             echo '<td>';
-                            echo '<div class="btn-checkbox"></div>';
+                            echo '<div class="btn-checkbox btn-item-label"></div>';
                             echo '</td>';
                             
                             echo '<td>';
                             
                             //The Link of the resume
-                            echo '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
+                            echo '<a href="../rmks/' . $username . '/' . $resume->rid . '" rid-label="' . $resume->rid . '">';
                             
                             //The Name of the resume
                             echo $resume->name;
@@ -380,7 +380,7 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
     $('#edit-btn').click(function(index){
-        if($(".checkbox-selected").length > 1){
+        if($(".btn-item-label").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only edit one resume at a time.</div>');
         }else{
         
@@ -388,19 +388,27 @@
     });
     
     $('#print-btn').click(function(index){
-        if($(".checkbox-selected").length > 1){
+        if($(".btn-item-label").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only print one resume at a time.</div>');
         }else{
-        
         }
     });
     
     $('#trash-btn').click(function(index){
+        var resumeDelete = new Array();
+        $(".btn-item-label").each(function(index){
+            var className = $(this).attr("class");
+            if(className.indexOf(" checkbox-selected") != -1)
+                resumeDelete.push($(this).attr("rid-label"));
+        });
         
+        $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete}, function(data){
+            alert("A");
+        });
     });
     
     $('#html-btn').click(function(index){
-        if($(".checkbox-selected").length > 1){
+        if($(".btn-item-label").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only share one resume at a time.</div>');
         }else{
         

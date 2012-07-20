@@ -212,6 +212,17 @@ class dbObject {
         return mysql_insert_id();
 	}
 	
+    public function deleteResumesByRid($rids){
+        $sql = "DELETE FROM resume WHERE rid IN (";
+        for($i = 0; $i < count($rids); $i++){
+            $sql .= $rids[$i];
+            if($i != count($rids) - 1)
+                $sql .= ',';
+        }
+        $sql .= ')';
+        return mysql_query($sql);
+    }
+    
 	private function parseTimestamp($timestamp) {
 		return strtotime($timestamp);	
     } 
