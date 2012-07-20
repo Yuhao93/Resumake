@@ -109,6 +109,22 @@
 	.center-modal{
 		left:0px;
 	}
+    div.btn-checkbox{
+      width:10px;
+      height:10px;
+      padding:0px;
+      margin:7px;
+      border:1px solid #a0a0a0;
+      background-color:#f0f0f0;
+    }div.btn-checkbox:hover{
+      border:1px solid #808080;
+    }
+    div.checkbox-selected{
+      background-color:#e0e0e0;
+    }
+    div.checkbox-selected-mark{
+    
+    }
 	</style>
 </head>
 <body>
@@ -322,12 +338,17 @@
                 
 				<table class="table table-striped">
 					<thead>
+                        <th><div class="btn-checkbox"></div></th>
 						<th>Resume</th>
 						<th>Created On</th>
 					</thead>
                     <?php
                         foreach($resumes as $resume){
                             echo '<tr>';
+                            echo '<td>';
+                            echo '<div class="btn-checkbox"></div>';
+                            echo '</td>';
+                            
                             echo '<td>';
                             
                             //The Link of the resume
