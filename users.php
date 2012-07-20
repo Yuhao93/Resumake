@@ -331,13 +331,14 @@
 				</div>
 			
 				<h3>My Resumes</h3>
+                <div class="page-alert-container"></div>
 				<a href="/make/" class="btn-primary btn span2">Add New Resume</a>
                 
                 <div class="btn-group span4">
-                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-wrench"></i> Edit</a>
-                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-print"></i> Print</a>
-                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-trash"></i> Trash</a>
-                    <a href="#" class="btn btn-small btn-primary"><i class="icon-white icon-share"></i> Html</a>
+                    <a href="#" class="btn btn-small btn-primary" id="edit-btn"><i class="icon-white icon-wrench"></i> Edit</a>
+                    <a href="#" class="btn btn-small btn-primary" id="print-btn"><i class="icon-white icon-print"></i> Print</a>
+                    <a href="#" class="btn btn-small btn-primary" id="trash-btn"><i class="icon-white icon-trash"></i> Trash</a>
+                    <a href="#" class="btn btn-small btn-primary" id="html-btn"><i class="icon-white icon-share"></i> Html</a>
                 </div>
                 
 				<table class="table table-striped">
@@ -378,6 +379,34 @@
 	</div>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
+    $('#edit-btn').click(function(index){
+        if($(".checkbox-selected").length > 1){
+            $(".page-alert-container").html('<div class="alert"><button class="close" data-dismiss="alert alert-info">×</button><strong>Wait! </strong> You can only edit one resume at a time.</div>');
+        }else{
+        
+        }
+    });
+    
+    $('#print-btn').click(function(index){
+        if($(".checkbox-selected").length > 1){
+            $(".page-alert-container").html('<div class="alert"><button class="close" data-dismiss="alert alert-info">×</button><strong>Wait! </strong> You can only print one resume at a time.</div>');
+        }else{
+        
+        }
+    });
+    
+    $('#trash-btn').click(function(index){
+        
+    });
+    
+    $('#html-btn').click(function(index){
+        if($(".checkbox-selected").length > 1){
+            $(".page-alert-container").html('<div class="alert"><button class="close" data-dismiss="alert alert-info">×</button><strong>Wait! </strong> You can only share one resume at a time.</div>');
+        }else{
+        
+        }
+    });
+    
     //checkbox stuff
     $('div[class="btn-checkbox"]').each(function(index){
       
