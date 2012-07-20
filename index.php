@@ -28,7 +28,7 @@
 	
 </head>
 <body>
-	<div class="container">
+	<!--<div class="container">-->
 	<br>
 	<div class="row">
 		<div class="page-header">
@@ -139,7 +139,7 @@
 		</div>
 		
 	</div>
-	</div>
+	<!--</div>-->
 	<?php include "private/php_scripts/encryption.php" ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
