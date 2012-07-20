@@ -351,13 +351,13 @@
                         foreach($resumes as $resume){
                             echo '<tr>';
                             echo '<td>';
-                            echo '<div class="btn-checkbox btn-item-label"></div>';
+                            echo '<div class="btn-checkbox btn-item-label" rid-label="' . $resume->rid . '"></div>';
                             echo '</td>';
                             
                             echo '<td>';
                             
                             //The Link of the resume
-                            echo '<a href="../rmks/' . $username . '/' . $resume->rid . '" rid-label="' . $resume->rid . '">';
+                            echo '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
                             
                             //The Name of the resume
                             echo $resume->name;
