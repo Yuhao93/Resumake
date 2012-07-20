@@ -40,7 +40,7 @@
 	</div>
 	<br>	
 	<div class="row span12">
-		<div class="modal hide" id="registermodal">
+		<!--<div class="modal hide" id="registermodal">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<h3>Register | The Right Thing To Do</h3>
@@ -80,7 +80,7 @@
 			<div class="modal-footer">
 				<a href="#" class="btn" data-dismiss="modal" id="register-modal-cancel">Close</a>
 			</div>
-		</div>
+		</div>-->
 		
 		<div class="span6 columns">
 			<div id="carousel" class="carousel slide">
