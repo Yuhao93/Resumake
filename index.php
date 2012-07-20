@@ -83,7 +83,7 @@
 		</div>-->
 		
 		<div class="span6 columns">
-			<!--<div id="carousel" class="carousel slide">
+			<div id="carousel" class="carousel slide">
 				<div class="carousel-inner">
 					<div class="item active">
 						<img src="private/imgs/home1.png" alt="">
@@ -111,12 +111,12 @@
 				</div>
 				<a class="left carousel-control" href="#carousel" data-slide="prev">&lsaquo;</a>
 				<a class="right carousel-control" href="#carousel" data-slide="next">&rsaquo;</a>
-			</div>-->
+			</div>
 		</div>
 		
 		<div class="span4 well">
 			<h2>Login</h2>
-			<form>
+			<div>
 				<br>
 				<p>Email</p>
 				<input type="text" class="span3" placeholder="email" id="login-email">
@@ -129,13 +129,12 @@
 				</div>
 				<br>
 				<a href="#" class="btn btn-primary btn-large" id="login-submit">Login</a>
-			</form>
+			</div>
 			<br>
 			<br>
 			
 			<h2>Or Get Started And Register</h2>
 			<a id="register-btn" href="#registermodal" data-toggle="modal" class="btn btn-primary btn-large">Register</a>
-			
 		</div>
 		
 	</div>
