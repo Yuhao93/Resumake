@@ -412,8 +412,40 @@
             for(var i = 0; i < resumes.length; i++){
                 content += resumes[i];
             }
-            
             $("#resume-tbody").html(content);
+            
+            $('.btn-checkbox').each(function(index){
+      
+                $(this).click(function(index){
+                    var className = $(this).attr("class");
+                    if(className.indexOf(" checkbox-selected") == -1){
+                        className += " checkbox-selected";
+                        $(this).html('<div class="checkbox-selected-mark"></div>');
+                        if($(this).attr("id") == "check-all"){
+                            $('.btn-checkbox').each(function(index){
+                                if($(this).attr("class").indexOf(" checkbox-selected") == -1){
+                                    var className = $(this).attr("class");
+                                    $(this).attr("class", className + " checkbox-selected");
+                                    $(this).html('<div class="checkbox-selected-mark"></div>');
+                                }
+                            });
+                        }
+                    }else{
+                        className = className.replace(" checkbox-selected", "");
+                        $(this).html('');
+                        if($(this).attr("id") == "check-all"){
+                            $('.btn-checkbox').each(function(index){
+                                if($(this).attr("class").indexOf(" checkbox-selected") != -1){
+                                    var className = $(this).attr("class");
+                                    $(this).attr("class", className.replace(" checkbox-selected", ""));
+                                    $(this).html('');
+                                }
+                            });
+                        }
+                    }
+                    $(this).attr("class", className);
+                });
+            });
         });
     });
     
