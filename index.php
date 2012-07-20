@@ -83,7 +83,7 @@
 		</div>-->
 		
 		<div class="span6 columns">
-			<div id="carousel" class="carousel slide">
+			<!--<div id="carousel" class="carousel slide">
 				<div class="carousel-inner">
 					<div class="item active">
 						<img src="private/imgs/home1.png" alt="">
@@ -111,7 +111,7 @@
 				</div>
 				<a class="left carousel-control" href="#carousel" data-slide="prev">&lsaquo;</a>
 				<a class="right carousel-control" href="#carousel" data-slide="next">&rsaquo;</a>
-			</div>
+			</div>-->
 		</div>
 		
 		<div class="span4 well">
