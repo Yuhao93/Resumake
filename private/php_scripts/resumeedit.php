@@ -11,7 +11,7 @@ if($request == 'delete'){
     $db->deleteResumesByRid($_POST['resumes'], $uid);
     $resumes = $db->getResumesByUid($uid);
     foreach($resumes as $resume){
-        $content .= '<tr>';
+        $content .= '\'<tr>';
         $content .= '<td>';
         $content .= '<div class="btn-checkbox btn-item-label" rid-label="' . $resume->rid . '"></div>';
         $content .= '</td>';
@@ -29,7 +29,7 @@ if($request == 'delete'){
         $content .= 'Created On ' . date('F j, Y', $resume->date_created);
         $content .= '</td>';
         $content .= '</tr>';
-        $content .= '},';
+        $content .= '}\',';
     }
     $result = substr($content, 0, -1);
     echo $result;
