@@ -28,8 +28,8 @@ if($request == 'delete'){
                             
         $content .= 'Created On ' . date('F j, Y', $resume->date_created);
         $content .= '</td>';
-        $content .= '</tr>';
-        $content .= '}\',';
+        $content .= '</tr>\'';
+        $content .= '},';
     }
     $result = substr($content, 0, -1);
     echo $result;
