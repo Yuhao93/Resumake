@@ -22,10 +22,7 @@
 <head>
 	<title>Resumake | Online Resumes</title>
 	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
-	<style type="text/css">
-	</style>
-	
+	<!--<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>-->
 </head>
 <body>
   <div class="container">
