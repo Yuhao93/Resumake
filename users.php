@@ -401,7 +401,8 @@
             if(className.indexOf(" checkbox-selected") != -1)
                 resumeDelete.push($(this).attr("rid-label"));
         });
-        
+        for(var i = 0; i < resumeDelete.length; i++)
+            alert(resumeDelete[i]);
         $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete}, function(data){
             alert("A");
         });
