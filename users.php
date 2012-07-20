@@ -113,9 +113,9 @@
       width:10px;
       height:10px;
       padding:0px;
-      margin:7px;
       border:1px solid #a0a0a0;
       background-color:#f0f0f0;
+      cursor:pointer;
     }div.btn-checkbox:hover{
       border:1px solid #808080;
     }
@@ -123,7 +123,9 @@
       background-color:#e0e0e0;
     }
     div.checkbox-selected-mark{
-    
+      width:14px;
+      height:15px;
+      background:url(../private/imgs/check.png) no-repeat -5px -5px;
     }
 	</style>
 </head>
@@ -338,7 +340,7 @@
                 
 				<table class="table table-striped">
 					<thead>
-                        <th><div class="btn-checkbox"></div></th>
+                        <th><div class="btn-checkbox"></div> Select</th>
 						<th>Resume</th>
 						<th>Created On</th>
 					</thead>
@@ -374,6 +376,24 @@
 	</div>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
+    //checkbox stuff
+    $('div[class="btn-checkbox"]').each(function(index){
+      
+      $(this).click(function(index){
+        var className = $(this).attr("class");
+        if(className.indexOf(" checkbox-selected") == -1){
+          className += " checkbox-selected";
+          $(this).html('<div class="checkbox-selected-mark"></div>');
+        }else{
+          className = className.replace(" checkbox-selected", "");
+          $(this).html('');
+        }
+        $(this).attr("class", className);
+      });
+    });
+    
+    
+    //image crop stuff
 	var img_x = 0, img_y = 0, img_width = 254, img_height = 254;
 	function showPreview(coords){
 		if (parseInt(coords.w) > 0){
