@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<br>	
-	<div class="row">
+	<div class="row span12">
 		<div class="modal hide" id="registermodal">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
