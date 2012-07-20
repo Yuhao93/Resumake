@@ -405,7 +405,6 @@
         });
         
         $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete, 'username':username, 'uid':uid}, function(data){
-            alert(data);
             var resumes = eval('(' + data + ')');
             var content = "";
             
