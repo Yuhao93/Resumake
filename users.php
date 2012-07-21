@@ -219,6 +219,19 @@
 				</div>
 			</div>	
 			<div class="span9 fixed-inbox">
+                <div class="modal hid" id="html-modal">
+                    <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">x</button>
+						<h4>Use the Html code below to put your resume on your website</h4>
+					</div>
+                    </div>
+                    <div class="modal-body">
+                        <textarea class="span6" id="html-textarea" rows="12"></textarea>
+                    </div>
+                    <div class="modal-footer">
+						<a href="#" class="btn" data-dismiss="modal">Done</a>
+					</div>
+                </div>
 				<div class="modal hide" id="picture-modal">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">x</button>
@@ -382,7 +395,7 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
     $('#edit-btn').click(function(index){
-        if($(".btn-item-label").length > 1){
+        if($(".btn-item-label.checkbox-selected").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only edit one resume at a time.</div>');
         }else{
         
@@ -390,7 +403,7 @@
     });
     
     $('#print-btn').click(function(index){
-        if($(".btn-item-label").length > 1){
+        if($(".btn-item-label.checkbox-selected").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only print one resume at a time.</div>');
         }else{
         }
@@ -405,11 +418,13 @@
         });
         
         $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete, 'username':username, 'uid':uid}, function(data){
-            var resumes = eval('(' + data + ')');
             var content = "";
-            
-            for(var i = 0; i < resumes.length; i++){
-                content += resumes[i];
+            if(resumes != "[]"){
+                var resumes = eval('(' + data + ')');
+
+                for(var i = 0; i < resumes.length; i++){
+                    content += resumes[i];
+                }
             }
             $("#resume-tbody").html(content);
             
@@ -449,10 +464,10 @@
     });
     
     $('#html-btn').click(function(index){
-        if($(".btn-item-label").length > 1){
+        if($(".btn-item-label.checkbox-selected").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only share one resume at a time.</div>');
         }else{
-        
+            
         }
     });
     
