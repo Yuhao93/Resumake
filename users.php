@@ -466,7 +466,7 @@
         if($(".btn-item-label.checkbox-selected").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only share one resume at a time.</div>');
         }else{
-            $("#html-modal").html("");
+            $("#html-textarea").html("");
             $.post("../download.php", {'uid':uid, 'rid':$(".btn-item-label.checkbox-selected").attr("rid-label")}, function(data){
                 $("#html-textarea").html(data);
                 $("#html-modal").modal('show');
