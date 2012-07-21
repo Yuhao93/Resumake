@@ -6,9 +6,9 @@
     //Get the resume object from the rid
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
-	$db-&gt;connect();
-    $resume_obj = $db-&gt;getResumeByRid($rid);
-	$resume = json_decode($resume_obj-&gt;content, true);
+	$db->connect();
+    $resume_obj = $db->getResumeByRid($rid);
+	$resume = json_decode($resume_obj->content, true);
     
     //Get the info of the resumejson
 	$basicInfo = $resume['basicInfo'];
@@ -51,7 +51,7 @@
 &lt;!DOCTYPE HTML&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-	&lt;title&gt;<?php echo $basicInfo-&gt;name?>&lt;/title&gt;
+	&lt;title&gt;<?php echo $basicInfo->name?>&lt;/title&gt;
 	&lt;link rel="stylesheet" type="text/css" href="http://resumake.thegbclub.com/private/bootstrap/css/bootstrap.css"&gt;&lt;/link&gt;
 	&lt;link rel="stylesheet" type="text/css" href="http://resumake.thegbclub.com/private/bootstrap/css/bootstrap-responsive.css"&gt;&lt;/link&gt;
 	&lt;link rel="stylesheet" type="text/css" href="http://resumake.thegbclub.com/private/bootstrap/css/styles.css"&gt;&lt;/link&gt;
