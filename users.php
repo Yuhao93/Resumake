@@ -219,13 +219,13 @@
 				</div>
 			</div>	
 			<div class="span9 fixed-inbox">
-                <div class="modal" id="html-modal">
+                <div class="modal hide" id="html-modal">
                     <div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">x</button>
 						<h4>Use the Html code below to put your resume on your website</h4>
 					</div>
                     <div class="modal-body">
-                        <textarea class="span6" id="html-textarea" rows="12"></textarea>
+                        <textarea class="span12" id="html-textarea" rows="12" style="resize:none;"></textarea>
                     </div>
                     <div class="modal-footer">
 						<a href="#" class="btn" data-dismiss="modal">Done</a>
@@ -462,11 +462,15 @@
         });
     });
     
-    $('#html-btn').click(function(index){
+    $('#html-textarea').click(function(index){
         if($(".btn-item-label.checkbox-selected").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only share one resume at a time.</div>');
         }else{
-            
+            $("#html-modal").html("");
+            $.post("../download.php", {'uid':uid, 'rid':$(".btn-item-label.checkbox-selected").attr("rid-label")}, function(data){
+                $("#html-textarea").html(data);
+                $("#html-modal").modal('show');
+            });
         }
     });
     
