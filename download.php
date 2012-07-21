@@ -1,7 +1,7 @@
 <?php
     //Get the uid and rid
-	$uid = $_GET['uid'];
-    $rid = $_GET['rid'];
+	$uid = $_POST['uid'];
+    $rid = $_POST['rid'];
     
     //Get the resume object from the rid
 	include_once('private/php_scripts/dbObject.php');
