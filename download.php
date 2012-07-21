@@ -83,7 +83,7 @@
 					if(sizeof($educationInfo) != 0){
                         echo '&lt;li class="nav-header"&gt;&lt;a href="#education-collapse" data-toggle="collapse"&gt;&lt;h4&gt;&nbsp;&nbsp;&nbsp;&nbsp;Education&lt;/h4&gt;&lt;/a&gt;&lt;/li&gt;';
                         echo '&lt;div class="collapse" id="education-collapse"&gt;';
-                        for($i = 0; $i &lt; sizeof($educationInfo); $i++){
+                        for($i = 0; $i < sizeof($educationInfo); $i++){
                             echo '&lt;li&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#education' . $i . '"&gt;' . $educationInfo[$i]['school'] . '&lt;/a&gt;&lt;/li&gt;';
                         }
                         echo '&lt;/div&gt;';
@@ -92,7 +92,7 @@
 					if(sizeof($skillInfo) != 0){
 						echo '&lt;li class="nav-header"&gt;&lt;a href="#skill-collapse" data-toggle="collapse"&gt;&lt;h4&gt;&nbsp;&nbsp;&nbsp;&nbsp;Skills&lt;/h4&gt;&lt;/a&gt;&lt;/li&gt;';
                         echo '&lt;div class="collapse" id="skill-collapse"&gt;';
-                        for($i = 0; $i &lt; sizeof($skillInfo); $i ++){
+                        for($i = 0; $i < sizeof($skillInfo); $i ++){
                             echo '&lt;li&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#skill' . $i . '"&gt;' . $skillInfo[$i]['category'] . '&lt;/a&gt;&lt;/li&gt;';
                         }
                         echo '&lt;/div&gt;';
@@ -101,7 +101,7 @@
 					if(sizeof($experienceInfo) != 0){
 						echo '&lt;li class="nav-header"&gt;&lt;a href="#experience-collapse" data-toggle="collapse"&gt;&lt;h4&gt;&nbsp;&nbsp;&nbsp;&nbsp;Experience&lt;/h4&gt;&lt;/a&gt;&lt;/li&gt;';
                         echo '&lt;div class="collapse" id="experience-collapse"&gt;';
-                        for($i = 0; $i &lt; sizeof($experienceInfo); $i ++){
+                        for($i = 0; $i < sizeof($experienceInfo); $i ++){
                             echo '&lt;li&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#experience' . $i . '"&gt;' . $experienceInfo[$i]['position'] . '&lt;/a&gt;&lt;/li&gt;';
                         }
                         echo '&lt;/div&gt;';
@@ -110,7 +110,7 @@
 					if(sizeof($activityInfo) != 0){
 						echo '&lt;li class="nav-header"&gt;&lt;a href="#activity-collapse" data-toggle="collapse"&gt;&lt;h4&gt;&nbsp;&nbsp;&nbsp;&nbsp;Activity&lt;/h4&gt;&lt;/a&gt;&lt;/li&gt;';
                         echo '&lt;div class="collapse" id="activity-collapse"&gt;';
-                        for($i = 0; $i &lt; sizeof($activityInfo); $i ++){
+                        for($i = 0; $i < sizeof($activityInfo); $i ++){
                             echo '&lt;li&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#activity' . $i . '"&gt;' . $activityInfo[$i]['position'] . '&lt;/a&gt;&lt;/li&gt;';
                         }
                         echo '&lt;/div&gt;';
@@ -189,14 +189,14 @@
 		<?php 
 			if(sizeof($educationInfo) != 0){
 				echo '&lt;section id="Education"&gt;&lt;/section&gt;&lt;div class="row-fluid"&gt;&lt;h2 class="float-down"&gt;Education&lt;/h2&gt;';
-				for($i = 0; $i &lt; sizeof($educationInfo); $i ++){
+				for($i = 0; $i < sizeof($educationInfo); $i ++){
 					$education = $educationInfo[$i];
 					$awards = $education['awards'];
 					echo '&lt;section id="education' . $i . '"&gt;&lt;/section&gt;';
 					echo '&lt;div class="well"&gt;';
 					echo '&lt;h3&gt;' . $education['school'] . '&lt;/h3&gt;';
 					echo '&lt;p&gt;&lt;strong&gt;&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '&lt;/strong&gt; ' . getFullDate($education['startDate'], $education['endDate']) . '&lt;/p&gt;';
-					for($j = 0; $j &lt; sizeof($awards); $j ++)
+					for($j = 0; $j < sizeof($awards); $j ++)
 						echo '&lt;p&gt;&lt;strong&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '&lt;/strong&gt;&lt;/p&gt;';
 					echo '&lt;/div&gt;';
 				}
@@ -205,12 +205,12 @@
 			
 			if(sizeof($skillInfo) != 0){
 				echo '&lt;section id="Skills"&gt;&lt;/section&gt;&lt;div class="row-fluid"&gt;&lt;h2 class="float-down"&gt;Skills&lt;/h2&gt;';
-				for($i = 0; $i &lt; sizeof($skillInfo); $i ++){
+				for($i = 0; $i < sizeof($skillInfo); $i ++){
 					echo '&lt;section id="skill' . $i . '"&gt;&lt;/section&gt;';
 					echo '&lt;div class="well"&gt;';
 					echo '&lt;h3&gt;' . $skillInfo[$i]['category'] . '&lt;/h3&gt;';
 					echo '&lt;ul class="nav nav-tabs nav-stacked"&gt;';
-					for($j = 0; $j &lt; sizeof($skillInfo[$i]['skills']); $j++){
+					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
 						echo '&lt;li&gt;&lt;a id="skill' . $i . '_' . $j . '"&gt;' . $skillInfo[$i]['skills'][$j]['name'] . '&lt;/a&gt;&lt;/li&gt;';
 					}
 					echo '&lt;/ul&gt;';
@@ -223,14 +223,14 @@
 				echo '&lt;section id="Experience"&gt;&lt;/section&gt;';
 				echo '&lt;div class="row-fluid"&gt;';
 				echo '&lt;h2 class="float-down"&gt;Experience&lt;/h2&gt;';
-				for($i = 0; $i &lt; sizeof($experienceInfo); $i ++){
+				for($i = 0; $i < sizeof($experienceInfo); $i ++){
 					echo '&lt;section id="experience' . $i . '"&gt;&lt;/section&gt;';
 					echo '&lt;div class="well"&gt;';
 					echo '&lt;h3&gt;' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '&lt;/h3&gt;';
 					echo $experienceInfo[$i]['group'];
 					echo '&lt;ul&gt;';
 					$isLink = false;
-					for($j = 0; $j &lt; sizeof($experienceInfo[$i]['items']); $j++){
+					for($j = 0; $j < sizeof($experienceInfo[$i]['items']); $j++){
 						$item = $experienceInfo[$i]['items'][$j];
 						if($item['type'] == 'desc'){
 							if($isLink){
@@ -256,13 +256,13 @@
 				echo '&lt;section id="Activity"&gt;&lt;/section&gt;';
 				echo '&lt;div class="row-fluid"&gt;';
 				echo '&lt;h2 class="float-down"&gt;Activities&lt;/h2&gt;';
-				for($i = 0; $i &lt; sizeof($activityInfo); $i ++){
+				for($i = 0; $i < sizeof($activityInfo); $i ++){
 					echo '&lt;section id="activity' . $i . '"&gt;&lt;/section&gt;';
 					echo '&lt;div class="well"&gt;';
 					echo '&lt;h3&gt;' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '&lt;/h3&gt;';
 					$isLink = false;
 					echo '&lt;ul&gt;';
-					for($j = 0; $j &lt; sizeof($activityInfo[$i]['items']); $j++){
+					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
 						$item = $activityInfo[$i]['items'][$j];
 						if($item['type'] == 'fact'){
 							if($isLink){
@@ -306,8 +306,8 @@
 	&lt;script type="text/javascript"&gt;
 		$(document).ready(function(){
 			<?php
-				for($i = 0; $i &lt; sizeof($skillInfo); $i++){
-					for($j = 0; $j &lt; sizeof($skillInfo[$i]['skills']); $j ++){
+				for($i = 0; $i < sizeof($skillInfo); $i++){
+					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j ++){
 						$skill = $skillInfo[$i]['skills'][$j];
                         if($skill['desc'] != "")
                             echo '$("#skill' . $i . '_' . $j . '").popover({title:"' . $skill['name'] . '", content:"' . $skill['desc'] . '",placement:"left"});';
