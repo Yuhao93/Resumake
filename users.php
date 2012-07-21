@@ -219,12 +219,11 @@
 				</div>
 			</div>	
 			<div class="span9 fixed-inbox">
-                <div class="modal hid" id="html-modal">
+                <div class="modal" id="html-modal">
                     <div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">x</button>
 						<h4>Use the Html code below to put your resume on your website</h4>
 					</div>
-                    </div>
                     <div class="modal-body">
                         <textarea class="span6" id="html-textarea" rows="12"></textarea>
                     </div>
