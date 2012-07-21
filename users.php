@@ -198,7 +198,7 @@
 				</div>
 				<br>
 				<div class="well">
-                    <p><h5 id='info-age'>&nbsp;&nbsp;Statement: <?php if($user_info)echo $user_info->{'statement'}?></h5></p>
+                    <p><h5 id='info-statement'>&nbsp;&nbsp;Statement: <?php if($user_info)echo $user_info->{'statement'}?></h5></p>
                     <br>
 					<p><h4>Personal Information</h4></p>
 					<p><h5 id='info-age'>&nbsp;&nbsp;Age: <?php if($user_info)echo $user_info->{'age'}?></h5></p>
@@ -591,7 +591,7 @@
 				$('#info-city').html('&nbsp&nbspCity: ' + info.city);
 				$('#info-state').html('&nbsp&nbspState: ' + info.state);
 				$('#info-zip').html('&nbsp&nbspZip: ' + info.zip);
-				$('#info-email').html(info.email);
+				$('#info-email').html('&nbsp;&nbsp;Email: ' + info.email);
 				$('#info-phone').html('&nbsp&nbspPhone Number: ' + info.phone);
 			});
 		});
