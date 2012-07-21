@@ -418,8 +418,7 @@
         
         $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete, 'username':username, 'uid':uid}, function(data){
             var content = "";
-            alert("A" + data + "A");
-            if(data != "[]"){
+            if(data != "]"){
                 var resumes = eval('(' + data + ')');
 
                 for(var i = 0; i < resumes.length; i++){
