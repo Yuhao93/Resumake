@@ -418,7 +418,7 @@
         
         $.post('../private/php_scripts/resumeedit.php', {'request':'delete', 'resumes':resumeDelete, 'username':username, 'uid':uid}, function(data){
             var content = "";
-            if(resumes != "[]"){
+            if(data != "[]"){
                 var resumes = eval('(' + data + ')');
 
                 for(var i = 0; i < resumes.length; i++){
@@ -468,7 +468,6 @@
         }else{
             $("#html-textarea").html("");
             $.post("../download.php", {'uid':uid, 'rid':$(".btn-item-label.checkbox-selected").attr("rid-label")}, function(data){
-                alert(data);
                 $("#html-textarea").html(data);
                 $("#html-modal").modal('show');
             });
