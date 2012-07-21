@@ -462,7 +462,7 @@
         });
     });
     
-    $('#html-textarea').click(function(index){
+    $('#html-btn').click(function(index){
         if($(".btn-item-label.checkbox-selected").length > 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only share one resume at a time.</div>');
         }else{
