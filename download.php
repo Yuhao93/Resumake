@@ -46,8 +46,6 @@
             
     }
 ?>
-
-
 &lt;!DOCTYPE HTML&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -147,7 +145,7 @@
 				
 				&lt;div class="modal hide" id="contactmodal"&gt;
 					&lt;div class="modal-header"&gt;
-						&lt;button type="button" class="close" data-dismiss="modal"&gt;×&lt;/button&gt;
+						&lt;button type="button" class="close" data-dismiss="modal"&gt;x&lt;/button&gt;
 						&lt;h3&gt;Contact Me&lt;/h3&gt;
 					&lt;/div&gt;
 					&lt;div class="modal-body"&gt;
@@ -318,5 +316,4 @@
 		});
 	&lt;/script&gt;
 &lt;/body&gt;
-
 &lt;/html&gt;
