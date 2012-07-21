@@ -86,7 +86,7 @@
 			<br>
 			
 			<a id="label-basic-statement" href="#" rel="tooltip" class="span1">Statement</a>
-			<input class="span3" type="text" id="basic-statement">
+			<input class="span3" type="text" id="basic-statement" value="<?php echo $info["statement"]?>">
 			<br>
 		</div>
 		

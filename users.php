@@ -198,6 +198,8 @@
 				</div>
 				<br>
 				<div class="well">
+                    <p><h5 id='info-age'>&nbsp;&nbsp;Statement: <?php if($user_info)echo $user_info->{'statement'}?></h5></p>
+                    <br>
 					<p><h4>Personal Information</h4></p>
 					<p><h5 id='info-age'>&nbsp;&nbsp;Age: <?php if($user_info)echo $user_info->{'age'}?></h5></p>
 					<p><h5 id='info-birthday'>&nbsp;&nbsp;Birthday: <?php if($user_info)echo $user_info->{'birthday'}?></h5></p>
@@ -256,6 +258,9 @@
 					</div>
 					<div class="modal-body">
 						<form class="well">
+                            <h2>Statement</h2>
+                            <input type="text" class="span5" id="modal-statement">
+                            <br>
 							<h2>Personal Information</h2>
 							<label>Age</label>
 							<input type="text" class="span5" id="modal-age">
@@ -394,7 +399,7 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
     $('#edit-btn').click(function(index){
-        if($(".btn-item-label.checkbox-selected").length > 1){
+        if($(".btn-item-label.checkbox-selected").length != 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only edit one resume at a time.</div>');
         }else{
         
@@ -402,9 +407,10 @@
     });
     
     $('#print-btn').click(function(index){
-        if($(".btn-item-label.checkbox-selected").length > 1){
+        if($(".btn-item-label.checkbox-selected").length != 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only print one resume at a time.</div>');
         }else{
+        
         }
     });
     
@@ -426,7 +432,6 @@
                 }
             }
             $("#resume-tbody").html(content);
-            
             $('.btn-checkbox').each(function(index){
       
                 $(this).click(function(index){
@@ -552,6 +557,7 @@
 		});
 		$("#editinfo").modal({'show':false});
 		$("#infomodal").on('show', function(){
+            $("#modal-statement").attr('value', info.statement);
 			$("#modal-age").attr('value', info.age);
 			$("#modal-birthday").attr('value', info.birthday);
 			$("#modal-gender").attr('value', info.gender);
@@ -564,6 +570,7 @@
 			$("#modal-phonenumber").attr('value', info.phone);
 		});
 		$("#confirm-info").click(function(){
+            info.statement = $("#modal-statement").attr('value');
 			info.age = $("#modal-age").attr('value');
 			info.birthday = $("#modal-birthday").attr('value');
 			info.gender = $("#modal-gender").attr('value');
@@ -575,6 +582,7 @@
 			info.email = $("#modal-email").attr('value');
 			info.phone = $("#modal-phonenumber").attr('value');
 			$.post('../private/php_scripts/updateInfo.php', {'uid':uid, 'info':info}, function(data) {
+                $('#info-statement').html('&nbsp&nbspStatement: ' + info.statement);
 				$('#info-age').html('&nbsp&nbspAge: ' + info.age);
 				$('#info-birthday').html('&nbsp&nbspBirthday: ' + info.birthday);
 				$('#info-gender').html('&nbsp&nbspGender: ' + info.gender);
@@ -583,7 +591,6 @@
 				$('#info-city').html('&nbsp&nbspCity: ' + info.city);
 				$('#info-state').html('&nbsp&nbspState: ' + info.state);
 				$('#info-zip').html('&nbsp&nbspZip: ' + info.zip);
-				$('#info-email').attr('href', 'mailto:' + info.email);
 				$('#info-email').html(info.email);
 				$('#info-phone').html('&nbsp&nbspPhone Number: ' + info.phone);
 			});
