@@ -347,14 +347,13 @@
                 <div class="page-alert-container"></div>
                 <?php
                     $hasDraft = $db->hasDraft($uid);
-                    echo 'A' . $hasDraft . 'A';
                     if($hasDraft == '1')
-                        echo '<div class="btn-group span4">';
+                        echo '<div class="btn-group span6">';
                 ?>
 				<a href="/make/" class="btn-primary btn span2">Add New Resume</a>
                 <?php
                     if($hasDraft == '1'){
-                        echo '<a href="/draft/" class="btn-primary btn span1">Draft</a>';
+                        echo '<a href="/draft/" class="btn-primary btn span2">Draft</a>';
                         echo '</div>';
                     }
                 ?>
