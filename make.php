@@ -32,6 +32,7 @@
             $resume_name = $resume->name;
             
             $resume_object = json_decode($resume_content, true);
+            $name = $resume_object['basicInfo']['name'];
             $info = array();
             $info['statement'] = $resume_object['basicInfo']['statement'];
             $info['address'] = $resume_object['contactInfo']['address'];
@@ -417,7 +418,7 @@
     <?php 
     if($isEdit && $resume_content != ""){
         echo '<script type="text/javascript">';
-        echo 'resume = ' . $resume_content . ';';
+        echo 'resume = ' . addslashes($resume_content) . ';';
         echo 'revalidateEducationField();';
         echo 'revalidateSkillField()';
         echo 'revalidateExperienceField()';
