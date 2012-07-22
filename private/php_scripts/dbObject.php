@@ -251,8 +251,8 @@ class dbObject {
     
     public function hasDraft($uid){
         if($this->getLatestDraft($uid))
-            return TRUE;
-        return FALSE;
+            return '1';
+        return '0';
     }
     
     public function getLatestDraft($uid){
