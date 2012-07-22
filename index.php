@@ -1,7 +1,4 @@
-<!--
-  --  Resumake Front Page	
-  -->
-
+<!DOCTYPE HTML>
 
 <?php
 	include_once('private/php_scripts/dbObject.php');
@@ -16,9 +13,6 @@
 		header('Location: /users/' .  $user->username) ;
 	}
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
 <head>
 	<title>Resumake | Online Resumes</title>
