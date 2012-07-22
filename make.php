@@ -104,7 +104,7 @@
 			<br>
 			
 			<a id="label-basic-position" href="#" rel="tooltip" class="span1">Position</a>
-			<input class="span3" type="text" id="basic-position">
+			<input class="span3" type="text" id="basic-position" value="<?php if($isEdit && $resume_content != "") echo $resume_object['basicInfo']['position']?>" >
 			<br>
 			
 			<a id="label-basic-statement" href="#" rel="tooltip" class="span1">Statement</a>
@@ -398,7 +398,7 @@
 		
 		<div class="row span12">
             <a id="code-preview" href="#" class="span2 btn btn-primary btn-large">Preview</a>
-			<a id="code-submit" href="#" class="span2 btn btn-primary btn-large">Save</a>
+			<a id="code-submit<?php if($isEdit) echo '-edit'?>" href="#" class="span2 btn btn-primary btn-large">Save</a>
 			<br><br><br><br>
 		</div>
 		
@@ -423,6 +423,12 @@
         echo 'revalidateSkillField();';
         echo 'revalidateExperienceField();';
         echo 'revalidateActivityField();';
+        echo '$("#code-submit-edit).click(function(){';
+        echo '$.post("../private/php_scripts/resumeedit.php", {';
+        echo '"request":"edit", "name":' . $resume_name . ', "content":resume, "rid":' . $_GET['edit'] . '}, function(data){';
+        echo 'window.location.href="../users/"' . $username;
+        echo '});';
+        echo '});';
         echo '</script>';
     }
     ?>

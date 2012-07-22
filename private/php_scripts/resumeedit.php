@@ -4,10 +4,11 @@ $db = new dbObject();
 $db->connect();
 
 $request = $_POST['request'];
-$content = '[';
-$username = $_POST['username'];
-$uid = $_POST['uid'];
+
 if($request == 'delete'){
+    $username = $_POST['username'];
+    $uid = $_POST['uid'];
+    $content = '[';
     $db->deleteResumesByRid($_POST['resumes'], $uid);
     $resumes = $db->getResumesByUid($uid);
     foreach($resumes as $resume){
@@ -35,6 +36,13 @@ if($request == 'delete'){
     $result .= ']';
     
     echo $result;
+}
+
+if($request == 'edit'){
+    $rid = $_POST['rid'];
+    $content = json_encode($_POST['content']);
+    $resume_name = $_POST['name'];
+    $db->updateResume($rid, $resume_name, $content);
 }
 
 ?>
