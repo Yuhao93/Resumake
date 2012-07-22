@@ -64,6 +64,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a id="contact_menu" data-toggle="modal" href="#contactmodal">Contact</a></li>
+              <li><a id="print_menu" data-toggle="modal" href="../../printer/<?php echo $uid . '/' . $rid?>">Print</a></li>
             </ul>
           </div>
         </div>

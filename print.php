@@ -2,6 +2,7 @@
     //Get the uid and rid
 	$uid = $_GET['uid'];
     $rid = $_GET['rid'];
+    $printer = $_GET['printer'];
     
     //Get the resume object from the rid
 	include_once('private/php_scripts/dbObject.php');
@@ -92,10 +93,10 @@
                     <li><h3>Your Skills</h3></li>
                     <li>The descriptions of your skills won't be included.</li>
                     <li><h3>Your Experiences</h3></li>
-                    <li>Only your the top three experiences (Which should be your most relevant) will be included</li>
+                    <li>Only your top three experiences (Which should be your most relevant) will be included</li>
                     <li>Only two items from each experience will be included</li>
                     <li><h3>Your Activities</h3></li>
-                    <li>Only your the top two activities (Which should be your most relevant) will be included</li>
+                    <li>Only your top two activities (Which should be your most relevant) will be included</li>
                     <li>Only two items from each activity will be included</li>
                     <li><h3>What You Can Do</h3></li>
                     <li>You may have to re-edit your resume (or create a printer version)</li>
@@ -232,11 +233,14 @@
 	<script type="text/javascript" src="../../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../../private/bootstrap/js/script.js"></script>
     <script type="text/javascript">
-    $('#attention-modal').modal('show');
-    $('#attention-modal').on('hidden', function () {
-        // Give the black modal background time to go away
-        setTimeout('window.print()', 100);
-    });
+    <?php 
+    if($printer == '0'){
+        echo "$('#attention-modal').modal('show');";
+        echo "$('#attention-modal').on('hidden', function () {setTimeout('window.print()', 100);});";
+    }else if($printer == '1'){
+        echo "window.print();";
+    }
+    ?>
     </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
