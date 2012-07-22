@@ -425,6 +425,7 @@
         echo 'revalidateActivityField();';
         echo '$("#code-submit-edit").click(function(){';
         echo 'completeResume();';
+        echo 'clearDraft();';
         echo '$.post("../private/php_scripts/resumeedit.php", {';
         echo '"request":"edit", "name":$("#basic-resume").attr("value"), "content":resume, "rid":' . $_GET['edit'] . '}, function(data){';
         echo 'window.location.href="../users/' . $username . '";';

@@ -31,6 +31,7 @@ class dbObject {
         $sql = "INSERT INTO previewregister (email) VALUES ('$email')";
 		return mysql_query($sql);
     }
+
 	
 	///////////////////////// USERS ///////////////////////////////////////////
     
@@ -239,6 +240,32 @@ class dbObject {
         return mysql_query($sql);
     }
     
+    ///////////////////////// DRAFT ///////////////////////////////////////////
+    public function pushDraft($content, $name, $uid){
+        $content = addslashes($content);
+        $name = addslashes($name);
+        
+        $sql = "REPLACE INTO draft(content, name, uid) VALUES('$content', '$name', '$uid')";
+        return mysql_query($sql);
+    }
+    
+    public function getLatestDraft($uid){
+        $sql = "SELECT * FROM draft WHERE uid=$rid";
+        $result = mysql_query($sql);
+        $row = mysql_fetch_array($result);
+        $draft = new Draft();
+        $draft->uid = $row['uid'];
+        $draft->name = stripslashes($row['name']);
+        $draft->content = stripslashes($row['content']);
+        $draft->date_created = parseTimestamp($row['uid']);
+        return $draft;
+    }
+        
+    public function clearDraft($uid){
+        $sql = "DELETE FROM draft WHERE uid=$uid";
+        return mysql_query($sql);
+    }
+    
 	private function parseTimestamp($timestamp) {
 		return strtotime($timestamp);	
     } 
@@ -263,5 +290,12 @@ class Resume{
 	var $name;
 	var $date_created;
 	var $content;
+}
+
+class Draft{
+    var $uid;
+    var $name;
+    var $content;
+    var $date_created;
 }
 ?>

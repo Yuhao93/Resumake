@@ -615,11 +615,19 @@ function getFullFormatDate(startDate, endDate){
 }
 
 $(document).ready(function(){
+    $("input").focus(function(){
+        pushDraft();
+    });
+    $("select").focus(function(){
+        pushDraft();
+    });
+
 	$("#education-award-add").click(function(){
 		addAward();
 	});
 	$("#education-save").click(function(){
 		saveEducation();
+        pushDraft();
 	});
 	$("#add-education-btn").click(function(){
 		if(educationEdit.isEdit){
@@ -635,6 +643,7 @@ $(document).ready(function(){
 	});
 	$("#skill-save").click(function(){
 		saveSkillCategory();
+        pushDraft();
 	});
 	$("#add-skill-btn").click(function(){
 		skillEdit.isEdit = false;
@@ -650,6 +659,7 @@ $(document).ready(function(){
 	});
 	$("#experience-save").click(function(){
 		saveExperienceCategory();
+        pushDraft();
 	});
 	$("#btn-add-experience").click(function(){
 		experienceEdit.isEdit = false;
@@ -665,6 +675,7 @@ $(document).ready(function(){
 	});
 	$("#activity-save").click(function(){
 		saveActivityCategory();
+        pushDraft();
 	});
 	$("#btn-add-activity").click(function(){
 		activityEdit.isEdit = false;
@@ -672,7 +683,7 @@ $(document).ready(function(){
 	});
 	
     $("#code-preview").click(function(){
-        completeResume();
+        pushDraft();
         var name = $("#basic-resume").attr("value");
 		$.post("../resumepreview/index.php", {'content': JSON.stringify(resume)}, function(data){
             var previewWindow = window.open('', '_blank');
@@ -684,6 +695,7 @@ $(document).ready(function(){
         completeResume();
 		var name = $("#basic-resume").attr("value");
 		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'resume':resume, 'name':name}, function(data){
+            clearDraft();
             window.location.href = "../users/" + username;
 		});
 	});
@@ -703,4 +715,17 @@ function completeResume(){
         "phoneNumber":$("#contact-phone").attr("value"),
         "email":$("#contact-email").attr("value")
     };
+}
+
+function pushDraft(){
+    completeResume();
+    $.post('../private/php_scripts/draft.php', {'request':'push', 'uid':uid, 'content':resume, 'name':name}, function(data){
+    
+    });
+}
+
+function clearDraft(){
+    $.post('../private/php_scripts/draft.php', {'request':'clear', 'uid':uid}, function(data){
+    
+    });
 }
