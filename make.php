@@ -426,6 +426,7 @@
         echo '$("#code-submit-edit").click(function(){';
         echo '$.post("../private/php_scripts/resumeedit.php", {';
         echo '"request":"edit", "name":"' . addslashes($resume_name) . '", "content":resume, "rid":' . $_GET['edit'] . '}, function(data){';
+        echo 'alert(data);';
         echo 'window.location.href="../users/' . $username . '";';
         echo '});';
         echo '});';
