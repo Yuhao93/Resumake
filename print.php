@@ -78,12 +78,12 @@
 <body>
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="modal hide">
+        <div class="modal hide" id="attention-modal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
 				<h3>Attention!</h3>
             </div>
-            <div class="modal-body" id="attention-modal">
+            <div class="modal-body">
                 <p>When printing your resume, please note that, in order to keep your resume short:</p>
                 <ul>
                     <li>The descriptions of your skills won't be included.</li>
@@ -95,7 +95,7 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal" id="understood-btn">Okay</a>
+                <a href="#" class="btn" data-dismiss="modal" id="okay-btn">Okay</a>
             </div>
         </div>
         
