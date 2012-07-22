@@ -7,6 +7,16 @@
 </head>
 <body>
     <div class="container">
+    <br>
+        <div class="row">
+            <div class="page-header">
+                <h1 class="offset1">
+                <img src="private/imgs/logo.png"></img>
+                <small>Here's an idea, let's give everyone an online resume, for free.</small>
+                </h1>
+            </div>
+        </div>
+        <br>
         <div class="hero-unit">
             <h1>Oops!</h1>
             <h2>We couldn't find the webpage you were looking for.</h2>
