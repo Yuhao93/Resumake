@@ -66,11 +66,9 @@
         margin-bottom:0px;
         font-size:12px;
     }
-    blockquote{
-        margin-bottom:10px;
-    }
     hr{
-        margin-top:4px;
+        border-top:2px solid #EEE;
+        margin-top:3px;
         margin-bottom:4px;
     }
     </style>
