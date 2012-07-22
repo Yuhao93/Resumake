@@ -93,11 +93,12 @@
 					$education = $educationInfo[$i];
 					$awards = $education['awards'];
 					echo '<div>';
-					echo '<h5>' . $education['school'] . '</h5>';
-					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong> ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
-                    echo '<p>Awards: ';
+					echo '<p>' . $education['school'] . '</p>';
+					echo '<h6>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</h6>';
+                    echo '<h6>Awards: ';
 					for($j = 0; $j < sizeof($awards); $j ++)
 						echo $awards[$j] . ($j == sizeof($awards) - 1) ? '' : ',';
+                    echo '</h6>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
@@ -107,15 +108,15 @@
 				echo '<div class="row-fluid"><h4>Skills</h4>';
 				for($i = 0; $i < sizeof($skillInfo); $i ++){
 					echo '<div>';
-					echo '<h5>' . $skillInfo[$i]['category'] . '</h5>';
+					echo '<p>' . $skillInfo[$i]['category'] . '</p>';
                     
-					echo '<p>';
+					echo '<h6>';
 					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
 						echo $skillInfo[$i]['skills'][$j]['name'];
                         if($j != sizeof($skillInfo[$i]['skills']) - 1)
                             echo ',';
 					}
-					echo '</p>';
+					echo '</h6>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
