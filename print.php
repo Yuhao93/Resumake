@@ -71,6 +71,10 @@
         margin-top:3px;
         margin-bottom:4px;
     }
+    @media print{
+        #ad{ display:none;}
+        #leftbar{ display:none;}
+    }
     </style>
     
 </head>
@@ -225,7 +229,7 @@
 	<script type="text/javascript" src="private/bootstrap/js/script.js"></script>
     <script type="text/javascript">
     $('#attention-modal').modal('show');
-    $('#okay-btn').click(function(){
+    $('#attention-modal').on('hidden', function () {
         window.print();
     });
     </script>
