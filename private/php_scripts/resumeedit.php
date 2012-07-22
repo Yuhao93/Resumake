@@ -18,9 +18,9 @@ if($request == 'delete'){
              
         $content .= '<td>';
                             
-        $content .= '<a href="../rmks/' . $username . '/' . $resume->rid . '">';
+        $content .= '<a href="../rmks/' . addslashes($username) . '/' . $resume->rid . '">';
 
-        $content .= $resume->name;
+        $content .= addslashes($resume->name);
                             
         $content .= '</a>';
         $content .= '</td>';
