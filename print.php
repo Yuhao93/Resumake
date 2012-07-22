@@ -71,10 +71,6 @@
         margin-top:3px;
         margin-bottom:4px;
     }
-    @media print{
-        #ad{ display:none;}
-        #leftbar{ display:none;}
-    }
     </style>
     
 </head>
