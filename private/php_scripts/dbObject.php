@@ -212,6 +212,14 @@ class dbObject {
         return mysql_insert_id();
 	}
 	
+    public function updateResume($rid, $name, $content){
+        $content = addslashes($content);
+        $name = addslashes($name);
+        
+        $sql = "UPDATE resume SET content='$content', name='$name' WHERE rid=$rid";
+        return mysql_query($sql);
+    }
+    
     public function deleteResumesByRid($rids, $uid){
         $sql = "DELETE FROM resume WHERE rid IN (";
         for($i = 0; $i < count($rids); $i++){

@@ -9,7 +9,7 @@
         if(!isset($_SESSION['uid']))
             $_SESSION['uid'] = $_COOKIE['remember'];
         $uid = $_SESSION['uid'];
-        include_once('../private/php_scripts/dbObject.php');
+        include_once('private/php_scripts/dbObject.php');
         $db = new dbObject;
         $db->connect();
 	

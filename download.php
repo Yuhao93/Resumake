@@ -62,6 +62,7 @@
           &lt;div class="nav-collapse"&gt;
             &lt;ul class="nav"&gt;
               &lt;li&gt;&lt;a id="contact_menu" data-toggle="modal" href="#contactmodal"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a id="print_menu" data-toggle="modal" href="http://resumake.thegbclub.com/printer/<?php echo $rid;?>"&gt;Print&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -258,7 +259,8 @@
 					echo '&lt;section id="activity' . $i . '"&gt;&lt;/section&gt;';
 					echo '&lt;div class="well"&gt;';
 					echo '&lt;h3&gt;' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '&lt;/h3&gt;';
-					$isLink = false;
+					echo $activityInfo[$i]['group'];
+                    $isLink = false;
 					echo '&lt;ul&gt;';
 					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
 						$item = $activityInfo[$i]['items'][$j];

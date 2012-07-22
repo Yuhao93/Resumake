@@ -261,7 +261,8 @@
 					echo '<section id="activity' . $i . '"></section>';
 					echo '<div class="well">';
 					echo '<h3>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</h3>';
-					$isLink = false;
+					echo $activityInfo[$i]['group'];
+                    $isLink = false;
 					echo '<ul>';
 					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
 						$item = $activityInfo[$i]['items'][$j];
