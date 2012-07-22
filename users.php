@@ -351,10 +351,10 @@
                     $hasDraft = $db->hasDraft($uid);
                     if($hasDraft == '1'){
                         echo '<div class="btn-group span4">';
-                        echo '<a href="#" class="btn-primary btn dropdown-toggle" data-toggle="dropdown">Draft<span class="caret"></span></a>';
+                        echo '<a href="#" class="btn-primary btn dropdown-toggle span2" data-toggle="dropdown">Draft<span class="caret"></span></a>';
                         echo '<ul class="dropdown-menu">';
-                        echo '<li>Edit Draft</li>';
-                        echo '<li>Delete Draft</li>';
+                        echo '<li><a href="#" id="draft-edit">Edit Draft</a></li>';
+                        echo '<li><a href="#" id="draft-delete">Delete Draft</a></li>';
                         echo '</ul>';
                         echo '</div>';
                     }
