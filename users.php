@@ -409,8 +409,9 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript">
     $('#draft-delete').click(function(index){
-        clearDraft();
-        $("#draft-group").remove();
+        $.post('../private/php_scripts/draft.php', {'request':'clear', 'uid':uid}, function(data){
+            $("#draft-group").remove();
+        });
     });
     $('#edit-btn').click(function(index){
         if($(".btn-item-label.checkbox-selected").length != 1){
