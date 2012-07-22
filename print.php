@@ -73,7 +73,7 @@
       <div class="row-fluid">
         <div class="span12">
             <center><h1><?php echo $basicInfo['name'];?></h1>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p></center>
+            <p><?php echo $basicInfo['position']?></p></center>
 			<blockquote>
 				<h5><?php echo $basicInfo['statement'];?></h5>
 			</blockquote>    
@@ -81,10 +81,10 @@
 				<div>		
 					<h4>Contact Information</h4>
 						<address>
-                            <h5>
-							<br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
+                            <p>
+							&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
 							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email: ' . $contactInfo['email']?>
-                            </h5>
+                            </p>
 						</address>
 				</div>
 				
