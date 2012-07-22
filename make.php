@@ -12,7 +12,7 @@
         include_once('private/php_scripts/dbObject.php');
         $db = new dbObject;
         $db->connect();
-	
+        
         //Get the current user
         $user = $db->getUserById($uid);
         
@@ -20,6 +20,27 @@
         $name = $user->name;
         $info = json_decode($user->info, true);
         $username = $user->username;
+        $isEdit = false;
+        $resume_content = "";
+        $resume_name = "";
+        
+        //If editing, get the pre-existing resume
+        if(isset($_GET['edit']) && $db->belongsToUser($_GET['edit'], $user)){
+            $isEdit = true;
+            $resume = $db->getResumeByRid($rid);
+            $resume_content = $resume->content;
+            $resume_name = $resume->name
+            
+            $resume_object = json_decode($resume_content, true);
+            $info = array();
+            $info['statement'] = $resume_object['basicInfo']['statement'];
+            $info['address'] = $resume_object['contactInfo']['address'];
+            $info['city'] = $resume_object['contactInfo']['city'];
+            $info['zip'] = $resume_object['contactInfo']['zip'];
+            $info['state'] = $resume_object['contactInfo']['state'];
+            $info['phone'] = $resume_object['contactInfo']['phoneNumber'];
+            $info['email'] = $resume_object['contactInfo']['email'];
+        }
     }
 ?>
 
@@ -74,7 +95,7 @@
 			<br>
 			
 			<a id="label-basic-resume" href="#" rel="tooltip" class="span1">Resume</a>
-			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="[Resume Name]">
+			<input class="span3" type="text" placeholder="Resume Name" id="basic-resume" value="<?php if(!$isEdit && $resume_name == "") echo '[Resume Name]'; else echo $resume_name?>">
 			<br>
 
 			<a id="label-basic-name" href="#" rel="tooltip" class="span1">Name</a>
@@ -393,6 +414,17 @@
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
     <script type="text/javascript" src="../private/bootstrap/js/make-tooltip.js"></script>
+    <?php 
+    if($isEdit && $resume_content != ""){
+        echo '<script type="text/javascript">';
+        echo 'resume = ' . $resume_content . ';';
+        echo 'revalidateEducationField();';
+        echo 'revalidateSkillField()';
+        echo 'revalidateExperienceField()';
+        echo 'revalidateActivityField()';
+        echo '</script>';
+    }
+    ?>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);

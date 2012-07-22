@@ -173,7 +173,15 @@ class dbObject {
 	
 	
 	///////////////////////// RESUME ///////////////////////////////////////////
-	
+	public function belongsToUser($rid, $uid){
+        $resumes = getResumesByUid($uid);
+        foreach($resumes as $resume){
+            if($resume->rid == $rid)
+                return true;
+        }
+        return false;
+    }
+    
 	public function getResumesByUid($uid){
 		$sql = "SELECT * FROM resume WHERE uid=$uid ORDER BY rid";
 		$result = mysql_query($sql);
