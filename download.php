@@ -49,7 +49,7 @@
 &lt;!DOCTYPE HTML&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-	&lt;title&gt;<?php echo $basicInfo->name?>&lt;/title&gt;
+	&lt;title&gt;<?php echo $basicInfo['name']?>&lt;/title&gt;
 	&lt;link rel="stylesheet" type="text/css" href="http://resumake.thegbclub.com/private/bootstrap/css/bootstrap.css"&gt;&lt;/link&gt;
 	&lt;link rel="stylesheet" type="text/css" href="http://resumake.thegbclub.com/private/bootstrap/css/bootstrap-responsive.css"&gt;&lt;/link&gt;
 	&lt;link rel="stylesheet" type="text/css" href="http://resumake.thegbclub.com/private/bootstrap/css/styles.css"&gt;&lt;/link&gt;
