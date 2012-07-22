@@ -72,11 +72,33 @@
         margin-bottom:4px;
     }
     </style>
+    
 </head>
 
 <body>
     <div class="container-fluid">
       <div class="row-fluid">
+        <div class="modal hide">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Attention!</h3>
+            </div>
+            <div class="modal-body" id="attention-modal">
+                <p>When printing your resume, please note that, in order to keep your resume short:</p>
+                <ul>
+                    <li>The descriptions of your skills won't be included.</li>
+                    <li>Only your the top three experiences (Which should be your most relevant) will be included<li>
+                    <li>Only two items from each experience will be included</li>
+                    <li>Only your the top two activities (Which should be your most relevant) will be included</li>
+                    <li>Only two items from each activity will be included</li>
+                    <li>You may have to edit your resume (or create a printer version)</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal" id="understood-btn">Okay</a>
+            </div>
+        </div>
+        
         <div class="span12">
             <center><h1><?php echo $basicInfo['name'];?></h1>
             <p><?php echo $basicInfo['position']?></p></center>
@@ -201,6 +223,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/script.js"></script>
+    <script type="text/javascript">
+    $('#attention-modal').modal('show');
+    $('#okay-btn').click(function(){
+        window.print();
+    });
+    </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);
