@@ -72,11 +72,11 @@
             <center><h1><?php echo $basicInfo['name'];?></h1>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p></center>
 			<blockquote>
-				<h4><?php echo $basicInfo['statement'];?></h4>
+				<h5><?php echo $basicInfo['statement'];?></h5>
 			</blockquote>    
 			<div class="row-fluid">
 				<div>		
-					<h3>Contact Information</h3>
+					<h4>Contact Information</h4>
 						<address>
 							<br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
 							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email:' . $contactInfo['email']?>
