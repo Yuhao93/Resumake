@@ -150,7 +150,7 @@
                     $min = sizeof($experienceInfo[$i]['items']);
                     if($min > 2)
                         $min = 2;
-					for($j = 0; $j < sizeof($experienceInfo[$i]['items']); $j++){
+					for($j = 0; $j < $min; $j++){
 						$item = $experienceInfo[$i]['items'][$j];
 						if($item['type'] == 'desc'){
 							echo '<li>' . $item['desc'] . '</li>';
@@ -174,7 +174,7 @@
                     if($min > 2)
                         $min = 2;
 					echo '<ul>';
-					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
+					for($j = 0; $j < $min; $j++){
 						$item = $activityInfo[$i]['items'][$j];
 						if($item['type'] == 'fact'){
 							echo '<li>' . $item['desc'] . '</li>';
