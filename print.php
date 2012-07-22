@@ -68,7 +68,7 @@
 <body>
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span10">
+        <div class="span12">
           <div class="hero-unit">
             <h1><?php echo $basicInfo['name'];?></h1>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p>
