@@ -418,11 +418,11 @@
     <?php 
     if($isEdit && $resume_content != ""){
         echo '<script type="text/javascript">';
-        echo 'resume = eval(\'(\' + "' . addslashes($resume_content) . '" + \')\');';
+        echo 'resume = ' . addslashes($resume_content) . ';';
         echo 'revalidateEducationField();';
-        echo 'revalidateSkillField()';
-        echo 'revalidateExperienceField()';
-        echo 'revalidateActivityField()';
+        echo 'revalidateSkillField();';
+        echo 'revalidateExperienceField();';
+        echo 'revalidateActivityField();';
         echo '</script>';
     }
     ?>
