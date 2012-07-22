@@ -109,7 +109,7 @@
 					for($j = 0; $j < sizeof($awards); $j ++){
 						echo $awards[$j];
                         if ($j != sizeof($awards) - 1)
-                            echo ',';
+                            echo ', ';
                     }
                     echo '</p>';
                     if($i != sizeof($educationInfo) - 1)
@@ -129,7 +129,7 @@
 					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
 						echo $skillInfo[$i]['skills'][$j]['name'];
                         if($j != sizeof($skillInfo[$i]['skills']) - 1)
-                            echo ',';
+                            echo ', ';
 					}
 					echo '</p>';
                     if($i != sizeof($skillInfo) - 1)
@@ -147,7 +147,7 @@
                     $expMin = 3;
 				for($i = 0; $i < $expMin; $i ++){
 					echo '<div>';
-					echo '<p>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</p>';
+					echo '<p><strong>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</strong></p>';
 					echo $experienceInfo[$i]['group'];
 					echo '<ul>';
                     $min = sizeof($experienceInfo[$i]['items']);
@@ -175,7 +175,7 @@
                     $actMin = 2;
 				for($i = 0; $i < $actMin; $i ++){
 					echo '<div>';
-					echo '<p>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</p>';
+					echo '<p><strong>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</strong></p>';
 					$min = sizeof($activityInfo[$i]['items']);
                     if($min > 2)
                         $min = 2;
