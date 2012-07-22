@@ -64,6 +64,7 @@
     }
     p{
         margin-bottom:0px;
+        font-size:12px;
     }
     blockquote{
         margin-bottom:10px;
