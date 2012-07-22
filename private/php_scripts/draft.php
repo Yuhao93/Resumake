@@ -9,6 +9,7 @@
     if($request == 'push'){ 
         $name = $_POST['name'];
         $content = json_encode($_POST['content']);
+        echo $content;
         $db->pushDraft($content, $name, $uid);
     }
     
