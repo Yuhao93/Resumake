@@ -174,7 +174,7 @@ class dbObject {
 	
 	///////////////////////// RESUME ///////////////////////////////////////////
 	public function belongsToUser($rid, $uid){
-        $resumes = getResumesByUid($uid);
+        $resumes = $this->getResumesByUid($uid);
         foreach($resumes as $resume){
             if($resume->rid == $rid)
                 return true;
