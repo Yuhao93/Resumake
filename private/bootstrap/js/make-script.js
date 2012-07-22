@@ -615,7 +615,7 @@ function getFullFormatDate(startDate, endDate){
 }
 var timerId = undefined;
 $(document).ready(function(){
-    $("input").change(function(){
+    $("input").keypress(function(){
         resetTimer();
     });
     $("select").change(function(){
