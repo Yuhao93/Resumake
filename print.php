@@ -3,9 +3,6 @@
 	$uid = $_POST['uid'];
     $rid = $_POST['rid'];
     
-    $uid = 34;
-    $rid = 76;
-    
     //Get the resume object from the rid
 	include_once('private/php_scripts/dbObject.php');
 	$db = new dbObject;
@@ -90,11 +87,14 @@
                 <p>When printing your resume, please note that, in order to keep your resume short:</p>
                 <ul>
                     <li>The descriptions of your skills won't be included.</li>
-                    <li>Only your the top three experiences (Which should be your most relevant) will be included<li>
+                    <br>
+                    <li>Only your the top three experiences (Which should be your most relevant) will be included</li>
                     <li>Only two items from each experience will be included</li>
+                    <br>
                     <li>Only your the top two activities (Which should be your most relevant) will be included</li>
                     <li>Only two items from each activity will be included</li>
-                    <li>You may have to edit your resume (or create a printer version)</li>
+                    <br>
+                    <li>You may have to re-edit your resume (or create a printer version)</li>
                 </ul>
             </div>
             <div class="modal-footer">
