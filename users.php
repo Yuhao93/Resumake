@@ -350,8 +350,8 @@
                 <?php
                     $hasDraft = $db->hasDraft($uid);
                     if($hasDraft == '1'){
-                        echo '<div class="btn-group span4">';
-                        echo '<a href="#" class="btn-primary btn dropdown-toggle span4" data-toggle="dropdown">Draft <span class="caret"></span></a>';
+                        echo '<div class="btn-group span2">';
+                        echo '<a href="#" class="btn-primary btn dropdown-toggle span8" data-toggle="dropdown">Draft <span class="caret"></span></a>';
                         echo '<ul class="dropdown-menu">';
                         echo '<li><a href="#" id="draft-edit">Edit Draft</a></li>';
                         echo '<li><a href="#" id="draft-delete">Delete Draft</a></li>';
