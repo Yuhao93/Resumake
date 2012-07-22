@@ -62,6 +62,9 @@
     body{
         padding-top:0px;
     }
+    p{
+        margin-bottom:0px;
+    }
     </style>
 </head>
 
@@ -80,7 +83,7 @@
 						<address>
                             <h5>
 							<br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
-							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email:' . $contactInfo['email']?>
+							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email: ' . $contactInfo['email']?>
                             </h5>
 						</address>
 				</div>
@@ -96,13 +99,14 @@
 					$awards = $education['awards'];
 					echo '<div>';
 					echo '<p><strong>' . $education['school'] . '</strong> -&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
-                    echo '<p><strong>Awards</strong>: ';
+                    echo '<p>Awards: ';
 					for($j = 0; $j < sizeof($awards); $j ++){
 						echo $awards[$j];
                         if ($j != sizeof($awards) - 1)
                             echo ',';
                     }
                     echo '</p>';
+                    echo '<br>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
@@ -114,13 +118,13 @@
 					echo '<div>';
 					echo '<p>' . $skillInfo[$i]['category'] . '</p>';
                     
-					echo '<h6>';
+					echo '<p>';
 					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
 						echo $skillInfo[$i]['skills'][$j]['name'];
                         if($j != sizeof($skillInfo[$i]['skills']) - 1)
                             echo ',';
 					}
-					echo '</h6>';
+					echo '</p>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
