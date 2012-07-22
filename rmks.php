@@ -299,7 +299,7 @@
 			var name = $('#email-name').attr('value');
 			var subject = $('#email-subject').attr('value');
 			var content = $('#email-content').attr('value');
-			$.post('../../sendemail.php', {'name':name, 'subject':subject, 'content':content}, function(data){
+			$.post('../../private/php_scripts/sendemail.php', {'name':name, 'subject':subject, 'content':content}, function(data){
 				$('#thanksmodal').modal('show');
 			});
 		});
