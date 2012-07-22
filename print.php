@@ -88,16 +88,16 @@
 		
 		<?php 
 			if(sizeof($educationInfo) != 0){
-				echo '<section id="Education"></section><div class="row-fluid"><h2 class="float-down">Education</h2>';
+				echo '<div class="row-fluid"><h4 class="float-down">Education</h4>';
 				for($i = 0; $i < sizeof($educationInfo); $i ++){
 					$education = $educationInfo[$i];
 					$awards = $education['awards'];
-					echo '<section id="education' . $i . '"></section>';
-					echo '<div class="well">';
-					echo '<h3>' . $education['school'] . '</h3>';
+					echo '<div>';
+					echo '<h5>' . $education['school'] . '</h5>';
 					echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . '</strong> ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
+                    echo '<p>Awards: ';
 					for($j = 0; $j < sizeof($awards); $j ++)
-						echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $awards[$j] . '</strong></p>';
+						echo $awards[$j] . ($j == sizeof($awards) - 1) ? '' : ',';
 					echo '</div>';
 				}
 				echo '<hr></div>';
