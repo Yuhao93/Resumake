@@ -123,7 +123,7 @@
 				echo '<div class="row-fluid"><h4>Skills</h4>';
 				for($i = 0; $i < sizeof($skillInfo); $i ++){
 					echo '<div>';
-					echo '<p>' . $skillInfo[$i]['category'] . '</p>';
+					echo '<p><strong>' . $skillInfo[$i]['category'] . '</strong></p>';
                     
 					echo '<p>';
 					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
@@ -140,30 +140,20 @@
 			}
 			
 			if(sizeof($experienceInfo) != 0){
-				echo '<section id="Experience"></section>';
 				echo '<div class="row-fluid">';
-				echo '<h2 class="float-down">Experience</h2>';
+				echo '<h4>Experience</h4>';
 				for($i = 0; $i < sizeof($experienceInfo); $i ++){
-					echo '<section id="experience' . $i . '"></section>';
-					echo '<div class="well">';
-					echo '<h3>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</h3>';
+					echo '<div>';
+					echo '<p>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</p>';
 					echo $experienceInfo[$i]['group'];
 					echo '<ul>';
 					$isLink = false;
 					for($j = 0; $j < sizeof($experienceInfo[$i]['items']); $j++){
 						$item = $experienceInfo[$i]['items'][$j];
 						if($item['type'] == 'desc'){
-							if($isLink){
-								echo '</ul>';
-							}
 							echo '<li>' . $item['desc'] . '</li>';
-							$isLink = false;
 						}else if($item['type'] == 'link'){
-							if(!$isLink){
-								echo '<ul class="nav nav-tabs nav-stacked">';
-							}
 							echo '<li><a href="' . $item['link'] . '" target="_blank">' . $item['name'] . '</a></li>';
-							$isLink = true;
 						}
 					}
 					echo '</ul>';
@@ -173,29 +163,19 @@
 			}
 			
 			if(sizeof($activityInfo) != 0){
-				echo '<section id="Activity"></section>';
 				echo '<div class="row-fluid">';
-				echo '<h2 class="float-down">Activities</h2>';
+				echo '<h4>Activities</h4>';
 				for($i = 0; $i < sizeof($activityInfo); $i ++){
-					echo '<section id="activity' . $i . '"></section>';
-					echo '<div class="well">';
-					echo '<h3>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</h3>';
+					echo '<div>';
+					echo '<p>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</p>';
 					$isLink = false;
 					echo '<ul>';
 					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
 						$item = $activityInfo[$i]['items'][$j];
 						if($item['type'] == 'fact'){
-							if($isLink){
-								echo '</ul>';
-							}
 							echo '<li>' . $item['desc'] . '</li>';
-							$isLink = false;
 						}else if($item['type'] == 'link'){
-							if(!$isLink){
-								echo '<ul class="nav nav-tabs nav-stacked">';
-							}
 							echo '<li><a href="' . $item['link'] . '" target="_blank">' . $item['name'] . '</a></li>';
-							$isLink = true;
 						}
 					}
 					echo '</ul>';
