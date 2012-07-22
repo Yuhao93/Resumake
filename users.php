@@ -347,6 +347,7 @@
                 <div class="page-alert-container"></div>
                 <?php
                     $hasDraft = $db->hasDraft($uid);
+                    echo $hasDraft;
                     if($hasDraft)
                         echo '<div class="btn-group span4">';
                 ?>
