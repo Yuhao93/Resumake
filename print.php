@@ -93,8 +93,7 @@
 					$education = $educationInfo[$i];
 					$awards = $education['awards'];
 					echo '<div>';
-					echo '<p>' . $education['school'] . '</p>';
-					echo '<h6>&nbsp;&nbsp;&nbsp;&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</h6>';
+					echo '<p>' . $education['school'] . '-&nbsp;&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
                     echo '<h6>Awards: ';
 					for($j = 0; $j < sizeof($awards); $j ++)
 						echo $awards[$j] . ($j == sizeof($awards) - 1) ? '' : ',';
