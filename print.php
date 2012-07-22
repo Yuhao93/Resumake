@@ -1,6 +1,5 @@
 <?php
     //Get the uid and rid
-	$uid = $_GET['uid'];
     $rid = $_GET['rid'];
     $printer = $_GET['printer'];
     
@@ -53,9 +52,9 @@
 <html lang="en">
 <head>
 	<title><?php echo $basicInfo['name']?></title>
-	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/bootstrap-responsive.css"></link>
-	<link rel="stylesheet" type="text/css" href="../../private/bootstrap/css/styles.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/styles.css"></link>
     <style type="text/css">
     body{
         padding-top:0px;
@@ -230,8 +229,8 @@
 	</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../../private/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../../private/bootstrap/js/script.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/script.js"></script>
     <script type="text/javascript">
     <?php 
     if($printer == '0'){
