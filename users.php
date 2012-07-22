@@ -402,7 +402,7 @@
         if($(".btn-item-label.checkbox-selected").length != 1){
             $(".page-alert-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button><strong>Wait! </strong> You can only edit one resume at a time.</div>');
         }else{
-        
+            window.location.href = '../edit/' + $(".btn-item-label.checkbox-selected").attr('rid-label');
         }
     });
     
