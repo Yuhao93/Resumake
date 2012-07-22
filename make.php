@@ -27,7 +27,7 @@
         //If editing, get the pre-existing resume
         if(isset($_GET['edit']) && $db->belongsToUser($_GET['edit'], $uid)){
             $isEdit = true;
-            $resume = $db->getResumeByRid($rid);
+            $resume = $db->getResumeByRid($_GET['edit']);
             $resume_content = $resume->content;
             $resume_name = $resume->name;
             
