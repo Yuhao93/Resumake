@@ -729,12 +729,10 @@ function pushDraft(){
     completeResume();
     var name = $("#basic-resume").attr("value");
     $.post('../private/php_scripts/draft.php', {'request':'push', 'uid':uid, 'content':JSON.stringify(resume), 'name':name}, function(data){
-        alert(data);
     });
 }
 
 function clearDraft(){
     $.post('../private/php_scripts/draft.php', {'request':'clear', 'uid':uid}, function(data){
-    
     });
 }
