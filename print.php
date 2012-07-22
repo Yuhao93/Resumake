@@ -64,12 +64,15 @@
         font-size:12px;
     }
     hr{
-        border-top:2px solid #EEE;
+        border-top:2px solid #E0E0E0;
         margin-top:3px;
         margin-bottom:4px;
     }
     h4{
         margin-top:8px;
+    }
+    blockquote{
+        border:5px solid #E0E0E0;
     }
     </style>
     
@@ -202,7 +205,8 @@
 				for($i = 0; $i < $actMin; $i ++){
 					echo '<div>';
 					echo '<p><strong>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</strong></p>';
-					$min = sizeof($activityInfo[$i]['items']);
+					echo $activityInfo[$i]['group'];
+                    $min = sizeof($activityInfo[$i]['items']);
                     if($min > 2)
                         $min = 2;
 					echo '<ul>';
