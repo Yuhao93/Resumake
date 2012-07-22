@@ -85,10 +85,8 @@
 					<h3>Contact Information</h3>
 						<address>
 							<Strong> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['name'];?> </strong>
-							<br>&nbsp;&nbsp;<?php echo $contactInfo['address']?>
-							<br>&nbsp;&nbsp;<?php echo $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
-							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber']?>
-							<br>&nbsp;&nbsp;Email: <?php echo $contactInfo['email']?>
+							<h3><br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?></h3>
+							<h3><br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email:' . $contactInfo['email']?></h3>
 						</address>
 				</div>
 				
