@@ -256,7 +256,7 @@ class dbObject {
     }
     
     public function getLatestDraft($uid){
-        $sql = "SELECT * FROM draft WHERE uid=$rid";
+        $sql = "SELECT * FROM draft WHERE uid=$uid";
         $result = mysql_query($sql);
         if ($result == FALSE || mysql_num_rows($result) < 1)
 			return FALSE;
