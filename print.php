@@ -4,7 +4,7 @@
     $rid = $_POST['rid'];
     
     $uid = 34;
-    $rid = 75;
+    $rid = 76;
     
     //Get the resume object from the rid
 	include_once('private/php_scripts/dbObject.php');
