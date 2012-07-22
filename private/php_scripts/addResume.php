@@ -3,7 +3,7 @@
 	$db = new dbObject();
 	$db->connect();
 	
-	$resume = json_encode($_POST['resume']);
+	$resume = $_POST['resume'];
 	$name = $_POST['name'];
 	$uid = $_POST['uid'];
 	

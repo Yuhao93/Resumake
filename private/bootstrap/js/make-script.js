@@ -694,7 +694,7 @@ $(document).ready(function(){
 	$("#code-submit").click(function(){
         completeResume();
 		var name = $("#basic-resume").attr("value");
-		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'resume':resume, 'name':name}, function(data){
+		$.post('../private/php_scripts/addResume.php', {'uid':uid, 'resume':JSON.stringify(resume), 'name':name}, function(data){
             clearDraft();
             window.location.href = "../users/" + username;
 		});
@@ -724,9 +724,11 @@ function resetTimer(){
 }
 
 function pushDraft(){
+    if(timerId != undefined)
+        clearTimeout(timerId);
     completeResume();
     var name = $("#basic-resume").attr("value");
-    $.post('../private/php_scripts/draft.php', {'request':'push', 'uid':uid, 'content':resume, 'name':name}, function(data){
+    $.post('../private/php_scripts/draft.php', {'request':'push', 'uid':uid, 'content':JSON.stringify(resume), 'name':name}, function(data){
         alert(data);
     });
 }

@@ -8,8 +8,7 @@
     
     if($request == 'push'){ 
         $name = $_POST['name'];
-        $content = json_encode($_POST['content']);
-        echo $content;
+        $content = $_POST['content'];
         $db->pushDraft($content, $name, $uid);
     }
     
