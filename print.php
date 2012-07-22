@@ -65,6 +65,13 @@
     p{
         margin-bottom:0px;
     }
+    blockquote{
+        margin-bottom:10px;
+    }
+    hr{
+        margin-top:4px;
+        margin-bottom:4px;
+    }
     </style>
 </head>
 
@@ -106,7 +113,8 @@
                             echo ',';
                     }
                     echo '</p>';
-                    echo '<br>';
+                    if($i != sizeof($educationInfo) - 1)
+                        echo '<br>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
@@ -125,6 +133,8 @@
                             echo ',';
 					}
 					echo '</p>';
+                    if($i != sizeof($skillInfo) - 1)
+                        echo '<br>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
