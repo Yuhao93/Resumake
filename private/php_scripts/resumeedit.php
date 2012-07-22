@@ -39,12 +39,11 @@ if($request == 'delete'){
 }
 
 if($request == 'edit'){
-    echo 'rid is ' . $rid = $_POST['rid'];
+    $rid = $_POST['rid'];
     $content = json_encode($_POST['content']);
     $resume_name = $_POST['name'];
-    echo 'AAA' . $db->updateResume($rid, $resume_name, $content);
-}else
-echo 'not an edit thing';
+    $db->updateResume($rid, $resume_name, $content);
+}
 
 
 ?>
