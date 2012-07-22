@@ -97,8 +97,11 @@
 					echo '<div>';
 					echo '<p><strong>' . $education['school'] . '</strong> -&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
                     echo '<p><strong>Awards</strong>: ';
-					for($j = 0; $j < sizeof($awards); $j ++)
-						echo $awards[$j] . ($j == sizeof($awards) - 1) ? '' : ',';
+					for($j = 0; $j < sizeof($awards); $j ++){
+						echo $awards[$j];
+                        if ($j != sizeof($awards) - 1)
+                            echo ',';
+                    }
                     echo '</p>';
 					echo '</div>';
 				}
