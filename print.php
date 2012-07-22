@@ -142,7 +142,10 @@
 			if(sizeof($experienceInfo) != 0){
 				echo '<div class="row-fluid">';
 				echo '<h4>Experience</h4>';
-				for($i = 0; $i < sizeof($experienceInfo); $i ++){
+                $expMin = sizeof($experienceInfo);
+                if($expMin > 2)
+                    $expMin = 2;
+				for($i = 0; $i < $expMin; $i ++){
 					echo '<div>';
 					echo '<p>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</p>';
 					echo $experienceInfo[$i]['group'];
@@ -167,7 +170,10 @@
 			if(sizeof($activityInfo) != 0){
 				echo '<div class="row-fluid">';
 				echo '<h4>Activities</h4>';
-				for($i = 0; $i < sizeof($activityInfo); $i ++){
+                $actMin = sizeof($activityInfo);
+                if($actMin > 2)
+                    $actMin = 2;
+				for($i = 0; $i < $actMin; $i ++){
 					echo '<div>';
 					echo '<p>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</p>';
 					$min = sizeof($activityInfo[$i]['items']);
