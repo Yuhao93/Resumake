@@ -69,13 +69,11 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span12">
-          <div class="hero-unit">
             <h1><?php echo $basicInfo['name'];?></h1>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p>
 			<blockquote>
 				<h4><?php echo $basicInfo['statement'];?></h4>
 			</blockquote>    
-			</div>
 
 			<section id="Personal"></section>
 			<div class="row-fluid">
@@ -85,8 +83,8 @@
 					<h3>Contact Information</h3>
 						<address>
 							<Strong> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['name'];?> </strong>
-							<h3><br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?></h3>
-							<h3><br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email:' . $contactInfo['email']?></h3>
+							<h4><br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?></h4>
+							<h4><br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email:' . $contactInfo['email']?></h4>
 						</address>
 				</div>
 				
