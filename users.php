@@ -351,7 +351,7 @@
                     $hasDraft = $db->hasDraft($uid);
                     if($hasDraft == '1'){
                         echo '<div class="btn-group span4">';
-                        echo '<a href="/draft/" class="btn-primary btn">Draft<span class="caret"></span></a>';
+                        echo '<a href="/draft/" class="btn-primary btn dropdown-toggle" data-toggle="dropdown">Draft<span class="caret"></span></a>';
                         echo '<ul class="dropdown-menu">';
                         echo '<li>Edit Draft</li>';
                         echo '<li>Delete Draft</li>';
