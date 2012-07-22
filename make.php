@@ -29,7 +29,7 @@
             $isEdit = true;
             $resume = $db->getResumeByRid($rid);
             $resume_content = $resume->content;
-            $resume_name = $resume->name
+            $resume_name = $resume->name;
             
             $resume_object = json_decode($resume_content, true);
             $info = array();
