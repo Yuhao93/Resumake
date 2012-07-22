@@ -345,15 +345,17 @@
 			
 				<h3>My Resumes</h3>
                 <div class="page-alert-container"></div>
-                <?php
-                    $hasDraft = $db->hasDraft($uid);
-                    if($hasDraft == '1')
-                        echo '<div class="btn-group span6">';
-                ?>
+                
 				<a href="/make/" class="btn-primary btn span2">Add New Resume</a>
                 <?php
+                    $hasDraft = $db->hasDraft($uid);
                     if($hasDraft == '1'){
-                        echo '<a href="/draft/" class="btn-primary btn span2">Draft</a>';
+                        echo '<div class="btn-group span4">';
+                        echo '<a href="/draft/" class="btn-primary btn">Draft<span class="caret"></span></a>';
+                        echo '<ul class="dropdown-menu">';
+                        echo '<li>Edit Draft</li>';
+                        echo '<li>Delete Draft</li>';
+                        echo '</ul>';
                         echo '</div>';
                     }
                 ?>
