@@ -72,7 +72,7 @@
         margin-top:8px;
     }
     blockquote{
-        border:5px solid #E0E0E0;
+        border-left:5px solid #E0E0E0;
     }
     </style>
     
