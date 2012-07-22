@@ -345,7 +345,19 @@
 			
 				<h3>My Resumes</h3>
                 <div class="page-alert-container"></div>
+                <?php
+                    $hasDraft = $db->hasDraft($uid);
+                    if($hasDraft)
+                        echo '<div class="btn-group span4">';
+                ?>
 				<a href="/make/" class="btn-primary btn span2">Add New Resume</a>
+                <?php
+                    if($hasDraft){
+                        echo '<a href="/draft/" class="btn-primary btn span1">Draft</a>';
+                        echo '</div>';
+                    }
+                ?>
+                
                 
                 <div class="btn-group span4">
                     <a href="#" class="btn btn-small btn-primary" id="edit-btn"><i class="icon-white icon-wrench"></i> Edit</a>

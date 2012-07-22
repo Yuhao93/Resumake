@@ -249,9 +249,18 @@ class dbObject {
         return mysql_query($sql);
     }
     
+    public function hasDraft($uid){
+        if(!$this->getLatestDraft($uid))
+            return FALSE;
+        return TRUE:
+    }
+    
     public function getLatestDraft($uid){
         $sql = "SELECT * FROM draft WHERE uid=$rid";
         $result = mysql_query($sql);
+        if ($result == FALSE || mysql_num_rows($result) < 1)
+			return FALSE;
+        
         $row = mysql_fetch_array($result);
         $draft = new Draft();
         $draft->uid = $row['uid'];
