@@ -71,6 +71,9 @@
         margin-top:3px;
         margin-bottom:4px;
     }
+    h4{
+        margin-top:8px;
+    }
     </style>
     
 </head>
@@ -226,7 +229,8 @@
     <script type="text/javascript">
     $('#attention-modal').modal('show');
     $('#attention-modal').on('hidden', function () {
-        setTimeout('window.print()', 1000);
+        // Give the black modal background time to go away
+        setTimeout('window.print()', 100);
     });
     </script>
     <script type="text/javascript">
