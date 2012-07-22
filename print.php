@@ -226,7 +226,7 @@
     <script type="text/javascript">
     $('#attention-modal').modal('show');
     $('#attention-modal').on('hidden', function () {
-        window.print();
+        setTimout('window.print();', 1000);
     });
     </script>
     <script type="text/javascript">
