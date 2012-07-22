@@ -86,14 +86,15 @@
             <div class="modal-body">
                 <p>When printing your resume, please note that, in order to keep your resume short:</p>
                 <ul>
+                    <li><h3>Your Skills</h3></li>
                     <li>The descriptions of your skills won't be included.</li>
-                    <br>
+                    <li><h3>Your Experiences</h3></li>
                     <li>Only your the top three experiences (Which should be your most relevant) will be included</li>
                     <li>Only two items from each experience will be included</li>
-                    <br>
+                    <li><h3>Your Activities</h3></li>
                     <li>Only your the top two activities (Which should be your most relevant) will be included</li>
                     <li>Only two items from each activity will be included</li>
-                    <br>
+                    <li><h3>What You Can Do</h3></li>
                     <li>You may have to re-edit your resume (or create a printer version)</li>
                 </ul>
             </div>
