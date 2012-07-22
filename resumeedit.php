@@ -20,7 +20,7 @@
         //Get the relevant information about the current user
         $username = $user->username;
         
-        $resume_content = $draft->content
+        $resume_content = $draft->content;
         $resume_name = $draft->name;
             
         $resume_object = json_decode($resume_content, true);
