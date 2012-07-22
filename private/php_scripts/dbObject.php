@@ -266,7 +266,7 @@ class dbObject {
         $draft->uid = $row['uid'];
         $draft->name = stripslashes($row['name']);
         $draft->content = stripslashes($row['content']);
-        $draft->date_created = parseTimestamp($row['uid']);
+        $draft->date_created = $this->parseTimestamp($row['uid']);
         return $draft;
     }
         
