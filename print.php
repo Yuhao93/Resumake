@@ -78,8 +78,10 @@
 				<div>		
 					<h4>Contact Information</h4>
 						<address>
+                            <h5>
 							<br>&nbsp;&nbsp;<?php echo $contactInfo['address'] . ', ' . $contactInfo['city'] . ',' . $contactInfo['state'] . ' ' . $contactInfo['zip'];?>
 							<br>&nbsp;&nbsp;P: <?php echo $contactInfo['phoneNumber'] . ' Email:' . $contactInfo['email']?>
+                            </h5>
 						</address>
 				</div>
 				
@@ -93,11 +95,11 @@
 					$education = $educationInfo[$i];
 					$awards = $education['awards'];
 					echo '<div>';
-					echo '<p>' . $education['school'] . '-&nbsp;&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
-                    echo '<h6>Awards: ';
+					echo '<p><strong>' . $education['school'] . '</strong> -&nbsp;&nbsp;' . $education['degree'] . ' ' . getFullDate($education['startDate'], $education['endDate']) . '</p>';
+                    echo '<p><strong>Awards</strong: ';
 					for($j = 0; $j < sizeof($awards); $j ++)
 						echo $awards[$j] . ($j == sizeof($awards) - 1) ? '' : ',';
-                    echo '</h6>';
+                    echo '</p>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
