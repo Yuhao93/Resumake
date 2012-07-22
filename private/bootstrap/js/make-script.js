@@ -613,13 +613,13 @@ function getFullFormatDate(startDate, endDate){
             return getFormattedDate(startDate) + " - " + getFormattedDate(endDate);
     }
 }
-
+var timerId = undefined;
 $(document).ready(function(){
-    $("input").focus(function(){
-        pushDraft();
+    $("input").change(function(){
+        resetTimer();
     });
-    $("select").focus(function(){
-        pushDraft();
+    $("select").change(function(){
+        resetTimer();
     });
 
 	$("#education-award-add").click(function(){
@@ -715,6 +715,12 @@ function completeResume(){
         "phoneNumber":$("#contact-phone").attr("value"),
         "email":$("#contact-email").attr("value")
     };
+}
+
+function resetTimer(){
+    if(timerId != undefined)
+        clearTimeout(timerId);
+    timerId = setTimeout('pushDraft()', 5000);
 }
 
 function pushDraft(){
