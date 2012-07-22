@@ -88,7 +88,7 @@
 		
 		<?php 
 			if(sizeof($educationInfo) != 0){
-				echo '<div class="row-fluid"><h4 class="float-down">Education</h4>';
+				echo '<div class="row-fluid"><h4>Education</h4>';
 				for($i = 0; $i < sizeof($educationInfo); $i ++){
 					$education = $educationInfo[$i];
 					$awards = $education['awards'];
@@ -104,16 +104,18 @@
 			}
 			
 			if(sizeof($skillInfo) != 0){
-				echo '<section id="Skills"></section><div class="row-fluid"><h2 class="float-down">Skills</h2>';
+				echo '<div class="row-fluid"><h4>Skills</h4>';
 				for($i = 0; $i < sizeof($skillInfo); $i ++){
-					echo '<section id="skill' . $i . '"></section>';
-					echo '<div class="well">';
-					echo '<h3>' . $skillInfo[$i]['category'] . '</h3>';
-					echo '<ul class="nav nav-tabs nav-stacked">';
+					echo '<div>';
+					echo '<h5>' . $skillInfo[$i]['category'] . '</h5>';
+                    
+					echo '<p>';
 					for($j = 0; $j < sizeof($skillInfo[$i]['skills']); $j++){
-						echo '<li><a id="skill' . $i . '_' . $j . '">' . $skillInfo[$i]['skills'][$j]['name'] . '</a></li>';
+						echo $skillInfo[$i]['skills'][$j]['name'];
+                        if($j != sizeof($skillInfo[$i]['skills']) - 1)
+                            echo ',';
 					}
-					echo '</ul>';
+					echo '</p>';
 					echo '</div>';
 				}
 				echo '<hr></div>';
