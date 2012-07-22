@@ -719,6 +719,7 @@ function completeResume(){
 
 function pushDraft(){
     completeResume();
+    var name = $("#basic-resume").attr("value");
     $.post('../private/php_scripts/draft.php', {'request':'push', 'uid':uid, 'content':resume, 'name':name}, function(data){
     
     });
