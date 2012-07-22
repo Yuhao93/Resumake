@@ -147,13 +147,15 @@
 					echo '<p>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</p>';
 					echo $experienceInfo[$i]['group'];
 					echo '<ul>';
-					$isLink = false;
+                    $min = sizeof($experienceInfo[$i]['items']);
+                    if($min > 2)
+                        $min = 2;
 					for($j = 0; $j < sizeof($experienceInfo[$i]['items']); $j++){
 						$item = $experienceInfo[$i]['items'][$j];
 						if($item['type'] == 'desc'){
 							echo '<li>' . $item['desc'] . '</li>';
 						}else if($item['type'] == 'link'){
-							echo '<li><a href="' . $item['link'] . '" target="_blank">' . $item['name'] . '</a></li>';
+							echo '<li>' . $item['link'] . '</li>';
 						}
 					}
 					echo '</ul>';
@@ -168,14 +170,16 @@
 				for($i = 0; $i < sizeof($activityInfo); $i ++){
 					echo '<div>';
 					echo '<p>' . $activityInfo[$i]['position'] . ' ' . getFullDate($activityInfo[$i]['startDate'], $activityInfo[$i]['endDate']) . '</p>';
-					$isLink = false;
+					$min = sizeof($activityInfo[$i]['items']);
+                    if($min > 2)
+                        $min = 2;
 					echo '<ul>';
 					for($j = 0; $j < sizeof($activityInfo[$i]['items']); $j++){
 						$item = $activityInfo[$i]['items'][$j];
 						if($item['type'] == 'fact'){
 							echo '<li>' . $item['desc'] . '</li>';
 						}else if($item['type'] == 'link'){
-							echo '<li><a href="' . $item['link'] . '" target="_blank">' . $item['name'] . '</a></li>';
+							echo '<li>' . $item['link']  . '</li>';
 						}
 					}
 					echo '</ul>';
