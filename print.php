@@ -143,8 +143,8 @@
 				echo '<div class="row-fluid">';
 				echo '<h4>Experience</h4>';
                 $expMin = sizeof($experienceInfo);
-                if($expMin > 2)
-                    $expMin = 2;
+                if($expMin > 3)
+                    $expMin = 3;
 				for($i = 0; $i < $expMin; $i ++){
 					echo '<div>';
 					echo '<p>' . $experienceInfo[$i]['position'] . ' ' . getFullDate($experienceInfo[$i]['startDate'], $experienceInfo[$i]['endDate']) . '</p>';
