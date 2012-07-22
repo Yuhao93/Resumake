@@ -418,7 +418,7 @@
     <?php 
     if($isEdit && $resume_content != ""){
         echo '<script type="text/javascript">';
-        echo 'resume = ' . addslashes($resume_content) . ';';
+        echo 'resume = ' . $resume_content . ';';
         echo 'revalidateEducationField();';
         echo 'revalidateSkillField();';
         echo 'revalidateExperienceField();';
