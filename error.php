@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<title>The Error Page</title>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="private/bootstrap/css/bootstrap-responsive.css"></link>
+	<link rel="stylesheet" type="text/css" href="/private/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="/private/bootstrap/css/bootstrap-responsive.css"></link>
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,7 @@
     </div>
     <?php include "private/php_scripts/encryption.php" ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);
