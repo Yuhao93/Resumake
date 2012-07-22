@@ -69,16 +69,12 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span12">
-            <h1><?php echo $basicInfo['name'];?></h1>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p>
+            <center><h1><?php echo $basicInfo['name'];?></h1>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $basicInfo['position']?></p></center>
 			<blockquote>
 				<h4><?php echo $basicInfo['statement'];?></h4>
 			</blockquote>    
-
-			<section id="Personal"></section>
 			<div class="row-fluid">
-				<h2 class="float-down">Personal</h2>
-				<section id="Contact"></section>
 				<div>		
 					<h3>Contact Information</h3>
 						<address>
