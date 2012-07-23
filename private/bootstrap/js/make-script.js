@@ -720,7 +720,7 @@ function completeResume(){
 function resetTimer(){
     if(timerId != undefined)
         clearTimeout(timerId);
-    timerId = setTimeout('pushDraft()', 5000);
+    timerId = setTimeout('pushDraft()', 1000);
 }
 
 function pushDraft(){
