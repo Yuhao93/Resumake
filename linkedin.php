@@ -36,19 +36,22 @@
 		</div>
     </div>
 
-
-    <script type="IN/Login"></script>
+    <div class="container">
+        <script type="IN/Login"></script>
     
-    
+        <div class="well" id="profile">
+        </div>
+    </div>
     
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="private/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="private/bootstrap/js/json2.js"></script>
     <script type="text/javascript">
         function onLinkedInLoad() {
             IN.Event.on(IN, "auth", function() {onLinkedInLogin();});
         }
         function onLinkedInLogin() {
-            var requestedAttributes = ["id", "firstName", "lastName", "pictureUrl", "publicProfileUrl"];
+            var requestedAttributes = ["formattedName", "headline", "mainAddress", "educations", "skills", "positions", "volunteer"];
             IN.API.Profile("me")
                 .fields(requestedAttributes)
                 .result(function(result) {
@@ -58,6 +61,7 @@
                 });
         }
         function importLinkedInProfile(profile) {
+            $("#profile").html(JSON.stringify(profile));
         }
     </script>
     <script type="text/javascript">
