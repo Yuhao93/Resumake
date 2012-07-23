@@ -93,12 +93,49 @@
                 resume.skillInfo.push({'category':'Languages', 'skills':[]});
                 var ind = resume.skillInfo.length - 1;
                 for(var i = 0; i < profile.languages; i++){
-                    resume.skillInfo[ind].skills.push({'name':''});
+                    var languageName = profile.languages.values[i].language.name || '';
+                    var proficiency = profile.languages.values[i].proficiency.name || '';
+                    if(proficiency != '')
+                        proficiency += ' in ';
+                    resume.skillInfo[ind].skills.push({'name':proficiency + languageName, 'desc':''});
                 }
             }
             
+            if(profile.positions != undefined){
+                for(var i = 0; i < profile.positions._total; i++){
+                    var company = profile.positions.values[i].company;
+                    var companyName = (company == undefined ? '' : (company.name || ''));
+                    var title = profile.positions.values[i].title || '';
+                    var summary = profile.positions.values[i].summary || '';
+                    var descs = summary.split(/[.\n]/);
+                    var items = [];
+                    for (var j = 0; j < descs.length; j++)
+                        items.push({'type':'desc', 'desc':descs[j]});
+                    
+                    resume.experienceInfo.push({'position':title, 'startDate':getDate(profile.positions.values[i].startDate), 
+                        'endDate':getDate(profile.positions.values[i].endDate),'group':companyName, 'items':items});
+                }
+            }
             
-            $("#profile").html(JSON.stringify(profile));
+            if(profile.volunteer != undefined){
+                for(var i = 0; i < profile.volunteer._total; i++){
+                    var org = profile.volunteer.values[i].organization.name;
+                    var orgName = (org == undefined ? '' : (org.name || ''));
+                    var title = profile.volunteer.values[i].role || '';
+                    var cause = profile.volunteer.values[i].cause;
+                    var summary = (cause == undefined ? '' : (cause.name || ''));
+                    var descs = summary.split(/[.\n]/);
+                    var items = [];
+                    for(var j = 0; j < descs.length; j++)
+                        items.push({'type':'desc', 'desc':descs[j]});
+                    
+                    resume.experienceInfo.push({'position':title, 'startDate':'', 
+                        'endDate':'','group':orgName, 'items':items});
+                } 
+            }
+            
+            
+            $("#profile").html(JSON.stringify(resume));
         }
         function getDate(instring){
             if(instring == undefined)
