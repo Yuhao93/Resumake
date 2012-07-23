@@ -125,9 +125,6 @@
       background:url(../private/imgs/check.png) no-repeat -4px -6px;
     }
 	</style>
-    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-        api_key: zb8gl61hj3lq
-    </script>
 </head>
 <body>
 	
