@@ -63,34 +63,48 @@
         function importLinkedInProfile(profile) {
             var resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
             
-            resume.basicInfo = {'name':profile.formattedName || '', 'position':profile.headline || '', 'statement':''};
+            var name = profile.formattedName || '';
+            var position = profile.headline || '';
+            resume.basicInfo = {'name':name, 'position':position, 'statement':''};
             
-            resume.contactInfo = {'address':profile.mainAddress || '', 'state':'', 'zip':'', 'city':'',
-            'phoneNumber':((profile.phoneNumbers == undefined) ? "" : profile.phoneNumbers.values[0].phoneNumber), 'email':''};
+            var address = profile.mainAddress || '';
+            var phoneNumber = ((profile.phoneNumbers == undefined) ? "" : profile.phoneNumbers.values[0].phoneNumber);
+            resume.contactInfo = {'address':address, 'state':'', 'zip':'', 'city':'',
+            'phoneNumber':phoneNumber, 'email':''};
             
             if(profile.educations != undefined)
                 for(var i = 0; i < profile.educations._total; i++){
                     var education = profile.educations.values[i];
-                    resume.educationInfo.push({'school':education.schoolName, 'degree':education.degree + ' in ' + education.fieldOfStudy, 'startDate':getDate(education.startDate), 'endDate':getDate(education.endDate)});
+                    var schoolName = education.schoolName || '';
+                    var degree = education.degree || '';
+                    var fieldOfStudy = education.fieldOfStudy || '';
+                    resume.educationInfo.push({'school':schoolName, 'degree':degree + ' in ' + fieldOfStudy, 'startDate':getDate(education.startDate), 'endDate':getDate(education.endDate)});
                 }
             
             if(profile.skills != undefined){
                 resume.skillInfo.push({'category':'', 'skills':[]});
-                for(var i = 0; i <profile.skills._total; i++)
-                    resume.skillInfo[0].skills.push('name': profile.skills.values[i].skill.name || '', 'desc':'');
+                for(var i = 0; i <profile.skills._total; i++){
+                    var skillName = profile.skills.values[i].skill.name || '';
+                    resume.skillInfo[0].skills.push('name': skillName, 'desc':'');
+                }
             }
             
             if(profile.languages != undefined){
                 resume.skillInfo.push({'category':'Languages', 'skills':[]);
                 var ind = resume.skillInfo.length - 1;
-                for(var i = 0; i < profile.languages; i++)
+                for(var i = 0; i < profile.languages; i++){
                     resume.skillInfo[ind].skills.push('name':'');
+                }
             }
             
             
             $("#profile").html(JSON.stringify(profile));
         }
         function getDate(instring){
+            if(instring == undefined)
+                return "";
+            if(instring.year == undefined && instring.month == undefined)
+                return "";
             if(instring.month == undefined)
                 return instring.year;
             if(instring.day == undefined)
