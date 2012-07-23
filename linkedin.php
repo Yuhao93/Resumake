@@ -37,9 +37,9 @@
     </div>
 
     <div class="container">
-        <script type="IN/Login"></script>
-    
-        <div class="well" id="profile">
+        <div class="well">
+            <script type="IN/Login"></script>
+            <div id="profile"></div>
         </div>
     </div>
     
