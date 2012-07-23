@@ -51,7 +51,7 @@
             IN.Event.on(IN, "auth", function() {onLinkedInLogin();});
         }
         function onLinkedInLogin() {
-            var requestedAttributes = ["formattedName", "headline", "mainAddress", "phoneNumbers", "educations", "skills", "positions", "volunteer"];
+            var requestedAttributes = ["formattedName", "headline", "mainAddress", "phoneNumbers", "educations", "skills", "positions", "volunteer", "languages"];
             IN.API.Profile("me")
                 .fields(requestedAttributes)
                 .result(function(result) {
@@ -62,11 +62,41 @@
         }
         function importLinkedInProfile(profile) {
             var resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
-            resume.basicInfo = {'name':profile.formattedName, 'position':profile.headline, 'statement':''};
-            resume.contactInfo = {'address':profile.mainAddre, 'state':'', 'zip':'', 'city':'', 'phoneNumber':''};
+            
+            resume.basicInfo = {'name':profile.formattedName || '', 'position':profile.headline || '', 'statement':''};
+            
+            resume.contactInfo = {'address':profile.mainAddress || '', 'state':'', 'zip':'', 'city':'',
+            'phoneNumber':((profile.phoneNumbers == undefined) ? "" : profile.phoneNumbers.values[0].phoneNumber), 'email':''};
+            
+            if(profile.educations != undefined)
+                for(var i = 0; i < profile.educations._total; i++){
+                    var education = profile.educations.values[i];
+                    resume.educationInfo.push({'school':education.schoolName, 'degree':education.degree + ' in ' + education.fieldOfStudy, 'startDate':getDate(education.startDate), 'endDate':getDate(education.endDate)});
+                }
+            
+            if(profile.skills != undefined){
+                resume.skillInfo.push({'category':'', 'skills':[]});
+                for(var i = 0; i <profile.skills._total; i++)
+                    resume.skillInfo[0].skills.push('name': profile.skills.values[i].skill.name || '', 'desc':'');
+            }
+            
+            if(profile.languages != undefined){
+                resume.skillInfo.push({'category':'Languages', 'skills':[]);
+                var ind = resume.skillInfo.length - 1;
+                for(var i = 0; i < profile.languages; i++)
+            }
+            
             
             $("#profile").html(JSON.stringify(profile));
         }
+        function getDate(instring){
+            if(instring.month == undefined)
+                return instring.year;
+            if(instring.day == undefined)
+                return instring.year + '-' + instring.month;
+            return instring.year + '-' + instring.month + '-' + instring.day;
+        }
+        
     </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
