@@ -37,8 +37,11 @@
     </div>
     
     <script type="in/Login">
-        Hello, <?js= firstName ?> <?js= lastName ?>.
+        IN.API.Profile("me").result(function(result) { 
+            $("#profile").html(JSON.stringify(result)) 
+        } )
     </script>
+    <div id="profile" class="well"></div>
     
     
     
