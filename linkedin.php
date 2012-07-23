@@ -85,7 +85,7 @@
                 resume.skillInfo.push({'category':'', 'skills':[]});
                 for(var i = 0; i <profile.skills._total; i++){
                     var skillName = profile.skills.values[i].skill.name || '';
-                    resume.skillInfo[0].skills.push('name': skillName, 'desc':'');
+                    resume.skillInfo[0].skills.push({'name': skillName, 'desc':''});
                 }
             }
             
@@ -93,7 +93,7 @@
                 resume.skillInfo.push({'category':'Languages', 'skills':[]);
                 var ind = resume.skillInfo.length - 1;
                 for(var i = 0; i < profile.languages; i++){
-                    resume.skillInfo[ind].skills.push('name':'');
+                    resume.skillInfo[ind].skills.push({'name':''});
                 }
             }
             
