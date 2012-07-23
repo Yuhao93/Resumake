@@ -11,7 +11,7 @@
         <div class="row">
             <div class="page-header">
                 <h1 class="offset1">
-                <img src="private/imgs/logo.png"></img>
+                <img src="/private/imgs/logo.png"></img>
                 <small>Here's an idea, let's give everyone an online resume, for free.</small>
                 </h1>
             </div>
