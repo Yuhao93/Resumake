@@ -4,13 +4,6 @@
 	$db = new dbObject;
 	$db->connect();
 	session_start();
-	if(isset($_COOKIE['remember'])){
-		if(!isset($_SESSION['uid'])){
-			$_SESSION['uid'] = $_COOKIE['remember'];
-		}
-		$user = $db->getUserById($_COOKIE['remember']);
-		header('Location: /users/' .  $user->username) ;
-	}
 ?>
 <html lang="en">
 <head>
