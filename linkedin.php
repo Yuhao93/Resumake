@@ -36,6 +36,10 @@
 		</div>
     </div>
     
+    <script type="in/Login">
+        Hello, <?js= firstName ?> <?js= lastName ?>.
+    </script>
+    
     
     
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
