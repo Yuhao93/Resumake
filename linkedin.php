@@ -90,7 +90,7 @@
             }
             
             if(profile.languages != undefined){
-                resume.skillInfo.push({'category':'Languages', 'skills':[]);
+                resume.skillInfo.push({'category':'Languages', 'skills':[]});
                 var ind = resume.skillInfo.length - 1;
                 for(var i = 0; i < profile.languages; i++){
                     resume.skillInfo[ind].skills.push({'name':''});
