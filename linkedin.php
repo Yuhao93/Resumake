@@ -51,7 +51,7 @@
             IN.Event.on(IN, "auth", function() {onLinkedInLogin();});
         }
         function onLinkedInLogin() {
-            var requestedAttributes = ["formattedName", "headline", "mainAddress", "educations", "skills", "positions", "volunteer"];
+            var requestedAttributes = ["formattedName", "headline", "mainAddress", "phoneNumbers", "educations", "skills", "positions", "volunteer"];
             IN.API.Profile("me")
                 .fields(requestedAttributes)
                 .result(function(result) {
@@ -61,6 +61,10 @@
                 });
         }
         function importLinkedInProfile(profile) {
+            var resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
+            resume.basicInfo = {'name':profile.formattedName, 'position':profile.headline, 'statement':''};
+            resume.contactInfo = {'address':profile.mainAddre, 'state':'', 'zip':'', 'city':'', 'phoneNumber':''};
+            
             $("#profile").html(JSON.stringify(profile));
         }
     </script>
