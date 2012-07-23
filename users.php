@@ -94,7 +94,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../private/bootstrap/js/jquery.Jcrop.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/jquery.Jcrop.css"></link>
-	
 	<style type="text/css">
 	body{
 		padding-top:60px;
@@ -126,6 +125,9 @@
       background:url(../private/imgs/check.png) no-repeat -4px -6px;
     }
 	</style>
+    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+        api_key: zb8gl61hj3lq
+    </script>
 </head>
 <body>
 	
