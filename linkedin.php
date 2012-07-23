@@ -15,10 +15,6 @@
 		padding-top:60px;
 	}
 	</style>
-    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-        api_key: zb8gl61hj3lq
-        authorize: true
-    </script>
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
@@ -37,6 +33,16 @@
     </div>
     
     <p>This example demonstrates the use of a login button to control what's displayed.  It also demonstrates how to use the LinkedIn auth events in a user flow.</p>
+
+
+<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+  api_key: zb8gl61hj3lq
+  onLoad: onLinkedInLoad
+
+</script>
+
+
+<p>This example demonstrates the use of a login button to control what's displayed.  It also demonstrates how to use the LinkedIn auth events in a user flow.</p>
 
 <!-- NOTE: be sure to set onLoad: onLinkedInLoad -->
 <script type="text/javascript">
