@@ -41,6 +41,8 @@
             <script type="IN/Login"></script>
             <div id="profile"></div>
         </div>
+        <div class="well" id="resume">
+        </div>
     </div>
     
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -134,8 +136,8 @@
                 } 
             }
             
-            
-            $("#profile").html(JSON.stringify(resume));
+            $("#profile").html(JSON.stringify(profile));
+            $("#resume").html(JSON.stringify(resume));
         }
         function getDate(instring){
             if(instring == undefined)
