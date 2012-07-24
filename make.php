@@ -91,6 +91,7 @@
 			
 		</div>
 		<div class="row span12">
+            <br><br>
             <div class="well">
                 <h3>Make it even easier, import your LinkedIn profile</h3><br>
                 <script type="IN/Login"></script>
