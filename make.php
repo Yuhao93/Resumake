@@ -457,7 +457,7 @@
                     var schoolName = education.schoolName || '';
                     var degree = education.degree || '';
                     var fieldOfStudy = education.fieldOfStudy || '';
-                    resume.educationInfo.push({'school':schoolName, 'degree':degree + ' in ' + fieldOfStudy, 'startDate':getDate(education.startDate), 'endDate':getDate(education.endDate)});
+                    resume.educationInfo.push({'school':schoolName, 'degree':degree + ' in ' + fieldOfStudy, 'startDate':getDate(education.startDate), 'endDate':getDate(education.endDate), 'awards':[]});
                 }
             
             if(profile.skills != undefined){
