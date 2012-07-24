@@ -526,6 +526,7 @@
             $("#contact-phone").attr("value", resume.contactInfo.phoneNumber);
             $("#linkedintext").html("You just imported your profile from LinkedIn! For a better resume, we still recommend you go through and add in some more details.");
             $("#linkedinsubtext").html("");
+            pushDraft();
         }
         function getDate(instring){
             if(instring == undefined)
