@@ -95,8 +95,9 @@
                 resume.skillInfo.push({'category':'Languages', 'skills':[]});
                 var ind = resume.skillInfo.length - 1;
                 for(var i = 0; i < profile.languages._total; i++){
+                    var languageProficiency = profile.languages.values[i].proficiency;
                     var languageName = profile.languages.values[i].language.name || '';
-                    var proficiency = profile.languages.values[i].proficiency.name || '';
+                    var proficiency = (languageProficiency == undefined ? '' : languageProficiency.name || '');
                     if(proficiency != '')
                         proficiency += ' in ';
                     resume.skillInfo[ind].skills.push({'name':proficiency + languageName, 'desc':''});
