@@ -58,6 +58,10 @@
 		padding-top:60px;
 	}
 	</style>
+    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+        api_key: zb8gl61hj3lq
+        onLoad: onLinkedInLoad
+    </script>
 </head>
 <body>
 	
@@ -81,7 +85,8 @@
 			<h1>Resumake Builder</h1>
 		</div>
 		<div class="row span12">
-			<h3 class="span9">Build your resume here</h3>
+			<h3 class="span9">Build your resume here | Or import a resume using LinkedIn</h3>
+            <script type="IN/Login"></script>
 			<a href="../tutorial/" class="span2 btn btn-primary btn-large" target="_blank">Learn How</a>
 			
 		</div>
