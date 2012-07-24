@@ -421,6 +421,10 @@
 	?>
     </script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../private/bootstrap/js/json2.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
+    <script type="text/javascript" src="../private/bootstrap/js/make-tooltip.js"></script>
     <script type="text/javascript">
         function onLinkedInLoad() {
             IN.Event.on(IN, "auth", function() {onLinkedInLogin();});
@@ -436,7 +440,7 @@
                 });
         }
         function importLinkedInProfile(profile) {
-            var resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
+            resume = {'basicInfo':{}, 'contactInfo':{}, 'educationInfo':[], 'skillInfo':[], 'experienceInfo':[], 'activityInfo':[]};
             
             var name = profile.formattedName || '';
             var position = profile.headline || '';
@@ -511,9 +515,14 @@
                         'endDate':'','group':orgName, 'items':items});
                 } 
             }
-            
-            $("#profile").html(JSON.stringify(profile));
-            $("#resume").html(JSON.stringify(resume));
+            revalidateEducationField();
+            revalidateSkillField();
+            revalidateExperienceField();
+            revalidateActivityField();
+            $("#basic-name").attr("value", resume.basicInfo.name);
+            $("#basic-position").attr("value", resume.basicInfo.position);
+            $("#contact-address").attr("value", resume.contactInfo.address);
+            $("#contact-phone").attr("value", resume.contactInfo.phoneNumber);
         }
         function getDate(instring){
             if(instring == undefined)
@@ -526,12 +535,7 @@
                 return instring.year + '-' + instring.month;
             return instring.year + '-' + instring.month + '-' + instring.day;
         }
-        
     </script>
-    <script type="text/javascript" src="../private/bootstrap/js/json2.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../private/bootstrap/js/make-script.min.js"></script>
-    <script type="text/javascript" src="../private/bootstrap/js/make-tooltip.js"></script>
     <?php 
     if($isEdit && $resume_content != ""){
         echo '<script type="text/javascript">';
