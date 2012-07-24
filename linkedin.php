@@ -94,7 +94,7 @@
             if(profile.languages != undefined){
                 resume.skillInfo.push({'category':'Languages', 'skills':[]});
                 var ind = resume.skillInfo.length - 1;
-                for(var i = 0; i < profile.languages; i++){
+                for(var i = 0; i < profile.languages._total; i++){
                     var languageName = profile.languages.values[i].language.name || '';
                     var proficiency = profile.languages.values[i].proficiency.name || '';
                     if(proficiency != '')
