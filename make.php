@@ -93,7 +93,8 @@
 		<div class="row span12">
             <br><br>
             <div class="well">
-                <h3>Make it even easier, import your LinkedIn profile</h3><br>
+                <h3 id="linkedintext">Make it even easier, import your LinkedIn profile</h3>
+                <h4>This will overwrite the resume you are currently working on!</h4><br>
                 <script type="IN/Login"></script>
             </div>
 			<br><br>
@@ -523,6 +524,7 @@
             $("#basic-position").attr("value", resume.basicInfo.position);
             $("#contact-address").attr("value", resume.contactInfo.address);
             $("#contact-phone").attr("value", resume.contactInfo.phoneNumber);
+            $("#linkedintext").html("You just imported your profile from LinkedIn! For a better resume, we still recommend you go through and add in some more details.");
         }
         function getDate(instring){
             if(instring == undefined)
