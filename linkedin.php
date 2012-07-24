@@ -113,7 +113,8 @@
                     var descs = summary.split(/[.\n]/);
                     var items = [];
                     for (var j = 0; j < descs.length; j++)
-                        items.push({'type':'desc', 'desc':descs[j]});
+                        if(descs[j] != undefined && descs[j] != '')
+                            items.push({'type':'desc', 'desc':descs[j]});
                     
                     resume.experienceInfo.push({'position':title, 'startDate':getDate(profile.positions.values[i].startDate), 
                         'endDate':getDate(profile.positions.values[i].endDate),'group':companyName, 'items':items});
@@ -130,7 +131,8 @@
                     var descs = summary.split(/[.\n]/);
                     var items = [];
                     for(var j = 0; j < descs.length; j++)
-                        items.push({'type':'desc', 'desc':descs[j]});
+                        if(descs[j] != undefined && descs[j] != '')
+                            items.push({'type':'desc', 'desc':descs[j]});
                     
                     resume.experienceInfo.push({'position':title, 'startDate':'', 
                         'endDate':'','group':orgName, 'items':items});
