@@ -530,10 +530,10 @@
             if(instring.year == undefined && instring.month == undefined)
                 return "";
             if(instring.month == undefined)
-                return instring.year;
+                return String(instring.year);
             if(instring.day == undefined)
-                return instring.year + '-' + instring.month;
-            return instring.year + '-' + instring.month + '-' + instring.day;
+                return String(instring.year) + '-' + String(instring.month);
+            return String(instring.year) + '-' + String(instring.month) + '-' + String(instring.day);
         }
     </script>
     <?php 
