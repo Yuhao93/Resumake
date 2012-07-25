@@ -58,17 +58,30 @@
                 <p>Code</p>
                 <input type="text">
                 <p>New Password</p>
-                <input type="text">
+                <input type="password">
+                <br>
                 <a href="#" class="btn btn-primary">Change Password</a>
             </div></li>
         </ul>
-        <ul class="nav nav-tabs nav-stacked">
+        
+        <ul class="nav nav-tabs nav-stacked" data-toggle="collapse" data-target="#usernamemenu">
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
-            <li><div class="container span12 collapse" id="usernamemenu"></div></li>
+            <li><div class="container span12 collapse" id="usernamemenu">
+                <p>Enter in your new username</p>
+                <input type="text">
+                <br>
+                <a href="#" class="btn btn-primary">Change Username</a>
+            </div></li>
         </ul>
-        <ul class="nav nav-tabs nav-stacked">
+        
+        <ul class="nav nav-tabs nav-stacked" data-toggle="collapse" data-target="#removemenu">
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
-            <li><div class="container span12 collapse" id="removemenu"></div></li>
+            <li><div class="container span12 collapse" id="removemenu">
+                <p>Are you sure? We're sad to see you go, but if you want to remove your account, enter in your password to confirm.</p>
+                <input type="password">
+                <br>
+                <a href="#" class="btn btn-primary">Delete My Account</a>
+            </div></li>
         </ul>
         
 	</div>
