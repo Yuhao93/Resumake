@@ -138,6 +138,7 @@
 					</a>
 				</div>
 				<ul class="nav pull-right">
+                    <li><a href='#' id="btn-settings"><i class="icon-cog icon-white"></i></a></li>
 					<li><a href='#' id='btn-logout'>Logout</a></li>
 				</ul>
 			</div>
