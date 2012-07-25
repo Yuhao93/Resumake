@@ -55,7 +55,11 @@
             <li><a href="#">Remove My Account</a></li>
         </ul>
 	</div>
-
+    
+    <div class="container span12 well">
+	</div>
+    
+    
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
