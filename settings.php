@@ -15,17 +15,7 @@
         $db = new dbObject;
         $db->connect();
         $user = $db->getUserById($uid);
-        $usernameFromUid = $user->username;
-        
-        //Get the user from GET
-        $username = $_GET['uid'];
-        
-        //If you are not the user of this profile page, navigate to your profile page
-        if($usernameFromUid != $username){
-            header('Location: /users/' . $usernameFromUid);
-        }else{
-            
-        }
+        $username = $user->username;
 	}
 ?>
 <html lang="en">
