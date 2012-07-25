@@ -18,9 +18,9 @@
         </div>
         <br>
         <div class="hero-unit">
-            <h1>Oops!</h1>
-            <h2>We couldn't find the webpage you were looking for.</h2>
-            <img src="/private/imgs/error.png">
+            <h1 class="span6">Oops!</h1>
+            <h2 class="span6">We couldn't find the webpage you were looking for.</h2>
+            <img class="span4" src="/private/imgs/error.png">
         </div>
     </div>
     <?php include "private/php_scripts/encryption.php" ?>
