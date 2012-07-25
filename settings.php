@@ -44,8 +44,9 @@
 			</div>
 		</div>
     </div>
+    <center>
     <h1>Settings</h1>
-    
+    </center>
     <div class="container span5">
         
 		<ul class="nav nav-tabs nav-stacked">
