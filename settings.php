@@ -44,15 +44,16 @@
 			</div>
 		</div>
     </div>
-	
-    <div class="container-fluid">
-        <h1><i class="icon-cog"></i>Settings</h1>
+	<center>
+    <div class="container span9">
+        <h1>Settings</h1>
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#">Change My Password</a></li>
             <li><a href="#">Change My Username</a></li>
             <li><a href="#">Remove My Account</a></li>
         </ul>
 	</div>
+    </center>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
