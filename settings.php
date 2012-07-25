@@ -64,7 +64,7 @@
             </div></li>
         </ul>
         
-        <ul class="nav nav-tabs nav-stacked" data-toggle="collapse" data-target="#usernamemenu">
+        <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
             <li><div class="container span12 collapse" id="usernamemenu">
                 <p>Enter in your new username</p>
@@ -74,7 +74,7 @@
             </div></li>
         </ul>
         
-        <ul class="nav nav-tabs nav-stacked" data-toggle="collapse" data-target="#removemenu">
+        <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
             <li><div class="container span12 collapse" id="removemenu">
                 <p>Are you sure? We're sad to see you go, but if you want to remove your account, enter in your password to confirm.</p>
