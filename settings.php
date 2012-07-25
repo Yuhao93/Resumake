@@ -48,11 +48,7 @@
     <h1>Settings</h1>
     </center>
     <div class="container span12">
-        <script type="text/javascript">
-            $("#passwordmenu").collapse("hide");
-            $("#removemenu").collapse("hide");
-            $("#usernamemenu").collapse("hide");
-        </script>
+        
 		
         <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordmenu" 
@@ -101,6 +97,11 @@
     
     
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+            $("#passwordmenu").collapse("hide");
+            $("#removemenu").collapse("hide");
+            $("#usernamemenu").collapse("hide");
+        </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);
