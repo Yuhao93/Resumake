@@ -50,14 +50,19 @@
     <div class="container span12">
         
 		<ul class="nav nav-tabs nav-stacked">
-            <li><a href="#">Change My Password</a></li>
+            <li><a href="#" data-toggle="collapse" data-target="#passwordmenu">Change My Password</a></li>
+            <div class="container span12 well collapse" id="passwordmenu">
+            </div>
             <li><a href="#">Change My Username</a></li>
+            <div class="container span12 well">
+            </div>
             <li><a href="#">Remove My Account</a></li>
+            <div class="container span12 well">
+            </div>
         </ul>
 	</div>
     
-    <div class="container span12 well">
-	</div>
+    
     
     
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
