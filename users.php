@@ -138,7 +138,7 @@
 					</a>
 				</div>
 				<ul class="nav pull-right">
-                    <li><a href='/settings.php' id="btn-settings"><i class="icon-cog icon-white"></i></a></li>
+                    <li><a href='/settings.php' id="btn-settings">Settings</a></li>
 					<li><a href='#' id='btn-logout'>Logout</a></li>
 				</ul>
 			</div>
