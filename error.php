@@ -18,7 +18,7 @@
         </div>
         <br>
         <div class="hero-unit">
-            <span>
+            <span class="span6">
             <h1>Oops!</h1>
             <h2 >We couldn't find the webpage you were looking for.</h2>
             </span>
