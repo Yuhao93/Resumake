@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 
 <?php
+    session_start();
     //If you are not logged in, go to the main page
 	if(!isset($_COOKIE['remember']) && !isset($_SESSION['uid'])){
 		header('Location: /');
