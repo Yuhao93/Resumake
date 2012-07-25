@@ -48,8 +48,13 @@
     <h1>Settings</h1>
     </center>
     <div class="container span12">
-        
-		<ul class="nav nav-tabs nav-stacked">
+        <script type="text/javascript">
+            $("#passwordmenu").collapse("hide");
+            $("#removemenu").collapse("hide");
+            $("#usernamemenu").collapse("hide");
+        </script>
+		
+        <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordmenu" 
                 onclick="$('#usernamemenu').collapse('hide');$('#removemenu').collapse('hide');">Change My Password</a></li>
             <li><div class="container span12 collapse in" id="passwordmenu">
