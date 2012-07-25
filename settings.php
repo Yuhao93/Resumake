@@ -48,7 +48,7 @@
         <h1>Settings</h1>
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordMenu">Change My Password</a></li>
-            <li><div id="passwordMenu" class="collapse in">Password changing thangs</div></li>
+            <li><div id="passwordMenu" class="collapse">Password changing thangs</div></li>
             <li><a href="#">Change My Username</a></li>
             <li><a href="#">Remove My Account</a></li>
         </ul>
