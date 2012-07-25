@@ -49,8 +49,10 @@
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordMenu">Change My Password</a></li>
             <li><div id="passwordMenu" class="collapse">Password changing thangs</div></li>
-            <li><a href="#">Change My Username</a></li>
-            <li><a href="#">Remove My Account</a></li>
+            <li><a href="#" data-toggle="collapse" data-target="#usernameMenu">Change My Username</a></li>
+            <li><div id="usernameMenu" class="collapse">Username changing thangs</div></li>
+            <li><a href="#" data-toggle="collapse" data-target="#accountMenu">Remove My Account</a></li>
+            <li><div id="accountMenu" class="collapse">Account changing thangs</div></li>
         </ul>
 	</div>
     </center>
