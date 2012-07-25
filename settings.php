@@ -52,6 +52,7 @@
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordmenu">Change My Password</a></li>
             <li><div class="container span12 collapse" id="passwordmenu">
+                <br>
                 <p>Click on the button below to send an email. In the email, there will be a code. Enter in your new password and the code below.</p>
                 <a href="#" class="btn btn-primary">Send Email</a>
                 <br>
@@ -67,6 +68,7 @@
         <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
             <li><div class="container span12 collapse" id="usernamemenu">
+                <br>
                 <p>Enter in your new username</p>
                 <input type="text">
                 <br>
@@ -77,6 +79,7 @@
         <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
             <li><div class="container span12 collapse" id="removemenu">
+                <br>
                 <p>Are you sure? We're sad to see you go, but if you want to remove your account, enter in your password to confirm.</p>
                 <input type="password">
                 <br>
