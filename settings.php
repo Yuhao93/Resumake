@@ -51,7 +51,16 @@
         
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordmenu">Change My Password</a></li>
-            <li><div class="container span12 collapse" id="passwordmenu"></div></li>
+            <li><div class="container span12 collapse" id="passwordmenu">
+                <p>Click on the button below to send an email. In the email, there will be a code. Enter in your new password and the code below.</p>
+                <a href="#" class="btn btn-primary">Send Email</a>
+                <br>
+                <p>Code</p>
+                <input type="text">
+                <p>New Password</p>
+                <input type="text">
+                <a href="#" class="btn btn-primary">Change Password</a>
+            </div></li>
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
             <li><div class="container span12 collapse" id="usernamemenu"></div></li>
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
