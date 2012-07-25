@@ -50,7 +50,8 @@
     <div class="container span12">
         
 		<ul class="nav nav-tabs nav-stacked">
-            <li><a href="#" data-toggle="collapse" data-target="#passwordmenu">Change My Password</a></li>
+            <li><a href="#" data-toggle="collapse" data-target="#passwordmenu" 
+                onclick="$('#usernamemenu').collapse('hide');$('removemenu').collapse('hide');">Change My Password</a></li>
             <li><div class="container span12 collapse" id="passwordmenu">
                 <br>
                 <p>Click on the button below to send an email. In the email, there will be a code. Enter in your new password and the code below.</p>
@@ -65,7 +66,8 @@
             </div></li>
         </ul>
         
-        <ul class="nav nav-tabs nav-stacked">
+        <ul class="nav nav-tabs nav-stacked"
+            onclick="$('#passwordmenu').collapse('hide');$('removemenu').collapse('hide');">
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
             <li><div class="container span12 collapse" id="usernamemenu">
                 <br>
@@ -76,7 +78,8 @@
             </div></li>
         </ul>
         
-        <ul class="nav nav-tabs nav-stacked">
+        <ul class="nav nav-tabs nav-stacked"
+            onclick="$('#usernamemenu').collapse('hide');$('passwordmenu').collapse('hide');">
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
             <li><div class="container span12 collapse" id="removemenu">
                 <br>
