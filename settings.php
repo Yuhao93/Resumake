@@ -61,11 +61,16 @@
                 <input type="text">
                 <a href="#" class="btn btn-primary">Change Password</a>
             </div></li>
+        </ul>
+        <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
             <li><div class="container span12 collapse" id="usernamemenu"></div></li>
+        </ul>
+        <ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
             <li><div class="container span12 collapse" id="removemenu"></div></li>
         </ul>
+        
 	</div>
     
     
