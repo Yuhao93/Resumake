@@ -51,11 +51,11 @@
         
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#" data-toggle="collapse" data-target="#passwordmenu">Change My Password</a></li>
-            <li><div class="container span12 well collapse" id="passwordmenu"></div></li>
+            <li><div class="container span12 collapse" id="passwordmenu"></div></li>
             <li><a href="#">Change My Username</a></li>
-            <li><div class="container span12 well"></div></li>
+            <li><div class="container span12 "></div></li>
             <li><a href="#">Remove My Account</a></li>
-            <li><div class="container span12 well"></div></li>
+            <li><div class="container span12 "></div></li>
         </ul>
 	</div>
     
