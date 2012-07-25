@@ -56,7 +56,7 @@
         </ul>
 	</div>
     
-    <div class="container span5">
+    <div class="container span6">
         <div class="well"></div>
     </div>
     
