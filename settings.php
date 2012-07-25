@@ -20,7 +20,7 @@
 ?>
 <html lang="en">
 <head>
-	<title><?php echo $user->name?></title>
+	<title>Settings</title>
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap.css"></link>
 	<link rel="stylesheet" type="text/css" href="../private/bootstrap/css/bootstrap-responsive.css"></link>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -37,7 +37,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<div class="nav-collapse">
-					<a class="brand" href="#">
+					<a class="brand" href="/users/<?php echo $username?>">
 						<?php echo $user->name?>
 					</a>
 				</div>
@@ -46,7 +46,12 @@
     </div>
 	
     <div class="container-fluid">
-		
+        <h1><i class="icon-cog"></i>Settings</h1>
+		<ul class="nav nav-tabs nav-stacked">
+            <li><a href="#">Change My Password</a></li>
+            <li><a href="#">Change My Username</a></li>
+            <li><a href="#">Remove My Account</a></li>
+        </ul>
 	</div>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
