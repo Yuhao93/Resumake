@@ -44,8 +44,10 @@
 			</div>
 		</div>
     </div>
+    <h1>Settings</h1>
+    
     <div class="container span5">
-        <h1>Settings</h1>
+        
 		<ul class="nav nav-tabs nav-stacked">
             <li><a href="#">Change My Password</a></li>
             <li><a href="#">Change My Username</a></li>
