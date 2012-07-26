@@ -48,6 +48,20 @@
     <center>
     <h1>Settings</h1>
     </center>
+    
+    <div class="modal hide" id="message-modal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+            <h1 id="message-title"></h1>
+        </div>
+        <div class="modal-body">
+            <h2 id="message-body"></h2>
+        </div>
+        <div class="modal-footer">
+            <a href="" class="btn" data-dismiss="modal">Okay</a>
+        </div>
+    </div>
+    
     <div class="container span12">
         
 		
@@ -57,14 +71,17 @@
             <li><div class="container span12 collapse in" id="passwordmenu">
                 <br>
                 <p>Click on the button below to send an email. In the email, there will be a code. Enter in your new password and the code below.</p>
-                <a href="#" class="btn btn-primary">Send Email</a>
+                <a href="#" class="btn btn-primary" id="settings-send-email">Send Email</a>
+                <br>
+                <br>
+                <div id="change-password-container"></div>
                 <br>
                 <p>Code</p>
-                <input type="text">
+                <input type="text" id="settings-password-code">
                 <p>New Password</p>
-                <input type="password">
+                <input type="password" id="settings-new-password">
                 <br>
-                <a href="#" class="btn btn-primary">Change Password</a>
+                <a href="#" class="btn btn-primary" id="settings-change-password">Change Password</a>
             </div></li>
         </ul>
         
@@ -74,9 +91,9 @@
             <li><div class="container span12 collapse in" id="usernamemenu">
                 <br>
                 <p>Enter in your new username</p>
-                <input type="text">
+                <input type="text" id="settings-new-username">
                 <br>
-                <a href="#" class="btn btn-primary">Change Username</a>
+                <a href="#" class="btn btn-primary" id="settings-change-username">Change Username</a>
             </div></li>
         </ul>
         
@@ -86,9 +103,9 @@
             <li><div class="container span12 collapse in" id="removemenu">
                 <br>
                 <p>Are you sure? We're sad to see you go, but if you want to remove your account, enter in your password to confirm.</p>
-                <input type="password">
+                <input type="password" id="settings-delete-password">
                 <br>
-                <a href="#" class="btn btn-primary">Delete My Account</a>
+                <a href="#" class="btn btn-primary" id="settings-delete-account">Delete My Account</a>
             </div></li>
         </ul>
         
@@ -96,13 +113,45 @@
     
     
     
-    
+    <?php include "private/php_scripts/encryption.php" ?>
 	<script type="text/javascript" src="../private/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
-            $("#passwordmenu").collapse("hide");
-            $("#removemenu").collapse("hide");
-            $("#usernamemenu").collapse("hide");
-        </script>
+        $("#passwordmenu").collapse("hide");
+        $("#removemenu").collapse("hide");
+        $("#usernamemenu").collapse("hide");
+        
+        $("#settings-send-email").click(function(){
+            $.post("/private/php_scripts/settings.php", {'request':'sendEmail', 'uid':uid}, function(data){
+                $("#message-title").html("Okay");
+                $("#message-body").html("An email has been sent.");
+                $("#message-modal").modal('show');
+            });
+        });
+        
+        $("#settings-change-password").click(function(){
+            if($("#settings-password-code").attr("value") == ""){
+                $("#change-password-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>'
+                    + '<strong>Wait! </strong> You need to enter in the code that was emailed to you.</div>');
+                return;
+            }
+            if($("#settings-new-password").attr("value") == ""){
+                $("#change-password-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>' 
+                    + '<strong>Wait! </strong> You need to enter in a new password.</div>');
+                return;
+            }
+            alert(encrypt($("#settings-new-password").attr("value")));
+            $.post("/private/php_scripts/settings.php", {'request':'changePassword', 
+                'uid':uid, 'password':encrypt($("#settings-new-password").attr("value")), 'code':$("#settings-password-code").attr("value")}, function(data){
+                $("#message-title").html("Okay");
+                $("#message-body").html("Your password has been changed");
+                $("#message-modal").modal('show');
+            });
+        });
+        
+        
+        
+        var uid = '<?php echo $uid?>';
+    </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33395111-1']);

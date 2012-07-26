@@ -275,6 +275,58 @@ class dbObject {
         return mysql_query($sql);
     }
     
+    ///////////////////////// Settings ///////////////////////////////////////////
+    public function requestPasswordChange($uid){
+        $user = $this->getUserById($uid);
+        if(!$user)
+            return FALSE;
+        $email = $user->email;    
+        $time = (string)time();
+        $code = substr($time, strlen($time) - 6) .  substr(md5($uid), 0, 5);
+        $sql = "REPLACE INTO changepassword(uid, code, shoulddelete) VALUES('$uid', '$code', 0)";
+        mysql_query($sql);
+        
+        $emailContent = 'Hi ' . $user->name . '\nYour password change code is ' . $code . '\nThanks,\nThe Resumake Team';
+        mail($email, 'Your Password Change Code', $emailContent);
+    }
+    
+    public function setNewPassword($uid, $newPassword, $passwordCode){
+        $query = "SELECT code FROM changepassword WHERE uid='$uid'";
+        $result = mysql_query($query);
+        $row = mysql_fetch_array($result);
+        if($passwordCode != $row['code'])
+            return FALSE;
+    
+        $deleteQuery = "DELETE FROM changepassword WHERE uid='$uid'";
+        mysql_query($deleteQuery);
+    
+        $sql = "REPLACE INTO users(password, uid) VALUES('$newPassword', '$uid')";
+        return mysql_query($sql);
+    }
+    
+    public function setNewUsername($uid, $newUsername){
+        $sql = "REPLACE INTO users(username, uid) VALUES('$newUsername', '$uid')";
+        return mysql_query($sql);
+    }
+    
+    public function RemoveAccount($uid, $password){
+        $user = $this->getUserById($uid);
+        if($user->password != $password)
+            return FALSE;
+    
+        $sql = "DELETE FROM draft WHERE uid='$uid'";
+        mysql_query($sql);
+        $sql = "DELETE FROM users WHERE uid='$uid'";
+        mysql_query($sql);
+        $sql = "DELETE FROM resume WHERE uid='$uid'";
+        mysql_query($sql);
+        $sql = "DELETE FROM changepassword WHERE uid='$uid'";
+        mysql_query($sql);
+        
+        return 1;
+    }
+    
+    
 	private function parseTimestamp($timestamp) {
 		return strtotime($timestamp);	
     } 
