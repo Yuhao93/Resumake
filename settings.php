@@ -171,7 +171,7 @@
                     + '<strong>Wait! </strong> You need to enter in your password.</div>');
                 return;
             }
-            $.post("/private/php_scrips/settings.php", {'request':'delete', 'uid':uid, 'password':encrypt($("#settings-delete-password").attr("value"))}, function(data){
+            $.post("/private/php_scripts/settings.php", {'request':'delete', 'uid':uid, 'password':encrypt($("#settings-delete-password").attr("value"))}, function(data){
                 window.location.href="/";
             });
         });
