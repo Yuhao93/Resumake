@@ -286,7 +286,7 @@ class dbObject {
         $sql = "REPLACE INTO changepassword(uid, code, shoulddelete) VALUES('$uid', '$code', 0)";
         mysql_query($sql);
         
-        $emailContent = 'Hi ' . $user->name . '\nYour password change code is ' . $code . '\nThanks,\nThe Resumake Team';
+        $emailContent = 'Hi ' . $user->name . "\n" . 'Your password change code is ' . $code . "\n" . 'Thanks,' ."\n" .'The Resumake Team';
         mail($email, 'Your Password Change Code', $emailContent);
     }
     
@@ -300,7 +300,7 @@ class dbObject {
         $deleteQuery = "DELETE FROM changepassword WHERE uid='$uid'";
         mysql_query($deleteQuery);
     
-        $sql = "REPLACE INTO users(password, uid) VALUES('$newPassword', '$uid')";
+        $sql = "UPDATE users SET password='$newPassword' WHERE uid='$uid'";
         return mysql_query($sql);
     }
     
