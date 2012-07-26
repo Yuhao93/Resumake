@@ -105,6 +105,9 @@
             <li><a href="#" data-toggle="collapse" data-target="#removemenu">Remove My Account</a></li>
             <li><div class="container span12 collapse in" id="removemenu">
                 <br>
+                <br>
+                <div id="delete-account-container"></div>
+                <br>
                 <p>Are you sure? We're sad to see you go, but if you want to remove your account, enter in your password to confirm.</p>
                 <input type="password" id="settings-delete-password">
                 <br>
@@ -159,6 +162,17 @@
             }
             $.post("/private/php_scripts/settings.php", {'request':'changeUsername', 'uid':uid, 'username':$("#settings-new-username").attr("value")}, function(data){
                 alert(data);
+            });
+        });
+        
+        $("#settings-delete-account").click(function(){
+            if($("#settings-delete-password").attr("value") == ""){
+                $("#delete-account-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>'
+                    + '<strong>Wait! </strong> You need to enter in your password.</div>');
+                return;
+            }
+            $.post("/private/php_scrips/settings.php", {'request':'delete', 'uid':uid, 'password':encrypt($("#settings-delete-password").attr("value"))}, function(data){
+                window.location.href="/";
             });
         });
         
