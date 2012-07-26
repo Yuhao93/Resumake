@@ -156,10 +156,10 @@
                 $("#change-username-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>'
                     + '<strong>Wait! </strong> You need to enter in  new username.</div>');
                 return;
-                $.post("/private/php_scripts/settings.php", {'request':'changeUsername', 'uid':uid, 'username':$("#settings-new-username").attr("value")}, function(data){
-                    alert(data);
-                });
             }
+            $.post("/private/php_scripts/settings.php", {'request':'changeUsername', 'uid':uid, 'username':$("#settings-new-username").attr("value")}, function(data){
+                alert(data);
+            });
         });
         
         
