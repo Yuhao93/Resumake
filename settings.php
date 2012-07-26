@@ -151,7 +151,7 @@
             });
         });
         
-        $("settings-change-username").click(function(){
+        $("#settings-change-username").click(function(){
             if($("#settings-new-username").attr("value") == ""){
                 $("#change-username-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>'
                     + '<strong>Wait! </strong> You need to enter in  new username.</div>');
