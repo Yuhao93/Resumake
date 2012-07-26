@@ -11,6 +11,6 @@
     }else if($request == 'changePassword'){
         $password = $_POST['password'];
         $code = $_POST['code'];
-        setNewPassword($uid, $password, $code);
+        $db->setNewPassword($uid, $password, $code);
     }
 ?>
