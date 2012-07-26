@@ -161,7 +161,9 @@
                 return;
             }
             $.post("/private/php_scripts/settings.php", {'request':'changeUsername', 'uid':uid, 'username':$("#settings-new-username").attr("value")}, function(data){
-                alert(data);
+                $("#message-title").html("Okay");
+                $("#message-body").html("Your username has been changed");
+                $("#message-modal").modal('show');
             });
         });
         
