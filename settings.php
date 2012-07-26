@@ -90,6 +90,9 @@
             <li><a href="#" data-toggle="collapse" data-target="#usernamemenu">Change My Username</a></li>
             <li><div class="container span12 collapse in" id="usernamemenu">
                 <br>
+                <br>
+                <div id="change-username-container"></div>
+                <br>
                 <p>Enter in your new username</p>
                 <input type="text" id="settings-new-username">
                 <br>
@@ -122,7 +125,6 @@
         
         $("#settings-send-email").click(function(){
             $.post("/private/php_scripts/settings.php", {'request':'sendEmail', 'uid':uid}, function(data){
-                alert(data);
                 $("#message-title").html("Okay");
                 $("#message-body").html("An email has been sent.");
                 $("#message-modal").modal('show');
@@ -143,13 +145,22 @@
             alert(encrypt($("#settings-new-password").attr("value")));
             $.post("/private/php_scripts/settings.php", {'request':'changePassword', 
                 'uid':uid, 'password':encrypt($("#settings-new-password").attr("value")), 'code':$("#settings-password-code").attr("value")}, function(data){
-                alert(data);
                 $("#message-title").html("Okay");
                 $("#message-body").html("Your password has been changed");
                 $("#message-modal").modal('show');
             });
         });
         
+        $("settings-change-username").click(function(){
+            if($("#settings-new-username").attr("value") == ""){
+                $("#change-username-container").html('<div class="alert alert-info"><button class="close" data-dismiss="alert">×</button>'
+                    + '<strong>Wait! </strong> You need to enter in  new username.</div>');
+                return;
+                $.post("/private/php_scripts/settings.php", {'request':'changeUsername', 'uid':uid, 'username':$("#settings-new-username").attr("value")}, function(data){
+                    alert(data);
+                });
+            }
+        });
         
         
         var uid = '<?php echo $uid?>';

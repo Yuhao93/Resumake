@@ -286,7 +286,7 @@ class dbObject {
         $sql = "REPLACE INTO changepassword(uid, code, shoulddelete) VALUES('$uid', '$code', 0)";
         mysql_query($sql);
         
-        $emailContent = 'Hi ' . $user->name . "\n" . 'Your password change code is ' . $code . "\n" . 'Thanks,' ."\n" .'The Resumake Team';
+        $emailContent = 'Hi ' . $user->name . "\n" . "\n" . 'Your password change code is ' . $code . "\n" . "\n" . 'Thanks,' ."\n" .'The Resumake Team';
         mail($email, 'Your Password Change Code', $emailContent);
     }
     
@@ -305,11 +305,11 @@ class dbObject {
     }
     
     public function setNewUsername($uid, $newUsername){
-        $sql = "REPLACE INTO users(username, uid) VALUES('$newUsername', '$uid')";
+        $sql = "UPDATE users SET username='$newUsername' WHERE uid='$uid'";
         return mysql_query($sql);
     }
     
-    public function RemoveAccount($uid, $password){
+    public function removeAccount($uid, $password){
         $user = $this->getUserById($uid);
         if($user->password != $password)
             return FALSE;
