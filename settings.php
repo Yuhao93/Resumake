@@ -122,6 +122,7 @@
         
         $("#settings-send-email").click(function(){
             $.post("/private/php_scripts/settings.php", {'request':'sendEmail', 'uid':uid}, function(data){
+                alert(data);
                 $("#message-title").html("Okay");
                 $("#message-body").html("An email has been sent.");
                 $("#message-modal").modal('show');
@@ -142,6 +143,7 @@
             alert(encrypt($("#settings-new-password").attr("value")));
             $.post("/private/php_scripts/settings.php", {'request':'changePassword', 
                 'uid':uid, 'password':encrypt($("#settings-new-password").attr("value")), 'code':$("#settings-password-code").attr("value")}, function(data){
+                alert(data);
                 $("#message-title").html("Okay");
                 $("#message-body").html("Your password has been changed");
                 $("#message-modal").modal('show');
