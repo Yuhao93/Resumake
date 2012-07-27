@@ -156,7 +156,7 @@
 							<label>Content</label>
 							<textarea class="span12" placeholder="Content" name="content" rows="8" id="email-content"></textarea>
 						</form>
-						<a href="mailto:ypma@uci.edu" class="btn btn-primary">Use Email Client</a>
+						<a href="mailto:<?php echo $contactInfo['email']?>" class="btn btn-primary">Use Email Client</a>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn" data-dismiss="modal">Close</a>

@@ -160,7 +160,7 @@
 							&lt;label&gt;Content&lt;/label&gt;
 							&lt;textarea class="span12" placeholder="Content" name="content" rows="8" id="email-content"&gt;&lt;/textarea&gt;
 						&lt;/form&gt;
-						&lt;a href="mailto:ypma@uci.edu" class="btn btn-primary"&gt;Use Email Client&lt;/a&gt;
+						&lt;a href="mailto:<?php echo $contactInfo['email']?>" class="btn btn-primary"&gt;Use Email Client&lt;/a&gt;
 					&lt;/div&gt;
 					&lt;div class="modal-footer"&gt;
 						&lt;a href="#" class="btn" data-dismiss="modal"&gt;Close&lt;/a&gt;
