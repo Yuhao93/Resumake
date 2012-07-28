@@ -446,6 +446,7 @@ function addDescActivity(){
 }
 function repopulateActivityItems(){
 	$("#activity-item-list").html("");
+    alert(activityEdit);
 	for(var i = 0; i < activityEdit.items.length; i++){
 		var item = activityEdit.items[i];
 		var content = item.type == "desc" ? 
