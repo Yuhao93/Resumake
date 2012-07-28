@@ -446,7 +446,6 @@ function addDescActivity(){
 }
 function repopulateActivityItems(){
 	$("#activity-item-list").html("");
-    alert(activityEdit);
 	for(var i = 0; i < activityEdit.items.length; i++){
 		var item = activityEdit.items[i];
 		var content = item.type == "desc" ? 
@@ -569,6 +568,9 @@ function revalidateActivityField(){
 	}
 }
 function editActivity(index){
+    alert(activityEdit);
+    alert(resume.activityInfo.length);
+    alert(resume.activityInfo[index]);
 	activityEdit.isEdit = true;
 	activityEdit.index = index;
 	activityEdit.items = resume.activityInfo[index].items;
