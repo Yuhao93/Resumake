@@ -557,20 +557,17 @@ function revalidateActivityField(){
 		//Register the events
 		$("#activity-edit-" + i).click(function(){
 			var id = $(this).attr("id");
-			var index = id.substring(16);
+			var index = id.substring(14);
 			editActivity(index);
 		});
 		$("#activity-delete-" + i).click(function(){
-			var index = $(this).attr("id").substring(18);
+			var index = $(this).attr("id").substring(16);
 			var removed = resume.activityInfo.splice(index, 1);
 			revalidateActivityField();
 		});
 	}
 }
 function editActivity(index){
-    alert(activityEdit);
-    alert(resume.activityInfo.length);
-    alert(resume.activityInfo[index]);
 	activityEdit.isEdit = true;
 	activityEdit.index = index;
 	activityEdit.items = resume.activityInfo[index].items;
