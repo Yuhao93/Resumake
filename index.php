@@ -130,8 +130,9 @@
 		</div>
 		
 	</div>
-    
     <div class="row span11">
+        <br>
+        <hr>
         <br>
         <center><h1 class="row span11">Create An Online Resume That You Can Easily Show Your Future Employers</h1></center>
         <br><br><br><br><br>
