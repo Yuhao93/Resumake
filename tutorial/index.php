@@ -57,8 +57,8 @@
             <section id="linkedin"><div class="page-header">
                 <h1>Importing Your LinkedIn Profile <small>To Make Easy Easier</small></h1>
             </div></section>
-            <p>An exciting new functionality that will be coming soon is the ability to generate your resume webpage simply by connecting to your LinkedIn profile.</p>
-            <p>You will be able to, with a click of a button, import your profile so that all of the information you already have stored in your LinkedIn profile doesn't have to be entered in again. Further functionalities that will be released in later versions include importing via word documents. Eventually, you will be able to upload a word document and turn it into a webpage resume.</p>
+            <p>An exciting new functionality is the ability to generate your resume webpage simply by connecting to your LinkedIn profile.</p>
+            <p>You can, with a click of a button, import your profile so that all of the information you already have stored in your LinkedIn profile doesn't have to be entered in again. On the resume maker screen, click the "Login to LinkedIn" button to import your LinkedIn profile.</p>
             <br><br><br>
         </div>
         
